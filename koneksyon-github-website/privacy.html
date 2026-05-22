@@ -1,0 +1,838 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Privacy Policy — Koneksyon</title>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --navy: #00209F;
+      --coral: #D21034;
+      --gold: #F3C623;
+      --ink: #0B0B0F;
+      --muted: #6B7280;
+      --border: #E5E7EB;
+      --bg: #FAFAF8;
+      --card: #FFFFFF;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--bg);
+      color: var(--ink);
+      line-height: 1.7;
+      font-size: 16px;
+    }
+
+    /* ── Header ── */
+    .header {
+      background: var(--navy);
+      padding: 48px 24px 40px;
+      text-align: center;
+    }
+
+    .header-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(255,255,255,0.12);
+      border: 1px solid rgba(255,255,255,0.20);
+      border-radius: 999px;
+      padding: 6px 16px;
+      margin-bottom: 20px;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 1.2px;
+      text-transform: uppercase;
+      color: var(--gold);
+    }
+
+    .header h1 {
+      font-family: 'DM Serif Display', serif;
+      font-size: clamp(32px, 5vw, 52px);
+      color: #FFFFFF;
+      line-height: 1.15;
+      margin-bottom: 16px;
+    }
+
+    .header-meta {
+      color: rgba(255,255,255,0.72);
+      font-size: 14px;
+      line-height: 1.8;
+    }
+
+    .header-meta strong {
+      color: rgba(255,255,255,0.92);
+    }
+
+    /* ── Nav / TOC ── */
+    .toc {
+      background: var(--card);
+      border-bottom: 1px solid var(--border);
+      padding: 0 24px;
+      overflow-x: auto;
+      white-space: nowrap;
+    }
+
+    .toc-inner {
+      display: inline-flex;
+      gap: 0;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .toc a {
+      display: inline-block;
+      padding: 14px 16px;
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--muted);
+      text-decoration: none;
+      border-bottom: 2px solid transparent;
+      transition: color 0.2s, border-color 0.2s;
+    }
+
+    .toc a:hover {
+      color: var(--navy);
+      border-bottom-color: var(--navy);
+    }
+
+    /* ── Layout ── */
+    .container {
+      max-width: 780px;
+      margin: 0 auto;
+      padding: 56px 24px 80px;
+    }
+
+    /* ── Sections ── */
+    .section {
+      margin-bottom: 56px;
+      scroll-margin-top: 80px;
+    }
+
+    .section-eyebrow {
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--coral);
+      margin-bottom: 8px;
+    }
+
+    .section-title {
+      font-family: 'DM Serif Display', serif;
+      font-size: clamp(22px, 3vw, 28px);
+      color: var(--ink);
+      margin-bottom: 24px;
+      padding-bottom: 16px;
+      border-bottom: 2px solid var(--border);
+    }
+
+    /* ── Subsections ── */
+    .subsection {
+      margin-bottom: 32px;
+    }
+
+    .subsection h3 {
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--navy);
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .subsection h3::before {
+      content: '';
+      display: inline-block;
+      width: 4px;
+      height: 16px;
+      background: var(--coral);
+      border-radius: 2px;
+      flex-shrink: 0;
+    }
+
+    .subsection p {
+      color: #374151;
+      font-size: 15px;
+      line-height: 1.75;
+      margin-bottom: 12px;
+    }
+
+    .subsection ul {
+      list-style: none;
+      padding: 0;
+      margin: 8px 0 12px;
+    }
+
+    .subsection ul li {
+      position: relative;
+      padding-left: 20px;
+      font-size: 15px;
+      color: #374151;
+      line-height: 1.7;
+      margin-bottom: 6px;
+    }
+
+    .subsection ul li::before {
+      content: '·';
+      position: absolute;
+      left: 6px;
+      color: var(--coral);
+      font-weight: 900;
+      font-size: 18px;
+      line-height: 1.4;
+    }
+
+    /* ── Info card ── */
+    .info-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 20px 24px;
+      margin-bottom: 16px;
+    }
+
+    .info-card h4 {
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--navy);
+      margin-bottom: 8px;
+    }
+
+    .info-card p, .info-card li {
+      font-size: 14px;
+      color: #4B5563;
+      line-height: 1.7;
+    }
+
+    /* ── Provider table ── */
+    .provider-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 20px 24px;
+      margin-bottom: 16px;
+    }
+
+    .provider-card h4 {
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--ink);
+      margin-bottom: 4px;
+    }
+
+    .provider-card .provider-role {
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--coral);
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      margin-bottom: 10px;
+    }
+
+    .provider-card p {
+      font-size: 14px;
+      color: #4B5563;
+      line-height: 1.7;
+      margin-bottom: 8px;
+    }
+
+    .provider-card a {
+      font-size: 13px;
+      color: var(--navy);
+      font-weight: 600;
+    }
+
+    /* ── Highlight box ── */
+    .highlight {
+      background: rgba(0, 32, 159, 0.05);
+      border-left: 3px solid var(--navy);
+      border-radius: 0 12px 12px 0;
+      padding: 16px 20px;
+      margin: 16px 0;
+    }
+
+    .highlight p {
+      font-size: 14px;
+      color: #1F2937;
+      line-height: 1.7;
+      margin: 0;
+    }
+
+    /* ── Warning box ── */
+    .warning {
+      background: rgba(210, 16, 52, 0.05);
+      border-left: 3px solid var(--coral);
+      border-radius: 0 12px 12px 0;
+      padding: 16px 20px;
+      margin: 16px 0;
+    }
+
+    .warning p {
+      font-size: 14px;
+      color: #1F2937;
+      line-height: 1.7;
+      margin: 0;
+    }
+
+    /* ── Footer ── */
+    .footer {
+      background: var(--navy);
+      padding: 48px 24px;
+      text-align: center;
+    }
+
+    .footer-logo {
+      font-family: 'DM Serif Display', serif;
+      font-size: 28px;
+      color: #FFFFFF;
+      margin-bottom: 16px;
+    }
+
+    .footer p {
+      color: rgba(255,255,255,0.68);
+      font-size: 14px;
+      line-height: 1.8;
+      margin-bottom: 4px;
+    }
+
+    .footer a {
+      color: var(--gold);
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    .footer-divider {
+      width: 40px;
+      height: 2px;
+      background: var(--gold);
+      margin: 20px auto;
+      border-radius: 2px;
+    }
+
+    /* ── Responsive ── */
+    @media (max-width: 600px) {
+      .container { padding: 40px 16px 60px; }
+      .header { padding: 36px 16px 32px; }
+      .toc { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- Header -->
+<div class="header">
+  <div class="header-badge"><a href="index.html" style="color:inherit;text-decoration:none;">← Home</a> · 🔒 Koneksyon Privacy</div>
+  <h1>Privacy Policy</h1>
+  <div class="header-meta">
+    <strong>Effective Date: April 17, 2026</strong> &nbsp;·&nbsp; Last Updated: April 17, 2026<br>
+    Operated by Zanara Labs LLC — Florida, United States<br>
+    Privacy Contact: <strong>privacy@koneksyondatingapp.com</strong>
+  </div>
+</div>
+
+<!-- Table of Contents -->
+<nav class="toc">
+  <div class="toc-inner">
+    <a href="#s1">Introduction</a>
+    <a href="#s2">Data We Collect</a>
+    <a href="#s3">How We Use It</a>
+    <a href="#s4">How We Share It</a>
+    <a href="#s5">Retention</a>
+    <a href="#s6">Your Rights</a>
+    <a href="#s7">Security</a>
+    <a href="#s8">AI Systems</a>
+    <a href="#s9">Children</a>
+    <a href="#s10">Transfers</a>
+    <a href="#s15">Contact</a>
+  </div>
+</nav>
+
+<div class="container">
+
+  <!-- SECTION 1 -->
+  <div class="section" id="s1">
+    <div class="section-eyebrow">Section 1</div>
+    <h2 class="section-title">Introduction and Overview</h2>
+
+    <div class="subsection">
+      <h3>1.1 Who We Are</h3>
+      <p>Koneksyon is a Caribbean-inspired dating and social connection app created to help people build authentic relationships based on personality, values, culture, and real compatibility — not just appearances. The app is open to everyone. Koneksyon is available in four languages: Haitian Kreyol, French, Spanish, and English. The app is available on the App Store and Google Play Store. The platform is built and operated by Zanara Labs LLC, a Florida limited liability company.</p>
+    </div>
+
+    <div class="subsection">
+      <h3>1.2 Purpose of This Privacy Policy</h3>
+      <p>This Privacy Policy explains what personal information Koneksyon collects from you, how we collect it, how we use it, how we store it, how long we keep it, when and with whom we share it, and what rights and choices you may have. This policy is written to reflect exactly what our systems actually collect and store, not general approximations. It is designed to be accurate, complete, and legally protective of both users and Zanara Labs LLC.</p>
+    </div>
+
+    <div class="subsection">
+      <h3>1.3 Scope</h3>
+      <p>This policy applies to all users of the Koneksyon mobile application on iOS and Android. It covers the full user lifecycle, including:</p>
+      <ul>
+        <li>Account creation, authentication, and onboarding</li>
+        <li>Profile setup, editing, and management</li>
+        <li>Identity verification</li>
+        <li>Profile photo uploads and moderation</li>
+        <li>Discovery, sliding, Sparks, and making connections</li>
+        <li>Message requests, messaging, chats, and date proposals</li>
+        <li>Konekt+ and premium features</li>
+        <li>Support requests and moderation interactions</li>
+        <li>Premium subscriptions, credits, and billing</li>
+        <li>Privacy settings and controls</li>
+        <li>Account deletion and privacy requests</li>
+      </ul>
+    </div>
+
+    <div class="subsection">
+      <h3>1.4 Acceptance</h3>
+      <p>By creating a Koneksyon account and completing onboarding — including checking the mandatory agreement checkbox on the final onboarding step — you confirm that you have read, understood, and agreed to this Privacy Policy. Your agreement is recorded in our systems with a timestamp, your user ID, the policy version you agreed to, and the platform you used (iOS or Android). This record is permanent and cannot be deleted.</p>
+    </div>
+
+    <div class="subsection">
+      <h3>1.5 Relationship to Terms of Service</h3>
+      <p>This Privacy Policy is incorporated into and forms part of the Koneksyon Terms of Service. Capitalized terms not defined in this policy have the meaning given in the Terms of Service.</p>
+    </div>
+  </div>
+
+  <!-- SECTION 2 -->
+  <div class="section" id="s2">
+    <div class="section-eyebrow">Section 2</div>
+    <h2 class="section-title">Information We Collect</h2>
+
+    <div class="subsection">
+      <h3>2.1 Account and Authentication Information</h3>
+      <p>When you create an account, we collect and store:</p>
+      <ul>
+        <li>Email address — used for authentication, account recovery, and communications</li>
+        <li>Password — stored in encrypted form; never stored in plain text</li>
+        <li>Date of birth — used to confirm you are at least 18 years old</li>
+        <li>Account creation timestamp</li>
+        <li>Account status — active, paused, or deleted</li>
+        <li>Pause reason and timestamp, if applicable</li>
+        <li>Deletion flag, reason, and timestamp, if applicable</li>
+        <li>Last seen timestamp</li>
+        <li>Expo push token — used to deliver in-app push notifications</li>
+      </ul>
+    </div>
+
+    <div class="subsection">
+      <h3>2.2 Profile Information You Provide</h3>
+      <p>During onboarding and profile editing, we collect: first name, gender, relationship goal, bio, cultural roots and Caribbean or Haitian background, languages spoken including Haitian Kreyol, language mode preference, energy level, music preferences, food preferences, love language, profile completion status, premium and admin status, and verification status.</p>
+      <div class="warning">
+        <p>Some of this information — particularly cultural background, Haitian or Caribbean origin, ethnic identity signals, gender identity, and personal preferences — may be considered sensitive personal information under applicable privacy laws. By voluntarily providing this information, you explicitly consent to its collection and processing as described in this policy.</p>
+      </div>
+    </div>
+
+    <div class="subsection">
+      <h3>2.3 Privacy and Visibility Settings</h3>
+      <p>We store your privacy preferences which control how your profile appears to other users:</p>
+      <ul>
+        <li>Show age — whether your age is displayed on your profile</li>
+        <li>Show distance — whether your approximate distance is shown in discovery</li>
+        <li>Show online status — whether other users can see when you are active</li>
+        <li>Show read receipts — whether message read receipts are visible</li>
+        <li>Hidden from discovery — whether your profile appears in other users' feeds</li>
+      </ul>
+    </div>
+
+    <div class="subsection">
+      <h3>2.4 Location Information</h3>
+      <p>We collect location data in two ways: precise GPS coordinates (latitude and longitude) if you grant location permissions, stored directly in your profile; and self-reported country and city entered during onboarding. Location data supports discovery, making connections, and proximity features. If you deny location permissions, you may still use the app manually, though some proximity features may be limited.</p>
+    </div>
+
+    <div class="subsection">
+      <h3>2.5 Dating Preferences and Discovery Settings</h3>
+      <p>We collect your dating preferences and discovery filters including minimum and maximum age preferences, distance preferences, and other discovery configuration. We also store whether your profile is hidden from discovery.</p>
+    </div>
+
+    <div class="subsection">
+      <h3>2.6 Profile Photos and Media</h3>
+      <p>When you upload profile photos, we collect and store: the image file in secure cloud storage, the storage bucket and file path, whether it is your primary photo, its display position, moderation status (pending, approved, or rejected), quality score and face count from automated photo analysis, whether the photo is blurred pending review, moderation notes and rejection reason, and upload timestamp. Only approved photos are shown in discovery.</p>
+    </div>
+
+    <div class="subsection">
+      <h3>2.7 Identity Verification Data</h3>
+      <p>Koneksyon requires identity verification before users can fully access the platform. We collect your selfie image or verification submission, verification status, selfie file path, submission and review timestamps, rejection reason if applicable, and reviewer notes. Verification data may be processed using automated AI systems and human review. Koneksyon does not conduct criminal background checks on users.</p>
+    </div>
+
+    <div class="subsection">
+      <h3>2.8 Slides, Likes, and Connection Activity</h3>
+      <p>We record every slide action (like or pass), whether it was a Spark, and the timestamp. We record mutual like events. Daily counters track slides and Sparks used each day, penalty slides, pass streaks, and slide window expiration. Connections are created when two users mutually like each other and include connection vibe, icebreaker prompt, roots connection, language mode, and first message suggestion.</p>
+    </div>
+
+    <div class="subsection">
+      <h3>2.9 Message Requests</h3>
+      <p>Before a connection is established, users may send message requests. We collect the sender and recipient identities, the content of the first message, the status of the request (pending, accepted, or declined), and request and response timestamps.</p>
+    </div>
+
+    <div class="subsection">
+      <h3>2.10 Messages and Chat Data</h3>
+      <p>We store message text content, sender identity, timestamps, reply-to relationships, original text before edits, edit timestamps, deletion status and scope, moderation notes, and message seen timestamps. Free users may edit within 1 minute of sending. Premium users have 5 minutes. Admin users have no time limit.</p>
+    </div>
+
+    <div class="subsection">
+      <h3>2.11 Date Proposals and Safety Acknowledgements</h3>
+      <p>When you send or respond to a date proposal we collect: the associated connection, creator and recipient identities, proposed date, time, timezone, vibe, setting, budget, location mode, invite note, proposal status, expiration timestamp, and all proposal actions with timestamps. Safety acknowledgements are logged separately, recording user identity, connection identity, proposal identity, context, app version, and timestamp.</p>
+    </div>
+
+    <div class="subsection">
+      <h3>2.12 Konekt+ and Premium Visibility</h3>
+      <p>When you activate Konekt+, we collect and store: activation and expiration timestamps, duration in minutes, views and likes gained, the source of the activation (purchase, grant, etc.), and your current Konekt+ inventory.</p>
+    </div>
+
+    <div class="subsection">
+      <h3>2.13 Credits and Transactions</h3>
+      <p>We maintain a credit system for Konekt+ and Sparks. We collect your current credit balance and a full transaction ledger recording every purchase, spend, refund, and admin grant including credit type, transaction type, amount, balance after transaction, payment provider, provider transaction ID, price in USD, and a reference to the feature that consumed the credit.</p>
+    </div>
+
+    <div class="subsection">
+      <h3>2.14 Subscriptions and Entitlements</h3>
+      <p>If you subscribe to Koneksyon Premium, we collect your subscription provider (Apple, Google, or other), subscription status and current period end date, entitlement record confirming premium status, and premium flags on your profile updated in real time.</p>
+    </div>
+
+    <div class="subsection">
+      <h3>2.15 Support Requests</h3>
+      <p>When you submit a support request we collect your email address and phone number, the support category, subject line and full message content, any screenshots or attachments, the status, priority, and source of your request, and internal notes, assignment, admin replies, and timestamps of all activity.</p>
+    </div>
+
+    <div class="subsection">
+      <h3>2.16 Blocks and Reports</h3>
+      <p>If you block or report another user, we record the identities of both users, the reason and any additional details you provide, timestamps, and the moderation outcome if applicable.</p>
+    </div>
+
+    <div class="subsection">
+      <h3>2.17 Notifications</h3>
+      <p>We store in-app notifications including the notification type, title, body text, associated data payload, whether you have read it, and the creation timestamp. Notification types include connection alerts, message notifications, date proposal updates, moderation alerts, and system announcements.</p>
+    </div>
+
+    <div class="subsection">
+      <h3>2.18 Terms of Service and Privacy Policy Acceptance</h3>
+      <p>We maintain permanent records of your agreement to our Terms of Service and Privacy Policy, including your user ID, the exact acceptance timestamp, the policy version you agreed to, the platform you used (iOS or Android), and your IP address if available. These records cannot be deleted even upon account deletion.</p>
+    </div>
+
+    <div class="subsection">
+      <h3>2.19 Device and Technical Data</h3>
+      <p>We may collect device type, operating system, app version, IP address, crash logs, diagnostic data, and other technical signals used for security, reliability, fraud prevention, and analytics.</p>
+    </div>
+  </div>
+
+  <!-- SECTION 3 -->
+  <div class="section" id="s3">
+    <div class="section-eyebrow">Section 3</div>
+    <h2 class="section-title">How We Use Your Information</h2>
+
+    <div class="subsection">
+      <h3>3.1 To Provide and Operate the Service</h3>
+      <p>We use your information to create and maintain your account, display your profile in discovery, power the connection system, enable messaging and date proposals, process Konekt+ and premium features, and deliver all core app functionality.</p>
+    </div>
+    <div class="subsection">
+      <h3>3.2 To Verify Your Identity</h3>
+      <p>We use verification data to confirm you are a real person, reduce fake profiles and impersonation, prevent fraud, and gate access to full platform features until verification is completed.</p>
+    </div>
+    <div class="subsection">
+      <h3>3.3 To Power Discovery, Connections, and Recommendations</h3>
+      <p>We use your profile information, cultural background, Caribbean roots, location, preferences, activity, slide history, and verification status to populate your discovery feed and identify potential connections. Discovery results are filtered server-side based on your preferences, our Community Guidelines, and your hidden-from-discovery setting.</p>
+    </div>
+    <div class="subsection">
+      <h3>3.4 For Safety and Moderation</h3>
+      <p>We use your information to detect scams, spam, fraud, abuse, impersonation, harmful content, and violations of our Terms of Service or Community Guidelines. We may review reports, moderate photos and messages, investigate safety incidents, and take enforcement action including warnings, feature restrictions, suspensions, and permanent bans.</p>
+    </div>
+    <div class="subsection">
+      <h3>3.5 To Enforce Our Policies and Prevent Re-registration</h3>
+      <p>We use account status data, moderation records, ban records, and the banned identifiers table to enforce our Terms of Service and Community Guidelines, including preventing banned users from creating new accounts using the same email address, phone number, or device identifier.</p>
+    </div>
+    <div class="subsection">
+      <h3>3.6 For Subscription, Credit, and Billing Management</h3>
+      <p>We use subscription, entitlement, credit balance, and transaction data to manage premium feature access, enforce daily slide and Spark limits for free users, process payments, maintain accurate credit ledgers, and handle billing-related communications and disputes.</p>
+    </div>
+    <div class="subsection">
+      <h3>3.7 To Deliver Notifications</h3>
+      <p>We use your expo push token and notification preferences to deliver in-app and push notifications, including connection alerts, message notifications, date proposal updates, moderation notices, and system announcements.</p>
+    </div>
+    <div class="subsection">
+      <h3>3.8 To Improve the Service</h3>
+      <p>We use technical and usage data to analyze how the app is used, fix bugs, improve moderation quality, measure feature performance, and develop new features.</p>
+    </div>
+    <div class="subsection">
+      <h3>3.9 For Legal and Compliance Purposes</h3>
+      <p>We may use your information to comply with applicable laws, respond to lawful requests from legal authorities, resolve disputes, investigate policy violations, enforce our Terms of Service, and protect users, Koneksyon, and Zanara Labs LLC from legal liability.</p>
+    </div>
+    <div class="subsection">
+      <h3>3.10 Legal Basis for EEA and UK Users (GDPR)</h3>
+      <p>For users in the European Economic Area or United Kingdom, we process your personal information based on: contractual necessity to provide the Service; legitimate interests including safety and fraud prevention; consent for sensitive personal information, precise location, and identity verification data; and legal obligation where required by applicable law.</p>
+    </div>
+  </div>
+
+  <!-- SECTION 4 -->
+  <div class="section" id="s4">
+    <div class="section-eyebrow">Section 4</div>
+    <h2 class="section-title">How We Share Your Information</h2>
+
+    <div class="subsection">
+      <h3>4.1 With Other Users</h3>
+      <p>Your public profile — including your approved photos, first name, age (if enabled), bio, cultural background, Caribbean roots, preferences, and other selected profile fields — may be visible to other users in discovery and on your profile. Messages you send are visible to the recipient. Connection metadata including roots connection and language mode may be visible to your connection.</p>
+    </div>
+
+    <div class="subsection">
+      <h3>4.2 With Service Providers</h3>
+      <p>We share information with trusted third-party service providers:</p>
+
+      <div class="provider-card">
+        <h4>Supabase, Inc.</h4>
+        <div class="provider-role">Database, Authentication & Storage</div>
+        <p>Our primary infrastructure provider based in the United States. All user data including profile information, messages, photos, verification data, and transaction records is stored on Supabase infrastructure under a data processing agreement.</p>
+      </div>
+
+      <div class="provider-card">
+        <h4>Sightengine</h4>
+        <div class="provider-role">AI Photo Moderation</div>
+        <p>Used to automatically review and moderate profile photos for content safety. Processes image data on our behalf and is not permitted to retain or use your photos for its own purposes.</p>
+      </div>
+
+      <div class="provider-card">
+        <h4>RevenueCat</h4>
+        <div class="provider-role">Subscription Management</div>
+        <p>Manages premium subscriptions and in-app purchases processed through the Apple App Store and Google Play Store. Tracks subscription status, entitlements, and purchase receipts.</p>
+      </div>
+
+      <div class="provider-card">
+        <h4>Apple App Store & Google Play</h4>
+        <div class="provider-role">Payment Processing</div>
+        <p>Process in-app purchases and subscriptions directly. Koneksyon receives only a purchase receipt and subscription confirmation — we do not receive or store your payment card details.</p>
+      </div>
+
+      <div class="provider-card">
+        <h4>MonCash (Digicel Haiti)</h4>
+        <div class="provider-role">Caribbean Payment Processing</div>
+        <p>Supports mobile payments for Caribbean users. Koneksyon receives a payment confirmation and transaction reference only.</p>
+      </div>
+    </div>
+
+    <div class="subsection">
+      <h3>4.3 For Safety and Legal Disclosures</h3>
+      <p>We may disclose your information where reasonably necessary to investigate abuse, enforce our policies, prevent fraud, protect users, respond to lawful legal process or government requests, comply with legal or regulatory obligations, or prevent imminent harm. We may report suspected illegal activity, child exploitation, human trafficking, or other serious violations to law enforcement without prior notice to you.</p>
+    </div>
+
+    <div class="subsection">
+      <h3>4.4 In Connection With Business Transfers</h3>
+      <p>If Koneksyon or Zanara Labs LLC is involved in a merger, acquisition, financing, reorganization, sale of assets, bankruptcy, or similar transaction, user information may be transferred as part of that transaction, subject to applicable privacy law.</p>
+    </div>
+
+    <div class="subsection">
+      <h3>4.5 California — Do Not Sell or Share</h3>
+      <p>We do not sell personal data in exchange for money. However, certain data sharing with service providers, analytics tools, or technology partners may be characterized as a sale or sharing under California privacy law (CCPA/CPRA). Where required by applicable law, you may request to opt out by contacting us at privacy@koneksyondatingapp.com.</p>
+    </div>
+
+    <div class="subsection">
+      <h3>4.6 We Do Not Share for Advertising</h3>
+      <div class="highlight">
+        <p>Koneksyon does not share your personal information with third-party advertisers or data brokers for advertising purposes. We do not serve targeted advertising within the app.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION 5 -->
+  <div class="section" id="s5">
+    <div class="section-eyebrow">Section 5</div>
+    <h2 class="section-title">Data Retention</h2>
+
+    <div class="subsection">
+      <h3>5.1 Active Accounts</h3>
+      <p>We retain your personal information for as long as your account is active and for as long as reasonably necessary to operate the Service, maintain platform safety, manage disputes, prevent fraud and abuse, and comply with legal obligations.</p>
+    </div>
+    <div class="subsection">
+      <h3>5.2 After Account Deletion</h3>
+      <p>When you delete your account, your personal information begins the deletion process. Certain information is retained after deletion for legal, safety, and operational reasons including: moderation records, verification data, ban records, blocks and reports, support request records, Terms of Service acceptance records (retained permanently), date safety acknowledgement logs, and payment and billing records where required by law.</p>
+    </div>
+    <div class="subsection">
+      <h3>5.3 Messages After Account Deletion</h3>
+      <p>Messages you sent to other users may remain visible to those users after you delete your account, unless you deleted those specific messages before account deletion. Deleted messages are flagged as deleted and not displayed, but deletion records may be retained for moderation purposes.</p>
+    </div>
+    <div class="subsection">
+      <h3>5.4 Formal Deletion and Privacy Requests</h3>
+      <p>Users may submit formal data deletion or export requests under applicable privacy laws including GDPR and CCPA. Such requests are tracked in our systems and reviewed by our team. We may verify your identity before fulfilling a request. Deletion may be denied or limited where retention is required by applicable law, necessary to prevent harm, or necessary to enforce our policies against repeat offenders.</p>
+    </div>
+  </div>
+
+  <!-- SECTION 6 -->
+  <div class="section" id="s6">
+    <div class="section-eyebrow">Section 6</div>
+    <h2 class="section-title">Your Privacy Rights and Choices</h2>
+
+    <div class="subsection">
+      <h3>6.1 In-App Controls</h3>
+      <p>You may update your profile information, dating preferences, discovery settings, privacy visibility settings, location information, and hidden-from-discovery status at any time through the app.</p>
+    </div>
+    <div class="subsection">
+      <h3>6.2 Account Deletion</h3>
+      <p>You may request deletion of your account through the app. Deletion will flag your profile and begin the deletion process as described in Section 5.</p>
+    </div>
+    <div class="subsection">
+      <h3>6.3 General Privacy Rights</h3>
+      <p>Depending on your location, you may have the right to access, correct, delete, restrict, or object to processing of your personal information; receive your data in a portable format; withdraw consent at any time without affecting prior processing; and appeal certain privacy decisions we make.</p>
+    </div>
+    <div class="subsection">
+      <h3>6.4 California Rights (CCPA / CPRA)</h3>
+      <p>California residents have rights including the right to know what categories of personal information we collect, request deletion, request correction, limit certain uses of sensitive personal information, and request information about data disclosures. Contact us at privacy@koneksyondatingapp.com.</p>
+    </div>
+    <div class="subsection">
+      <h3>6.5 EEA and UK Rights (GDPR)</h3>
+      <p>Users in the European Economic Area or United Kingdom may exercise their rights under the General Data Protection Regulation by contacting us at privacy@koneksyondatingapp.com. If you are unsatisfied with our response, you may lodge a complaint with your local supervisory authority.</p>
+    </div>
+    <div class="subsection">
+      <h3>6.6 Washington and Nevada — Consumer Health Data</h3>
+      <p>Residents of Washington and Nevada may have additional rights regarding consumer health data. We do not intentionally collect consumer health data. However, because the definition is broad in some jurisdictions, certain information we collect may be characterized as consumer health data under applicable state law. Contact us at privacy@koneksyondatingapp.com to exercise applicable rights.</p>
+    </div>
+    <div class="subsection">
+      <h3>6.7 How to Submit a Privacy Request</h3>
+      <p>To exercise any privacy right, submit a request to privacy@koneksyondatingapp.com. Include your full name, the email address associated with your account, and a clear description of your request. We aim to acknowledge all privacy requests within 5 business days and to respond fully within 30 days, or within the timeframe required by applicable law, whichever is shorter.</p>
+    </div>
+  </div>
+
+  <!-- SECTION 7 -->
+  <div class="section" id="s7">
+    <div class="section-eyebrow">Section 7</div>
+    <h2 class="section-title">Security</h2>
+
+    <div class="subsection">
+      <h3>7.1 Security Measures We Use</h3>
+      <p>We use reasonable technical and organizational measures to protect your personal information including: encrypted password storage; row-level security (RLS) policies on all database tables; role-based access controls; secure cloud infrastructure provided by Supabase, Inc.; separation of sensitive data into access-controlled storage buckets; and monitoring and logging of access and activity.</p>
+    </div>
+    <div class="subsection">
+      <h3>7.2 No Absolute Security Guarantee</h3>
+      <p>No system is completely secure. While we implement strong safeguards, we cannot guarantee that unauthorized access, cyberattacks, data breaches, or other security incidents will never occur. If a data incident occurs, we will investigate, contain, and mitigate it, and notify affected users or authorities where required by applicable law.</p>
+    </div>
+    <div class="subsection">
+      <h3>7.3 Your Responsibility</h3>
+      <p>You are responsible for maintaining the confidentiality of your login credentials. Do not share your password with anyone. If you believe your account has been compromised, contact us immediately at privacy@koneksyondatingapp.com.</p>
+    </div>
+  </div>
+
+  <!-- SECTION 8 -->
+  <div class="section" id="s8">
+    <div class="section-eyebrow">Section 8</div>
+    <h2 class="section-title">Automated Systems and Artificial Intelligence</h2>
+
+    <div class="subsection">
+      <h3>8.1 Automated Photo Moderation</h3>
+      <p>Profile photos are processed by automated systems that assess photo quality, count faces, detect inappropriate content, and assign moderation status using AI-assisted image analysis. Human review may also occur for edge cases and appeals.</p>
+    </div>
+    <div class="subsection">
+      <h3>8.2 Identity Verification AI</h3>
+      <p>Our identity verification process uses automated image comparison technology to compare your selfie submission against your profile photo and assess authenticity. Automated decisions may be subject to human review.</p>
+    </div>
+    <div class="subsection">
+      <h3>8.3 Discovery and Connection Algorithms</h3>
+      <p>Our discovery system uses automated logic to surface profiles based on your preferences, location, cultural background, Caribbean roots, activity, and other factors. Connection records are enriched with algorithmically generated metadata including roots connection, language mode, icebreaker prompts, and first message suggestions.</p>
+    </div>
+    <div class="subsection">
+      <h3>8.4 Safety and Abuse Detection</h3>
+      <p>We may use automated systems to detect spam, fraudulent accounts, prohibited conduct, and policy violations. These systems may affect your profile visibility, feature access, or account status. Automated enforcement decisions may be reviewed by human moderators.</p>
+    </div>
+    <div class="subsection">
+      <h3>8.5 Your Rights Regarding Automated Decisions</h3>
+      <p>Where required by applicable law, including GDPR Article 22, you may have the right to request human review of automated decisions that significantly affect you, including verification decisions and moderation actions. To request human review, contact privacy@koneksyondatingapp.com.</p>
+    </div>
+  </div>
+
+  <!-- SECTION 9 -->
+  <div class="section" id="s9">
+    <div class="section-eyebrow">Section 9</div>
+    <h2 class="section-title">Children's Privacy</h2>
+
+    <div class="subsection">
+      <h3>9.1 Adults Only — 18 and Over</h3>
+      <p>Koneksyon is strictly for adults 18 years of age or older. We do not knowingly collect personal information from anyone under 18. Date of birth is collected at account creation and used to enforce this age requirement.</p>
+    </div>
+    <div class="subsection">
+      <h3>9.2 Discovery of Minors</h3>
+      <p>If we discover that a minor has created an account, we will immediately remove the account, delete associated information where appropriate, and may take additional enforcement action including reporting to appropriate authorities where required by law. Users who misrepresent their age may be permanently banned.</p>
+    </div>
+  </div>
+
+  <!-- SECTION 10 -->
+  <div class="section" id="s10">
+    <div class="section-eyebrow">Section 10</div>
+    <h2 class="section-title">International Data Transfers</h2>
+
+    <div class="subsection">
+      <h3>10. International Data Transfers</h3>
+      <p>Koneksyon is operated by Zanara Labs LLC in the United States. All user data is stored and processed on Supabase infrastructure based in the United States. If you are located outside the United States, your personal information will be transferred to and processed in the United States, which may have different privacy protections than the laws of your country. By using the Service and agreeing to this Privacy Policy, you understand and, where required by applicable law, consent to such international transfers.</p>
+    </div>
+  </div>
+
+  <!-- SECTIONS 11-14 condensed -->
+  <div class="section">
+    <div class="section-eyebrow">Sections 11 – 14</div>
+    <h2 class="section-title">Consumer Health Data, Analytics, Liability & Updates</h2>
+
+    <div class="subsection">
+      <h3>11. Consumer Health Data (Washington and Nevada)</h3>
+      <p>This section applies specifically to residents of Washington and Nevada. We do not intentionally collect consumer health data. However, because the definition is broad in some jurisdictions, certain information we collect may be characterized as consumer health data under applicable state law. Where applicable law requires, we may share such information only with other users when you voluntarily share on your public profile; service providers including Supabase; legal authorities where required by law; and parties to a corporate transaction. Contact privacy@koneksyondatingapp.com to exercise applicable rights.</p>
+    </div>
+
+    <div class="subsection">
+      <h3>12. Analytics and Tracking</h3>
+      <p>We may use analytics tools, crash reporting systems, and performance monitoring services that collect device identifiers, usage behavior, interaction patterns, and related technical signals to improve the app. Koneksyon does not display third-party advertisements in the app and does not share your personal information with advertising networks or data brokers for advertising purposes.</p>
+    </div>
+
+    <div class="subsection">
+      <h3>13. Limitation of Liability and Disclaimer</h3>
+      <p>To the maximum extent permitted by applicable law, Koneksyon, Zanara Labs LLC, and its affiliates, officers, employees, contractors, and service providers shall not be liable for any indirect, incidental, consequential, or punitive damages arising from the collection, use, storage, or disclosure of your personal information. Nothing in this Privacy Policy creates any warranty that the Service is free from security vulnerabilities, unauthorized access, or data loss.</p>
+    </div>
+
+    <div class="subsection">
+      <h3>14. Policy Updates</h3>
+      <p>We may update this Privacy Policy from time to time. When we make material changes, we will notify you through the app or by other reasonable means before the changes take effect. The effective date at the top of this policy will always reflect the most recent revision. Continued use after an updated policy becomes effective constitutes your acceptance of the revised version.</p>
+    </div>
+  </div>
+
+  <!-- SECTION 15 -->
+  <div class="section" id="s15">
+    <div class="section-eyebrow">Section 15</div>
+    <h2 class="section-title">Contact and Privacy Requests</h2>
+
+    <div class="highlight">
+      <p>For all privacy-related questions, data access requests, deletion requests, or other privacy inquiries, contact us at:</p>
+    </div>
+
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 20px;">
+      <div class="info-card">
+        <h4>Privacy Email</h4>
+        <p><a href="mailto:privacy@koneksyondatingapp.com" style="color: var(--navy); font-weight: 600;">privacy@koneksyondatingapp.com</a></p>
+      </div>
+      <div class="info-card">
+        <h4>General Support</h4>
+        <p><a href="mailto:support@koneksyondatingapp.com" style="color: var(--navy); font-weight: 600;">support@koneksyondatingapp.com</a></p>
+      </div>
+      <div class="info-card">
+        <h4>Legal Entity</h4>
+        <p>Zanara Labs LLC<br>Florida, United States</p>
+      </div>
+      <div class="info-card">
+        <h4>Response Time</h4>
+        <p>We aim to acknowledge within 5 business days and respond fully within 30 days.</p>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!-- Footer -->
+<div class="footer">
+  <div class="footer-logo">Koneksyon</div>
+  <div class="footer-divider"></div>
+  <p>This Privacy Policy was prepared for Koneksyon, operated by Zanara Labs LLC.</p>
+  <p>It should be reviewed by licensed legal counsel before large-scale commercial launch.</p>
+  <p style="margin-top: 16px;">
+    <a href="mailto:privacy@koneksyondatingapp.com">privacy@koneksyondatingapp.com</a>
+  </p>
+</div>
+
+</body>
+</html>
