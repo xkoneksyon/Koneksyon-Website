@@ -1,90 +1,1234 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Koneksyon — Premium Caribbean Dating & Social Connection</title>
-<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Koneksyon — Where Culture Meets Connection</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600&family=Instrument+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&family=DM+Mono&display=swap" rel="stylesheet">
 <style>
-:root{--navy:#081A55;--royal:#00209F;--coral:#D21034;--gold:#F3C623;--cyan:#0AA6B5;--paper:#FBFAF7;--soft:#F1EFE8;--text:#111827;--muted:#667085;--line:rgba(17,24,39,.10);--glass:rgba(255,255,255,.72);--shadow:0 30px 90px rgba(8,8,12,.14)}
-[data-theme="dark"]{--paper:#07080D;--soft:#10131D;--text:#F8FAFC;--muted:#A6ADBA;--line:rgba(255,255,255,.10);--glass:rgba(10,12,18,.70);--shadow:0 30px 90px rgba(0,0,0,.55)}
-*{box-sizing:border-box;margin:0;padding:0}html{scroll-behavior:smooth}body{font-family:Inter,system-ui,sans-serif;background:var(--paper);color:var(--text);overflow-x:hidden}
-body:before{content:"";position:fixed;inset:-20%;z-index:-2;background:radial-gradient(circle at 15% 10%,rgba(210,16,52,.18),transparent 28%),radial-gradient(circle at 85% 8%,rgba(10,166,181,.16),transparent 30%),radial-gradient(circle at 55% 92%,rgba(243,198,35,.17),transparent 28%);filter:blur(20px)}
-nav{position:fixed;top:18px;left:50%;transform:translateX(-50%);width:min(1180px,calc(100% - 34px));z-index:1000;display:flex;justify-content:space-between;align-items:center;padding:12px 16px;border:1px solid var(--line);border-radius:999px;background:var(--glass);backdrop-filter:blur(26px) saturate(160%);box-shadow:0 18px 60px rgba(0,0,0,.08)}
-.brand img{height:48px;width:auto;display:block}.logo-dark{display:none}[data-theme="dark"] .logo-light{display:none}[data-theme="dark"] .logo-dark{display:block}
-.navlinks{display:flex;align-items:center;gap:26px}.navlinks a{color:var(--muted);text-decoration:none;font-size:13px;font-weight:800}.navlinks a:hover{color:var(--text)}
-.nav-actions{display:flex;align-items:center;gap:10px}.theme{border:1px solid var(--line);background:rgba(255,255,255,.35);color:var(--text);border-radius:999px;padding:11px 16px;font-weight:900;cursor:pointer}[data-theme="dark"] .theme{background:rgba(255,255,255,.07)}
-.pill,.ghost{display:inline-flex;align-items:center;justify-content:center;border-radius:999px;padding:13px 22px;font-size:13px;font-weight:900;text-decoration:none}.pill{background:var(--coral);color:white!important;box-shadow:0 18px 42px rgba(210,16,52,.24)}.ghost{border:1px solid var(--line);background:rgba(255,255,255,.50);color:var(--text);backdrop-filter:blur(18px)}[data-theme="dark"] .ghost{background:rgba(255,255,255,.07)}
-.hero{min-height:100vh;display:grid;grid-template-columns:1.05fr .95fr;align-items:center;gap:56px;width:min(1180px,calc(100% - 34px));margin:0 auto;padding:150px 0 80px}
-.eyebrow{display:inline-flex;padding:9px 14px;border:1px solid var(--line);border-radius:999px;background:rgba(255,255,255,.52);color:var(--muted);font-size:12px;font-weight:900;letter-spacing:.12em;text-transform:uppercase;margin-bottom:24px}[data-theme="dark"] .eyebrow{background:rgba(255,255,255,.06)}
-h1{font-family:"DM Serif Display",serif;font-size:clamp(54px,8vw,104px);line-height:.92;letter-spacing:-.07em;max-width:760px}h1 span{color:transparent;background:linear-gradient(110deg,var(--coral),var(--gold),var(--cyan));-webkit-background-clip:text;background-clip:text}
-.lead{max-width:620px;margin:28px 0 34px;color:var(--muted);font-size:18px;line-height:1.75;letter-spacing:-.02em}.hero-ctas{display:flex;gap:14px;flex-wrap:wrap}
-.phone-stage{position:relative;min-height:650px;display:flex;align-items:center;justify-content:center}.orb{position:absolute;width:470px;height:470px;border-radius:50%;background:conic-gradient(from 180deg,var(--coral),var(--gold),var(--cyan),var(--royal),var(--coral));filter:blur(24px);opacity:.24;animation:spin 16s linear infinite}
-.phone{position:relative;width:min(370px,86vw);aspect-ratio:9/18.5;border-radius:54px;padding:14px;background:linear-gradient(135deg,#20222C,#02030A);box-shadow:var(--shadow),inset 0 0 0 1px rgba(255,255,255,.18);transform:rotate(4deg)}.screen{height:100%;border-radius:42px;overflow:hidden;background:#07080D;position:relative}.screen:before{content:"";position:absolute;inset:0;background:linear-gradient(to bottom,rgba(0,0,0,.1),rgba(0,0,0,.72)),url("https://commons.wikimedia.org/wiki/Special:FilePath/Citadelle_Laferri%C3%A8re.jpg");background-size:cover;background-position:center;transform:scale(1.02)}.screen-content{position:absolute;inset:auto 18px 18px;color:white}.profile-chip{display:inline-flex;background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.20);backdrop-filter:blur(18px);padding:8px 12px;border-radius:999px;font-size:12px;font-weight:900;margin-bottom:14px}.screen h3{font-family:"DM Serif Display",serif;font-size:38px;line-height:.95;letter-spacing:-.05em;margin-bottom:10px}.screen p{font-size:13px;line-height:1.55;color:rgba(255,255,255,.76)}
-section{width:min(1180px,calc(100% - 34px));margin:0 auto;padding:90px 0}.section-head{display:flex;align-items:end;justify-content:space-between;gap:30px;margin-bottom:34px}.section-head h2{font-family:"DM Serif Display",serif;font-size:clamp(40px,5.5vw,72px);line-height:.94;letter-spacing:-.06em;max-width:720px}.section-head p{color:var(--muted);max-width:390px;line-height:1.7;font-size:15px}
-.features{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}.feature{border:1px solid var(--line);border-radius:28px;padding:28px;background:rgba(255,255,255,.55);backdrop-filter:blur(20px);min-height:250px;box-shadow:0 18px 60px rgba(0,0,0,.05)}[data-theme="dark"] .feature{background:rgba(255,255,255,.055)}.icon{width:54px;height:54px;border-radius:18px;display:grid;place-items:center;background:linear-gradient(135deg,rgba(210,16,52,.16),rgba(243,198,35,.18));font-size:24px;margin-bottom:22px}.feature h3{font-size:20px;letter-spacing:-.04em;margin-bottom:10px}.feature p{font-size:14px;color:var(--muted);line-height:1.7}
-.monument-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}.monument{position:relative;min-height:410px;overflow:hidden;border-radius:30px;border:1px solid var(--line);background:linear-gradient(135deg,var(--royal),var(--coral));box-shadow:0 18px 50px rgba(0,0,0,.08);isolation:isolate}.monument img{width:100%;height:100%;min-height:410px;object-fit:cover;display:block;filter:saturate(1.03) contrast(1.03);transition:transform .7s ease,filter .7s ease}.monument:hover img{transform:scale(1.08);filter:saturate(1.15) contrast(1.08)}.monument:after{content:"";position:absolute;inset:0;background:linear-gradient(to bottom,rgba(0,0,0,.02) 20%,rgba(0,0,0,.84) 100%);z-index:1}.monument-body{position:absolute;left:18px;right:18px;bottom:18px;z-index:2;color:white}.country{display:inline-flex;padding:7px 10px;border:1px solid rgba(255,255,255,.22);border-radius:999px;background:rgba(255,255,255,.12);backdrop-filter:blur(16px);font-size:11px;font-weight:950;letter-spacing:.12em;text-transform:uppercase;margin-bottom:12px}.monument h3{font-family:"DM Serif Display",serif;font-size:30px;line-height:.98;letter-spacing:-.05em;margin-bottom:8px}.monument p{color:rgba(255,255,255,.78);font-size:13px;line-height:1.45}.wide{grid-column:span 2}.tall{grid-row:span 2;min-height:836px}.tall img{min-height:836px}
-.culture-panel{border:1px solid var(--line);border-radius:44px;overflow:hidden;background:linear-gradient(135deg,var(--navy),#08080C);color:white;min-height:520px;display:grid;grid-template-columns:1fr 1fr;box-shadow:var(--shadow)}.culture-copy{padding:54px;display:flex;flex-direction:column;justify-content:center}.culture-copy h2{font-family:"DM Serif Display",serif;font-size:clamp(42px,5vw,70px);line-height:.95;letter-spacing:-.06em;margin-bottom:24px}.culture-copy p{color:rgba(255,255,255,.72);line-height:1.8;font-size:16px}.langs{display:flex;flex-wrap:wrap;gap:10px;margin-top:28px}.langs span{border:1px solid rgba(255,255,255,.16);background:rgba(255,255,255,.08);border-radius:999px;padding:9px 13px;font-size:12px;font-weight:900;color:var(--gold)}.culture-art{min-height:520px;background:linear-gradient(to bottom,rgba(0,0,0,.08),rgba(0,0,0,.25)),url("https://commons.wikimedia.org/wiki/Special:FilePath/Santo_Domingo_-_Faro_a_Colon.JPG");background-size:cover;background-position:center}
-.cta{text-align:center;padding:120px 0}.cta h2{font-family:"DM Serif Display",serif;font-size:clamp(48px,7vw,92px);line-height:.9;letter-spacing:-.07em;max-width:850px;margin:0 auto 24px}.cta p{max-width:580px;margin:0 auto 34px;color:var(--muted);line-height:1.75;font-size:17px}
-footer{width:min(1180px,calc(100% - 34px));margin:0 auto 26px;border:1px solid var(--line);border-radius:34px;background:rgba(8,8,12,.96);color:white;padding:38px}.footer-row{display:flex;justify-content:space-between;gap:26px;flex-wrap:wrap}.footer-logo{height:70px;width:auto}.footer-links{display:flex;gap:22px;flex-wrap:wrap}.footer-links a{color:rgba(255,255,255,.62);text-decoration:none;font-size:13px;font-weight:800}.footer-bottom{margin-top:32px;padding-top:24px;border-top:1px solid rgba(255,255,255,.08);display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap;color:rgba(255,255,255,.42);font-size:13px}
-@keyframes spin{to{transform:rotate(360deg)}}
-@media(max-width:980px){.hero{grid-template-columns:1fr;padding-top:130px}.phone-stage{min-height:520px}.section-head{display:block}.section-head p{margin-top:16px}.features{grid-template-columns:1fr}.monument-grid{grid-template-columns:repeat(2,1fr)}.wide{grid-column:span 1}.tall,.tall img{min-height:410px}.culture-panel{grid-template-columns:1fr}.culture-copy{padding:34px}.navlinks{display:none}}
-@media(max-width:620px){nav{top:10px;width:calc(100% - 18px)}.brand img{height:40px}.theme{padding:10px 12px;font-size:12px}.pill{padding:11px 14px}.hero{width:calc(100% - 22px);padding-top:118px}h1{font-size:58px}.lead{font-size:16px}section{width:calc(100% - 22px);padding:64px 0}.monument-grid{grid-template-columns:1fr}.section-head h2{font-size:44px}footer{width:calc(100% - 22px);padding:26px}}
-</style></head>
+/* ─── SYSTEM THEME ─── */
+:root {
+  color-scheme: light dark;
+
+  --bg:        #FAFAF8;
+  --bg2:       #F3F1EC;
+  --bg3:       #E8E5DE;
+  --ink:       #0C0C0A;
+  --ink2:      rgba(12,12,10,.58);
+  --ink3:      rgba(12,12,10,.32);
+  --line:      rgba(12,12,10,.09);
+  --line2:     rgba(12,12,10,.16);
+  --coral:     #C93B1A;
+  --gold:      #C89B0A;
+  --teal:      #0A9EAA;
+  --coral-glow:rgba(201,59,26,.18);
+  --gold-glow: rgba(200,155,10,.14);
+  --teal-glow: rgba(10,158,170,.14);
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg:        #09090B;
+    --bg2:       #111113;
+    --bg3:       #1A1A1E;
+    --ink:       #F5F4F0;
+    --ink2:      rgba(245,244,240,.58);
+    --ink3:      rgba(245,244,240,.30);
+    --line:      rgba(245,244,240,.08);
+    --line2:     rgba(245,244,240,.14);
+    --coral:     #E04B27;
+    --gold:      #D4A81A;
+    --teal:      #14B8C4;
+    --coral-glow:rgba(224,75,39,.22);
+    --gold-glow: rgba(212,168,26,.16);
+    --teal-glow: rgba(20,184,196,.16);
+  }
+}
+
+/* ─── RESET ─── */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;font-size:16px}
+body{
+  font-family:'Instrument Sans',system-ui,sans-serif;
+  background:var(--bg);
+  color:var(--ink);
+  overflow-x:hidden;
+  -webkit-font-smoothing:antialiased;
+}
+
+/* ─── NOISE ─── */
+body::after{
+  content:'';
+  position:fixed;inset:0;
+  pointer-events:none;z-index:9999;
+  opacity:.03;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-size:200px;
+}
+
+/* ─── TYPOGRAPHY ─── */
+.serif{font-family:'Cormorant Garamond',Georgia,serif}
+.mono{font-family:'DM Mono',monospace}
+
+/* ─── NAV ─── */
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:900;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:22px 52px;
+  transition:padding .4s ease,background .4s ease,backdrop-filter .4s ease,border-color .4s ease;
+  border-bottom:1px solid transparent;
+}
+nav.stuck{
+  padding:14px 52px;
+  background:rgba(9,9,11,.88);
+  backdrop-filter:blur(32px) saturate(200%);
+  border-color:var(--line);
+}
+@media (prefers-color-scheme: light){
+  nav.stuck{background:rgba(250,250,248,.92)}
+}
+
+.nav-logo{
+  display:flex;align-items:center;gap:11px;
+  text-decoration:none;
+}
+.nav-logo img{height:38px;width:auto;display:block}
+.nav-logo-fallback{
+  width:38px;height:38px;
+  background:var(--coral);
+  border-radius:9px;
+  display:grid;place-items:center;
+  font-family:'Cormorant Garamond',serif;
+  font-size:22px;font-weight:700;font-style:italic;
+  color:#fff;
+}
+.nav-wordmark{
+  font-family:'Cormorant Garamond',serif;
+  font-size:22px;font-weight:600;
+  color:var(--ink);letter-spacing:-.01em;
+}
+
+.nav-links{display:flex;align-items:center;gap:34px}
+.nav-links a{
+  font-size:13px;font-weight:500;
+  color:var(--ink2);text-decoration:none;
+  letter-spacing:.01em;
+  transition:color .2s;
+}
+.nav-links a:hover{color:var(--ink)}
+
+.nav-end{display:flex;align-items:center;gap:10px}
+.btn-nav{
+  display:inline-flex;align-items:center;gap:6px;
+  padding:10px 22px;border-radius:999px;
+  background:var(--coral);color:#fff;
+  font-family:'Instrument Sans',sans-serif;
+  font-size:13px;font-weight:600;
+  text-decoration:none;
+  box-shadow:0 6px 28px var(--coral-glow);
+  transition:transform .2s,box-shadow .2s;
+}
+.btn-nav:hover{transform:translateY(-1px);box-shadow:0 10px 38px var(--coral-glow)}
+
+/* ─── HERO ─── */
+.hero{
+  min-height:100svh;
+  display:grid;
+  grid-template-rows:1fr auto;
+  padding:0 52px;
+  position:relative;
+  overflow:hidden;
+}
+
+/* ambient light blobs */
+.hero-glow{
+  position:absolute;inset:0;pointer-events:none;
+  background:
+    radial-gradient(ellipse 55% 55% at 15% 25%, var(--coral-glow), transparent 60%),
+    radial-gradient(ellipse 45% 45% at 82% 18%, var(--teal-glow), transparent 55%),
+    radial-gradient(ellipse 50% 50% at 55% 88%, var(--gold-glow), transparent 55%);
+  animation:glow-breathe 12s ease-in-out infinite alternate;
+}
+@keyframes glow-breathe{
+  0%{opacity:.7;transform:scale(1)}
+  100%{opacity:1;transform:scale(1.06)}
+}
+
+.hero-inner{
+  display:flex;flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  text-align:center;
+  padding:160px 0 60px;
+  position:relative;z-index:2;
+  max-width:1000px;margin:0 auto;width:100%;
+}
+
+.hero-badge{
+  display:inline-flex;align-items:center;gap:9px;
+  padding:8px 18px;
+  border:1px solid var(--line2);
+  border-radius:999px;
+  font-size:11px;font-weight:600;
+  letter-spacing:.14em;text-transform:uppercase;
+  color:var(--gold);
+  background:rgba(200,155,10,.06);
+  margin-bottom:36px;
+  animation:rise .9s cubic-bezier(.16,1,.3,1) both;
+}
+.badge-pip{
+  width:6px;height:6px;
+  background:var(--gold);border-radius:50%;
+  animation:pip 2.4s ease-in-out infinite;
+}
+@keyframes pip{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.4;transform:scale(.6)}}
+
+.hero-h1{
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(64px,10vw,136px);
+  font-weight:300;
+  line-height:.88;
+  letter-spacing:-.04em;
+  color:var(--ink);
+  animation:rise .9s cubic-bezier(.16,1,.3,1) .08s both;
+}
+.hero-h1 strong{font-weight:700}
+.hero-h1 em{
+  font-style:italic;
+  background:linear-gradient(115deg,var(--coral) 0%,var(--gold) 55%,var(--teal) 100%);
+  -webkit-background-clip:text;background-clip:text;color:transparent;
+}
+
+.hero-sub{
+  max-width:560px;margin:28px auto 44px;
+  font-size:17px;line-height:1.78;
+  color:var(--ink2);font-weight:400;
+  letter-spacing:-.01em;
+  animation:rise .9s cubic-bezier(.16,1,.3,1) .16s both;
+}
+
+.hero-ctas{
+  display:flex;align-items:center;gap:14px;flex-wrap:wrap;justify-content:center;
+  animation:rise .9s cubic-bezier(.16,1,.3,1) .24s both;
+}
+.btn-primary{
+  display:inline-flex;align-items:center;gap:8px;
+  padding:16px 34px;border-radius:999px;
+  background:var(--coral);color:#fff;
+  font-family:'Instrument Sans',sans-serif;
+  font-size:15px;font-weight:600;
+  text-decoration:none;
+  box-shadow:0 10px 42px var(--coral-glow);
+  transition:transform .22s,box-shadow .22s;
+}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:0 18px 54px var(--coral-glow)}
+.btn-ghost{
+  display:inline-flex;align-items:center;gap:8px;
+  padding:15px 34px;border-radius:999px;
+  border:1px solid var(--line2);
+  background:transparent;color:var(--ink);
+  font-family:'Instrument Sans',sans-serif;
+  font-size:15px;font-weight:500;
+  text-decoration:none;
+  transition:background .2s;
+}
+.btn-ghost:hover{background:var(--line)}
+
+/* logo in hero center */
+.hero-logo-wrap{
+  margin-bottom:40px;
+  animation:rise .9s cubic-bezier(.16,1,.3,1) .0s both;
+}
+.hero-logo-wrap img{
+  height:80px;width:auto;
+  filter:drop-shadow(0 8px 32px var(--coral-glow));
+}
+.hero-logo-fallback{
+  display:inline-flex;align-items:center;gap:14px;
+  text-decoration:none;
+}
+.hlf-mark{
+  width:72px;height:72px;
+  background:var(--coral);border-radius:18px;
+  display:grid;place-items:center;
+  font-family:'Cormorant Garamond',serif;
+  font-size:42px;font-weight:700;font-style:italic;color:#fff;
+  box-shadow:0 12px 48px var(--coral-glow);
+}
+.hlf-name{
+  font-family:'Cormorant Garamond',serif;
+  font-size:48px;font-weight:600;
+  color:var(--ink);letter-spacing:-.03em;
+}
+
+/* scroll bar */
+.hero-scroll{
+  position:relative;z-index:2;
+  display:flex;flex-direction:column;
+  align-items:center;gap:10px;
+  padding-bottom:40px;
+  animation:rise 1s ease .5s both;
+}
+.scroll-bar{
+  width:1px;height:52px;
+  background:linear-gradient(to bottom,var(--coral),transparent);
+  animation:scroll-ani 2.2s ease-in-out infinite;
+}
+@keyframes scroll-ani{
+  0%{transform:scaleY(0);transform-origin:top;opacity:0}
+  35%{transform:scaleY(1);transform-origin:top;opacity:1}
+  65%{transform:scaleY(1);transform-origin:bottom;opacity:1}
+  100%{transform:scaleY(0);transform-origin:bottom;opacity:0}
+}
+.scroll-label{
+  font-family:'DM Mono',monospace;
+  font-size:9px;letter-spacing:.22em;text-transform:uppercase;
+  color:var(--ink3);
+}
+
+@keyframes rise{
+  from{opacity:0;transform:translateY(30px)}
+  to{opacity:1;transform:translateY(0)}
+}
+
+/* ─── MARQUEE ─── */
+.marquee{
+  border-top:1px solid var(--line);
+  border-bottom:1px solid var(--line);
+  background:var(--bg2);
+  overflow:hidden;
+  padding:15px 0;
+}
+.marquee-inner{
+  display:flex;width:max-content;
+  animation:marquee-scroll 32s linear infinite;
+}
+.marquee-inner:hover{animation-play-state:paused}
+.m-item{
+  display:flex;align-items:center;gap:12px;
+  padding:0 30px;
+  font-size:12px;font-weight:600;
+  color:var(--ink2);white-space:nowrap;
+  letter-spacing:.05em;
+}
+.m-dot{color:var(--coral);font-size:16px}
+@keyframes marquee-scroll{to{transform:translateX(-50%)}}
+
+/* ─── LAYOUT ─── */
+.wrap{max-width:1240px;margin:0 auto;padding:0 52px}
+section.s{padding:130px 0}
+
+.label{
+  font-family:'DM Mono',monospace;
+  font-size:10px;font-weight:400;
+  letter-spacing:.2em;text-transform:uppercase;
+  color:var(--coral);margin-bottom:18px;
+}
+.heading{
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(42px,6vw,80px);
+  font-weight:300;line-height:.92;
+  letter-spacing:-.04em;color:var(--ink);
+}
+.heading strong{font-weight:700}
+.heading em{font-style:italic;color:var(--ink2)}
+
+/* ─── STATS ROW ─── */
+.stats{
+  display:flex;align-items:stretch;gap:0;
+  border:1px solid var(--line);border-radius:24px;
+  overflow:hidden;background:var(--bg2);
+  margin-top:80px;
+}
+.stat{
+  flex:1;padding:36px 32px;
+  border-right:1px solid var(--line);
+  text-align:center;
+}
+.stat:last-child{border-right:none}
+.stat-n{
+  font-family:'Cormorant Garamond',serif;
+  font-size:52px;font-weight:700;
+  line-height:1;letter-spacing:-.04em;
+  color:var(--ink);
+}
+.stat-l{
+  font-size:12px;font-weight:600;
+  color:var(--ink3);letter-spacing:.08em;
+  text-transform:uppercase;margin-top:8px;
+}
+
+/* ─── FEATURES GRID ─── */
+.features-intro{
+  display:grid;grid-template-columns:1fr 1fr;
+  gap:80px;align-items:end;margin-bottom:60px;
+}
+.features-text p{
+  margin-top:20px;font-size:16px;line-height:1.8;
+  color:var(--ink2);max-width:440px;
+}
+
+.grid-bento{
+  display:grid;
+  grid-template-columns:repeat(12,1fr);
+  grid-template-rows:repeat(3,180px);
+  gap:12px;
+}
+.gc{
+  border:1px solid var(--line);
+  border-radius:22px;
+  padding:28px;
+  background:var(--bg2);
+  display:flex;flex-direction:column;justify-content:flex-end;
+  position:relative;overflow:hidden;
+  transition:border-color .3s,transform .35s cubic-bezier(.16,1,.3,1);
+}
+.gc:hover{border-color:var(--line2);transform:translateY(-4px)}
+.gc::before{
+  content:'';position:absolute;inset:0;
+  opacity:0;transition:opacity .4s;border-radius:inherit;
+}
+.gc:hover::before{opacity:1}
+
+.gc1{grid-column:span 5;grid-row:span 2}
+.gc1::before{background:radial-gradient(ellipse at 30% 80%,var(--coral-glow),transparent 60%)}
+.gc2{grid-column:span 7;grid-row:span 1}
+.gc2::before{background:radial-gradient(ellipse at 70% 50%,var(--teal-glow),transparent 60%)}
+.gc3{grid-column:span 4;grid-row:span 1}
+.gc3::before{background:radial-gradient(ellipse at 50% 50%,var(--gold-glow),transparent 60%)}
+.gc4{grid-column:span 3;grid-row:span 1}
+.gc4::before{background:radial-gradient(ellipse at 50% 50%,var(--coral-glow),transparent 60%)}
+.gc5{grid-column:span 7;grid-row:span 1}
+.gc5::before{background:radial-gradient(ellipse at 30% 50%,var(--teal-glow),transparent 60%)}
+.gc6{grid-column:span 5;grid-row:span 1}
+.gc6::before{background:radial-gradient(ellipse at 70% 50%,var(--gold-glow),transparent 60%)}
+
+.gc-em{
+  font-size:30px;margin-bottom:10px;
+  position:relative;z-index:1;
+}
+.gc-title{
+  font-family:'Cormorant Garamond',serif;
+  font-size:21px;font-weight:600;
+  letter-spacing:-.03em;color:var(--ink);
+  margin-bottom:6px;
+  position:relative;z-index:1;
+}
+.gc-title-lg{font-size:30px}
+.gc-body{
+  font-size:13px;line-height:1.65;
+  color:var(--ink2);position:relative;z-index:1;
+}
+.gc-tag{
+  display:inline-flex;padding:4px 11px;
+  border:1px solid var(--line2);border-radius:999px;
+  font-size:10px;font-weight:700;
+  letter-spacing:.07em;text-transform:uppercase;
+  color:var(--ink3);margin-bottom:12px;
+  position:relative;z-index:1;
+}
+
+/* decorative swipe cards inside gc1 */
+.gc1{background:linear-gradient(145deg,var(--bg3),var(--bg2))}
+.swipe-deck{
+  position:absolute;top:22px;right:20px;
+  display:flex;
+}
+.sd{
+  width:64px;height:92px;border-radius:12px;
+  border:1px solid var(--line2);
+  background:var(--bg3);
+  margin-left:-18px;
+  display:flex;align-items:flex-end;
+  padding:8px;font-size:16px;
+  box-shadow:0 8px 28px rgba(0,0,0,.12);
+}
+.sd:nth-child(1){transform:rotate(-7deg) translateY(8px);z-index:1}
+.sd:nth-child(2){transform:rotate(-1deg);z-index:2}
+.sd:nth-child(3){transform:rotate(6deg) translateY(6px);z-index:1}
+
+/* ─── ISLANDS ABSTRACT ─── */
+.islands-section{}
+.islands-intro{
+  display:flex;align-items:end;
+  justify-content:space-between;gap:40px;
+  margin-bottom:56px;
+}
+.islands-intro p{max-width:400px;font-size:15px;line-height:1.8;color:var(--ink2)}
+
+.islands-grid{
+  display:grid;
+  grid-template-columns:repeat(5,1fr);
+  gap:10px;
+}
+.island{
+  border:1px solid var(--line);
+  border-radius:20px;
+  overflow:hidden;
+  position:relative;
+  background:var(--bg2);
+  cursor:default;
+  transition:transform .35s cubic-bezier(.16,1,.3,1),border-color .3s;
+}
+.island:hover{transform:translateY(-5px);border-color:var(--line2)}
+.island-tall{grid-row:span 2}
+
+/* abstract gradient fills — no photos */
+.island-fill{
+  width:100%;
+  padding-bottom:100%;
+  position:relative;
+}
+.island-tall .island-fill{padding-bottom:200%}
+
+.island-fill::before{
+  content:'';
+  position:absolute;inset:0;
+}
+/* Each island gets a unique abstract gradient */
+.isl-ht .island-fill::before{background:linear-gradient(145deg,#1a0508 0%,#3d0c14 40%,#8c1a1f 70%,#C93B1A 100%)}
+.isl-jm .island-fill::before{background:linear-gradient(145deg,#0a1400 0%,#1a2e00 40%,#4a7a00 70%,#C89B0A 100%)}
+.isl-do .island-fill::before{background:linear-gradient(145deg,#000d1f 0%,#002040 40%,#004080 70%,#0A9EAA 100%)}
+.isl-tt .island-fill::before{background:linear-gradient(145deg,#1a0800 0%,#3d1500 40%,#8c3000 70%,#D4682A 100%)}
+.isl-pr .island-fill::before{background:linear-gradient(145deg,#08001a 0%,#180038 40%,#38007a 70%,#7A3EBF 100%)}
+.isl-cu .island-fill::before{background:linear-gradient(145deg,#001a08 0%,#003018 40%,#006030 70%,#0A9EAA 100%)}
+.isl-bb .island-fill::before{background:linear-gradient(145deg,#1a0d00 0%,#3d1f00 40%,#8c4800 70%,#C89B0A 100%)}
+.isl-lc .island-fill::before{background:linear-gradient(145deg,#001a14 0%,#003028 40%,#006050 70%,#0BB5C2 100%)}
+.isl-cw .island-fill::before{background:linear-gradient(145deg,#00101a 0%,#00243d 40%,#004a7a 70%,#1A9EBF 100%)}
+.isl-gd .island-fill::before{background:linear-gradient(145deg,#0a1400 0%,#1a2e00 50%,#3a6600 80%,#7BA828 100%)}
+
+/* floating flag + name */
+.island-body{
+  position:absolute;
+  bottom:0;left:0;right:0;
+  padding:14px;
+  background:linear-gradient(to top,rgba(0,0,0,.85) 0%,transparent 100%);
+}
+.island-flag{
+  font-size:18px;display:block;margin-bottom:5px;
+}
+.island-name{
+  font-family:'Cormorant Garamond',serif;
+  font-size:18px;font-weight:600;
+  color:#fff;line-height:1;letter-spacing:-.02em;
+}
+.island-sub{font-size:11px;color:rgba(255,255,255,.6);margin-top:3px}
+
+/* abstract wave lines overlay on islands */
+.island-fill::after{
+  content:'';
+  position:absolute;inset:0;
+  opacity:.12;
+  background-image:repeating-linear-gradient(
+    -35deg,
+    transparent,
+    transparent 8px,
+    rgba(255,255,255,.4) 8px,
+    rgba(255,255,255,.4) 9px
+  );
+}
+
+/* ─── CULTURE ─── */
+.culture-block{
+  display:grid;grid-template-columns:1fr 1fr;
+  border:1px solid var(--line);border-radius:32px;
+  overflow:hidden;
+  min-height:560px;
+}
+.culture-left{
+  padding:64px;
+  background:linear-gradient(145deg,var(--bg) 0%,var(--bg2) 100%);
+  border-right:1px solid var(--line);
+  display:flex;flex-direction:column;justify-content:center;
+}
+.culture-left p{
+  margin-top:22px;font-size:16px;line-height:1.82;
+  color:var(--ink2);max-width:400px;
+}
+.lang-list{
+  display:flex;flex-wrap:wrap;gap:10px;margin-top:32px;
+}
+.lang-tag{
+  display:inline-flex;align-items:center;gap:7px;
+  padding:10px 16px;
+  border:1px solid rgba(200,155,10,.28);
+  border-radius:999px;
+  background:rgba(200,155,10,.07);
+  font-size:13px;font-weight:600;
+  color:var(--gold);
+}
+
+.culture-right{
+  padding:64px;
+  background:linear-gradient(160deg,var(--bg3) 0%,var(--bg2) 100%);
+  display:flex;flex-direction:column;justify-content:center;
+}
+.culture-right .heading{font-size:clamp(32px,4vw,52px)}
+
+/* abstract grid of colored tiles */
+.culture-tiles{
+  display:grid;grid-template-columns:repeat(3,1fr);
+  gap:8px;margin-top:32px;
+}
+.ctile{
+  height:70px;border-radius:12px;border:1px solid var(--line);
+  display:flex;align-items:center;justify-content:center;
+  font-size:24px;background:var(--bg2);
+  transition:transform .25s;
+}
+.ctile:hover{transform:scale(1.06)}
+.ctile-r{background:linear-gradient(135deg,rgba(201,59,26,.15),rgba(201,59,26,.06))}
+.ctile-g{background:linear-gradient(135deg,rgba(200,155,10,.15),rgba(200,155,10,.06))}
+.ctile-b{background:linear-gradient(135deg,rgba(10,158,170,.15),rgba(10,158,170,.06))}
+
+/* ─── AMBASSADOR ─── */
+.amb-wrap{
+  display:grid;grid-template-columns:1fr 1fr;
+  gap:64px;align-items:start;
+}
+.comm-table{
+  margin-top:32px;
+  border:1px solid var(--line);border-radius:20px;
+  overflow:hidden;
+}
+.cr{
+  display:grid;grid-template-columns:1fr 1fr 1fr;
+  padding:14px 20px;
+  border-bottom:1px solid var(--line);
+  font-size:13px;font-weight:500;
+  align-items:center;
+}
+.cr:last-child{border-bottom:none}
+.cr-hdr{
+  background:var(--bg3);
+  font-size:10px;font-weight:700;
+  letter-spacing:.12em;text-transform:uppercase;
+  color:var(--ink3);
+}
+.cr-plan{font-weight:700;color:var(--ink)}
+.cr-price{color:var(--ink2)}
+.cr-earn{
+  font-family:'DM Mono',monospace;
+  font-size:13px;font-weight:400;
+  color:var(--teal);
+}
+.cr-zero{color:var(--ink3)}
+
+.amb-features{
+  display:flex;flex-direction:column;gap:16px;margin-top:32px;
+}
+.af{
+  display:flex;gap:16px;align-items:flex-start;
+  padding:18px;
+  border:1px solid var(--line);border-radius:16px;
+  background:var(--bg2);
+  transition:border-color .3s;
+}
+.af:hover{border-color:var(--line2)}
+.af-icon{
+  width:40px;height:40px;flex-shrink:0;
+  border-radius:10px;
+  display:grid;place-items:center;font-size:18px;
+}
+.af-icon-r{background:rgba(201,59,26,.12)}
+.af-icon-g{background:rgba(200,155,10,.12)}
+.af-icon-b{background:rgba(10,158,170,.12)}
+.af-icon-p{background:rgba(120,80,200,.12)}
+.af-title{font-size:13px;font-weight:700;color:var(--ink);margin-bottom:3px}
+.af-body{font-size:13px;color:var(--ink2);line-height:1.55}
+
+/* ─── CTA ─── */
+.cta-block{
+  border:1px solid var(--line);
+  border-radius:36px;
+  padding:110px 56px;
+  text-align:center;
+  position:relative;overflow:hidden;
+  background:var(--bg2);
+}
+.cta-block::before{
+  content:'';position:absolute;inset:0;pointer-events:none;
+  background:
+    radial-gradient(ellipse 65% 65% at 10% 50%,var(--coral-glow),transparent 55%),
+    radial-gradient(ellipse 55% 55% at 90% 50%,var(--teal-glow),transparent 55%),
+    radial-gradient(ellipse 55% 60% at 50% 110%,var(--gold-glow),transparent 50%);
+}
+.cta-block .heading{position:relative;z-index:1;max-width:780px;margin:0 auto}
+.cta-sub{
+  position:relative;z-index:1;
+  max-width:500px;margin:22px auto 40px;
+  font-size:17px;line-height:1.78;color:var(--ink2);
+}
+.cta-btns{
+  position:relative;z-index:1;
+  display:flex;align-items:center;justify-content:center;gap:14px;flex-wrap:wrap;
+}
+
+/* ─── FOOTER ─── */
+footer{
+  border-top:1px solid var(--line);
+  padding:64px 0 36px;
+}
+.footer-grid{
+  display:grid;
+  grid-template-columns:2.2fr 1fr 1fr 1fr;
+  gap:52px;
+  padding-bottom:48px;
+  border-bottom:1px solid var(--line);
+  margin-bottom:36px;
+}
+.footer-brand img{height:44px;width:auto;display:block;margin-bottom:16px}
+.footer-brand-fallback{
+  display:flex;align-items:center;gap:10px;margin-bottom:16px;
+}
+.fbf-mark{
+  width:40px;height:40px;background:var(--coral);border-radius:10px;
+  display:grid;place-items:center;
+  font-family:'Cormorant Garamond',serif;
+  font-size:22px;font-weight:700;font-style:italic;color:#fff;
+}
+.fbf-name{
+  font-family:'Cormorant Garamond',serif;
+  font-size:22px;font-weight:600;color:var(--ink);
+}
+.footer-desc{font-size:14px;line-height:1.78;color:var(--ink2);max-width:310px}
+.footer-flags{margin-top:20px;font-size:18px;letter-spacing:2px}
+
+.footer-col-title{
+  font-family:'DM Mono',monospace;
+  font-size:10px;letter-spacing:.18em;text-transform:uppercase;
+  color:var(--ink3);margin-bottom:20px;
+}
+.footer-links{display:flex;flex-direction:column;gap:13px}
+.footer-links a{
+  font-size:14px;font-weight:500;
+  color:var(--ink2);text-decoration:none;
+  transition:color .2s;
+}
+.footer-links a:hover{color:var(--ink)}
+
+.footer-bottom{
+  display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;
+}
+.footer-copy{font-size:12px;color:var(--ink3)}
+
+/* ─── REVEAL ─── */
+.reveal{
+  opacity:0;transform:translateY(26px);
+  transition:opacity .7s cubic-bezier(.16,1,.3,1),transform .7s cubic-bezier(.16,1,.3,1);
+}
+.reveal.on{opacity:1;transform:none}
+
+/* ─── RESPONSIVE ─── */
+@media(max-width:1024px){
+  nav{padding:18px 28px}
+  nav.stuck{padding:12px 28px}
+  .wrap{padding:0 28px}
+  .hero{padding:0 28px}
+  .features-intro{grid-template-columns:1fr}
+  .grid-bento{grid-template-rows:auto}
+  .gc1,.gc2,.gc3,.gc4,.gc5,.gc6{grid-column:span 12;grid-row:span 1;min-height:200px}
+  .islands-grid{grid-template-columns:repeat(2,1fr)}
+  .island-tall{grid-row:span 1}
+  .culture-block{grid-template-columns:1fr}
+  .culture-left{border-right:none;border-bottom:1px solid var(--line)}
+  .amb-wrap{grid-template-columns:1fr;gap:40px}
+  .footer-grid{grid-template-columns:1fr 1fr;gap:32px}
+  .nav-links{display:none}
+}
+@media(max-width:680px){
+  section.s{padding:80px 0}
+  .hero-inner{padding:130px 0 50px}
+  .stats{flex-direction:column}
+  .stat{border-right:none;border-bottom:1px solid var(--line)}
+  .stat:last-child{border-bottom:none}
+  .islands-grid{grid-template-columns:1fr}
+  .culture-left,.culture-right{padding:36px}
+  .cta-block{padding:64px 24px}
+  .footer-grid{grid-template-columns:1fr}
+  .islands-intro{flex-direction:column}
+}
+</style>
+</head>
 <body>
-<nav><a class="brand" href="index.html"><img class="logo-light" src="koneksyon-logo-color.png" alt="Koneksyon logo"><img class="logo-dark" src="koneksyon-logo-white.png" alt="Koneksyon logo"></a><div class="navlinks"><a href="#features">Features</a><a href="#culture">Culture</a><a href="#islands">Islands</a><a href="privacy.html">Privacy</a><a href="terms.html">Terms</a></div><div class="nav-actions"><button class="theme" id="themeBtn" onclick="toggleTheme()">🌙 Dark</button><a class="pill" href="download.html">Download</a></div></nav>
-<header class="hero"><div><div class="eyebrow">🌴 Caribbean-first · Premium dating</div><h1>Real culture. Real chemistry. <span>Real Koneksyon.</span></h1><p class="lead">A luxury Caribbean-inspired dating and social app built for identity, language, trust, and intentional relationships — from Haiti to the wider diaspora and beyond.</p><div class="hero-ctas"><a class="pill" href="download.html">Join the Launch</a><a class="ghost" href="#features">Explore the Experience</a></div></div><div class="phone-stage"><div class="orb"></div><div class="phone"><div class="screen"><div class="screen-content"><div class="profile-chip">🇭🇹 Haiti · Verified</div><h3>Culture-led discovery.</h3><p>Match through roots, language, values, music, food, energy, and real compatibility.</p></div></div></div></div></header>
-<section id="features"><div class="section-head"><h2>Designed like a premium social club.</h2><p>Koneksyon should feel elevated, safe, intentional, and unmistakably Caribbean — not like another swipe clone.</p></div><div class="features"><div class="feature"><div class="icon">✅</div><h3>Verified-first trust</h3><p>Identity verification, approved photos, reporting, and moderation help protect the community from fake profiles and catfishing.</p></div><div class="feature"><div class="icon">🌎</div><h3>Culture-rich matching</h3><p>Discover people by language, roots, island background, values, food, music, love language, and relationship intent.</p></div><div class="feature"><div class="icon">💎</div><h3>Premium visibility</h3><p>Konekt+ and premium tools are positioned as elevated discovery features, not cheap gimmicks.</p></div></div></section>
-<section id="islands"><div class="section-head"><h2>Historic roots across the Caribbean.</h2><p>Real monument photography makes the brand feel deeper, warmer, and more premium than simple illustrations.</p></div><div class="monument-grid"><article class="monument wide">
-<img src="https://commons.wikimedia.org/wiki/Special:FilePath/Citadelle_Laferri%C3%A8re.jpg" alt="Citadelle Laferrière" onerror="this.style.display='none'; this.parentElement.classList.add('fallback')">
-<div class="monument-body"><div class="country">🇭🇹 Haiti</div><h3>Citadelle Laferrière</h3><p>Mountain fortress and symbol of Haitian independence.</p></div></article>
-<article class="monument ">
-<img src="https://commons.wikimedia.org/wiki/Special:FilePath/Emancipation_Park_Redemption_Song.jpg" alt="Emancipation Park" onerror="this.style.display='none'; this.parentElement.classList.add('fallback')">
-<div class="monument-body"><div class="country">🇯🇲 Jamaica</div><h3>Emancipation Park</h3><p>Kingston landmark honoring freedom and resilience.</p></div></article>
-<article class="monument ">
-<img src="https://commons.wikimedia.org/wiki/Special:FilePath/Santo_Domingo_-_Faro_a_Colon.JPG" alt="Faro a Colón" onerror="this.style.display='none'; this.parentElement.classList.add('fallback')">
-<div class="monument-body"><div class="country">🇩🇴 Dominican Republic</div><h3>Faro a Colón</h3><p>Monumental lighthouse and museum in Santo Domingo Este.</p></div></article>
-<article class="monument tall">
-<img src="https://commons.wikimedia.org/wiki/Special:FilePath/Castillo_de_los_Tres_Santos_Reyes_Magnos_del_Morro_04.jpg" alt="Castillo del Morro" onerror="this.style.display='none'; this.parentElement.classList.add('fallback')">
-<div class="monument-body"><div class="country">🇨🇺 Cuba</div><h3>Castillo del Morro</h3><p>Historic fortress guarding Havana Bay.</p></div></article>
-<article class="monument ">
-<img src="https://commons.wikimedia.org/wiki/Special:FilePath/Queen%27s_Park_Savannah.jpg" alt="Queen’s Park Savannah" onerror="this.style.display='none'; this.parentElement.classList.add('fallback')">
-<div class="monument-body"><div class="country">🇹🇹 Trinidad & Tobago</div><h3>Queen’s Park Savannah</h3><p>Iconic cultural green space in Port of Spain.</p></div></article>
-<article class="monument ">
-<img src="https://commons.wikimedia.org/wiki/Special:FilePath/Barbados_Garrison_Savannah.jpg" alt="Garrison Historic Area" onerror="this.style.display='none'; this.parentElement.classList.add('fallback')">
-<div class="monument-body"><div class="country">🇧🇧 Barbados</div><h3>Garrison Historic Area</h3><p>Historic military and colonial heritage district.</p></div></article>
-<article class="monument ">
-<img src="https://commons.wikimedia.org/wiki/Special:FilePath/Montagne_Pel%C3%A9e.jpg" alt="Mont Pelée" onerror="this.style.display='none'; this.parentElement.classList.add('fallback')">
-<div class="monument-body"><div class="country">🇲🇶 Martinique</div><h3>Mont Pelée</h3><p>Volcanic landmark tied to the history of Saint-Pierre.</p></div></article>
-<article class="monument ">
-<img src="https://commons.wikimedia.org/wiki/Special:FilePath/La_Soufriere_Guadeloupe.jpg" alt="La Soufrière" onerror="this.style.display='none'; this.parentElement.classList.add('fallback')">
-<div class="monument-body"><div class="country">🇬🇵 Guadeloupe</div><h3>La Soufrière</h3><p>Lush volcanic landmark of Basse-Terre.</p></div></article>
-<article class="monument wide">
-<img src="https://commons.wikimedia.org/wiki/Special:FilePath/Castillo_San_Felipe_del_Morro_2013.jpg" alt="Castillo San Felipe del Morro" onerror="this.style.display='none'; this.parentElement.classList.add('fallback')">
-<div class="monument-body"><div class="country">🇵🇷 Puerto Rico</div><h3>Castillo San Felipe del Morro</h3><p>Iconic coastal fortress overlooking San Juan Bay.</p></div></article>
-<article class="monument ">
-<img src="https://commons.wikimedia.org/wiki/Special:FilePath/Parliament_Square_Nassau_Bahamas.jpg" alt="Parliament Square" onerror="this.style.display='none'; this.parentElement.classList.add('fallback')">
-<div class="monument-body"><div class="country">🇧🇸 Bahamas</div><h3>Parliament Square</h3><p>Historic civic architecture in Nassau.</p></div></article>
-<article class="monument ">
-<img src="https://commons.wikimedia.org/wiki/Special:FilePath/Brimstone_Hill_Fortress_National_Park.jpg" alt="Brimstone Hill Fortress" onerror="this.style.display='none'; this.parentElement.classList.add('fallback')">
-<div class="monument-body"><div class="country">🇰🇳 Saint Kitts & Nevis</div><h3>Brimstone Hill Fortress</h3><p>UNESCO fortress known as the Gibraltar of the West Indies.</p></div></article>
-<article class="monument ">
-<img src="https://commons.wikimedia.org/wiki/Special:FilePath/Nelson%27s_Dockyard_Antigua.jpg" alt="Nelson’s Dockyard" onerror="this.style.display='none'; this.parentElement.classList.add('fallback')">
-<div class="monument-body"><div class="country">🇦🇬 Antigua & Barbuda</div><h3>Nelson’s Dockyard</h3><p>Restored Georgian-era naval dockyard and national park.</p></div></article>
-<article class="monument ">
-<img src="https://commons.wikimedia.org/wiki/Special:FilePath/Pitons_St_Lucia.jpg" alt="The Pitons" onerror="this.style.display='none'; this.parentElement.classList.add('fallback')">
-<div class="monument-body"><div class="country">🇱🇨 Saint Lucia</div><h3>The Pitons</h3><p>Twin volcanic peaks and national symbol.</p></div></article>
-<article class="monument ">
-<img src="https://commons.wikimedia.org/wiki/Special:FilePath/Fort_Charlotte_St_Vincent.jpg" alt="Fort Charlotte" onerror="this.style.display='none'; this.parentElement.classList.add('fallback')">
-<div class="monument-body"><div class="country">🇻🇨 Saint Vincent</div><h3>Fort Charlotte</h3><p>Hilltop fort overlooking Kingstown.</p></div></article>
-<article class="monument ">
-<img src="https://commons.wikimedia.org/wiki/Special:FilePath/St_Georges_Grenada.jpg" alt="St. George’s" onerror="this.style.display='none'; this.parentElement.classList.add('fallback')">
-<div class="monument-body"><div class="country">🇬🇩 Grenada</div><h3>St. George’s</h3><p>Harbor city surrounded by forts, hills, and spice-island history.</p></div></article>
-<article class="monument wide">
-<img src="https://commons.wikimedia.org/wiki/Special:FilePath/Queen_Emma_Bridge_Curacao.jpg" alt="Queen Emma Bridge" onerror="this.style.display='none'; this.parentElement.classList.add('fallback')">
-<div class="monument-body"><div class="country">🇨🇼 Curaçao</div><h3>Queen Emma Bridge</h3><p>Floating bridge connecting Willemstad’s colorful districts.</p></div></article></div></section>
-<section id="culture"><div class="culture-panel"><div class="culture-copy"><div class="eyebrow">Language & identity</div><h2>Built for the way the Caribbean connects.</h2><p>Koneksyon supports Haitian Kreyòl, French, Spanish, and English — because connection feels stronger when culture and language are part of the experience.</p><div class="langs"><span>🇭🇹 Haitian Kreyòl</span><span>🇫🇷 Français</span><span>🇪🇸 Español</span><span>🇺🇸 English</span></div></div><div class="culture-art"></div></div></section>
-<section class="cta"><h2>The Caribbean dating app should feel this good.</h2><p>Use this premium homepage as your new GitHub Pages front door. When your App Store and Google Play links are ready, replace the Coming Soon download page.</p><div class="hero-ctas" style="justify-content:center"><a class="pill" href="download.html">Download / Coming Soon</a><a class="ghost" href="community-guidelines.html">Community Guidelines</a></div></section>
-<footer><div class="footer-row"><div><img class="footer-logo" src="koneksyon-logo-white.png" alt="Koneksyon logo"><p style="color:rgba(255,255,255,.55);max-width:330px;line-height:1.7;margin-top:14px">Caribbean-inspired dating and social connection. Built for authenticity, safety, language, and culture.</p></div><div class="footer-links"><a href="privacy.html">Privacy</a><a href="terms.html">Terms</a><a href="cookies.html">Cookies</a><a href="community-guidelines.html">Guidelines</a><a href="mailto:support@koneksyondatingapp.com">Contact</a></div></div><div class="footer-bottom"><span>© 2026 Zanara Labs LLC. All rights reserved.</span><span>support@koneksyondatingapp.com</span></div></footer>
-<script>function setTheme(t){document.documentElement.setAttribute('data-theme',t);localStorage.setItem('koneksyon-theme',t);const b=document.getElementById('themeBtn');if(b)b.textContent=t==='dark'?'☀️ Light':'🌙 Dark'}function toggleTheme(){const c=document.documentElement.getAttribute('data-theme')||'light';setTheme(c==='dark'?'light':'dark')}const s=localStorage.getItem('koneksyon-theme');const d=window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches;setTheme(s||(d?'dark':'light'));</script>
-</body></html>
+
+<!-- ─── NAV ─── -->
+<nav id="nav">
+  <a class="nav-logo" href="#">
+    <img src="koneksyon-logo-color.png" alt="Koneksyon"
+      onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+    <div class="nav-logo-fallback" style="display:none">
+      <div class="nav-logo-fallback" style="width:36px;height:36px;background:var(--coral);border-radius:8px;display:grid;place-items:center;font-family:'Cormorant Garamond',serif;font-size:20px;font-weight:700;font-style:italic;color:#fff">K</div>
+    </div>
+    <span class="nav-wordmark">Koneksyon</span>
+  </a>
+  <div class="nav-links">
+    <a href="#features">Features</a>
+    <a href="#islands">Islands</a>
+    <a href="#culture">Culture</a>
+    <a href="#ambassador">Ambassador</a>
+    <a href="privacy.html">Privacy</a>
+    <a href="terms.html">Terms</a>
+  </div>
+  <div class="nav-end">
+    <a class="btn-nav" href="download.html">Download →</a>
+  </div>
+</nav>
+
+<!-- ─── HERO ─── -->
+<div class="hero">
+  <div class="hero-glow"></div>
+  <div class="hero-inner">
+    <div class="hero-logo-wrap">
+      <img src="koneksyon-logo-color.png" alt="Koneksyon"
+        onerror="this.style.display='none';document.querySelector('.hero-logo-fallback').style.display='inline-flex'">
+      <div class="hero-logo-fallback" style="display:none">
+        <div class="hlf-mark">K</div>
+        <span class="hlf-name">Koneksyon</span>
+      </div>
+    </div>
+
+    <div class="hero-badge">
+      <span class="badge-pip"></span>
+      Caribbean-Inspired &nbsp;·&nbsp; Open to Everyone &nbsp;·&nbsp; Launching July 2025
+    </div>
+
+    <h1 class="hero-h1 serif">
+      Where culture<br>meets <em>real</em><br><strong>connection.</strong>
+    </h1>
+
+    <p class="hero-sub">
+      A premium dating app inspired by Caribbean warmth and culture —
+      open to everyone who values authentic love, intentional relationships,
+      and real conversation.
+    </p>
+
+    <div class="hero-ctas">
+      <a class="btn-primary" href="download.html">Join the Launch &nbsp;→</a>
+      <a class="btn-ghost" href="#features">Explore the experience</a>
+    </div>
+  </div>
+
+  <div class="hero-scroll">
+    <span class="scroll-label">Scroll</span>
+    <div class="scroll-bar"></div>
+  </div>
+</div>
+
+<!-- ─── MARQUEE ─── -->
+<div class="marquee">
+  <div class="marquee-inner">
+    <div class="m-item"><span class="m-dot">✦</span> Culture-led matching</div>
+    <div class="m-item"><span class="m-dot">✦</span> Verified profiles</div>
+    <div class="m-item"><span class="m-dot">✦</span> Haitian Kreyòl</div>
+    <div class="m-item"><span class="m-dot">✦</span> 13 sparks daily</div>
+    <div class="m-item"><span class="m-dot">✦</span> Safe & intentional</div>
+    <div class="m-item"><span class="m-dot">✦</span> Caribbean-inspired</div>
+    <div class="m-item"><span class="m-dot">✦</span> Open to everyone</div>
+    <div class="m-item"><span class="m-dot">✦</span> Real Koneksyon</div>
+    <div class="m-item"><span class="m-dot">✦</span> Premium dating</div>
+    <div class="m-item"><span class="m-dot">✦</span> Zanara Labs LLC</div>
+    <div class="m-item"><span class="m-dot">✦</span> Culture-led matching</div>
+    <div class="m-item"><span class="m-dot">✦</span> Verified profiles</div>
+    <div class="m-item"><span class="m-dot">✦</span> Haitian Kreyòl</div>
+    <div class="m-item"><span class="m-dot">✦</span> 13 sparks daily</div>
+    <div class="m-item"><span class="m-dot">✦</span> Safe & intentional</div>
+    <div class="m-item"><span class="m-dot">✦</span> Caribbean-inspired</div>
+    <div class="m-item"><span class="m-dot">✦</span> Open to everyone</div>
+    <div class="m-item"><span class="m-dot">✦</span> Real Koneksyon</div>
+    <div class="m-item"><span class="m-dot">✦</span> Premium dating</div>
+    <div class="m-item"><span class="m-dot">✦</span> Zanara Labs LLC</div>
+  </div>
+</div>
+
+<!-- ─── STATS ─── -->
+<section class="s">
+  <div class="wrap">
+    <div class="stats reveal">
+      <div class="stat">
+        <div class="stat-n serif">13</div>
+        <div class="stat-l">Daily sparks</div>
+      </div>
+      <div class="stat">
+        <div class="stat-n serif">4</div>
+        <div class="stat-l">Languages</div>
+      </div>
+      <div class="stat">
+        <div class="stat-n serif">20+</div>
+        <div class="stat-l">Island cultures</div>
+      </div>
+      <div class="stat">
+        <div class="stat-n serif">Jul '25</div>
+        <div class="stat-l">Official launch</div>
+      </div>
+      <div class="stat">
+        <div class="stat-n serif">100%</div>
+        <div class="stat-l">Verified-first</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── FEATURES ─── -->
+<section class="s" id="features">
+  <div class="wrap">
+    <div class="features-intro">
+      <div class="features-text">
+        <div class="label">What makes it different</div>
+        <div class="heading serif">Designed like a<br><em>premium social club.</em></div>
+        <p>Every detail is built around safety, culture, and intentional connection. Not another swipe clone.</p>
+      </div>
+    </div>
+
+    <div class="grid-bento">
+
+      <div class="gc gc1 reveal">
+        <div class="swipe-deck">
+          <div class="sd">🇭🇹</div>
+          <div class="sd">🇯🇲</div>
+          <div class="sd">🇹🇹</div>
+        </div>
+        <div class="gc-em">♾️</div>
+        <div class="gc-title gc-title-lg serif">13 Sparks.<br>Make them count.</div>
+        <div class="gc-body">A curated daily swipe limit that makes every match feel intentional — not infinite.</div>
+      </div>
+
+      <div class="gc gc2 reveal">
+        <div class="gc-em">✅</div>
+        <div class="gc-title serif">Verified-first community</div>
+        <div class="gc-body">Identity verification, approved photos, and active moderation protect every member from fake profiles and bad actors.</div>
+      </div>
+
+      <div class="gc gc3 reveal">
+        <div class="gc-tag">Culture</div>
+        <div class="gc-title serif">Roots, not just radius.</div>
+        <div class="gc-body">Match by language, origin, values, food, music, love language, and relationship intent.</div>
+      </div>
+
+      <div class="gc gc4 reveal">
+        <div class="gc-em">💎</div>
+        <div class="gc-title serif">Premium tools</div>
+        <div class="gc-body">Konekt+ and boost features elevate discovery without cheap gimmicks.</div>
+      </div>
+
+      <div class="gc gc5 reveal">
+        <div class="gc-em">🛡️</div>
+        <div class="gc-title serif">Built-in safety</div>
+        <div class="gc-body">Date safety acknowledgments, blocking, reporting — and a dedicated admin team watching over the community.</div>
+      </div>
+
+      <div class="gc gc6 reveal">
+        <div class="gc-em">🌍</div>
+        <div class="gc-title serif">Four languages. One vibe.</div>
+        <div class="gc-body">Haitian Kreyòl, French, Spanish, and English — because connection feels deeper in your own language.</div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ─── ISLANDS ─── -->
+<section class="s" id="islands">
+  <div class="wrap">
+    <div class="islands-intro">
+      <div>
+        <div class="label">Our roots</div>
+        <div class="heading serif">The islands<br><em>that inspire us.</em></div>
+      </div>
+      <p>Koneksyon draws its soul from the history, culture, and spirit of the Caribbean — and it's open to everyone who feels that warmth.</p>
+    </div>
+
+    <div class="islands-grid reveal">
+      <div class="island island-tall isl-ht">
+        <div class="island-fill"></div>
+        <div class="island-body">
+          <span class="island-flag">🇭🇹</span>
+          <div class="island-name serif">Haiti</div>
+          <div class="island-sub">First Black Republic</div>
+        </div>
+      </div>
+      <div class="island isl-jm">
+        <div class="island-fill"></div>
+        <div class="island-body">
+          <span class="island-flag">🇯🇲</span>
+          <div class="island-name serif">Jamaica</div>
+          <div class="island-sub">Island of Springs</div>
+        </div>
+      </div>
+      <div class="island isl-do">
+        <div class="island-fill"></div>
+        <div class="island-body">
+          <span class="island-flag">🇩🇴</span>
+          <div class="island-name serif">Dominican Republic</div>
+          <div class="island-sub">La Hispaniola</div>
+        </div>
+      </div>
+      <div class="island isl-tt">
+        <div class="island-fill"></div>
+        <div class="island-body">
+          <span class="island-flag">🇹🇹</span>
+          <div class="island-name serif">Trinidad & Tobago</div>
+          <div class="island-sub">Land of the Hummingbird</div>
+        </div>
+      </div>
+      <div class="island isl-pr">
+        <div class="island-fill"></div>
+        <div class="island-body">
+          <span class="island-flag">🇵🇷</span>
+          <div class="island-name serif">Puerto Rico</div>
+          <div class="island-sub">La Isla del Encanto</div>
+        </div>
+      </div>
+      <div class="island isl-cu">
+        <div class="island-fill"></div>
+        <div class="island-body">
+          <span class="island-flag">🇨🇺</span>
+          <div class="island-name serif">Cuba</div>
+          <div class="island-sub">Pearl of the Antilles</div>
+        </div>
+      </div>
+      <div class="island isl-bb">
+        <div class="island-fill"></div>
+        <div class="island-body">
+          <span class="island-flag">🇧🇧</span>
+          <div class="island-name serif">Barbados</div>
+          <div class="island-sub">Little England</div>
+        </div>
+      </div>
+      <div class="island isl-lc">
+        <div class="island-fill"></div>
+        <div class="island-body">
+          <span class="island-flag">🇱🇨</span>
+          <div class="island-name serif">Saint Lucia</div>
+          <div class="island-sub">Helen of the West</div>
+        </div>
+      </div>
+      <div class="island isl-cw">
+        <div class="island-fill"></div>
+        <div class="island-body">
+          <span class="island-flag">🇨🇼</span>
+          <div class="island-name serif">Curaçao</div>
+          <div class="island-sub">Island of Color</div>
+        </div>
+      </div>
+      <div class="island isl-gd">
+        <div class="island-fill"></div>
+        <div class="island-body">
+          <span class="island-flag">🇬🇩</span>
+          <div class="island-name serif">Grenada</div>
+          <div class="island-sub">Isle of Spice</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── CULTURE ─── -->
+<section class="s" id="culture">
+  <div class="wrap">
+    <div class="culture-block reveal">
+      <div class="culture-left">
+        <div class="label">Language & Identity</div>
+        <div class="heading serif">Built for the way<br><strong>culture connects.</strong></div>
+        <p>Koneksyon speaks Haitian Kreyòl, French, Spanish, and English — because love feels stronger in your own language. And it's open to absolutely everyone who resonates with that spirit.</p>
+        <div class="lang-list">
+          <div class="lang-tag">🇭🇹 Haitian Kreyòl</div>
+          <div class="lang-tag">🇫🇷 Français</div>
+          <div class="lang-tag">🇪🇸 Español</div>
+          <div class="lang-tag">🇺🇸 English</div>
+        </div>
+      </div>
+      <div class="culture-right">
+        <div class="label">The experience</div>
+        <div class="heading serif"><em>Feel the</em><br><strong>difference.</strong></div>
+        <div class="culture-tiles">
+          <div class="ctile ctile-r">🎵</div>
+          <div class="ctile ctile-g">🍲</div>
+          <div class="ctile ctile-b">💬</div>
+          <div class="ctile ctile-b">🌴</div>
+          <div class="ctile ctile-r">❤️</div>
+          <div class="ctile ctile-g">✨</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── AMBASSADOR ─── -->
+<section class="s" id="ambassador">
+  <div class="wrap">
+    <div class="label">Ambassador program</div>
+    <div class="heading serif" style="margin-bottom:56px">Earn while you<br><em>spread the love.</em></div>
+    <div class="amb-wrap">
+      <div class="reveal">
+        <p style="font-size:15px;line-height:1.8;color:var(--ink2);margin-bottom:4px">Join our founding ambassador team. Share Koneksyon with your community and earn recurring commissions — with a real contract and no vague promises.</p>
+        <div class="comm-table">
+          <div class="cr cr-hdr">
+            <span>Plan</span><span>Price</span><span>You earn</span>
+          </div>
+          <div class="cr">
+            <span class="cr-plan">Monthly</span>
+            <span class="cr-price">$12.99/mo</span>
+            <span class="cr-earn">$2.00 / mo</span>
+          </div>
+          <div class="cr">
+            <span class="cr-plan">3 Months</span>
+            <span class="cr-price">$32.99</span>
+            <span class="cr-earn">$5.00</span>
+          </div>
+          <div class="cr">
+            <span class="cr-plan">6 Months</span>
+            <span class="cr-price">$59.99</span>
+            <span class="cr-earn">$8.00</span>
+          </div>
+          <div class="cr">
+            <span class="cr-plan">12 Months</span>
+            <span class="cr-price">$99.99</span>
+            <span class="cr-earn">$12.00</span>
+          </div>
+          <div class="cr">
+            <span class="cr-plan" style="color:var(--ink2)">Boosts</span>
+            <span class="cr-price">—</span>
+            <span class="cr-zero">Not eligible</span>
+          </div>
+          <div class="cr">
+            <span class="cr-plan" style="color:var(--ink2)">Konekt+</span>
+            <span class="cr-price">—</span>
+            <span class="cr-zero">Not eligible</span>
+          </div>
+        </div>
+        <div style="margin-top:24px">
+          <a class="btn-primary" href="mailto:support@koneksyondatingapp.com?subject=Ambassador%20Program">Apply to be an Ambassador →</a>
+        </div>
+      </div>
+      <div class="reveal">
+        <div class="amb-features">
+          <div class="af">
+            <div class="af-icon af-icon-r">🎁</div>
+            <div>
+              <div class="af-title">Free Premium access</div>
+              <div class="af-body">Active ambassadors get free Koneksyon Premium for the full duration of their agreement.</div>
+            </div>
+          </div>
+          <div class="af">
+            <div class="af-icon af-icon-b">📊</div>
+            <div>
+              <div class="af-title">Real-time dashboard</div>
+              <div class="af-body">Track every referral, see payment status, and request payouts — all inside the app under Settings → Ambassador Portal.</div>
+            </div>
+          </div>
+          <div class="af">
+            <div class="af-icon af-icon-g">💸</div>
+            <div>
+              <div class="af-title">$1 off for your referrals</div>
+              <div class="af-body">New users who use your code get their first month at $11.99. You still earn the full commission.</div>
+            </div>
+          </div>
+          <div class="af">
+            <div class="af-icon af-icon-p">⏱️</div>
+            <div>
+              <div class="af-title">Up to 12 months recurring</div>
+              <div class="af-body">Monthly commissions keep coming as long as your referral stays subscribed — for up to 12 months per person.</div>
+            </div>
+          </div>
+          <div class="af">
+            <div class="af-icon af-icon-r">📄</div>
+            <div>
+              <div class="af-title">Real contract. No surprises.</div>
+              <div class="af-body">A signed agreement with Zanara Labs LLC. Clear terms, clear expectations, no vague promises.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── CTA ─── -->
+<section class="s">
+  <div class="wrap">
+    <div class="cta-block reveal">
+      <div class="label" style="color:var(--gold)">Ready?</div>
+      <div class="heading serif">Your <em>Koneksyon</em><br>is waiting.</div>
+      <p class="cta-sub">Download free. Find your vibe. Build something real. Caribbean-inspired, open to everyone.</p>
+      <div class="cta-btns">
+        <a class="btn-primary" href="download.html">Download Free →</a>
+        <a class="btn-ghost" href="community-guidelines.html">Community Guidelines</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── FOOTER ─── -->
+<footer>
+  <div class="wrap">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-brand">
+          <img src="koneksyon-logo-white.png" alt="Koneksyon"
+            onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+          <div class="footer-brand-fallback" style="display:none">
+            <div class="fbf-mark">K</div>
+            <span class="fbf-name serif">Koneksyon</span>
+          </div>
+        </div>
+        <p class="footer-desc">Caribbean-inspired dating and social connection. Built for authenticity, safety, language, and culture. Open to everyone.</p>
+        <div class="footer-flags">🇭🇹 🇯🇲 🇩🇴 🇹🇹 🇵🇷 🇨🇺 🇧🇧 🇱🇨 🇨🇼 🇬🇩</div>
+      </div>
+      <div>
+        <div class="footer-col-title">App</div>
+        <div class="footer-links">
+          <a href="#features">Features</a>
+          <a href="#islands">Islands</a>
+          <a href="#culture">Culture</a>
+          <a href="#ambassador">Ambassador</a>
+          <a href="download.html">Download</a>
+        </div>
+      </div>
+      <div>
+        <div class="footer-col-title">Legal</div>
+        <div class="footer-links">
+          <a href="privacy.html">Privacy Policy</a>
+          <a href="terms.html">Terms of Service</a>
+          <a href="cookies.html">Cookie Policy</a>
+          <a href="community-guidelines.html">Guidelines</a>
+        </div>
+      </div>
+      <div>
+        <div class="footer-col-title">Contact</div>
+        <div class="footer-links">
+          <a href="mailto:support@koneksyondatingapp.com">Support</a>
+          <a href="mailto:privacy@koneksyondatingapp.com">Privacy</a>
+          <a href="mailto:support@koneksyondatingapp.com?subject=Ambassador">Ambassador</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span class="footer-copy">© 2025 Zanara Labs LLC. All rights reserved. &nbsp;·&nbsp; support@koneksyondatingapp.com</span>
+      <span class="footer-copy">Made with ❤️ for the diaspora</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+// ── Sticky nav
+const nav = document.getElementById('nav');
+const onScroll = () => nav.classList.toggle('stuck', window.scrollY > 70);
+window.addEventListener('scroll', onScroll, {passive:true});
+
+// ── Scroll reveal
+const ro = new IntersectionObserver(entries => {
+  entries.forEach((e,i) => {
+    if(e.isIntersecting){
+      setTimeout(() => e.target.classList.add('on'), i * 60);
+    }
+  });
+}, {threshold:.08});
+document.querySelectorAll('.reveal, .gc, .island, .af, .cr:not(.cr-hdr), .stat, .ctile').forEach(el => {
+  el.classList.add('reveal');
+  ro.observe(el);
+});
+</script>
+</body>
+</html>
