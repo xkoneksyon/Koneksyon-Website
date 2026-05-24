@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Terms of Service — Koneksyon</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600&family=Instrument+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&family=DM+Mono&display=swap" rel="stylesheet">
+<style>
+:root{color-scheme:light dark;--bg:#FAFAF8;--bg2:#F3F1EC;--bg3:#E8E5DE;--ink:#0C0C0A;--ink2:rgba(12,12,10,.58);--ink3:rgba(12,12,10,.32);--line:rgba(12,12,10,.09);--line2:rgba(12,12,10,.16);--coral:#C93B1A;--gold:#C89B0A;--teal:#0A9EAA;--coral-glow:rgba(201,59,26,.18)}
+@media(prefers-color-scheme:dark){:root{--bg:#09090B;--bg2:#111113;--bg3:#1A1A1E;--ink:#F5F4F0;--ink2:rgba(245,244,240,.58);--ink3:rgba(245,244,240,.30);--line:rgba(245,244,240,.08);--line2:rgba(245,244,240,.14);--coral:#E04B27;--gold:#D4A81A;--teal:#14B8C4;--coral-glow:rgba(224,75,39,.22)}}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Instrument Sans',system-ui,sans-serif;background:var(--bg);color:var(--ink);line-height:1.7;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:9999;opacity:.03;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)'/%3E%3C/svg%3E");background-size:200px}
+
+/* ── NAV ── */
+nav{position:fixed;top:0;left:0;right:0;z-index:900;display:flex;align-items:center;justify-content:space-between;padding:22px 52px;transition:padding .4s,background .4s,backdrop-filter .4s,border-color .4s;border-bottom:1px solid transparent}
+nav.stuck{padding:14px 52px;background:rgba(9,9,11,.88);backdrop-filter:blur(32px) saturate(200%);border-color:var(--line)}
+@media(prefers-color-scheme:light){nav.stuck{background:rgba(250,250,248,.92)}}
+.nav-logo{display:flex;align-items:center;gap:11px;text-decoration:none}
+.nav-logo img{height:38px;width:auto;display:block}
+.nav-logo-fb{width:36px;height:36px;background:var(--coral);border-radius:8px;display:grid;place-items:center;font-family:'Cormorant Garamond',serif;font-size:20px;font-weight:700;font-style:italic;color:#fff}
+.nav-wordmark{font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:600;color:var(--ink);letter-spacing:-.01em}
+.nav-links{display:flex;align-items:center;gap:34px}
+.nav-links a{font-size:13px;font-weight:500;color:var(--ink2);text-decoration:none;transition:color .2s}
+.nav-links a:hover{color:var(--ink)}
+.btn-nav{display:inline-flex;align-items:center;gap:6px;padding:10px 22px;border-radius:999px;background:var(--coral);color:#fff;font-family:'Instrument Sans',sans-serif;font-size:13px;font-weight:600;text-decoration:none;box-shadow:0 6px 28px var(--coral-glow);transition:transform .2s,box-shadow .2s}
+.btn-nav:hover{transform:translateY(-1px);box-shadow:0 10px 38px var(--coral-glow)}
+
+/* ── PAGE HEADER ── */
+.page-header{padding:160px 52px 80px;text-align:center;position:relative;overflow:hidden;border-bottom:1px solid var(--line)}
+.page-header::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 60% 80% at 50% 0%,var(--coral-glow),transparent 60%);pointer-events:none}
+.page-header-inner{position:relative;z-index:1;max-width:700px;margin:0 auto}
+.ph-label{font-family:'DM Mono',monospace;font-size:10px;font-weight:400;letter-spacing:.2em;text-transform:uppercase;color:var(--coral);margin-bottom:16px}
+.ph-title{font-family:'Cormorant Garamond',serif;font-size:clamp(48px,7vw,88px);font-weight:300;line-height:.9;letter-spacing:-.04em;color:var(--ink)}
+.ph-title strong{font-weight:700}
+.ph-sub{margin-top:20px;font-size:15px;color:var(--ink2);line-height:1.7}
+.ph-meta{display:flex;align-items:center;justify-content:center;gap:24px;margin-top:28px;flex-wrap:wrap}
+.ph-chip{display:inline-flex;align-items:center;gap:7px;padding:8px 16px;border:1px solid var(--line2);border-radius:999px;font-size:12px;font-weight:600;color:var(--ink2);background:var(--bg2)}
+
+/* ── LAYOUT ── */
+.page-wrap{display:grid;grid-template-columns:260px 1fr;gap:0;max-width:1200px;margin:0 auto;padding:0 52px 100px;align-items:start}
+
+/* ── TOC SIDEBAR ── */
+.toc{position:sticky;top:100px;padding:32px 0 32px 0;border-right:1px solid var(--line);padding-right:32px;margin-top:60px}
+.toc-title{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--ink3);margin-bottom:18px}
+.toc-list{list-style:none;display:flex;flex-direction:column;gap:2px}
+.toc-list a{font-size:12px;font-weight:500;color:var(--ink2);text-decoration:none;padding:6px 10px;border-radius:8px;display:block;transition:background .2s,color .2s;letter-spacing:.01em}
+.toc-list a:hover{background:var(--bg3);color:var(--ink)}
+
+/* ── CONTENT ── */
+.content{padding:60px 0 0 56px}
+.section{margin-bottom:52px;padding-bottom:52px;border-bottom:1px solid var(--line)}
+.section:last-child{border-bottom:none}
+.section-num{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--coral);margin-bottom:10px}
+.section-title{font-family:'Cormorant Garamond',serif;font-size:clamp(26px,3vw,36px);font-weight:600;letter-spacing:-.03em;color:var(--ink);margin-bottom:18px;line-height:1.1}
+.section p{font-size:15px;line-height:1.82;color:var(--ink2);margin-bottom:14px}
+.section p:last-child{margin-bottom:0}
+.section ul{margin:14px 0 14px 20px;display:flex;flex-direction:column;gap:8px}
+.section ul li{font-size:15px;line-height:1.7;color:var(--ink2)}
+.section ul li::marker{color:var(--coral)}
+
+/* warning box */
+.warn-box{border:1px solid rgba(201,59,26,.25);border-radius:16px;padding:20px 24px;background:rgba(201,59,26,.06);margin:18px 0}
+.warn-box p{font-size:14px;font-weight:600;color:var(--coral);margin:0;line-height:1.65}
+
+/* ── FOOTER ── */
+footer{border-top:1px solid var(--line);padding:48px 52px 32px}
+.footer-inner{max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap}
+.footer-brand{display:flex;align-items:center;gap:10px;text-decoration:none}
+.footer-brand img{height:32px;width:auto}
+.footer-brand-fb{width:30px;height:30px;background:var(--coral);border-radius:7px;display:grid;place-items:center;font-family:'Cormorant Garamond',serif;font-size:16px;font-weight:700;font-style:italic;color:#fff}
+.footer-brand-name{font-family:'Cormorant Garamond',serif;font-size:18px;font-weight:600;color:var(--ink)}
+.footer-links{display:flex;align-items:center;gap:20px;flex-wrap:wrap}
+.footer-links a{font-size:13px;font-weight:500;color:var(--ink2);text-decoration:none;transition:color .2s}
+.footer-links a:hover{color:var(--ink)}
+.footer-copy{font-size:12px;color:var(--ink3)}
+
+@media(max-width:900px){
+  nav{padding:14px 20px}
+  nav.stuck{padding:10px 20px}
+  .nav-links{display:none}
+  .page-header{padding:120px 20px 60px}
+  .page-wrap{grid-template-columns:1fr;padding:0 20px 60px}
+  .toc{display:none}
+  .content{padding:40px 0 0}
+  footer{padding:36px 20px 24px}
+}
+</style>
+</head>
+<body>
+
+<nav id="nav">
+  <a class="nav-logo" href="index.html">
+    <img src="koneksyon-logo-color.png" alt="Koneksyon" onerror="this.style.display='none';this.nextElementSibling.style.display='grid'">
+    <div class="nav-logo-fb" style="display:none">K</div>
+    <span class="nav-wordmark">Koneksyon</span>
+  </a>
+  <div class="nav-links">
+    <a href="index.html">Home</a>
+    <a href="index.html#features">Features</a>
+    <a href="privacy.html">Privacy</a>
+    <a href="terms.html" style="color:var(--coral)">Terms</a>
+    <a href="cookies.html">Cookies</a>
+    <a href="community-guidelines.html">Guidelines</a>
+  </div>
+  <a class="btn-nav" href="download.html">Download →</a>
+</nav>
+
+<!-- PAGE HEADER -->
+<div class="page-header">
+  <div class="page-header-inner">
+    <div class="ph-label">Legal</div>
+    <div class="ph-title"><strong>Terms of</strong><br>Service</div>
+    <p class="ph-sub">Please read these terms carefully before using Koneksyon. By creating an account you agree to be bound by these terms.</p>
+    <div class="ph-meta">
+      <div class="ph-chip">📅 Effective April 17, 2026</div>
+      <div class="ph-chip">🏢 Zanara Labs LLC · Florida, USA</div>
+      <div class="ph-chip">✉️ support@koneksyondatingapp.com</div>
+    </div>
+  </div>
+</div>
+
+<!-- MAIN -->
+<div class="page-wrap">
+
+  <!-- TOC -->
+  <aside class="toc">
+    <div class="toc-title">Contents</div>
+    <ul class="toc-list">
+      <li><a href="#intro">Introduction</a></li>
+      <li><a href="#s1">1. Definitions</a></li>
+      <li><a href="#s2">2. Eligibility</a></li>
+      <li><a href="#s3">3. Account Registration</a></li>
+      <li><a href="#s4">4. Profile Requirements</a></li>
+      <li><a href="#s5">5. Identity Verification</a></li>
+      <li><a href="#s6">6. Community Standards</a></li>
+      <li><a href="#s7">7. Prohibited Conduct</a></li>
+      <li><a href="#s8">8. Prohibited Content</a></li>
+      <li><a href="#s9">9. Content License</a></li>
+      <li><a href="#s10">10. Moderation</a></li>
+      <li><a href="#s11">11. Communications</a></li>
+      <li><a href="#s12">12. AI Systems</a></li>
+      <li><a href="#s13">13. Safety Disclaimer</a></li>
+      <li><a href="#s14">14. Offline Interactions</a></li>
+      <li><a href="#s15">15. Payments</a></li>
+      <li><a href="#s16">16. Refunds</a></li>
+      <li><a href="#s17">17. Third-Party Services</a></li>
+      <li><a href="#s18">18. Intellectual Property</a></li>
+      <li><a href="#s19">19. DMCA</a></li>
+      <li><a href="#s20">20. Privacy</a></li>
+      <li><a href="#s21">21. Warranties</a></li>
+      <li><a href="#s22">22. Liability</a></li>
+      <li><a href="#s23">23. Indemnification</a></li>
+      <li><a href="#s24">24. Termination</a></li>
+      <li><a href="#s25">25. Governing Law</a></li>
+      <li><a href="#s26">26. Arbitration</a></li>
+      <li><a href="#s27">27. Force Majeure</a></li>
+      <li><a href="#s28">28–44. Additional Terms</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </aside>
+
+  <!-- CONTENT -->
+  <div class="content">
+
+    <div class="section" id="intro">
+      <div class="section-num">Introduction</div>
+      <div class="section-title">About These Terms</div>
+      <p>These Terms of Service ("Terms") constitute a legally binding agreement between you and Zanara Labs LLC, a Florida limited liability company doing business as Koneksyon ("Koneksyon," "we," "us," or "our"), governing your access to and use of the Koneksyon platform, including mobile applications, websites, AI systems, communication tools, subscriptions, and related services.</p>
+      <p>By creating an account, accessing, downloading, installing, or using the Services, you acknowledge that you have read, understood, and agreed to these Terms, our Privacy Policy, Community Guidelines, Safety Guidelines, and all related policies.</p>
+      <p>Koneksyon is a Caribbean-inspired dating and social connection platform built around intentional, respectful, and authentic relationships. Designed with culture, community, and trust at its core, Koneksyon creates a safe and welcoming space where users can build real relationships — whether friendships, networking opportunities, or romantic connections.</p>
+      <p>The name Koneksyon comes from Haitian Creole, meaning "connection" in English, reflecting the platform's mission to bring people together through genuine interactions and meaningful experiences. Koneksyon is open to everyone.</p>
+    </div>
+
+    <div class="section" id="s1">
+      <div class="section-num">Section 1</div>
+      <div class="section-title">Definitions</div>
+      <p><strong>"Services"</strong> refers to the Koneksyon platform and all related products and offerings.</p>
+      <p><strong>"User"</strong> means any person accessing or using the Services.</p>
+      <p><strong>"User Content"</strong> includes messages, photos, videos, profile information, audio, metadata, and all uploaded content.</p>
+      <p><strong>"Affiliates"</strong> means subsidiaries, licensors, contractors, service providers, partners, successors, and assigns of Zanara Labs LLC.</p>
+    </div>
+
+    <div class="section" id="s2">
+      <div class="section-num">Section 2</div>
+      <div class="section-title">Eligibility</div>
+      <p>You must be at least eighteen (18) years old and legally permitted to use dating or networking services. Users subject to sanctions, export restrictions, or prior bans may not use the Services. Koneksyon may request age verification, government identification, biometric verification, or additional documentation at any time.</p>
+    </div>
+
+    <div class="section" id="s3">
+      <div class="section-num">Section 3</div>
+      <div class="section-title">Account Registration & Security</div>
+      <p>You agree to provide accurate and truthful account information. You may not impersonate others, create fake profiles, or create accounts on behalf of another person without authorization.</p>
+      <p>You are solely responsible for maintaining account confidentiality and all activities occurring under your account. Koneksyon is not responsible for unauthorized account access, phishing attacks, credential theft, or user negligence.</p>
+    </div>
+
+    <div class="section" id="s4">
+      <div class="section-num">Section 4</div>
+      <div class="section-title">Profile Requirements</div>
+      <p>Koneksyon may require profile completion, approved profile photos, identity verification, moderation approval, and compliance with Community Guidelines. Koneksyon reserves the right to limit visibility, restrict features, suspend accounts, or remove profiles that do not meet platform requirements.</p>
+    </div>
+
+    <div class="section" id="s5">
+      <div class="section-num">Section 5</div>
+      <div class="section-title">Identity Verification</div>
+      <p>Koneksyon may use automated systems, AI technologies, facial comparison systems, third-party verification providers, behavioral analysis, and manual review to verify users.</p>
+      <p>Verification systems reduce risk but do not guarantee user identity, authenticity, safety, intentions, conduct, or compatibility. Koneksyon does not conduct criminal background checks on users.</p>
+    </div>
+
+    <div class="section" id="s6">
+      <div class="section-num">Section 6</div>
+      <div class="section-title">Community Standards</div>
+      <p>Users must interact respectfully, lawfully, authentically, and responsibly both on and off the platform. Violations may result in warnings, feature restrictions, visibility limitations, suspensions, permanent bans, or legal action.</p>
+    </div>
+
+    <div class="section" id="s7">
+      <div class="section-num">Section 7</div>
+      <div class="section-title">Prohibited Conduct</div>
+      <p>Users may not engage in harassment, hate speech, threats, scams, impersonation, stalking, exploitation, financial solicitation, cryptocurrency schemes, phishing, fraud, scraping, automation, or malicious conduct.</p>
+      <p>Users may not manipulate algorithms, use bots or AI agents, reverse engineer the platform, upload malware, bypass moderation systems, or create duplicate accounts after bans.</p>
+    </div>
+
+    <div class="section" id="s8">
+      <div class="section-num">Section 8</div>
+      <div class="section-title">Prohibited Content</div>
+      <p>Users may not upload content that is illegal, sexually explicit, exploitative, hateful, violent, misleading, infringing, harmful, deceptive, or dangerous.</p>
+      <p>Koneksyon may remove content immediately and without notice.</p>
+    </div>
+
+    <div class="section" id="s9">
+      <div class="section-num">Section 9</div>
+      <div class="section-title">User Content License</div>
+      <p>By uploading content, you grant Koneksyon and Zanara Labs LLC a worldwide, perpetual, irrevocable, transferable, sublicensable, royalty-free license to host, store, display, reproduce, distribute, modify, analyze, moderate, process, and use User Content for platform operation, safety, moderation, fraud prevention, AI systems, marketing, and platform improvement.</p>
+    </div>
+
+    <div class="section" id="s10">
+      <div class="section-num">Section 10</div>
+      <div class="section-title">Moderation & Enforcement</div>
+      <p>Koneksyon reserves the right, but not the obligation, to monitor, review, moderate, restrict, suppress, remove, investigate, limit visibility of, demonetize, suspend, or terminate accounts, content, messages, interactions, or access to portions of the Services.</p>
+      <p>Enforcement may occur with or without notice and for any reason including safety, operational, reputational, fraud prevention, moderation, legal compliance, or business purposes.</p>
+    </div>
+
+    <div class="section" id="s11">
+      <div class="section-num">Section 11</div>
+      <div class="section-title">Communication Monitoring</div>
+      <p>Koneksyon may monitor, analyze, review, preserve, store, moderate, or disclose communications exchanged through the Services for moderation, safety, investigations, fraud prevention, legal compliance, operational purposes, and AI system training.</p>
+    </div>
+
+    <div class="section" id="s12">
+      <div class="section-num">Section 12</div>
+      <div class="section-title">Artificial Intelligence Systems</div>
+      <p>Koneksyon may use artificial intelligence, machine learning systems, recommendation engines, ranking systems, and automated moderation technologies.</p>
+      <p>AI systems may generate inaccurate or unexpected outcomes. Koneksyon does not guarantee compatibility, visibility, engagement rates, communication success, or relationship outcomes.</p>
+    </div>
+
+    <div class="section" id="s13">
+      <div class="section-num">Section 13</div>
+      <div class="section-title">Safety Disclaimer</div>
+      <p>Koneksyon does not guarantee user identity, conduct, intentions, authenticity, safety, compatibility, or relationship outcomes.</p>
+      <p>Users interact at their own risk. Koneksyon has no duty to monitor every interaction, verify every statement, or prevent all misconduct.</p>
+    </div>
+
+    <div class="section" id="s14">
+      <div class="section-num">Section 14</div>
+      <div class="section-title">Offline Interactions</div>
+      <p>Koneksyon is not responsible for offline meetings, travel arrangements, financial transactions, gifts, romantic relationships, assaults, emotional harm, sexually transmitted infections, pregnancy, property damage, or criminal conduct occurring between users.</p>
+    </div>
+
+    <div class="section" id="s15">
+      <div class="section-num">Section 15</div>
+      <div class="section-title">Payments, Subscriptions & Digital Features</div>
+      <p>Certain features may require payment including subscriptions, boosts, premium visibility, likes, virtual goods, and digital items.</p>
+      <p>Subscriptions may automatically renew unless canceled. Digital items have no cash value, are non-transferable, revocable, may expire, and are generally non-refundable.</p>
+    </div>
+
+    <div class="section" id="s16">
+      <div class="section-num">Section 16</div>
+      <div class="section-title">Refunds</div>
+      <p>Except where required by law, all purchases are final and non-refundable. Koneksyon may deny refund requests involving fraud, abuse, policy violations, or chargeback misuse.</p>
+    </div>
+
+    <div class="section" id="s17">
+      <div class="section-num">Section 17</div>
+      <div class="section-title">Third-Party Services</div>
+      <p>The Services may integrate third-party systems including payment processors, cloud providers, analytics providers, AI vendors, mapping services, verification providers, and mobile platforms. Koneksyon is not responsible for third-party systems, services, outages, or policies.</p>
+    </div>
+
+    <div class="section" id="s18">
+      <div class="section-num">Section 18</div>
+      <div class="section-title">Intellectual Property</div>
+      <p>All platform software, branding, graphics, logos, interfaces, algorithms, systems, and technology belong to Zanara Labs LLC or its licensors. Users may not reproduce, reverse engineer, modify, exploit, or distribute platform technology without written permission.</p>
+    </div>
+
+    <div class="section" id="s19">
+      <div class="section-num">Section 19 & 37</div>
+      <div class="section-title">Copyright & DMCA Policy</div>
+      <p>Koneksyon respects intellectual property rights and may remove allegedly infringing material. Repeat infringers may be permanently removed from the platform.</p>
+      <p>If you believe content on the Services infringes your copyright, submit a DMCA notice including:</p>
+      <ul>
+        <li>Your full legal name and contact information</li>
+        <li>Identification of the copyrighted work</li>
+        <li>Identification of the allegedly infringing material</li>
+        <li>A good-faith statement that the use is unauthorized</li>
+        <li>A statement under penalty of perjury that your notice is accurate</li>
+        <li>Your physical or electronic signature</li>
+      </ul>
+      <p style="margin-top:14px">Send DMCA notices to: <strong>support@koneksyondatingapp.com</strong></p>
+    </div>
+
+    <div class="section" id="s20">
+      <div class="section-num">Section 20</div>
+      <div class="section-title">Privacy</div>
+      <p>Use of the Services is governed by the <a href="privacy.html" style="color:var(--coral);font-weight:600">Koneksyon Privacy Policy</a>. By using the Services, users consent to the collection, storage, analysis, processing, and sharing of information as described therein.</p>
+    </div>
+
+    <div class="section" id="s21">
+      <div class="section-num">Section 21</div>
+      <div class="section-title">Disclaimer of Warranties</div>
+      <div class="warn-box">
+        <p>THE SERVICES ARE PROVIDED "AS IS," "AS AVAILABLE," AND "WITH ALL FAULTS." KONEKSYON DISCLAIMS ALL WARRANTIES INCLUDING MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, NON-INFRINGEMENT, SECURITY, RELIABILITY, ACCURACY, AVAILABILITY, AND COMPATIBILITY.</p>
+      </div>
+    </div>
+
+    <div class="section" id="s22">
+      <div class="section-num">Section 22</div>
+      <div class="section-title">Limitation of Liability</div>
+      <div class="warn-box">
+        <p>TO THE MAXIMUM EXTENT PERMITTED BY LAW, KONEKSYON, ZANARA LABS LLC, ITS AFFILIATES, CONTRACTORS, LICENSORS, EMPLOYEES, OFFICERS, PARTNERS, AND SERVICE PROVIDERS SHALL NOT BE LIABLE FOR INDIRECT, INCIDENTAL, CONSEQUENTIAL, SPECIAL, PUNITIVE, OR EXEMPLARY DAMAGES. MAXIMUM LIABILITY SHALL NOT EXCEED THE GREATER OF $100 USD OR THE AMOUNT PAID BY THE USER DURING THE PRECEDING TWELVE MONTHS.</p>
+      </div>
+    </div>
+
+    <div class="section" id="s23">
+      <div class="section-num">Section 23</div>
+      <div class="section-title">Indemnification</div>
+      <p>Users agree to defend, indemnify, and hold harmless Koneksyon, Zanara Labs LLC, and its affiliates from claims, damages, liabilities, losses, expenses, and legal fees arising from user conduct, user content, violations of law, or violations of these Terms.</p>
+    </div>
+
+    <div class="section" id="s24">
+      <div class="section-num">Section 24</div>
+      <div class="section-title">Termination</div>
+      <p>Koneksyon may suspend, restrict, investigate, limit visibility of, demonetize, or terminate accounts at any time, with or without notice, and for any reason including safety, legal compliance, fraud prevention, moderation, operational concerns, reputational concerns, or business purposes.</p>
+    </div>
+
+    <div class="section" id="s25">
+      <div class="section-num">Section 25</div>
+      <div class="section-title">Governing Law</div>
+      <p>These Terms are governed by the laws of the State of Florida, United States, without regard to conflict-of-law principles.</p>
+    </div>
+
+    <div class="section" id="s26">
+      <div class="section-num">Section 26</div>
+      <div class="section-title">Dispute Resolution & Arbitration</div>
+      <p>Disputes shall be resolved through binding individual arbitration. Users waive the right to jury trials, class actions, representative proceedings, and class arbitrations. Eligible claims may proceed in small claims court where permitted by law.</p>
+    </div>
+
+    <div class="section" id="s27">
+      <div class="section-num">Section 27</div>
+      <div class="section-title">Force Majeure</div>
+      <p>Koneksyon is not liable for delays, interruptions, failures, or damages caused by cyberattacks, outages, internet failures, natural disasters, labor disputes, pandemics, infrastructure failures, governmental actions, or third-party disruptions.</p>
+    </div>
+
+    <div class="section" id="s28">
+      <div class="section-num">Sections 28–44</div>
+      <div class="section-title">Additional Terms</div>
+      <p><strong>International Use (28):</strong> Users outside the US are responsible for compliance with local laws and consent to data processing in the United States and other jurisdictions.</p>
+      <p><strong>Electronic Communications (29):</strong> Users consent to receive electronic communications including agreements, notices, policy updates, moderation notices, safety alerts, and marketing communications.</p>
+      <p><strong>Changes to Terms (30):</strong> Koneksyon may modify these Terms at any time. Continued use constitutes acceptance of revised Terms.</p>
+      <p><strong>Severability (31):</strong> If any provision is found unenforceable, remaining provisions remain enforceable.</p>
+      <p><strong>No Waiver (32):</strong> Failure to enforce any provision does not waive Koneksyon's right to enforce it later.</p>
+      <p><strong>Assignment (33):</strong> Koneksyon may assign these Terms in connection with mergers, acquisitions, financing, or asset sales.</p>
+      <p><strong>Survival (34):</strong> Liability limitations, arbitration, indemnification, intellectual property protections, and dispute resolution provisions survive termination.</p>
+      <p><strong>Entire Agreement (35):</strong> These Terms, together with the Privacy Policy, Community Guidelines, Safety Guidelines, and related policies, constitute the complete agreement.</p>
+      <p><strong>Minors & COPPA (38):</strong> The Services are strictly for adults 18+. Koneksyon does not knowingly allow minors to use the platform or collect their data.</p>
+      <p><strong>App Store Compliance (39):</strong> These Terms are between you and Koneksyon — not Apple or Google. Platform providers have no support or maintenance obligations.</p>
+      <p><strong>GDPR (40):</strong> EEA and UK users have rights including access, correction, deletion, restriction, portability, and withdrawal of consent under applicable data protection laws.</p>
+      <p><strong>California Privacy (41):</strong> California residents have rights under CCPA/CPRA including access, deletion, correction, and limiting use of sensitive personal information. Contact: support@koneksyondatingapp.com</p>
+      <p><strong>Subscription Cancellation (42):</strong> Cancel anytime through device settings. Deleting the app does not cancel subscriptions. Payments are generally non-refundable except where required by law.</p>
+      <p><strong>Law Enforcement (43):</strong> Koneksyon may preserve or disclose information to comply with law, respond to legal requests, or protect users and the public.</p>
+      <p><strong>Repeat Offenders (44):</strong> Koneksyon maintains zero tolerance for safety violations, fraud, exploitation, harassment, or repeated policy violations. Enforcement may include permanent bans and device blocks.</p>
+    </div>
+
+    <div class="section" id="contact">
+      <div class="section-num">Contact</div>
+      <div class="section-title">Get in Touch</div>
+      <p><strong>Koneksyon</strong> — operated by Zanara Labs LLC<br>Florida, United States</p>
+      <p>Support & Legal: <a href="mailto:support@koneksyondatingapp.com" style="color:var(--coral);font-weight:600">support@koneksyondatingapp.com</a></p>
+      <p>Privacy: <a href="mailto:privacy@koneksyondatingapp.com" style="color:var(--coral);font-weight:600">privacy@koneksyondatingapp.com</a></p>
+    </div>
+
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <a class="footer-brand" href="index.html">
+      <img src="koneksyon-logo-color.png" alt="Koneksyon" onerror="this.style.display='none';this.nextElementSibling.style.display='grid'">
+      <div class="footer-brand-fb" style="display:none">K</div>
+      <span class="footer-brand-name">Koneksyon</span>
+    </a>
+    <div class="footer-links">
+      <a href="index.html">Home</a>
+      <a href="privacy.html">Privacy</a>
+      <a href="terms.html">Terms</a>
+      <a href="cookies.html">Cookies</a>
+      <a href="community-guidelines.html">Guidelines</a>
+      <a href="mailto:support@koneksyondatingapp.com">Contact</a>
+    </div>
+    <span class="footer-copy">© 2026 Zanara Labs LLC</span>
+  </div>
+</footer>
+
+<script>
+const nav = document.getElementById('nav');
+window.addEventListener('scroll', () => nav.classList.toggle('stuck', window.scrollY > 60), {passive:true});
+</script>
+</body>
+</html>

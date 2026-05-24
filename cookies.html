@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cookie Policy — Koneksyon</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600&family=Instrument+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&family=DM+Mono&display=swap" rel="stylesheet">
+<style>
+:root{color-scheme:light dark;--bg:#FAFAF8;--bg2:#F3F1EC;--bg3:#E8E5DE;--ink:#0C0C0A;--ink2:rgba(12,12,10,.58);--ink3:rgba(12,12,10,.32);--line:rgba(12,12,10,.09);--line2:rgba(12,12,10,.16);--coral:#C93B1A;--gold:#C89B0A;--teal:#0A9EAA;--coral-glow:rgba(201,59,26,.18)}
+@media(prefers-color-scheme:dark){:root{--bg:#09090B;--bg2:#111113;--bg3:#1A1A1E;--ink:#F5F4F0;--ink2:rgba(245,244,240,.58);--ink3:rgba(245,244,240,.30);--line:rgba(245,244,240,.08);--line2:rgba(245,244,240,.14);--coral:#E04B27;--gold:#D4A81A;--teal:#14B8C4;--coral-glow:rgba(224,75,39,.22)}}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Instrument Sans',system-ui,sans-serif;background:var(--bg);color:var(--ink);line-height:1.7;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:9999;opacity:.03;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)'/%3E%3C/svg%3E");background-size:200px}
+nav{position:fixed;top:0;left:0;right:0;z-index:900;display:flex;align-items:center;justify-content:space-between;padding:22px 52px;transition:padding .4s,background .4s,backdrop-filter .4s,border-color .4s;border-bottom:1px solid transparent}
+nav.stuck{padding:14px 52px;background:rgba(9,9,11,.88);backdrop-filter:blur(32px) saturate(200%);border-color:var(--line)}
+@media(prefers-color-scheme:light){nav.stuck{background:rgba(250,250,248,.92)}}
+.nav-logo{display:flex;align-items:center;gap:11px;text-decoration:none}
+.nav-logo img{height:38px;width:auto;display:block}
+.nav-logo-fb{width:36px;height:36px;background:var(--coral);border-radius:8px;display:grid;place-items:center;font-family:'Cormorant Garamond',serif;font-size:20px;font-weight:700;font-style:italic;color:#fff}
+.nav-wordmark{font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:600;color:var(--ink);letter-spacing:-.01em}
+.nav-links{display:flex;align-items:center;gap:34px}
+.nav-links a{font-size:13px;font-weight:500;color:var(--ink2);text-decoration:none;transition:color .2s}
+.nav-links a:hover{color:var(--ink)}
+.btn-nav{display:inline-flex;align-items:center;gap:6px;padding:10px 22px;border-radius:999px;background:var(--coral);color:#fff;font-family:'Instrument Sans',sans-serif;font-size:13px;font-weight:600;text-decoration:none;box-shadow:0 6px 28px var(--coral-glow);transition:transform .2s,box-shadow .2s}
+.btn-nav:hover{transform:translateY(-1px);box-shadow:0 10px 38px var(--coral-glow)}
+.page-header{padding:160px 52px 80px;text-align:center;position:relative;overflow:hidden;border-bottom:1px solid var(--line)}
+.page-header::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 60% 80% at 50% 0%,var(--coral-glow),transparent 60%);pointer-events:none}
+.page-header-inner{position:relative;z-index:1;max-width:700px;margin:0 auto}
+.ph-label{font-family:'DM Mono',monospace;font-size:10px;font-weight:400;letter-spacing:.2em;text-transform:uppercase;color:var(--coral);margin-bottom:16px}
+.ph-title{font-family:'Cormorant Garamond',serif;font-size:clamp(48px,7vw,88px);font-weight:300;line-height:.9;letter-spacing:-.04em;color:var(--ink)}
+.ph-title strong{font-weight:700}
+.ph-sub{margin-top:20px;font-size:15px;color:var(--ink2);line-height:1.7}
+.ph-meta{display:flex;align-items:center;justify-content:center;gap:24px;margin-top:28px;flex-wrap:wrap}
+.ph-chip{display:inline-flex;align-items:center;gap:7px;padding:8px 16px;border:1px solid var(--line2);border-radius:999px;font-size:12px;font-weight:600;color:var(--ink2);background:var(--bg2)}
+.page-wrap{display:grid;grid-template-columns:260px 1fr;gap:0;max-width:1200px;margin:0 auto;padding:0 52px 100px;align-items:start}
+.toc{position:sticky;top:100px;padding:32px 32px 32px 0;border-right:1px solid var(--line);margin-top:60px}
+.toc-title{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--ink3);margin-bottom:18px}
+.toc-list{list-style:none;display:flex;flex-direction:column;gap:2px}
+.toc-list a{font-size:12px;font-weight:500;color:var(--ink2);text-decoration:none;padding:6px 10px;border-radius:8px;display:block;transition:background .2s,color .2s}
+.toc-list a:hover{background:var(--bg3);color:var(--ink)}
+.content{padding:60px 0 0 56px}
+.section{margin-bottom:52px;padding-bottom:52px;border-bottom:1px solid var(--line)}
+.section:last-child{border-bottom:none}
+.section-num{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--coral);margin-bottom:10px}
+.section-title{font-family:'Cormorant Garamond',serif;font-size:clamp(26px,3vw,36px);font-weight:600;letter-spacing:-.03em;color:var(--ink);margin-bottom:18px;line-height:1.1}
+.section p{font-size:15px;line-height:1.82;color:var(--ink2);margin-bottom:14px}
+.section p:last-child{margin-bottom:0}
+.section ul{margin:14px 0 14px 20px;display:flex;flex-direction:column;gap:8px}
+.section ul li{font-size:15px;line-height:1.7;color:var(--ink2)}
+.section ul li::marker{color:var(--coral)}
+.cookie-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:20px}
+.cookie-card{border:1px solid var(--line);border-radius:16px;padding:20px;background:var(--bg2)}
+.cc-icon{font-size:24px;margin-bottom:10px}
+.cc-title{font-size:14px;font-weight:700;color:var(--ink);margin-bottom:6px}
+.cc-body{font-size:13px;color:var(--ink2);line-height:1.6}
+.cc-badge{display:inline-flex;padding:3px 10px;border-radius:999px;font-size:10px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;margin-top:8px}
+.cc-required{background:rgba(201,59,26,.12);color:var(--coral)}
+.cc-optional{background:rgba(10,158,170,.12);color:var(--teal)}
+footer{border-top:1px solid var(--line);padding:48px 52px 32px}
+.footer-inner{max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap}
+.footer-brand{display:flex;align-items:center;gap:10px;text-decoration:none}
+.footer-brand img{height:32px;width:auto}
+.footer-brand-fb{width:30px;height:30px;background:var(--coral);border-radius:7px;display:grid;place-items:center;font-family:'Cormorant Garamond',serif;font-size:16px;font-weight:700;font-style:italic;color:#fff}
+.footer-brand-name{font-family:'Cormorant Garamond',serif;font-size:18px;font-weight:600;color:var(--ink)}
+.footer-links{display:flex;align-items:center;gap:20px;flex-wrap:wrap}
+.footer-links a{font-size:13px;font-weight:500;color:var(--ink2);text-decoration:none;transition:color .2s}
+.footer-links a:hover{color:var(--ink)}
+.footer-copy{font-size:12px;color:var(--ink3)}
+@media(max-width:900px){
+  nav{padding:14px 20px}nav.stuck{padding:10px 20px}.nav-links{display:none}
+  .page-header{padding:120px 20px 60px}.page-wrap{grid-template-columns:1fr;padding:0 20px 60px}
+  .toc{display:none}.content{padding:40px 0 0}.cookie-grid{grid-template-columns:1fr}
+  footer{padding:36px 20px 24px}
+}
+</style>
+</head>
+<body>
+
+<nav id="nav">
+  <a class="nav-logo" href="index.html">
+    <img src="koneksyon-logo-color.png" alt="Koneksyon" onerror="this.style.display='none';this.nextElementSibling.style.display='grid'">
+    <div class="nav-logo-fb" style="display:none">K</div>
+    <span class="nav-wordmark">Koneksyon</span>
+  </a>
+  <div class="nav-links">
+    <a href="index.html">Home</a>
+    <a href="index.html#features">Features</a>
+    <a href="privacy.html">Privacy</a>
+    <a href="terms.html">Terms</a>
+    <a href="cookies.html" style="color:var(--coral)">Cookies</a>
+    <a href="community-guidelines.html">Guidelines</a>
+  </div>
+  <a class="btn-nav" href="download.html">Download →</a>
+</nav>
+
+<div class="page-header">
+  <div class="page-header-inner">
+    <div class="ph-label">Legal</div>
+    <div class="ph-title"><strong>Cookie</strong><br>Policy</div>
+    <p class="ph-sub">This policy explains how Koneksyon uses cookies and similar technologies on our website.</p>
+    <div class="ph-meta">
+      <div class="ph-chip">📅 Effective April 17, 2026</div>
+      <div class="ph-chip">🏢 Zanara Labs LLC · Florida, USA</div>
+      <div class="ph-chip">✉️ privacy@koneksyondatingapp.com</div>
+    </div>
+  </div>
+</div>
+
+<div class="page-wrap">
+  <aside class="toc">
+    <div class="toc-title">Contents</div>
+    <ul class="toc-list">
+      <li><a href="#intro">Introduction</a></li>
+      <li><a href="#what">What Are Cookies</a></li>
+      <li><a href="#how">How We Use Them</a></li>
+      <li><a href="#types">Types of Cookies</a></li>
+      <li><a href="#supabase">Supabase & Providers</a></li>
+      <li><a href="#noad">No Ad Cookies</a></li>
+      <li><a href="#choices">Your Choices</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </aside>
+
+  <div class="content">
+
+    <div class="section" id="intro">
+      <div class="section-num">Introduction</div>
+      <div class="section-title">About This Policy</div>
+      <p>This Cookie Policy explains how Koneksyon, operated by Zanara Labs LLC, uses cookies and similar technologies on our website. Koneksyon is primarily a mobile dating and social connection app. The website may use only basic technologies necessary to operate the site, remember preferences, improve performance, and provide a secure experience.</p>
+    </div>
+
+    <div class="section" id="what">
+      <div class="section-num">What Are Cookies</div>
+      <div class="section-title">Cookies Explained</div>
+      <p>Cookies are small text files stored on your device by your browser when you visit a website. Similar technologies may include local storage, session storage, pixels, logs, or device identifiers. These technologies help websites remember your preferences and operate correctly across visits.</p>
+    </div>
+
+    <div class="section" id="how">
+      <div class="section-num">How We Use Them</div>
+      <div class="section-title">Our Use of Cookies</div>
+      <p>We may use cookies or local storage to:</p>
+      <ul>
+        <li>Remember your light or dark mode preference</li>
+        <li>Support basic website functionality</li>
+        <li>Improve page load performance</li>
+        <li>Understand general website usage patterns</li>
+        <li>Prevent abuse and protect against security risks</li>
+        <li>Keep you signed in to account features where applicable</li>
+      </ul>
+    </div>
+
+    <div class="section" id="types">
+      <div class="section-num">Types of Cookies</div>
+      <div class="section-title">Cookie Categories</div>
+      <div class="cookie-grid">
+        <div class="cookie-card">
+          <div class="cc-icon">⚙️</div>
+          <div class="cc-title">Essential Cookies</div>
+          <div class="cc-body">Required for the website to function. Cannot be disabled. Examples: session management, security tokens, authentication.</div>
+          <div class="cc-badge cc-required">Required</div>
+        </div>
+        <div class="cookie-card">
+          <div class="cc-icon">🎨</div>
+          <div class="cc-title">Preference Cookies</div>
+          <div class="cc-body">Remember your settings such as dark/light mode preference so you don't need to re-select each visit.</div>
+          <div class="cc-badge cc-optional">Optional</div>
+        </div>
+        <div class="cookie-card">
+          <div class="cc-icon">📊</div>
+          <div class="cc-title">Analytics Cookies</div>
+          <div class="cc-body">Help us understand how visitors use the website so we can improve performance and experience. No personal data is sold.</div>
+          <div class="cc-badge cc-optional">Optional</div>
+        </div>
+        <div class="cookie-card">
+          <div class="cc-icon">🔒</div>
+          <div class="cc-title">Security Cookies</div>
+          <div class="cc-body">Protect the website from spam, fraud, and unauthorized access. These cannot be disabled without affecting site security.</div>
+          <div class="cc-badge cc-required">Required</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section" id="supabase">
+      <div class="section-num">Service Providers</div>
+      <div class="section-title">Supabase & Infrastructure</div>
+      <p>Koneksyon uses Supabase for app infrastructure, authentication, database, and storage. If website features connect to Supabase, related cookies, local storage, or authentication tokens may be used to keep users signed in, secure sessions, and operate account-related features.</p>
+      <p>These are strictly operational and are never used for advertising or tracking.</p>
+    </div>
+
+    <div class="section" id="noad">
+      <div class="section-num">No Advertising</div>
+      <div class="section-title">No Ad Cookies</div>
+      <p>Koneksyon does not use third-party advertising cookies on this website. We do not sell personal information for advertising purposes. We do not allow advertising networks to place tracking cookies on our site.</p>
+      <p>Koneksyon products are ad-free.</p>
+    </div>
+
+    <div class="section" id="choices">
+      <div class="section-num">Your Choices</div>
+      <div class="section-title">Managing Cookies</div>
+      <p>You can control or delete cookies through your browser settings at any time. Most browsers allow you to:</p>
+      <ul>
+        <li>View which cookies are stored</li>
+        <li>Delete cookies individually or all at once</li>
+        <li>Block cookies from specific or all websites</li>
+        <li>Set preferences for first-party vs third-party cookies</li>
+      </ul>
+      <p>Please note that blocking essential cookies may affect some website features, including saved theme preferences or future account-related features.</p>
+    </div>
+
+    <div class="section" id="contact">
+      <div class="section-num">Contact</div>
+      <div class="section-title">Privacy Questions</div>
+      <p>For cookie or privacy questions, contact us at:</p>
+      <p><a href="mailto:privacy@koneksyondatingapp.com" style="color:var(--coral);font-weight:600">privacy@koneksyondatingapp.com</a></p>
+      <p><strong>Koneksyon</strong> — operated by Zanara Labs LLC · Florida, United States</p>
+    </div>
+
+  </div>
+</div>
+
+<footer>
+  <div class="footer-inner">
+    <a class="footer-brand" href="index.html">
+      <img src="koneksyon-logo-color.png" alt="Koneksyon" onerror="this.style.display='none';this.nextElementSibling.style.display='grid'">
+      <div class="footer-brand-fb" style="display:none">K</div>
+      <span class="footer-brand-name">Koneksyon</span>
+    </a>
+    <div class="footer-links">
+      <a href="index.html">Home</a>
+      <a href="privacy.html">Privacy</a>
+      <a href="terms.html">Terms</a>
+      <a href="cookies.html">Cookies</a>
+      <a href="community-guidelines.html">Guidelines</a>
+      <a href="mailto:support@koneksyondatingapp.com">Contact</a>
+    </div>
+    <span class="footer-copy">© 2026 Zanara Labs LLC</span>
+  </div>
+</footer>
+
+<script>
+const nav = document.getElementById('nav');
+window.addEventListener('scroll', () => nav.classList.toggle('stuck', window.scrollY > 60), {passive:true});
+</script>
+</body>
+</html>
