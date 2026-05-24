@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Community Guidelines — Koneksyon</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600&family=Instrument+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&family=DM+Mono&display=swap" rel="stylesheet">
+<style>
+:root{color-scheme:light dark;--bg:#FAFAF8;--bg2:#F3F1EC;--bg3:#E8E5DE;--ink:#0C0C0A;--ink2:rgba(12,12,10,.58);--ink3:rgba(12,12,10,.32);--line:rgba(12,12,10,.09);--line2:rgba(12,12,10,.16);--coral:#C93B1A;--gold:#C89B0A;--teal:#0A9EAA;--coral-glow:rgba(201,59,26,.18);--gold-glow:rgba(200,155,10,.14);--teal-glow:rgba(10,158,170,.14)}
+@media(prefers-color-scheme:dark){:root{--bg:#09090B;--bg2:#111113;--bg3:#1A1A1E;--ink:#F5F4F0;--ink2:rgba(245,244,240,.58);--ink3:rgba(245,244,240,.30);--line:rgba(245,244,240,.08);--line2:rgba(245,244,240,.14);--coral:#E04B27;--gold:#D4A81A;--teal:#14B8C4;--coral-glow:rgba(224,75,39,.22);--gold-glow:rgba(212,168,26,.16);--teal-glow:rgba(20,184,196,.16)}}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Instrument Sans',system-ui,sans-serif;background:var(--bg);color:var(--ink);line-height:1.7;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:9999;opacity:.03;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)'/%3E%3C/svg%3E");background-size:200px}
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:900;display:flex;align-items:center;justify-content:space-between;padding:22px 52px;transition:padding .4s,background .4s,backdrop-filter .4s,border-color .4s;border-bottom:1px solid transparent}
+nav.stuck{padding:14px 52px;background:rgba(9,9,11,.88);backdrop-filter:blur(32px) saturate(200%);border-color:var(--line)}
+@media(prefers-color-scheme:light){nav.stuck{background:rgba(250,250,248,.92)}}
+.nav-logo{display:flex;align-items:center;gap:11px;text-decoration:none}
+.nav-logo img{height:38px;width:auto;display:block}
+.nlf{width:36px;height:36px;background:var(--coral);border-radius:8px;display:none;place-items:center;font-family:'Cormorant Garamond',serif;font-size:20px;font-weight:700;font-style:italic;color:#fff}
+.nav-wordmark{font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:600;color:var(--ink);letter-spacing:-.01em}
+.nav-links{display:flex;align-items:center;gap:28px}
+.nav-links a{font-size:13px;font-weight:500;color:var(--ink2);text-decoration:none;transition:color .2s;white-space:nowrap}
+.nav-links a:hover,.nav-links a.active{color:var(--ink)}
+.nav-links a.active{color:var(--coral)}
+.btn-nav{display:inline-flex;align-items:center;gap:6px;padding:10px 22px;border-radius:999px;background:var(--coral);color:#fff;font-family:'Instrument Sans',sans-serif;font-size:13px;font-weight:600;text-decoration:none;box-shadow:0 6px 28px var(--coral-glow);transition:transform .2s,box-shadow .2s;white-space:nowrap}
+.btn-nav:hover{transform:translateY(-1px);box-shadow:0 10px 38px var(--coral-glow)}
+/* PAGE HEADER */
+.page-header{padding:160px 52px 80px;text-align:center;position:relative;overflow:hidden;border-bottom:1px solid var(--line)}
+.page-header::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 60% 80% at 50% 0%,var(--coral-glow),transparent 60%);pointer-events:none}
+.page-header-inner{position:relative;z-index:1;max-width:700px;margin:0 auto}
+.ph-label{font-family:'DM Mono',monospace;font-size:10px;font-weight:400;letter-spacing:.2em;text-transform:uppercase;color:var(--coral);margin-bottom:16px}
+.ph-title{font-family:'Cormorant Garamond',serif;font-size:clamp(48px,7vw,88px);font-weight:300;line-height:.9;letter-spacing:-.04em;color:var(--ink)}
+.ph-title strong{font-weight:700}
+.ph-sub{margin-top:20px;font-size:15px;color:var(--ink2);line-height:1.7}
+.ph-meta{display:flex;align-items:center;justify-content:center;gap:12px;margin-top:28px;flex-wrap:wrap}
+.ph-chip{display:inline-flex;align-items:center;gap:7px;padding:8px 16px;border:1px solid var(--line2);border-radius:999px;font-size:12px;font-weight:600;color:var(--ink2);background:var(--bg2)}
+/* LAYOUT */
+.page-wrap{display:grid;grid-template-columns:260px 1fr;gap:0;max-width:1200px;margin:0 auto;padding:0 52px 100px;align-items:start}
+.toc{position:sticky;top:100px;padding:32px 32px 32px 0;border-right:1px solid var(--line);margin-top:60px}
+.toc-title{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--ink3);margin-bottom:18px}
+.toc-list{list-style:none;display:flex;flex-direction:column;gap:2px}
+.toc-list a{font-size:12px;font-weight:500;color:var(--ink2);text-decoration:none;padding:6px 10px;border-radius:8px;display:block;transition:background .2s,color .2s}
+.toc-list a:hover{background:var(--bg3);color:var(--ink)}
+.content{padding:60px 0 0 56px}
+.section{margin-bottom:52px;padding-bottom:52px;border-bottom:1px solid var(--line)}
+.section:last-child{border-bottom:none}
+.section-num{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--coral);margin-bottom:10px}
+.section-title{font-family:'Cormorant Garamond',serif;font-size:clamp(26px,3vw,36px);font-weight:600;letter-spacing:-.03em;color:var(--ink);margin-bottom:18px;line-height:1.1}
+.section p{font-size:15px;line-height:1.82;color:var(--ink2);margin-bottom:14px}
+.section p:last-child{margin-bottom:0}
+.section ul{margin:14px 0 14px 20px;display:flex;flex-direction:column;gap:8px}
+.section ul li{font-size:15px;line-height:1.7;color:var(--ink2)}
+.section ul li::marker{color:var(--coral)}
+.section h3{font-family:'Cormorant Garamond',serif;font-size:20px;font-weight:600;color:var(--ink);margin:28px 0 10px;letter-spacing:-.02em}
+.warn-box{border:1px solid rgba(201,59,26,.25);border-radius:16px;padding:20px 24px;background:rgba(201,59,26,.06);margin:18px 0}
+.warn-box p{font-size:14px;font-weight:600;color:var(--coral);margin:0;line-height:1.65}
+.info-box{border:1px solid var(--line2);border-radius:16px;padding:20px 24px;background:var(--bg2);margin:18px 0}
+.info-box p{font-size:14px;color:var(--ink2);margin:0;line-height:1.7}
+.link{color:var(--coral);font-weight:600;text-decoration:none}
+.link:hover{text-decoration:underline}
+/* FOOTER */
+footer{border-top:1px solid var(--line);padding:48px 52px 32px}
+.footer-inner{max-width:1200px;margin:0 auto;display:flex;flex-direction:column;gap:28px}
+.footer-top{display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap}
+.footer-brand{display:flex;align-items:center;gap:10px;text-decoration:none}
+.footer-brand img{height:32px;width:auto}
+.fbf{width:30px;height:30px;background:var(--coral);border-radius:7px;display:none;place-items:center;font-family:'Cormorant Garamond',serif;font-size:16px;font-weight:700;font-style:italic;color:#fff}
+.footer-brand-name{font-family:'Cormorant Garamond',serif;font-size:18px;font-weight:600;color:var(--ink)}
+.footer-links{display:flex;align-items:center;gap:20px;flex-wrap:wrap}
+.footer-links a{font-size:13px;font-weight:500;color:var(--ink2);text-decoration:none;transition:color .2s}
+.footer-links a:hover{color:var(--ink)}
+.footer-bottom{display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;padding-top:20px;border-top:1px solid var(--line)}
+.footer-copy{font-size:12px;color:var(--ink3)}
+@media(max-width:960px){
+  nav{padding:14px 20px}nav.stuck{padding:10px 20px}.nav-links{display:none}
+  .page-header{padding:120px 20px 60px}.page-wrap{grid-template-columns:1fr;padding:0 20px 60px}
+  .toc{display:none}.content{padding:40px 0 0}
+  footer{padding:36px 20px 24px}
+}
+</style>
+</head>
+<body>
+
+<nav id="nav">
+  <a class="nav-logo" href="index.html">
+    <img src="koneksyon-logo-color.png" alt="Koneksyon" onerror="this.style.display='none';this.nextElementSibling.style.display='grid'">
+    <div class="nlf">K</div>
+    <span class="nav-wordmark">Koneksyon</span>
+  </a>
+  <div class="nav-links">
+    <a href="index.html">Home</a>
+    <a href="index.html#features">Features</a>
+    <a href="index.html#ambassador">Ambassador</a>
+    <a href="privacy.html" class="">Privacy</a>
+    <a href="terms.html" class="">Terms</a>
+    <a href="cookies.html" class="">Cookies</a>
+    <a href="community-guidelines.html" class="active">Guidelines</a>
+  </div>
+  <a class="btn-nav" href="download.html">Download →</a>
+</nav>
+<div class="page-header">
+  <div class="page-header-inner">
+    <div class="ph-label">Legal</div>
+    <div class="ph-title"><strong>Community</strong><br>Guidelines</div>
+    <p class="ph-sub">The rules that keep Koneksyon safe, respectful, and authentic for everyone.</p>
+    <div class="ph-meta"><div class="ph-chip">📅 Effective April 17, 2026</div><div class="ph-chip">🏢 Zanara Labs LLC · Florida, USA</div><div class="ph-chip">✉️ support@koneksyondatingapp.com</div></div>
+  </div>
+</div>
+<div class="page-wrap">
+  <aside class="toc">
+    <div class="toc-title">Contents</div>
+    <ul class="toc-list"><li><a href="#intro">Introduction</a></li><li><a href="#s1">1. Core Principles</a></li><li><a href="#s2">2. Prohibited Conduct</a></li><li><a href="#s3">3. Platform Notes</a></li><li><a href="#s4">4. Safety & Reporting</a></li><li><a href="#s5">5. Enforcement</a></li><li><a href="#ambassador">Become an Ambassador</a></li><li><a href="#contact">Contact</a></li></ul>
+  </aside>
+  <div class="content">
+<div class="section" id="intro"><div class="section-num">Introduction</div><div class="section-title">Welcome to the Community</div>
+<p>Koneksyon was created to celebrate real Caribbean connection across islands, languages, culture, diaspora, and shared identity. The app is meant to feel warm, intentional, and rooted in community — not rushed, fake, or superficial.</p>
+<p>These Community Guidelines are incorporated into and form part of the Koneksyon Terms of Service. By using the app, you agree to follow these Guidelines, the Terms of Service, the Privacy Policy, and applicable law.</p>
+<div class="info-box"><p>These guidelines work alongside our <a class="link" href="terms.html">Terms of Service</a> and <a class="link" href="privacy.html">Privacy Policy</a>. All three documents apply to your use of Koneksyon.</p></div>
+</div>
+
+<div class="section" id="s1"><div class="section-num">Section 1</div><div class="section-title">Core Principles</div>
+<h3>1.1 Respect Every Member</h3>
+<p>Koneksyon is built for real connection, not disrespect. Members must treat each other with dignity, kindness, honesty, and maturity in profiles, conversations, and all interactions connected to the app.</p>
+<h3>1.2 Be Authentic</h3>
+<p>Use accurate information and real photos that reflect who you are. Fake profiles, impersonation, stolen photos, misleading identity details, catfishing, and other deceptive conduct are not allowed on Koneksyon.</p>
+<h3>1.3 Protect Safety</h3>
+<p>Any conduct that threatens another person's emotional, physical, sexual, digital, or financial safety may lead to restrictions, suspension, or permanent account removal.</p>
+<h3>1.4 Honor Culture and Diversity</h3>
+<p>Koneksyon celebrates Caribbean people, diaspora stories, multilingual expression, and cross-island connection. Respect all backgrounds, accents, cultures, beliefs, and traditions.</p>
+</div>
+
+<div class="section" id="s2"><div class="section-num">Section 2</div><div class="section-title">Prohibited Conduct</div>
+<p>The examples below are illustrative and not exhaustive. Similar harmful conduct may also lead to enforcement action.</p>
+<h3>2.1 Harassment, Hate, and Abuse</h3>
+<p>Bullying, threats, stalking, intimidation, coercion, discrimination, hate speech, slurs, blackmail, sexual harassment, repeated unwanted contact, and degrading behavior are prohibited.</p>
+<h3>2.2 Inappropriate or Explicit Content</h3>
+<p>Do not upload or send explicit sexual content, exploitative nudity, graphic violence, hateful imagery, or content intended to shock, manipulate, or harm others.</p>
+<h3>2.3 Scams and Financial Solicitation</h3>
+<p>Do not ask users for money, gifts, investments, loans, account access, crypto transfers, or any item of value. Romance scams, phishing, deceptive promotion, and fraudulent behavior are strictly prohibited.</p>
+<h3>2.4 Privacy Violations</h3>
+<p>Do not share private information without permission, including:</p>
+<ul><li>Phone numbers, home addresses, or workplace details</li><li>Financial information</li><li>Private screenshots</li><li>Intimate content shared to shame, expose, or pressure someone</li></ul>
+<h3>2.5 Spam or Platform Manipulation</h3>
+<p>Mass messaging, repetitive copy-paste outreach, misleading links, bot-like behavior, engagement farming, and attempts to manipulate discovery, moderation systems, or connection systems are not allowed.</p>
+<h3>2.6 Commercial Misuse</h3>
+<p>Koneksyon is for connection, not unauthorized advertising. You may not use the platform mainly to sell products, recruit, promote unrelated businesses, drive traffic, or run marketing campaigns without authorization.</p>
+<h3>2.7 Underage Risk and Exploitation</h3>
+<p>Koneksyon is for adults only. Any attempt to involve minors, misrepresent age, exploit vulnerable users, groom users, or engage in predatory behavior may result in immediate and permanent enforcement action.</p>
+<h3>2.8 Circumvention of Enforcement</h3>
+<p>You may not attempt to bypass, evade, or undermine enforcement actions, including by creating new accounts after suspension or termination, using alternate identities, or attempting to regain access through unauthorized means.</p>
+</div>
+
+<div class="section" id="s3"><div class="section-num">Section 3</div><div class="section-title">Platform Notes</div>
+<h3>3.1 Moderation and Enforcement</h3>
+<p>Koneksyon and Zanara Labs LLC may, at their sole discretion and with or without notice, remove content, limit features, restrict visibility, suspend accounts, or permanently remove users when reasonably necessary to protect the community, preserve trust, enforce policy, or comply with law.</p>
+<h3>3.2 No Guarantee of Safety</h3>
+<p>While Koneksyon implements moderation systems, reporting tools, and safety features, we do not guarantee the accuracy, completeness, or effectiveness of these systems, and we do not guarantee that all harmful behavior will be prevented.</p>
+<h3>3.3 Off-Platform Conduct</h3>
+<p>Koneksyon may consider behavior that occurs outside the platform, including on other services or in real-world interactions, where such conduct creates credible safety, fraud, or trust concerns for users or the platform.</p>
+<h3>3.4 Repeat or Serious Violations</h3>
+<p>Repeated or serious violations may lead to immediate restriction or permanent removal, with or without prior notice, when Koneksyon determines that action is necessary for safety, trust, fraud prevention, or platform integrity.</p>
+<h3>3.5 Local Laws</h3>
+<p>All users must comply with applicable local, state, national, and international laws when using Koneksyon. Illegal conduct is prohibited even if not specifically listed in these Guidelines.</p>
+</div>
+
+<div class="section" id="s4"><div class="section-num">Section 4</div><div class="section-title">Safety & Reporting</div>
+<h3>4.1 Report Harmful Behavior</h3>
+<p>If you experience or observe conduct that may violate these Guidelines, use the app's reporting and blocking tools or contact support. Reports help us investigate safety concerns, enforce rules, and protect the community.</p>
+<p>Trust & Safety contact: <a class="link" href="mailto:support@koneksyondatingapp.com">support@koneksyondatingapp.com</a></p>
+<h3>4.2 Review and Appeals</h3>
+<p>Koneksyon may offer limited review or appeal options for certain enforcement decisions. However, we are not obligated to provide appeals or to reverse any enforcement decision.</p>
+<h3>4.3 Law Enforcement Cooperation</h3>
+<p>Koneksyon may cooperate with law enforcement, regulators, or legal authorities in connection with investigations, safety concerns, or legal obligations.</p>
+</div>
+
+<div class="section" id="s5"><div class="section-num">Section 5</div><div class="section-title">Enforcement & Consequences</div>
+<p>Depending on the severity of the conduct, Koneksyon may:</p>
+<ul><li>Remove content</li><li>Restrict profile visibility</li><li>Limit features</li><li>Suspend messaging</li><li>Temporarily suspend access</li><li>Permanently remove an account</li><li>Block devices or identifiers to prevent re-registration</li></ul>
+<div class="warn-box"><p>Serious violations involving scams, impersonation, underage risk, credible threats, exploitation, repeated abusive behavior, or major trust breaches may result in immediate action, with or without notice.</p></div>
+</div>
+
+<div class="section" id="ambassador"><div class="section-num">Become an Ambassador</div><div class="section-title">Want to Represent Koneksyon?</div>
+<p>We are looking for authentic voices in the Caribbean diaspora community who want to share Koneksyon with the people they love. Our ambassador program offers real compensation, free premium access, and the chance to be part of something meaningful from the very beginning.</p>
+<p>As an ambassador you will share content about Koneksyon on Instagram and TikTok, refer new users using your personal code, and earn commissions on every subscriber you bring in — for up to 12 months per person.</p>
+<div class="info-box"><p>To apply or learn more, email us at <a class="link" href="mailto:support@koneksyondatingapp.com?subject=Ambassador Program Interest">support@koneksyondatingapp.com</a> with the subject line <strong>Ambassador Program Interest</strong>. We will send you everything you need to get started.</p></div>
+</div>
+
+<div class="section" id="contact"><div class="section-num">Contact</div><div class="section-title">Get in Touch</div>
+<p><strong>Trust & Safety:</strong> <a class="link" href="mailto:support@koneksyondatingapp.com">support@koneksyondatingapp.com</a></p>
+<p><strong>Privacy:</strong> <a class="link" href="mailto:privacy@koneksyondatingapp.com">privacy@koneksyondatingapp.com</a></p>
+<p><strong>Koneksyon</strong> — operated by Zanara Labs LLC · Florida, United States</p>
+</div>
+</div>
+</div>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <a class="footer-brand" href="index.html">
+        <img src="koneksyon-logo-color.png" alt="Koneksyon" onerror="this.style.display='none';this.nextElementSibling.style.display='grid'">
+        <div class="fbf">K</div>
+        <span class="footer-brand-name">Koneksyon</span>
+      </a>
+      <div class="footer-links">
+        <a href="index.html">Home</a>
+        <a href="index.html#features">Features</a>
+        <a href="index.html#ambassador">Ambassador</a>
+        <a href="privacy.html">Privacy</a>
+        <a href="terms.html">Terms</a>
+        <a href="cookies.html">Cookies</a>
+        <a href="community-guidelines.html">Guidelines</a>
+        <a href="download.html">Download</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span class="footer-copy">© 2026 Zanara Labs LLC. All rights reserved. &nbsp;·&nbsp; support@koneksyondatingapp.com &nbsp;·&nbsp; privacy@koneksyondatingapp.com</span>
+      <span class="footer-copy">🇭🇹 🇯🇲 🇩🇴 🇹🇹 🇵🇷 🇨🇺 🇧🇧 🇱🇨</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+const nav = document.getElementById('nav');
+window.addEventListener('scroll', () => nav.classList.toggle('stuck', window.scrollY > 60), {passive:true});
+</script>
+</body>
+</html>
