@@ -9,12 +9,13 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,600&family=DM+Mono:wght@400;500&family=Instrument+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,500;1,600&family=DM+Mono:wght@400;500&family=Instrument+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
 
 <style>
 :root{
   color-scheme:light;
 
+  /* Keep your existing background photo exactly here. */
   --app-bg:url("assets/koneksyon-app-background.jpg");
 
   --page:#fbf8f3;
@@ -25,31 +26,35 @@
 
   --ink:#0d1833;
   --ink-2:#263044;
-  --muted:#697182;
-  --muted-2:#969cab;
+  --muted:#687184;
+  --muted-2:#949dad;
 
-  --line:rgba(13,24,51,.09);
-  --line-2:rgba(13,24,51,.15);
+  --line:rgba(13,24,51,.095);
+  --line-2:rgba(13,24,51,.16);
 
   --gold:#d19a05;
+  --gold-2:#b98000;
   --gold-soft:#fff4cf;
 
   --coral:#d95e49;
   --coral-soft:#fff0ec;
 
-  --teal:#86d9e5;
-  --teal-soft:#e9fbff;
+  --teal:#62c9d8;
+  --teal-dark:#0c7482;
+  --teal-soft:#e8fbff;
 
   --lilac:#efe8ff;
   --sand:#fff7e8;
+  --navy:#081229;
 
-  --shadow-sm:0 10px 26px rgba(13,24,51,.07);
-  --shadow-md:0 22px 60px rgba(13,24,51,.11);
-  --shadow-lg:0 34px 90px rgba(13,24,51,.16);
+  --shadow-xs:0 8px 22px rgba(13,24,51,.055);
+  --shadow-sm:0 12px 30px rgba(13,24,51,.075);
+  --shadow-md:0 22px 60px rgba(13,24,51,.115);
+  --shadow-lg:0 40px 110px rgba(13,24,51,.18);
 
-  --radius-xl:34px;
-  --radius-lg:26px;
-  --radius-md:18px;
+  --radius-xl:40px;
+  --radius-lg:30px;
+  --radius-md:20px;
 
   --max:1240px;
 }
@@ -72,13 +77,25 @@ body{
   font-family:"Instrument Sans", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   color:var(--ink);
   background:
-    radial-gradient(circle at 10% -10%, rgba(134,217,229,.30), transparent 36%),
-    radial-gradient(circle at 85% 5%, rgba(239,232,255,.70), transparent 34%),
-    radial-gradient(circle at 0% 75%, rgba(255,247,232,.95), transparent 32%),
-    linear-gradient(180deg, #fffdf9 0%, var(--page) 42%, var(--page-2) 100%);
+    radial-gradient(circle at 8% -8%, rgba(134,217,229,.30), transparent 35%),
+    radial-gradient(circle at 86% 0%, rgba(239,232,255,.72), transparent 36%),
+    radial-gradient(circle at 0% 80%, rgba(255,247,232,.95), transparent 31%),
+    linear-gradient(180deg, #fffdf9 0%, var(--page) 43%, var(--page-2) 100%);
   overflow-x:hidden;
   -webkit-font-smoothing:antialiased;
   text-rendering:optimizeLegibility;
+}
+
+body::before{
+  content:"";
+  position:fixed;
+  inset:0;
+  z-index:-2;
+  pointer-events:none;
+  background:
+    linear-gradient(180deg, rgba(255,253,249,.84), rgba(255,253,249,.92)),
+    var(--app-bg) center top / cover no-repeat;
+  opacity:.24;
 }
 
 body::after{
@@ -87,7 +104,7 @@ body::after{
   inset:0;
   z-index:9999;
   pointer-events:none;
-  opacity:.025;
+  opacity:.024;
   background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='240' height='240' filter='url(%23n)' opacity='.75'/%3E%3C/svg%3E");
   background-size:240px;
 }
@@ -138,11 +155,11 @@ select{
   padding:9px 14px;
   border:1px solid rgba(13,24,51,.08);
   border-radius:999px;
-  background:rgba(255,255,255,.62);
+  background:rgba(255,255,255,.66);
   backdrop-filter:blur(18px) saturate(160%);
   -webkit-backdrop-filter:blur(18px) saturate(160%);
-  box-shadow:var(--shadow-sm);
-  color:var(--gold);
+  box-shadow:var(--shadow-xs);
+  color:var(--gold-2);
   font-size:11px;
   font-weight:800;
   letter-spacing:.13em;
@@ -155,7 +172,17 @@ select{
   height:7px;
   border-radius:50%;
   background:var(--gold);
-  box-shadow:0 0 0 6px rgba(209,154,5,.12);
+  box-shadow:0 0 0 6px rgba(209,154,5,.13);
+}
+
+.kicker{
+  color:var(--gold-2);
+  font-family:"DM Mono", monospace;
+  font-size:11px;
+  font-weight:500;
+  letter-spacing:.18em;
+  text-transform:uppercase;
+  margin-bottom:18px;
 }
 
 .section-head{
@@ -166,22 +193,12 @@ select{
   margin-bottom:48px;
 }
 
-.kicker{
-  color:var(--gold);
-  font-family:"DM Mono", monospace;
-  font-size:11px;
-  font-weight:500;
-  letter-spacing:.18em;
-  text-transform:uppercase;
-  margin-bottom:18px;
-}
-
 .display{
   font-family:"Cormorant Garamond", Georgia, serif;
   font-size:clamp(52px, 7vw, 94px);
   line-height:.88;
   letter-spacing:-.055em;
-  font-weight:400;
+  font-weight:500;
   color:var(--ink);
 }
 
@@ -198,7 +215,7 @@ select{
   color:var(--muted);
   font-size:17px;
   line-height:1.85;
-  max-width:560px;
+  max-width:590px;
 }
 
 .btn{
@@ -230,25 +247,17 @@ select{
 
 .btn-soft{
   color:var(--ink);
-  background:rgba(255,255,255,.68);
+  background:rgba(255,255,255,.72);
   border-color:rgba(13,24,51,.09);
-  box-shadow:var(--shadow-sm);
+  box-shadow:var(--shadow-xs);
   backdrop-filter:blur(16px);
   -webkit-backdrop-filter:blur(16px);
 }
 
 .btn-soft:hover{
   transform:translateY(-2px);
-  background:rgba(255,255,255,.86);
+  background:rgba(255,255,255,.90);
   box-shadow:var(--shadow-md);
-}
-
-.card{
-  border:1px solid rgba(13,24,51,.08);
-  background:rgba(255,255,255,.66);
-  backdrop-filter:blur(22px) saturate(160%);
-  -webkit-backdrop-filter:blur(22px) saturate(160%);
-  box-shadow:var(--shadow-sm);
 }
 
 /* NAV */
@@ -270,17 +279,17 @@ select{
   align-items:center;
   justify-content:space-between;
   gap:20px;
-  border:1px solid rgba(255,255,255,.65);
+  border:1px solid rgba(255,255,255,.66);
   border-radius:999px;
-  background:rgba(255,255,255,.70);
+  background:rgba(255,255,255,.72);
   box-shadow:0 14px 44px rgba(13,24,51,.08);
   backdrop-filter:blur(24px) saturate(180%);
   -webkit-backdrop-filter:blur(24px) saturate(180%);
 }
 
 .nav.scrolled .nav-inner{
-  background:rgba(255,255,255,.82);
-  border-color:rgba(13,24,51,.08);
+  background:rgba(255,255,255,.86);
+  border-color:rgba(13,24,51,.09);
 }
 
 .brand{
@@ -328,7 +337,7 @@ select{
 }
 
 .nav-links a{
-  color:rgba(13,24,51,.60);
+  color:rgba(13,24,51,.62);
   font-size:13px;
   font-weight:700;
   transition:color .2s ease;
@@ -399,7 +408,7 @@ select{
 }
 
 .hero-copy{
-  max-width:690px;
+  max-width:700px;
 }
 
 .hero-title{
@@ -408,7 +417,7 @@ select{
   font-size:clamp(66px, 9.5vw, 128px);
   line-height:.84;
   letter-spacing:-.065em;
-  font-weight:400;
+  font-weight:500;
   color:var(--ink);
 }
 
@@ -453,385 +462,13 @@ select{
   align-items:center;
   min-height:40px;
   padding:10px 14px;
-  border:1px solid rgba(13,24,51,.07);
+  border:1px solid rgba(13,24,51,.075);
   border-radius:999px;
-  background:rgba(255,255,255,.58);
-  box-shadow:var(--shadow-sm);
+  background:rgba(255,255,255,.60);
+  box-shadow:var(--shadow-xs);
   color:var(--muted);
   font-size:13px;
   font-weight:700;
-}
-
-.hero-visual{
-  position:relative;
-  min-height:720px;
-  display:grid;
-  place-items:center;
-}
-
-.device-stage{
-  position:relative;
-  width:min(100%, 540px);
-  height:720px;
-}
-
-.iphone{
-  position:absolute;
-  border-radius:52px;
-  padding:12px;
-  background:
-    linear-gradient(145deg, rgba(255,255,255,.95), rgba(255,255,255,.58)),
-    rgba(255,255,255,.72);
-  border:1px solid rgba(255,255,255,.80);
-  box-shadow:
-    inset 0 0 0 1px rgba(13,24,51,.05),
-    0 38px 100px rgba(13,24,51,.19);
-}
-
-.iphone-main{
-  width:330px;
-  height:668px;
-  right:34px;
-  top:16px;
-  z-index:4;
-  transform:rotate(3.5deg);
-}
-
-.iphone-back{
-  width:275px;
-  height:560px;
-  left:14px;
-  top:92px;
-  z-index:2;
-  transform:rotate(-7deg);
-  opacity:.96;
-}
-
-.phone-screen{
-  width:100%;
-  height:100%;
-  position:relative;
-  overflow:hidden;
-  border-radius:42px;
-  background:#fff;
-}
-
-.phone-screen::before{
-  content:"";
-  position:absolute;
-  inset:0;
-  background:
-    linear-gradient(180deg, rgba(255,255,255,.50), rgba(255,255,255,.86) 52%, rgba(255,255,255,.96)),
-    var(--app-bg) center center / cover no-repeat;
-  opacity:.84;
-  transform:scale(1.02);
-}
-
-.phone-screen::after{
-  content:"";
-  position:absolute;
-  inset:0;
-  background:
-    radial-gradient(circle at 18% 13%, rgba(134,217,229,.38), transparent 25%),
-    radial-gradient(circle at 88% 43%, rgba(239,232,255,.74), transparent 28%),
-    radial-gradient(circle at 12% 84%, rgba(255,244,207,.88), transparent 28%);
-  mix-blend-mode:multiply;
-  opacity:.82;
-}
-
-.phone-content{
-  position:relative;
-  z-index:2;
-  height:100%;
-  display:flex;
-  flex-direction:column;
-  padding:20px 18px 18px;
-}
-
-.phone-status{
-  height:24px;
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  color:var(--ink);
-  font-size:12px;
-  font-weight:800;
-  margin-bottom:18px;
-}
-
-.phone-top{
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  gap:12px;
-  margin-bottom:18px;
-}
-
-.phone-logo{
-  height:28px;
-  width:auto;
-  object-fit:contain;
-}
-
-.phone-logo-fallback{
-  font-family:"Cormorant Garamond", Georgia, serif;
-  font-size:26px;
-  color:var(--ink);
-  font-weight:700;
-  letter-spacing:-.04em;
-}
-
-.phone-actions{
-  display:flex;
-  gap:10px;
-}
-
-.phone-circle{
-  width:48px;
-  height:48px;
-  border-radius:999px;
-  border:1px solid rgba(13,24,51,.08);
-  background:rgba(255,255,255,.82);
-  box-shadow:0 10px 24px rgba(13,24,51,.08);
-  display:grid;
-  place-items:center;
-  color:var(--ink);
-  font-weight:800;
-}
-
-.phone-circle.gold{
-  color:var(--gold);
-  background:rgba(255,255,255,.88);
-}
-
-.phone-card{
-  border:1px solid rgba(13,24,51,.08);
-  background:rgba(255,255,255,.82);
-  box-shadow:0 12px 32px rgba(13,24,51,.08);
-  border-radius:23px;
-}
-
-.trust-card{
-  padding:14px 15px;
-  display:flex;
-  align-items:center;
-  gap:12px;
-  margin-bottom:12px;
-  color:var(--ink);
-  font-size:14px;
-  font-weight:800;
-  letter-spacing:-.02em;
-}
-
-.trust-icon{
-  width:28px;
-  height:28px;
-  border-radius:10px;
-  display:grid;
-  place-items:center;
-  background:var(--teal-soft);
-  color:#1daaba;
-}
-
-.phone-metrics{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:10px;
-  margin-bottom:18px;
-}
-
-.metric{
-  padding:13px 14px;
-  text-align:center;
-}
-
-.metric b{
-  display:block;
-  color:var(--ink);
-  font-size:18px;
-  line-height:1;
-}
-
-.metric span{
-  display:block;
-  margin-top:5px;
-  color:var(--muted);
-  font-size:11px;
-  font-weight:800;
-  letter-spacing:.08em;
-  text-transform:uppercase;
-}
-
-.phone-center{
-  flex:1;
-  display:grid;
-  place-items:center;
-  text-align:center;
-  padding:22px 8px;
-}
-
-.phone-center-mark{
-  width:72px;
-  height:72px;
-  border-radius:26px;
-  margin:0 auto 18px;
-  display:grid;
-  place-items:center;
-  background:rgba(255,255,255,.72);
-  border:1px solid rgba(13,24,51,.07);
-  box-shadow:0 16px 34px rgba(13,24,51,.08);
-  font-size:34px;
-}
-
-.phone-center h3{
-  color:var(--ink);
-  font-size:25px;
-  letter-spacing:-.05em;
-  line-height:1;
-}
-
-.phone-center p{
-  margin-top:9px;
-  color:var(--muted);
-  font-size:14px;
-  line-height:1.5;
-}
-
-.phone-cta{
-  margin:18px auto 0;
-  display:inline-flex;
-  align-items:center;
-  justify-content:center;
-  min-height:52px;
-  padding:14px 28px;
-  border-radius:19px;
-  background:#cbf8ff;
-  color:var(--ink);
-  font-weight:900;
-  box-shadow:0 12px 22px rgba(45,175,194,.12);
-}
-
-.phone-tab{
-  height:74px;
-  border-radius:32px;
-  background:rgba(255,255,255,.78);
-  border:1px solid rgba(255,255,255,.72);
-  box-shadow:0 16px 36px rgba(13,24,51,.10);
-  display:grid;
-  grid-template-columns:repeat(5,1fr);
-  align-items:center;
-  padding:7px;
-  gap:3px;
-}
-
-.phone-tab-item{
-  height:58px;
-  border-radius:25px;
-  display:grid;
-  place-items:center;
-  color:rgba(13,24,51,.42);
-  font-size:10px;
-  font-weight:800;
-}
-
-.phone-tab-item b{
-  display:block;
-  font-size:18px;
-  line-height:1;
-  margin-bottom:2px;
-  font-weight:700;
-}
-
-.phone-tab-item.active{
-  color:rgba(13,24,51,.72);
-  background:rgba(255,255,255,.82);
-  box-shadow:inset 0 0 0 1px rgba(13,24,51,.04);
-}
-
-.profile-card{
-  margin-top:auto;
-  min-height:292px;
-  border-radius:36px;
-  position:relative;
-  overflow:hidden;
-  background:
-    linear-gradient(180deg, transparent 0%, rgba(13,24,51,.72) 100%),
-    var(--app-bg) center center / cover no-repeat;
-  box-shadow:0 18px 44px rgba(13,24,51,.12);
-}
-
-.profile-card-content{
-  position:absolute;
-  left:20px;
-  right:20px;
-  bottom:20px;
-  color:#fff;
-}
-
-.profile-card-content small{
-  display:inline-flex;
-  padding:8px 10px;
-  border-radius:999px;
-  background:rgba(255,255,255,.20);
-  backdrop-filter:blur(12px);
-  font-size:10px;
-  font-weight:900;
-  letter-spacing:.10em;
-  text-transform:uppercase;
-}
-
-.profile-card-content h3{
-  margin-top:12px;
-  font-family:"Cormorant Garamond", Georgia, serif;
-  font-size:40px;
-  line-height:.9;
-  letter-spacing:-.05em;
-}
-
-.profile-card-content p{
-  margin-top:8px;
-  color:rgba(255,255,255,.72);
-  font-size:13px;
-  line-height:1.5;
-}
-
-.float-card{
-  position:absolute;
-  z-index:7;
-  padding:14px 16px;
-  border-radius:22px;
-  background:rgba(255,255,255,.76);
-  border:1px solid rgba(255,255,255,.70);
-  backdrop-filter:blur(22px) saturate(170%);
-  -webkit-backdrop-filter:blur(22px) saturate(170%);
-  box-shadow:var(--shadow-md);
-  color:var(--ink);
-  display:flex;
-  align-items:center;
-  gap:11px;
-  font-size:13px;
-  font-weight:800;
-}
-
-.float-card span{
-  width:34px;
-  height:34px;
-  display:grid;
-  place-items:center;
-  flex:0 0 auto;
-  border-radius:13px;
-  background:var(--gold-soft);
-  color:var(--gold);
-}
-
-.float-a{
-  top:78px;
-  left:0;
-}
-
-.float-b{
-  right:0;
-  bottom:58px;
 }
 
 .hero-scroll{
@@ -862,6 +499,198 @@ select{
   100%{transform:scaleY(0);opacity:0;transform-origin:bottom}
 }
 
+.hero-visual{
+  position:relative;
+  min-height:740px;
+  display:grid;
+  place-items:center;
+}
+
+.product-stage{
+  position:relative;
+  width:min(100%, 570px);
+  min-height:740px;
+  display:grid;
+  place-items:center;
+}
+
+.product-stage::before{
+  content:"";
+  position:absolute;
+  width:470px;
+  height:650px;
+  right:14px;
+  top:42px;
+  border-radius:52px;
+  border:1px solid rgba(13,24,51,.12);
+  transform:rotate(4deg);
+  background:
+    linear-gradient(180deg, rgba(255,255,255,.52), rgba(255,255,255,.70)),
+    var(--app-bg) center / cover no-repeat;
+  opacity:.44;
+  filter:blur(.2px) saturate(.92);
+  box-shadow:0 36px 90px rgba(13,24,51,.10);
+}
+
+.app-preview-card{
+  position:relative;
+  z-index:3;
+  width:min(100%, 435px);
+  padding:14px;
+  border-radius:54px;
+  background:linear-gradient(145deg, rgba(255,255,255,.96), rgba(255,255,255,.70));
+  border:1px solid rgba(255,255,255,.88);
+  box-shadow:var(--shadow-lg);
+}
+
+.app-preview-bar{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:14px;
+  padding:7px 10px 14px;
+  color:var(--ink);
+}
+
+.app-preview-bar span{
+  font-size:12px;
+  font-weight:900;
+  color:rgba(13,24,51,.68);
+}
+
+.app-preview-bar b{
+  font-family:"DM Mono", monospace;
+  font-size:10px;
+  font-weight:500;
+  letter-spacing:.12em;
+  text-transform:uppercase;
+  color:var(--gold-2);
+}
+
+.device-screen{
+  position:relative;
+  overflow:hidden;
+  border-radius:42px;
+  min-height:680px;
+  background:var(--navy);
+  isolation:isolate;
+}
+
+.device-screen img{
+  width:100%;
+  height:680px;
+  object-fit:cover;
+  object-position:center top;
+}
+
+.fallback-app{
+  min-height:680px;
+  padding:24px;
+  color:#fff;
+  background:
+    radial-gradient(circle at 12% 12%, rgba(98,201,216,.35), transparent 31%),
+    radial-gradient(circle at 92% 18%, rgba(209,154,5,.22), transparent 28%),
+    linear-gradient(160deg, #071226 0%, #0d2548 55%, #071226 100%);
+}
+
+.fallback-logo{
+  margin-top:40px;
+  text-align:center;
+  font-family:"Cormorant Garamond", Georgia, serif;
+  font-size:32px;
+  font-weight:700;
+  letter-spacing:-.05em;
+}
+
+.fallback-alert{
+  margin-top:54px;
+  padding:18px;
+  border-radius:24px;
+  border:1px solid rgba(255,255,255,.16);
+  background:rgba(255,255,255,.08);
+  font-weight:800;
+}
+
+.fallback-profile{
+  margin-top:24px;
+  min-height:410px;
+  border-radius:34px;
+  position:relative;
+  overflow:hidden;
+  background:
+    linear-gradient(180deg, transparent 0%, rgba(3,8,20,.90) 100%),
+    var(--app-bg) center / cover no-repeat;
+}
+
+.fallback-profile div{
+  position:absolute;
+  left:22px;
+  right:22px;
+  bottom:22px;
+}
+
+.fallback-profile small{
+  display:inline-flex;
+  padding:8px 11px;
+  border-radius:999px;
+  background:#25c267;
+  color:#fff;
+  font-weight:900;
+}
+
+.fallback-profile h3{
+  margin-top:12px;
+  font-size:46px;
+  line-height:1;
+  letter-spacing:-.06em;
+}
+
+.stage-panel{
+  position:absolute;
+  z-index:5;
+  display:grid;
+  gap:4px;
+  padding:17px 18px;
+  border-radius:24px;
+  border:1px solid rgba(255,255,255,.78);
+  background:rgba(255,255,255,.82);
+  backdrop-filter:blur(22px) saturate(170%);
+  -webkit-backdrop-filter:blur(22px) saturate(170%);
+  box-shadow:var(--shadow-md);
+}
+
+.stage-panel small{
+  color:var(--muted-2);
+  font-family:"DM Mono", monospace;
+  font-size:10px;
+  letter-spacing:.12em;
+  text-transform:uppercase;
+}
+
+.stage-panel b{
+  color:var(--ink);
+  font-size:15px;
+  line-height:1.35;
+}
+
+.stage-panel.one{
+  top:116px;
+  left:0;
+  width:214px;
+}
+
+.stage-panel.two{
+  right:0;
+  bottom:80px;
+  width:230px;
+}
+
+.stage-panel.three{
+  left:24px;
+  bottom:180px;
+  width:185px;
+}
+
 /* MARQUEE */
 .marquee{
   position:relative;
@@ -869,7 +698,7 @@ select{
   overflow:hidden;
   border-top:1px solid var(--line);
   border-bottom:1px solid var(--line);
-  background:rgba(255,255,255,.48);
+  background:rgba(255,255,255,.50);
   backdrop-filter:blur(18px);
   -webkit-backdrop-filter:blur(18px);
 }
@@ -900,7 +729,7 @@ select{
 
 .marquee-item i{
   font-style:normal;
-  color:var(--gold);
+  color:var(--gold-2);
 }
 
 @keyframes marquee{
@@ -920,7 +749,7 @@ select{
   overflow:hidden;
   border-radius:30px;
   border:1px solid rgba(255,255,255,.70);
-  background:rgba(255,255,255,.66);
+  background:rgba(255,255,255,.70);
   box-shadow:var(--shadow-md);
   backdrop-filter:blur(24px) saturate(170%);
   -webkit-backdrop-filter:blur(24px) saturate(170%);
@@ -968,10 +797,10 @@ select{
   border-radius:32px;
   overflow:hidden;
   border:1px solid rgba(13,24,51,.08);
-  background:rgba(255,255,255,.62);
+  background:rgba(255,255,255,.65);
   backdrop-filter:blur(22px) saturate(160%);
   -webkit-backdrop-filter:blur(22px) saturate(160%);
-  box-shadow:var(--shadow-sm);
+  box-shadow:var(--shadow-xs);
   transition:transform .28s ease, box-shadow .28s ease, border-color .28s ease;
 }
 
@@ -1010,16 +839,12 @@ select{
   grid-column:span 4;
 }
 
-.feature-half{
-  grid-column:span 6;
-}
-
 .card-tag{
   display:inline-flex;
   padding:7px 11px;
   border-radius:999px;
   background:rgba(13,24,51,.05);
-  color:rgba(13,24,51,.55);
+  color:rgba(13,24,51,.58);
   font-size:10px;
   font-weight:900;
   letter-spacing:.10em;
@@ -1035,8 +860,8 @@ select{
   border-radius:19px;
   background:#fff;
   border:1px solid rgba(13,24,51,.07);
-  box-shadow:var(--shadow-sm);
-  color:var(--gold);
+  box-shadow:var(--shadow-xs);
+  color:var(--gold-2);
   font-size:24px;
   margin-bottom:18px;
 }
@@ -1060,85 +885,54 @@ select{
   color:var(--muted);
   font-size:14px;
   line-height:1.75;
-  max-width:480px;
+  max-width:500px;
 }
 
-.spark-stack{
+.feature-photo{
   position:absolute;
-  top:26px;
-  right:24px;
-  display:flex;
-  align-items:flex-end;
-  z-index:2;
-}
-
-.spark-mini{
-  width:70px;
-  height:98px;
-  margin-left:-18px;
-  display:flex;
-  align-items:flex-end;
-  padding:10px;
-  border-radius:18px;
-  background:rgba(255,255,255,.75);
-  border:1px solid rgba(13,24,51,.08);
-  box-shadow:var(--shadow-sm);
-  font-size:18px;
-}
-
-.spark-mini:nth-child(1){
-  transform:rotate(-8deg) translateY(8px);
-}
-
-.spark-mini:nth-child(2){
-  transform:rotate(-1deg);
-}
-
-.spark-mini:nth-child(3){
-  transform:rotate(7deg) translateY(6px);
+  right:22px;
+  bottom:22px;
+  width:210px;
+  height:220px;
+  border-radius:28px;
+  overflow:hidden;
+  border:1px solid rgba(255,255,255,.70);
+  box-shadow:var(--shadow-md);
+  background:
+    linear-gradient(180deg, transparent, rgba(9,16,34,.54)),
+    var(--app-bg) center / cover no-repeat;
 }
 
 /* PREMIUM */
-.premium-layout{
-  display:grid;
-  grid-template-columns:.95fr 1.05fr;
-  gap:18px;
-  align-items:stretch;
-}
-
-.premium-panel{
+.premium-shell{
   position:relative;
   overflow:hidden;
-  border-radius:38px;
-  padding:34px;
-  border:1px solid rgba(13,24,51,.08);
-  background:rgba(255,255,255,.64);
-  box-shadow:var(--shadow-md);
+  border-radius:42px;
+  padding:38px;
+  border:1px solid rgba(255,255,255,.70);
+  background:
+    radial-gradient(circle at 9% 8%, rgba(255,244,207,.92), transparent 32%),
+    radial-gradient(circle at 86% 0%, rgba(134,217,229,.20), transparent 30%),
+    radial-gradient(circle at 80% 95%, rgba(239,232,255,.70), transparent 36%),
+    rgba(255,255,255,.68);
   backdrop-filter:blur(24px) saturate(170%);
   -webkit-backdrop-filter:blur(24px) saturate(170%);
+  box-shadow:var(--shadow-md);
 }
 
-.premium-panel::before{
-  content:"";
-  position:absolute;
-  inset:0;
-  background:
-    radial-gradient(circle at top left, rgba(255,244,207,.90), transparent 34%),
-    radial-gradient(circle at 85% 12%, rgba(134,217,229,.18), transparent 28%),
-    radial-gradient(circle at 80% 90%, rgba(239,232,255,.70), transparent 34%);
-  pointer-events:none;
-}
-
-.premium-panel > *{
-  position:relative;
-  z-index:1;
+.premium-intro{
+  display:grid;
+  grid-template-columns:.95fr 1.05fr;
+  gap:52px;
+  align-items:end;
+  margin-bottom:34px;
 }
 
 .premium-title{
-  margin-top:22px;
-  max-width:540px;
+  margin-top:20px;
+  max-width:600px;
   font-family:"Cormorant Garamond", Georgia, serif;
-  font-size:clamp(46px, 5vw, 72px);
+  font-size:clamp(46px, 5vw, 74px);
   line-height:.88;
   letter-spacing:-.055em;
   color:var(--ink);
@@ -1146,85 +940,81 @@ select{
 }
 
 .premium-copy{
-  margin-top:18px;
   color:var(--muted);
   font-size:16px;
   line-height:1.85;
-  max-width:540px;
+  max-width:610px;
 }
 
-.premium-benefits{
-  margin-top:28px;
+.plan-grid{
   display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:12px;
+  grid-template-columns:.9fr 1.18fr .92fr;
+  gap:16px;
 }
 
-.benefit{
-  min-height:126px;
-  padding:18px;
-  border-radius:24px;
-  border:1px solid rgba(13,24,51,.07);
-  background:rgba(255,255,255,.62);
-  box-shadow:var(--shadow-sm);
+.plan-card{
+  position:relative;
+  display:flex;
+  flex-direction:column;
+  min-height:520px;
+  padding:26px;
+  border-radius:34px;
+  border:1px solid rgba(13,24,51,.08);
+  background:rgba(255,255,255,.70);
+  box-shadow:var(--shadow-xs);
+  overflow:hidden;
 }
 
-.benefit b{
-  display:block;
-  color:var(--ink);
-  font-size:15px;
-  letter-spacing:-.01em;
+.plan-card.featured{
+  background:#0d1833;
+  color:#fff;
+  box-shadow:0 32px 90px rgba(13,24,51,.22);
+  transform:translateY(-10px);
 }
 
-.benefit span{
-  display:block;
-  margin-top:8px;
-  color:var(--muted);
-  font-size:13px;
-  line-height:1.65;
+.plan-card::after{
+  content:"";
+  position:absolute;
+  inset:auto -40px -70px auto;
+  width:220px;
+  height:220px;
+  border-radius:50%;
+  background:rgba(134,217,229,.18);
+  pointer-events:none;
 }
 
-.pricing{
-  margin-top:28px;
-  display:grid;
-  grid-template-columns:repeat(2,1fr);
-  gap:12px;
+.plan-card.featured::after{
+  background:rgba(209,154,5,.20);
 }
 
-.price{
-  padding:19px;
-  border-radius:26px;
-  border:1px solid rgba(13,24,51,.07);
-  background:rgba(255,255,255,.72);
-  box-shadow:var(--shadow-sm);
-}
-
-.price.best{
-  border-color:rgba(209,154,5,.28);
-  box-shadow:0 16px 40px rgba(209,154,5,.11);
-}
-
-.price-top{
-  min-height:26px;
+.plan-top{
+  position:relative;
+  z-index:1;
   display:flex;
   align-items:center;
   justify-content:space-between;
   gap:12px;
-  margin-bottom:11px;
+  min-height:34px;
+  margin-bottom:22px;
 }
 
-.price-name{
+.plan-name{
   color:var(--muted);
-  font-size:12px;
-  font-weight:900;
-  letter-spacing:.08em;
+  font-family:"DM Mono", monospace;
+  font-size:11px;
+  font-weight:500;
+  letter-spacing:.15em;
   text-transform:uppercase;
 }
 
-.price-badge{
-  padding:6px 9px;
+.plan-card.featured .plan-name{
+  color:rgba(255,255,255,.70);
+}
+
+.plan-badge{
+  padding:7px 10px;
   border-radius:999px;
-  color:var(--gold);
+  color:var(--gold-2);
   background:var(--gold-soft);
   font-size:10px;
   font-weight:900;
@@ -1233,221 +1023,104 @@ select{
   white-space:nowrap;
 }
 
-.price-number{
+.plan-price{
+  position:relative;
+  z-index:1;
+  display:flex;
+  align-items:flex-end;
+  gap:8px;
+  margin-bottom:12px;
+}
+
+.plan-price strong{
   font-family:"Cormorant Garamond", Georgia, serif;
-  color:var(--ink);
-  font-size:46px;
-  line-height:.9;
+  font-size:60px;
+  line-height:.88;
   letter-spacing:-.06em;
-  font-weight:700;
+  color:var(--ink);
 }
 
-.price-caption{
-  margin-top:10px;
+.plan-card.featured .plan-price strong{
+  color:#fff;
+}
+
+.plan-price span{
+  padding-bottom:8px;
   color:var(--muted);
   font-size:13px;
-  line-height:1.55;
+  font-weight:800;
 }
 
-.premium-product{
-  min-height:760px;
-  display:grid;
-  place-items:center;
+.plan-card.featured .plan-price span{
+  color:rgba(255,255,255,.64);
 }
 
-.premium-device{
+.plan-desc{
   position:relative;
-  width:min(100%, 360px);
-  height:690px;
-  border-radius:54px;
-  padding:12px;
-  background:rgba(255,255,255,.78);
-  border:1px solid rgba(255,255,255,.80);
-  box-shadow:var(--shadow-lg);
-}
-
-.premium-screen{
-  width:100%;
-  height:100%;
-  border-radius:43px;
-  overflow:hidden;
-  position:relative;
-  background:#fff;
-}
-
-.premium-screen::before{
-  content:"";
-  position:absolute;
-  inset:0;
-  background:
-    linear-gradient(180deg, rgba(255,255,255,.72), rgba(255,255,255,.94)),
-    var(--app-bg) center center / cover no-repeat;
-  opacity:.90;
-}
-
-.premium-screen::after{
-  content:"";
-  position:absolute;
-  inset:0;
-  background:
-    radial-gradient(circle at 17% 10%, rgba(134,217,229,.45), transparent 29%),
-    radial-gradient(circle at 88% 52%, rgba(239,232,255,.80), transparent 30%),
-    radial-gradient(circle at 14% 86%, rgba(255,244,207,.95), transparent 29%);
-}
-
-.premium-ui{
-  position:relative;
-  z-index:2;
-  height:100%;
-  padding:20px 18px 18px;
-  display:flex;
-  flex-direction:column;
-}
-
-.premium-header{
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  gap:12px;
-  margin-top:20px;
-}
-
-.premium-chip{
-  display:inline-flex;
-  align-items:center;
-  justify-content:center;
-  width:64px;
-  height:64px;
-  border-radius:999px;
-  border:1px solid rgba(13,24,51,.07);
-  background:rgba(255,255,255,.78);
-  box-shadow:0 12px 25px rgba(13,24,51,.08);
-  color:var(--gold);
-  font-size:11px;
-  font-weight:900;
-  text-align:center;
-  letter-spacing:.06em;
-}
-
-.premium-card{
-  margin-top:18px;
-  padding:17px;
-  border-radius:25px;
-  border:1px solid rgba(13,24,51,.07);
-  background:rgba(255,255,255,.80);
-  box-shadow:0 12px 26px rgba(13,24,51,.07);
-}
-
-.premium-card-title{
-  color:var(--ink);
-  font-size:16px;
-  line-height:1.35;
-  font-weight:900;
-  letter-spacing:-.025em;
-}
-
-.premium-card-sub{
-  margin-top:8px;
-  color:var(--muted);
-  font-size:13px;
-  line-height:1.55;
-}
-
-.premium-meter{
-  margin-top:14px;
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:10px;
-}
-
-.premium-meter div{
-  padding:14px 12px;
-  border-radius:20px;
-  background:rgba(255,255,255,.76);
-  border:1px solid rgba(13,24,51,.06);
-  text-align:center;
-  color:var(--ink);
-  font-size:19px;
-  font-weight:900;
-}
-
-.premium-meter span{
-  display:block;
-  margin-top:5px;
-  color:var(--muted);
-  font-size:10px;
-  letter-spacing:.08em;
-  text-transform:uppercase;
-}
-
-.premium-empty{
-  flex:1;
-  display:grid;
-  place-items:center;
-  text-align:center;
-  padding:20px 6px;
-}
-
-.premium-empty-icon{
-  width:74px;
-  height:74px;
-  margin:0 auto 17px;
-  border-radius:27px;
-  display:grid;
-  place-items:center;
-  background:rgba(255,255,255,.72);
-  border:1px solid rgba(13,24,51,.07);
-  box-shadow:0 14px 32px rgba(13,24,51,.08);
-  color:var(--gold);
-  font-size:30px;
-}
-
-.premium-empty h3{
-  color:var(--ink);
-  font-size:27px;
-  line-height:1;
-  letter-spacing:-.055em;
-}
-
-.premium-empty p{
-  margin-top:10px;
+  z-index:1;
   color:var(--muted);
   font-size:14px;
-  line-height:1.5;
+  line-height:1.75;
+  min-height:74px;
 }
 
-.premium-tab{
-  min-height:70px;
-  border-radius:30px;
-  background:rgba(255,255,255,.76);
-  border:1px solid rgba(255,255,255,.74);
-  box-shadow:0 14px 30px rgba(13,24,51,.10);
+.plan-card.featured .plan-desc{
+  color:rgba(255,255,255,.76);
+}
+
+.plan-list{
+  position:relative;
+  z-index:1;
   display:grid;
-  grid-template-columns:repeat(5,1fr);
-  align-items:center;
-  padding:7px;
+  gap:11px;
+  margin:24px 0 26px;
+  list-style:none;
 }
 
-.premium-tab div{
-  text-align:center;
-  color:rgba(13,24,51,.42);
-  font-size:10px;
+.plan-list li{
+  display:flex;
+  align-items:flex-start;
+  gap:10px;
+  color:var(--ink-2);
+  font-size:14px;
+  line-height:1.55;
+  font-weight:650;
+}
+
+.plan-list li::before{
+  content:"✓";
+  display:grid;
+  place-items:center;
+  width:22px;
+  height:22px;
+  flex:0 0 auto;
+  border-radius:999px;
+  background:var(--teal-soft);
+  color:var(--teal-dark);
+  font-size:12px;
   font-weight:900;
 }
 
-.premium-tab b{
-  display:block;
-  font-size:18px;
-  line-height:1;
-  margin-bottom:3px;
-  font-weight:700;
+.plan-card.featured .plan-list li{
+  color:rgba(255,255,255,.90);
 }
 
-.premium-tab .on{
-  color:rgba(13,24,51,.72);
-  background:rgba(255,255,255,.86);
-  border-radius:24px;
-  padding:9px 0;
+.plan-card.featured .plan-list li::before{
+  background:rgba(255,255,255,.14);
+  color:#fff;
+}
+
+.plan-footer{
+  position:relative;
+  z-index:1;
+  margin-top:auto;
+  color:var(--muted-2);
+  font-size:12px;
+  line-height:1.6;
+}
+
+.plan-card.featured .plan-footer{
+  color:rgba(255,255,255,.58);
 }
 
 /* ISLANDS */
@@ -1464,7 +1137,7 @@ select{
   border-radius:30px;
   background:linear-gradient(140deg, #e8dfd5, #d7c9b9);
   border:1px solid rgba(13,24,51,.08);
-  box-shadow:var(--shadow-sm);
+  box-shadow:var(--shadow-xs);
   isolation:isolate;
   transition:transform .28s ease, box-shadow .28s ease;
 }
@@ -1483,19 +1156,31 @@ select{
   min-height:651px;
 }
 
+.island::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:
+    linear-gradient(180deg, rgba(255,255,255,.12), rgba(9,16,34,.34)),
+    var(--app-bg) center / cover no-repeat;
+  filter:saturate(.82) blur(.2px);
+  transform:scale(1.02);
+}
+
 .island img{
   position:absolute;
   inset:0;
   width:100%;
   height:100%;
   object-fit:cover;
+  z-index:0;
   transition:transform .7s ease, filter .7s ease;
-  filter:saturate(.96) contrast(1.04) brightness(.86);
+  filter:saturate(.98) contrast(1.05) brightness(.86);
 }
 
 .island:hover img{
   transform:scale(1.06);
-  filter:saturate(1.08) contrast(1.04) brightness(.92);
+  filter:saturate(1.08) contrast(1.06) brightness(.92);
 }
 
 .island::after{
@@ -1504,7 +1189,13 @@ select{
   inset:0;
   z-index:1;
   background:
-    linear-gradient(to top, rgba(9,16,34,.88) 0%, rgba(9,16,34,.48) 42%, rgba(9,16,34,.08) 78%, transparent 100%);
+    linear-gradient(to top, rgba(9,16,34,.91) 0%, rgba(9,16,34,.52) 42%, rgba(9,16,34,.10) 78%, transparent 100%);
+}
+
+.island.image-missing::after{
+  background:
+    linear-gradient(to top, rgba(9,16,34,.91), rgba(9,16,34,.46)),
+    radial-gradient(circle at 20% 20%, rgba(255,244,207,.22), transparent 35%);
 }
 
 .island-content{
@@ -1542,7 +1233,7 @@ select{
 
 .island-monument{
   margin-top:8px;
-  color:rgba(255,255,255,.62);
+  color:rgba(255,255,255,.68);
   font-size:13px;
   line-height:1.5;
 }
@@ -1561,8 +1252,8 @@ select{
   padding:38px;
   border-radius:38px;
   border:1px solid rgba(13,24,51,.08);
-  background:rgba(255,255,255,.62);
-  box-shadow:var(--shadow-sm);
+  background:rgba(255,255,255,.65);
+  box-shadow:var(--shadow-xs);
   backdrop-filter:blur(24px) saturate(160%);
   -webkit-backdrop-filter:blur(24px) saturate(160%);
 }
@@ -1611,7 +1302,7 @@ select{
   color:var(--ink);
   background:rgba(255,255,255,.72);
   border:1px solid rgba(13,24,51,.07);
-  box-shadow:var(--shadow-sm);
+  box-shadow:var(--shadow-xs);
   font-size:13px;
   font-weight:800;
 }
@@ -1630,7 +1321,7 @@ select{
   border-radius:24px;
   background:rgba(255,255,255,.70);
   border:1px solid rgba(13,24,51,.07);
-  box-shadow:var(--shadow-sm);
+  box-shadow:var(--shadow-xs);
   color:var(--ink);
   font-size:27px;
 }
@@ -1646,10 +1337,10 @@ select{
   border-radius:38px;
   padding:34px;
   border:1px solid rgba(13,24,51,.08);
-  background:rgba(255,255,255,.62);
+  background:rgba(255,255,255,.65);
   backdrop-filter:blur(24px) saturate(160%);
   -webkit-backdrop-filter:blur(24px) saturate(160%);
-  box-shadow:var(--shadow-sm);
+  box-shadow:var(--shadow-xs);
 }
 
 .amb-card p{
@@ -1718,7 +1409,7 @@ select{
   border-radius:25px;
   border:1px solid rgba(13,24,51,.07);
   background:rgba(255,255,255,.62);
-  box-shadow:var(--shadow-sm);
+  box-shadow:var(--shadow-xs);
 }
 
 .amb-icon{
@@ -1729,8 +1420,9 @@ select{
   place-items:center;
   border-radius:16px;
   background:var(--gold-soft);
-  color:var(--gold);
+  color:var(--gold-2);
   font-size:18px;
+  font-weight:900;
 }
 
 .amb-feature b{
@@ -1759,7 +1451,7 @@ select{
     radial-gradient(circle at 15% 28%, rgba(255,244,207,.92), transparent 32%),
     radial-gradient(circle at 85% 30%, rgba(134,217,229,.22), transparent 30%),
     radial-gradient(circle at 50% 100%, rgba(239,232,255,.70), transparent 35%),
-    rgba(255,255,255,.68);
+    rgba(255,255,255,.70);
   backdrop-filter:blur(24px) saturate(160%);
   -webkit-backdrop-filter:blur(24px) saturate(160%);
   box-shadow:var(--shadow-md);
@@ -1897,14 +1589,14 @@ select{
 
   .hero-grid,
   .section-head,
-  .premium-layout,
+  .premium-intro,
   .culture-grid,
   .ambassador-layout{
     grid-template-columns:1fr;
   }
 
   .hero-visual{
-    min-height:680px;
+    min-height:720px;
   }
 
   .stats{
@@ -1921,11 +1613,22 @@ select{
 
   .feature-large,
   .feature-wide,
-  .feature-third,
-  .feature-half{
+  .feature-third{
     grid-column:span 1;
     grid-row:span 1;
-    min-height:260px;
+    min-height:270px;
+  }
+
+  .feature-photo{
+    display:none;
+  }
+
+  .plan-grid{
+    grid-template-columns:1fr;
+  }
+
+  .plan-card.featured{
+    transform:none;
   }
 
   .islands-grid{
@@ -1953,6 +1656,10 @@ select{
 
   .section{
     padding:84px 0;
+  }
+
+  .section-tight{
+    padding:62px 0;
   }
 
   .nav{
@@ -2006,28 +1713,38 @@ select{
   }
 
   .hero-visual{
-    min-height:610px;
+    min-height:680px;
   }
 
-  .device-stage{
-    height:610px;
+  .product-stage{
+    min-height:680px;
   }
 
-  .iphone-main{
-    width:250px;
-    height:510px;
-    right:4px;
-    top:22px;
+  .product-stage::before{
+    width:300px;
+    height:520px;
+    right:6px;
+    top:60px;
   }
 
-  .iphone-back{
-    width:215px;
-    height:438px;
-    left:0;
-    top:112px;
+  .app-preview-card{
+    width:min(100%, 350px);
+    border-radius:42px;
+    padding:10px;
   }
 
-  .float-card{
+  .device-screen{
+    min-height:580px;
+    border-radius:32px;
+  }
+
+  .device-screen img,
+  .fallback-app{
+    height:580px;
+    min-height:580px;
+  }
+
+  .stage-panel{
     display:none;
   }
 
@@ -2049,24 +1766,21 @@ select{
   }
 
   .feature-card,
-  .premium-panel,
+  .premium-shell,
   .culture-panel,
   .amb-card{
     padding:24px;
     border-radius:30px;
   }
 
-  .spark-stack{
-    display:none;
+  .plan-card{
+    min-height:auto;
+    padding:23px;
+    border-radius:28px;
   }
 
-  .premium-product{
-    min-height:650px;
-  }
-
-  .premium-device{
-    width:min(100%, 320px);
-    height:620px;
+  .plan-price strong{
+    font-size:52px;
   }
 
   .commission-row{
@@ -2146,13 +1860,13 @@ select{
 
       <div class="hero-actions">
         <a class="btn btn-primary" href="download.html">Join the Launch →</a>
-        <a class="btn btn-soft" href="#features">Explore the Experience</a>
+        <a class="btn btn-soft" href="#premium">View Memberships</a>
       </div>
 
       <div class="hero-note">
         <span>Verified-first community</span>
         <span>13 daily Sparks</span>
-        <span>Kreyòl · Français · Español · English</span>
+        <span>3 free Superlikes daily</span>
       </div>
 
       <div class="hero-scroll">
@@ -2162,96 +1876,43 @@ select{
     </div>
 
     <div class="hero-visual reveal" aria-label="Koneksyon app preview">
-      <div class="device-stage">
-
-        <div class="float-card float-a">
-          <span>✦</span>
-          Intentional by design
+      <div class="product-stage">
+        <div class="stage-panel one">
+          <small>Discovery</small>
+          <b>One real app screen. No fake double-phone render.</b>
         </div>
 
-        <div class="float-card float-b">
-          <span>∞</span>
-          Konekt+ Premium
+        <div class="stage-panel two">
+          <small>Premium</small>
+          <b>30 likes daily, 10 Sparks, full likes view.</b>
         </div>
 
-        <div class="iphone iphone-back" aria-hidden="true">
-          <div class="phone-screen">
-            <div class="phone-content">
-              <div class="phone-status">
-                <span>11:49</span>
-                <span>●●●</span>
-              </div>
+        <div class="stage-panel three">
+          <small>Free</small>
+          <b>13 Sparks and 3 Superlikes every day.</b>
+        </div>
 
-              <div class="phone-top">
-                <span class="phone-logo-fallback">Koneksyon</span>
-                <div class="phone-actions">
-                  <div class="phone-circle gold">✦</div>
-                </div>
-              </div>
-
-              <div class="profile-card">
-                <div class="profile-card-content">
-                  <small>Culture Match</small>
-                  <h3>Island energy.</h3>
-                  <p>Discovery shaped by language, values, rhythm, and real intention.</p>
-                </div>
-              </div>
-            </div>
+        <div class="app-preview-card">
+          <div class="app-preview-bar">
+            <span>Koneksyon live preview</span>
+            <b>Verified-first</b>
           </div>
-        </div>
-
-        <div class="iphone iphone-main">
-          <div class="phone-screen">
-            <div class="phone-content">
-              <div class="phone-status">
-                <span>11:49</span>
-                <span>5G · 100%</span>
-              </div>
-
-              <div class="phone-top">
-                <img class="phone-logo" src="koneksyon-logo-color.png" alt="Koneksyon app logo" onerror="this.outerHTML='<span class=&quot;phone-logo-fallback&quot;>Koneksyon</span>';" />
-                <div class="phone-actions">
-                  <div class="phone-circle gold">PREM</div>
-                  <div class="phone-circle">↻</div>
-                </div>
-              </div>
-
-              <div class="phone-card trust-card">
-                <span class="trust-icon">♢</span>
-                <span>Complete verification to build more trust.</span>
-              </div>
-
-              <div class="phone-metrics">
-                <div class="phone-card metric">
-                  <b>∞</b>
-                  <span>Likes</span>
-                </div>
-                <div class="phone-card metric">
-                  <b>∞</b>
-                  <span>Sparks</span>
-                </div>
-              </div>
-
-              <div class="phone-center">
+          <div class="device-screen">
+            <!-- Save your uploaded app screenshot as IMG_2684.png in the same folder as this HTML, or change this src. -->
+            <img src="IMG_2684.png" alt="Koneksyon app discovery screen" loading="eager" decoding="async" onerror="this.style.display='none'; this.nextElementSibling.hidden=false;" />
+            <div class="fallback-app" hidden>
+              <div class="fallback-logo">Koneksyon</div>
+              <div class="fallback-alert">Hey, go complete your profile.</div>
+              <div class="fallback-profile">
                 <div>
-                  <div class="phone-center-mark">🌴</div>
-                  <h3>No profiles right now</h3>
-                  <p>Try again a little later.</p>
-                  <div class="phone-cta">Reload</div>
+                  <small>Verified</small>
+                  <h3>Ed, 27</h3>
+                  <p>Tamarac, United States · &lt; 1 mi</p>
                 </div>
-              </div>
-
-              <div class="phone-tab">
-                <div class="phone-tab-item active"><b>♢</b> Spark</div>
-                <div class="phone-tab-item"><b>♡</b> Likes</div>
-                <div class="phone-tab-item"><b>↗</b> Chats</div>
-                <div class="phone-tab-item"><b>⌕</b> Vibes</div>
-                <div class="phone-tab-item"><b>◦</b> You</div>
               </div>
             </div>
           </div>
         </div>
-
       </div>
     </div>
   </div>
@@ -2265,7 +1926,7 @@ select{
     <div class="marquee-item"><i>✦</i> Haitian Kreyòl</div>
     <div class="marquee-item"><i>✦</i> Premium discovery</div>
     <div class="marquee-item"><i>✦</i> 13 Sparks daily</div>
-    <div class="marquee-item"><i>✦</i> Safe and intentional</div>
+    <div class="marquee-item"><i>✦</i> 3 Superlikes daily</div>
     <div class="marquee-item"><i>✦</i> Caribbean-inspired</div>
     <div class="marquee-item"><i>✦</i> Open to everyone</div>
     <div class="marquee-item"><i>✦</i> Konekt+</div>
@@ -2276,7 +1937,7 @@ select{
     <div class="marquee-item"><i>✦</i> Haitian Kreyòl</div>
     <div class="marquee-item"><i>✦</i> Premium discovery</div>
     <div class="marquee-item"><i>✦</i> 13 Sparks daily</div>
-    <div class="marquee-item"><i>✦</i> Safe and intentional</div>
+    <div class="marquee-item"><i>✦</i> 3 Superlikes daily</div>
     <div class="marquee-item"><i>✦</i> Caribbean-inspired</div>
     <div class="marquee-item"><i>✦</i> Open to everyone</div>
     <div class="marquee-item"><i>✦</i> Konekt+</div>
@@ -2290,23 +1951,23 @@ select{
     <div class="stats reveal">
       <div class="stat">
         <div class="stat-value">13</div>
-        <div class="stat-label">Daily Sparks</div>
+        <div class="stat-label">Free Sparks / day</div>
+      </div>
+      <div class="stat">
+        <div class="stat-value">3</div>
+        <div class="stat-label">Superlikes / day</div>
+      </div>
+      <div class="stat">
+        <div class="stat-value">30</div>
+        <div class="stat-label">Premium Likes / day</div>
       </div>
       <div class="stat">
         <div class="stat-value">4</div>
         <div class="stat-label">Languages</div>
       </div>
       <div class="stat">
-        <div class="stat-value">13</div>
-        <div class="stat-label">Island Nations</div>
-      </div>
-      <div class="stat">
         <div class="stat-value">Jul 1</div>
         <div class="stat-label">Launch Date</div>
-      </div>
-      <div class="stat">
-        <div class="stat-value">100%</div>
-        <div class="stat-label">Verified-first</div>
       </div>
     </div>
   </div>
@@ -2325,29 +1986,25 @@ select{
       </div>
       <p class="lede">
         Koneksyon is built around a calmer, more intentional way to discover people.
-        The product should feel safe, warm, selective, and human — not like another endless swipe clone.
+        The product feels safe, warm, selective, and human — not like another endless swipe clone.
       </p>
     </div>
 
     <div class="feature-grid">
       <article class="feature-card feature-large reveal">
-        <div class="spark-stack" aria-hidden="true">
-          <div class="spark-mini">🇭🇹</div>
-          <div class="spark-mini">🇯🇲</div>
-          <div class="spark-mini">🇹🇹</div>
-        </div>
+        <div class="feature-photo" aria-hidden="true"></div>
         <div class="card-tag">Intentional discovery</div>
-        <div class="feature-icon">∞</div>
-        <h3 class="feature-title">13 Sparks.<br />Make them count.</h3>
+        <div class="feature-icon">13</div>
+        <h3 class="feature-title">Daily Sparks.<br />Make them count.</h3>
         <p class="feature-text">
-          A curated daily limit helps each profile feel considered. It turns discovery into a choice,
+          A thoughtful daily limit helps every profile feel considered. Discovery becomes a choice,
           not a reflex.
         </p>
       </article>
 
       <article class="feature-card feature-wide reveal">
         <div class="card-tag">Trust</div>
-        <div class="feature-icon">♢</div>
+        <div class="feature-icon">✓</div>
         <h3 class="feature-title small">Verified-first community</h3>
         <p class="feature-text">
           Identity verification, approved photos, reporting, blocking, and moderation help create
@@ -2366,12 +2023,11 @@ select{
       </article>
 
       <article class="feature-card feature-third reveal">
-        <div class="card-tag">Premium</div>
-        <div class="feature-icon">◇</div>
-        <h3 class="feature-title small">Konekt+ without gimmicks.</h3>
+        <div class="card-tag">Konekt+</div>
+        <div class="feature-icon">↗</div>
+        <h3 class="feature-title small">Boost visibility when it matters.</h3>
         <p class="feature-text">
-          Premium tools should feel useful, calm, and elevated — more control, more visibility,
-          and more room to connect.
+          Konekt+ boosts help your profile appear higher in discovery for a timed visibility lift.
         </p>
       </article>
 
@@ -2391,115 +2047,94 @@ select{
 <!-- PREMIUM -->
 <section class="section" id="premium">
   <div class="wrap">
-    <div class="premium-layout">
-      <div class="premium-panel reveal">
-        <div class="eyebrow">Konekt+ Premium</div>
-        <h2 class="premium-title">Premium should feel quiet, useful, and worth it.</h2>
+    <div class="premium-shell reveal">
+      <div class="premium-intro">
+        <div>
+          <div class="eyebrow">Memberships</div>
+          <h2 class="premium-title">Free to start. Premium when you want more control.</h2>
+        </div>
         <p class="premium-copy">
-          Konekt+ gives serious members more space to discover and connect while keeping the brand
-          polished. No cheap tricks. Just a cleaner premium experience.
+          Koneksyon keeps discovery intentional at every level. Free members get enough access to meet people with purpose.
+          Premium adds more daily room, better visibility into likes, and priority access without making the app feel noisy.
         </p>
-
-        <div class="premium-benefits">
-          <div class="benefit">
-            <b>Unlimited Likes</b>
-            <span>Keep discovering when the connection feels right.</span>
-          </div>
-          <div class="benefit">
-            <b>Unlimited Sparks</b>
-            <span>Send stronger interest without waiting for a reset.</span>
-          </div>
-          <div class="benefit">
-            <b>Enhanced Visibility</b>
-            <span>Give active members a more visible presence.</span>
-          </div>
-          <div class="benefit">
-            <b>Priority Experience</b>
-            <span>A smoother path for members who are serious.</span>
-          </div>
-        </div>
-
-        <div class="pricing">
-          <div class="price">
-            <div class="price-top">
-              <span class="price-name">Monthly</span>
-            </div>
-            <div class="price-number">$12.99</div>
-            <div class="price-caption">A flexible premium entry point.</div>
-          </div>
-
-          <div class="price">
-            <div class="price-top">
-              <span class="price-name">3 Months</span>
-            </div>
-            <div class="price-number">$32.99</div>
-            <div class="price-caption">Better value for steady discovery.</div>
-          </div>
-
-          <div class="price">
-            <div class="price-top">
-              <span class="price-name">6 Months</span>
-              <span class="price-badge">Popular</span>
-            </div>
-            <div class="price-number">$59.99</div>
-            <div class="price-caption">For members who want consistency.</div>
-          </div>
-
-          <div class="price best">
-            <div class="price-top">
-              <span class="price-name">12 Months</span>
-              <span class="price-badge">Best</span>
-            </div>
-            <div class="price-number">$99.99</div>
-            <div class="price-caption">The strongest value for long-term members.</div>
-          </div>
-        </div>
       </div>
 
-      <div class="premium-panel premium-product reveal">
-        <div class="premium-device">
-          <div class="premium-screen">
-            <div class="premium-ui">
-              <div class="phone-status">
-                <span>11:49</span>
-                <span>5G · 100%</span>
-              </div>
-
-              <div class="premium-header">
-                <img class="phone-logo" src="koneksyon-logo-color.png" alt="Koneksyon" onerror="this.outerHTML='<span class=&quot;phone-logo-fallback&quot;>Koneksyon</span>';" />
-                <div class="premium-chip">✦<br />PREM</div>
-              </div>
-
-              <div class="premium-card">
-                <div class="premium-card-title">Konekt+ is active.</div>
-                <div class="premium-card-sub">Unlimited discovery, stronger signals, and a smoother premium experience.</div>
-              </div>
-
-              <div class="premium-meter">
-                <div>∞<span>Likes</span></div>
-                <div>∞<span>Sparks</span></div>
-              </div>
-
-              <div class="premium-empty">
-                <div>
-                  <div class="premium-empty-icon">✦</div>
-                  <h3>Premium energy</h3>
-                  <p>More discovery. More intention. More room for something real.</p>
-                </div>
-              </div>
-
-              <div class="premium-tab">
-                <div class="on"><b>♢</b> Spark</div>
-                <div><b>♡</b> Likes</div>
-                <div><b>↗</b> Chats</div>
-                <div><b>⌕</b> Vibes</div>
-                <div><b>◦</b> You</div>
-              </div>
-            </div>
+      <div class="plan-grid">
+        <article class="plan-card">
+          <div class="plan-top">
+            <span class="plan-name">Free</span>
           </div>
-        </div>
-      </div>
 
+          <div class="plan-price">
+            <strong>$0</strong>
+            <span>/ month</span>
+          </div>
+
+          <p class="plan-desc">
+            Every Koneksyon member starts with an intentional daily limit designed to make every connection count.
+          </p>
+
+          <ul class="plan-list">
+            <li>13 Sparks per day</li>
+            <li>3 Superlikes daily</li>
+            <li>Preview who liked your profile</li>
+            <li>Verified-first community access</li>
+          </ul>
+
+          <p class="plan-footer">Best for joining the community and discovering the Koneksyon experience.</p>
+        </article>
+
+        <article class="plan-card featured">
+          <div class="plan-top">
+            <span class="plan-name">Premium</span>
+            <span class="plan-badge">Konekt+ Premium</span>
+          </div>
+
+          <div class="plan-price">
+            <strong>$12.99</strong>
+            <span>/ month</span>
+          </div>
+
+          <p class="plan-desc">
+            Premium unlocks the full Koneksyon experience for members who want more visibility, more control, and more opportunity.
+          </p>
+
+          <ul class="plan-list">
+            <li>30 likes per day</li>
+            <li>10 Sparks included</li>
+            <li>Refresh Sparks anytime</li>
+            <li>See exactly who liked you, including full profiles and photos</li>
+            <li>Priority messaging access</li>
+            <li>Early access to new features</li>
+          </ul>
+
+          <p class="plan-footer">Cancel anytime through your device settings.</p>
+        </article>
+
+        <article class="plan-card">
+          <div class="plan-top">
+            <span class="plan-name">Profile Konekt+</span>
+            <span class="plan-badge">Separate</span>
+          </div>
+
+          <div class="plan-price">
+            <strong>Boost</strong>
+          </div>
+
+          <p class="plan-desc">
+            Give your profile a timed visibility lift and appear higher in discovery for more views and likes.
+          </p>
+
+          <ul class="plan-list">
+            <li>Timed profile visibility boost</li>
+            <li>Use anytime after purchase</li>
+            <li>Available to Free and Premium members</li>
+            <li>Designed for moments when you want more attention</li>
+          </ul>
+
+          <p class="plan-footer">Profile Konekt+ boosts are purchased separately.</p>
+        </article>
+      </div>
     </div>
   </div>
 </section>
@@ -2517,14 +2152,14 @@ select{
       </div>
       <p class="lede">
         Koneksyon draws its soul from Caribbean history, language, rhythm, beauty, and pride.
-        The app is Caribbean-inspired and open to everyone who connects with that warmth.
+        These monument cards use local images first, then reliable fallback image paths so the cards do not stay gray.
       </p>
     </div>
 
     <div class="islands-grid reveal">
 
       <article class="island wide tall">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a0/Citadelle_Laferri%C3%A8re.jpg/1280px-Citadelle_Laferri%C3%A8re.jpg" alt="Citadelle Laferrière in Haiti" loading="lazy" onerror="this.remove();" />
+        <img src="assets/islands/haiti-citadelle.jpg" data-fallback="https://commons.wikimedia.org/wiki/Special:FilePath/Citadelle%20Laferri%C3%A8re%20Aerial%20View.jpg?width=1600" alt="Citadelle Laferrière in Haiti" loading="lazy" decoding="async" />
         <div class="island-content">
           <span class="island-flag">🇭🇹</span>
           <div class="island-name">Haiti</div>
@@ -2534,7 +2169,7 @@ select{
       </article>
 
       <article class="island">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6c/Dunn%27s_River_Falls_-_panoramio_%281%29.jpg/1280px-Dunn%27s_River_Falls_-_panoramio_%281%29.jpg" alt="Dunn's River Falls in Jamaica" loading="lazy" onerror="this.remove();" />
+        <img src="assets/islands/jamaica-dunns-river-falls.jpg" data-fallback="https://commons.wikimedia.org/wiki/Special:FilePath/Dunn%27s%20River%20Falls%2C%20Ocho%20Rios%2C%20Jamaica.jpg?width=1600" alt="Dunn's River Falls in Jamaica" loading="lazy" decoding="async" />
         <div class="island-content">
           <span class="island-flag">🇯🇲</span>
           <div class="island-name">Jamaica</div>
@@ -2544,7 +2179,7 @@ select{
       </article>
 
       <article class="island">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3c/Santo_Domingo_-_Faro_a_Colon.JPG/1280px-Santo_Domingo_-_Faro_a_Colon.JPG" alt="Faro a Colón in the Dominican Republic" loading="lazy" onerror="this.remove();" />
+        <img src="assets/islands/dominican-republic-faro-a-colon.jpg" data-fallback="https://commons.wikimedia.org/wiki/Special:FilePath/Santo%20Domingo.El%20Faro%20a%20Col%C3%B3n.20170402.jpg?width=1600" alt="Faro a Colón in the Dominican Republic" loading="lazy" decoding="async" />
         <div class="island-content">
           <span class="island-flag">🇩🇴</span>
           <div class="island-name">Dominican Republic</div>
@@ -2554,7 +2189,7 @@ select{
       </article>
 
       <article class="island">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/99/Queen%27s_Park_Savannah.jpg/1280px-Queen%27s_Park_Savannah.jpg" alt="Queen's Park Savannah in Trinidad and Tobago" loading="lazy" onerror="this.remove();" />
+        <img src="assets/islands/trinidad-tobago-queens-park-savannah.jpg" data-fallback="https://commons.wikimedia.org/wiki/Special:FilePath/TnT%20PoS%20Queen%27s%20Park%20Savannah.jpg?width=1600" alt="Queen's Park Savannah in Trinidad and Tobago" loading="lazy" decoding="async" />
         <div class="island-content">
           <span class="island-flag">🇹🇹</span>
           <div class="island-name">Trinidad & Tobago</div>
@@ -2564,7 +2199,7 @@ select{
       </article>
 
       <article class="island wide">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/58/Castillo_San_Felipe_del_Morro_2013.jpg/1280px-Castillo_San_Felipe_del_Morro_2013.jpg" alt="Castillo San Felipe del Morro in Puerto Rico" loading="lazy" onerror="this.remove();" />
+        <img src="assets/islands/puerto-rico-castillo-san-felipe.jpg" data-fallback="https://commons.wikimedia.org/wiki/Special:FilePath/Castillo%20San%20Felipe%20del%20Morro3.jpg?width=1600" alt="Castillo San Felipe del Morro in Puerto Rico" loading="lazy" decoding="async" />
         <div class="island-content">
           <span class="island-flag">🇵🇷</span>
           <div class="island-name">Puerto Rico</div>
@@ -2574,7 +2209,7 @@ select{
       </article>
 
       <article class="island">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e5/Castillo_de_los_Tres_Santos_Reyes_Magnos_del_Morro_04.jpg/1280px-Castillo_de_los_Tres_Santos_Reyes_Magnos_del_Morro_04.jpg" alt="Castillo del Morro in Cuba" loading="lazy" onerror="this.remove();" />
+        <img src="assets/islands/cuba-castillo-del-morro.jpg" data-fallback="https://commons.wikimedia.org/wiki/Special:FilePath/Castillo%20de%20los%20Tres%20Santos%20Reyes%20Magnos%20del%20Morro%2004.jpg?width=1600" alt="Castillo del Morro in Cuba" loading="lazy" decoding="async" />
         <div class="island-content">
           <span class="island-flag">🇨🇺</span>
           <div class="island-name">Cuba</div>
@@ -2584,7 +2219,7 @@ select{
       </article>
 
       <article class="island">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6d/Barbados_Garrison_Savannah.jpg/1280px-Barbados_Garrison_Savannah.jpg" alt="Garrison Savannah in Barbados" loading="lazy" onerror="this.remove();" />
+        <img src="assets/islands/barbados-garrison-savannah.jpg" data-fallback="https://commons.wikimedia.org/wiki/Special:FilePath/Garrison%20Savannah%20Barbados.jpg?width=1600" alt="Garrison Savannah in Barbados" loading="lazy" decoding="async" />
         <div class="island-content">
           <span class="island-flag">🇧🇧</span>
           <div class="island-name">Barbados</div>
@@ -2594,7 +2229,7 @@ select{
       </article>
 
       <article class="island">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/76/Pitons_St_Lucia.jpg/1280px-Pitons_St_Lucia.jpg" alt="The Pitons in Saint Lucia" loading="lazy" onerror="this.remove();" />
+        <img src="assets/islands/saint-lucia-pitons.jpg" data-fallback="https://commons.wikimedia.org/wiki/Special:FilePath/Two%20pitons.jpg?width=1600" alt="The Pitons in Saint Lucia" loading="lazy" decoding="async" />
         <div class="island-content">
           <span class="island-flag">🇱🇨</span>
           <div class="island-name">Saint Lucia</div>
@@ -2604,7 +2239,7 @@ select{
       </article>
 
       <article class="island wide">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b2/Queen_Emma_Bridge_Curacao.jpg/1280px-Queen_Emma_Bridge_Curacao.jpg" alt="Queen Emma Bridge in Curaçao" loading="lazy" onerror="this.remove();" />
+        <img src="assets/islands/curacao-queen-emma-bridge.jpg" data-fallback="https://commons.wikimedia.org/wiki/Special:FilePath/Queen%20Emma%20Bridge%20in%20Cura%C3%A7ao.jpg?width=1600" alt="Queen Emma Bridge in Curaçao" loading="lazy" decoding="async" />
         <div class="island-content">
           <span class="island-flag">🇨🇼</span>
           <div class="island-name">Curaçao</div>
@@ -2614,7 +2249,7 @@ select{
       </article>
 
       <article class="island">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5c/St_Georges_Grenada.jpg/1280px-St_Georges_Grenada.jpg" alt="St. George's Harbour in Grenada" loading="lazy" onerror="this.remove();" />
+        <img src="assets/islands/grenada-st-georges.jpg" data-fallback="https://commons.wikimedia.org/wiki/Special:FilePath/St.%20Georges%2C%20Grenada.jpg?width=1600" alt="St. George's Harbour in Grenada" loading="lazy" decoding="async" />
         <div class="island-content">
           <span class="island-flag">🇬🇩</span>
           <div class="island-name">Grenada</div>
@@ -2624,7 +2259,7 @@ select{
       </article>
 
       <article class="island">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/Brimstone_Hill_Fortress_National_Park.jpg/1280px-Brimstone_Hill_Fortress_National_Park.jpg" alt="Brimstone Hill Fortress in Saint Kitts and Nevis" loading="lazy" onerror="this.remove();" />
+        <img src="assets/islands/saint-kitts-brimstone-hill.jpg" data-fallback="https://commons.wikimedia.org/wiki/Special:FilePath/Saint%20Kitts%20-%20Brimstone%20Hill%20Fortress%2004.JPG?width=1600" alt="Brimstone Hill Fortress in Saint Kitts and Nevis" loading="lazy" decoding="async" />
         <div class="island-content">
           <span class="island-flag">🇰🇳</span>
           <div class="island-name">Saint Kitts & Nevis</div>
@@ -2634,7 +2269,7 @@ select{
       </article>
 
       <article class="island">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4e/Fort_Charlotte_Saint_Vincent.jpg/1280px-Fort_Charlotte_Saint_Vincent.jpg" alt="Fort Charlotte in Saint Vincent" loading="lazy" onerror="this.remove();" />
+        <img src="assets/islands/saint-vincent-fort-charlotte.jpg" data-fallback="https://commons.wikimedia.org/wiki/Special:FilePath/Kingstown%20%E2%80%93%20Fort%20Charlotte%20-%20panoramio.jpg?width=1600" alt="Fort Charlotte in Saint Vincent" loading="lazy" decoding="async" />
         <div class="island-content">
           <span class="island-flag">🇻🇨</span>
           <div class="island-name">Saint Vincent</div>
@@ -2644,7 +2279,7 @@ select{
       </article>
 
       <article class="island wide">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/Nelson%27s_Dockyard_Antigua.jpg/1280px-Nelson%27s_Dockyard_Antigua.jpg" alt="Nelson's Dockyard in Antigua and Barbuda" loading="lazy" onerror="this.remove();" />
+        <img src="assets/islands/antigua-barbuda-nelsons-dockyard.jpg" data-fallback="https://commons.wikimedia.org/wiki/Special:FilePath/Nelson%27s%20Dockyard.jpg?width=1600" alt="Nelson's Dockyard in Antigua and Barbuda" loading="lazy" decoding="async" />
         <div class="island-content">
           <span class="island-flag">🇦🇬</span>
           <div class="island-name">Antigua & Barbuda</div>
@@ -2908,6 +2543,26 @@ const observer = new IntersectionObserver((entries) => {
 });
 
 document.querySelectorAll(".reveal").forEach((el) => observer.observe(el));
+
+/*
+  Island images:
+  1. The code looks first for local files in /assets/islands/ for faster, reliable launch performance.
+  2. If a local file is missing, it falls back to the Wikimedia Commons Special:FilePath URL.
+  3. For production, replace the fallback images with your own licensed/owned image files.
+*/
+document.querySelectorAll("img[data-fallback]").forEach((img) => {
+  img.addEventListener("error", () => {
+    if(img.dataset.triedFallback !== "true"){
+      img.dataset.triedFallback = "true";
+      img.src = img.dataset.fallback;
+      return;
+    }
+
+    const card = img.closest(".island");
+    if(card) card.classList.add("image-missing");
+    img.remove();
+  });
+});
 </script>
 
 </body>
