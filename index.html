@@ -1,685 +1,2869 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
 <title>Koneksyon — Where Culture Meets Connection</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600&family=Instrument+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&family=DM+Mono&display=swap" rel="stylesheet">
+<meta name="description" content="Koneksyon is a Caribbean-inspired dating app built around culture, safety, language, and intentional connection." />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,600&family=DM+Mono:wght@400;500&family=Instrument+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+
 <style>
-:root{color-scheme:light dark;--bg:#FAFAF8;--bg2:#F3F1EC;--bg3:#E8E5DE;--ink:#0C0C0A;--ink2:rgba(12,12,10,.58);--ink3:rgba(12,12,10,.32);--line:rgba(12,12,10,.09);--line2:rgba(12,12,10,.16);--coral:#C93B1A;--gold:#C89B0A;--teal:#0A9EAA;--coral-glow:rgba(201,59,26,.18);--gold-glow:rgba(200,155,10,.14);--teal-glow:rgba(10,158,170,.14)}
-@media(prefers-color-scheme:dark){:root{--bg:#09090B;--bg2:#111113;--bg3:#1A1A1E;--ink:#F5F4F0;--ink2:rgba(245,244,240,.58);--ink3:rgba(245,244,240,.30);--line:rgba(245,244,240,.08);--line2:rgba(245,244,240,.14);--coral:#E04B27;--gold:#D4A81A;--teal:#14B8C4;--coral-glow:rgba(224,75,39,.22);--gold-glow:rgba(212,168,26,.16);--teal-glow:rgba(20,184,196,.16)}}
-*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth;font-size:16px}
-body{font-family:'Instrument Sans',system-ui,sans-serif;background:var(--bg);color:var(--ink);overflow-x:hidden;-webkit-font-smoothing:antialiased}
-body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:9999;opacity:.03;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)'/%3E%3C/svg%3E");background-size:200px}
-.serif{font-family:'Cormorant Garamond',Georgia,serif}
-.mono{font-family:'DM Mono',monospace}
+:root{
+  color-scheme:light;
+
+  --app-bg:url("assets/koneksyon-app-background.jpg");
+
+  --page:#fbf8f3;
+  --page-2:#f4efe8;
+  --surface:#ffffff;
+  --surface-soft:rgba(255,255,255,.72);
+  --surface-glass:rgba(255,255,255,.62);
+
+  --ink:#0d1833;
+  --ink-2:#263044;
+  --muted:#697182;
+  --muted-2:#969cab;
+
+  --line:rgba(13,24,51,.09);
+  --line-2:rgba(13,24,51,.15);
+
+  --gold:#d19a05;
+  --gold-soft:#fff4cf;
+
+  --coral:#d95e49;
+  --coral-soft:#fff0ec;
+
+  --teal:#86d9e5;
+  --teal-soft:#e9fbff;
+
+  --lilac:#efe8ff;
+  --sand:#fff7e8;
+
+  --shadow-sm:0 10px 26px rgba(13,24,51,.07);
+  --shadow-md:0 22px 60px rgba(13,24,51,.11);
+  --shadow-lg:0 34px 90px rgba(13,24,51,.16);
+
+  --radius-xl:34px;
+  --radius-lg:26px;
+  --radius-md:18px;
+
+  --max:1240px;
+}
+
+*,
+*::before,
+*::after{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+}
+
+html{
+  scroll-behavior:smooth;
+  font-size:16px;
+}
+
+body{
+  min-height:100vh;
+  font-family:"Instrument Sans", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  color:var(--ink);
+  background:
+    radial-gradient(circle at 10% -10%, rgba(134,217,229,.30), transparent 36%),
+    radial-gradient(circle at 85% 5%, rgba(239,232,255,.70), transparent 34%),
+    radial-gradient(circle at 0% 75%, rgba(255,247,232,.95), transparent 32%),
+    linear-gradient(180deg, #fffdf9 0%, var(--page) 42%, var(--page-2) 100%);
+  overflow-x:hidden;
+  -webkit-font-smoothing:antialiased;
+  text-rendering:optimizeLegibility;
+}
+
+body::after{
+  content:"";
+  position:fixed;
+  inset:0;
+  z-index:9999;
+  pointer-events:none;
+  opacity:.025;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='240' height='240' filter='url(%23n)' opacity='.75'/%3E%3C/svg%3E");
+  background-size:240px;
+}
+
+img{
+  display:block;
+  max-width:100%;
+}
+
+a{
+  color:inherit;
+  text-decoration:none;
+}
+
+button,
+input,
+textarea,
+select{
+  font:inherit;
+}
+
+.serif{
+  font-family:"Cormorant Garamond", Georgia, serif;
+}
+
+.mono{
+  font-family:"DM Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+}
+
+.wrap{
+  width:min(var(--max), calc(100% - 48px));
+  margin:0 auto;
+}
+
+.section{
+  padding:118px 0;
+  position:relative;
+}
+
+.section-tight{
+  padding:82px 0;
+}
+
+.eyebrow{
+  display:inline-flex;
+  align-items:center;
+  gap:10px;
+  padding:9px 14px;
+  border:1px solid rgba(13,24,51,.08);
+  border-radius:999px;
+  background:rgba(255,255,255,.62);
+  backdrop-filter:blur(18px) saturate(160%);
+  -webkit-backdrop-filter:blur(18px) saturate(160%);
+  box-shadow:var(--shadow-sm);
+  color:var(--gold);
+  font-size:11px;
+  font-weight:800;
+  letter-spacing:.13em;
+  text-transform:uppercase;
+}
+
+.eyebrow::before{
+  content:"";
+  width:7px;
+  height:7px;
+  border-radius:50%;
+  background:var(--gold);
+  box-shadow:0 0 0 6px rgba(209,154,5,.12);
+}
+
+.section-head{
+  display:grid;
+  grid-template-columns:1fr .78fr;
+  gap:56px;
+  align-items:end;
+  margin-bottom:48px;
+}
+
+.kicker{
+  color:var(--gold);
+  font-family:"DM Mono", monospace;
+  font-size:11px;
+  font-weight:500;
+  letter-spacing:.18em;
+  text-transform:uppercase;
+  margin-bottom:18px;
+}
+
+.display{
+  font-family:"Cormorant Garamond", Georgia, serif;
+  font-size:clamp(52px, 7vw, 94px);
+  line-height:.88;
+  letter-spacing:-.055em;
+  font-weight:400;
+  color:var(--ink);
+}
+
+.display strong{
+  font-weight:700;
+}
+
+.display em{
+  font-style:italic;
+  color:rgba(13,24,51,.62);
+}
+
+.lede{
+  color:var(--muted);
+  font-size:17px;
+  line-height:1.85;
+  max-width:560px;
+}
+
+.btn{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:9px;
+  min-height:52px;
+  padding:15px 25px;
+  border-radius:999px;
+  border:1px solid transparent;
+  font-size:15px;
+  font-weight:800;
+  letter-spacing:-.01em;
+  transition:transform .22s ease, box-shadow .22s ease, background .22s ease, border-color .22s ease;
+  cursor:pointer;
+}
+
+.btn-primary{
+  color:#fff;
+  background:var(--ink);
+  box-shadow:0 18px 42px rgba(13,24,51,.20);
+}
+
+.btn-primary:hover{
+  transform:translateY(-2px);
+  box-shadow:0 24px 54px rgba(13,24,51,.24);
+}
+
+.btn-soft{
+  color:var(--ink);
+  background:rgba(255,255,255,.68);
+  border-color:rgba(13,24,51,.09);
+  box-shadow:var(--shadow-sm);
+  backdrop-filter:blur(16px);
+  -webkit-backdrop-filter:blur(16px);
+}
+
+.btn-soft:hover{
+  transform:translateY(-2px);
+  background:rgba(255,255,255,.86);
+  box-shadow:var(--shadow-md);
+}
+
+.card{
+  border:1px solid rgba(13,24,51,.08);
+  background:rgba(255,255,255,.66);
+  backdrop-filter:blur(22px) saturate(160%);
+  -webkit-backdrop-filter:blur(22px) saturate(160%);
+  box-shadow:var(--shadow-sm);
+}
 
 /* NAV */
-nav{position:fixed;top:0;left:0;right:0;z-index:900;display:flex;align-items:center;justify-content:space-between;padding:22px 52px;transition:padding .4s ease,background .4s ease,backdrop-filter .4s ease,border-color .4s ease;border-bottom:1px solid transparent}
-nav.stuck{padding:14px 52px;background:rgba(9,9,11,.88);backdrop-filter:blur(32px) saturate(200%);border-color:var(--line)}
-@media(prefers-color-scheme:light){nav.stuck{background:rgba(250,250,248,.92)}}
-.nav-logo{display:flex;align-items:center;gap:11px;text-decoration:none}
-.nav-logo img{height:38px;width:auto;display:block}
-.nav-logo-fallback{width:38px;height:38px;background:var(--coral);border-radius:9px;display:grid;place-items:center;font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:700;font-style:italic;color:#fff}
-.nav-wordmark{font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:600;color:var(--ink);letter-spacing:-.01em}
-.nav-links{display:flex;align-items:center;gap:28px}
-.nav-links a{font-size:13px;font-weight:500;color:var(--ink2);text-decoration:none;letter-spacing:.01em;transition:color .2s;white-space:nowrap}
-.nav-links a:hover{color:var(--ink)}
-.nav-end{display:flex;align-items:center;gap:10px}
-.btn-nav{display:inline-flex;align-items:center;gap:6px;padding:10px 22px;border-radius:999px;background:var(--coral);color:#fff;font-family:'Instrument Sans',sans-serif;font-size:13px;font-weight:600;text-decoration:none;box-shadow:0 6px 28px var(--coral-glow);transition:transform .2s,box-shadow .2s;white-space:nowrap}
-.btn-nav:hover{transform:translateY(-1px);box-shadow:0 10px 38px var(--coral-glow)}
+.nav{
+  position:fixed;
+  top:16px;
+  left:0;
+  right:0;
+  z-index:1000;
+  transition:transform .28s ease;
+}
+
+.nav-inner{
+  width:min(calc(var(--max) + 24px), calc(100% - 24px));
+  margin:0 auto;
+  min-height:68px;
+  padding:10px 12px 10px 18px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:20px;
+  border:1px solid rgba(255,255,255,.65);
+  border-radius:999px;
+  background:rgba(255,255,255,.70);
+  box-shadow:0 14px 44px rgba(13,24,51,.08);
+  backdrop-filter:blur(24px) saturate(180%);
+  -webkit-backdrop-filter:blur(24px) saturate(180%);
+}
+
+.nav.scrolled .nav-inner{
+  background:rgba(255,255,255,.82);
+  border-color:rgba(13,24,51,.08);
+}
+
+.brand{
+  display:flex;
+  align-items:center;
+  gap:12px;
+  min-width:0;
+}
+
+.brand img{
+  width:auto;
+  height:38px;
+  object-fit:contain;
+}
+
+.brand-mark{
+  width:38px;
+  height:38px;
+  display:none;
+  place-items:center;
+  border-radius:12px;
+  background:var(--ink);
+  color:#fff;
+  font-family:"Cormorant Garamond", serif;
+  font-size:24px;
+  font-weight:700;
+  font-style:italic;
+}
+
+.brand-name{
+  font-family:"Cormorant Garamond", Georgia, serif;
+  color:var(--ink);
+  font-size:28px;
+  font-weight:600;
+  line-height:1;
+  letter-spacing:-.035em;
+  white-space:nowrap;
+}
+
+.nav-links{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:24px;
+}
+
+.nav-links a{
+  color:rgba(13,24,51,.60);
+  font-size:13px;
+  font-weight:700;
+  transition:color .2s ease;
+}
+
+.nav-links a:hover{
+  color:var(--ink);
+}
+
+.nav-actions{
+  display:flex;
+  align-items:center;
+  gap:10px;
+}
+
+.nav-pill{
+  min-height:44px;
+  padding:12px 18px;
+  color:#fff;
+  border-radius:999px;
+  background:var(--ink);
+  font-size:13px;
+  font-weight:800;
+  box-shadow:0 14px 30px rgba(13,24,51,.17);
+}
 
 /* HERO */
-.hero{min-height:100svh;display:grid;grid-template-rows:1fr auto;padding:0 52px;position:relative;overflow:hidden}
-.hero-glow{position:absolute;inset:0;pointer-events:none;background:radial-gradient(ellipse 55% 55% at 15% 25%,var(--coral-glow),transparent 60%),radial-gradient(ellipse 45% 45% at 82% 18%,var(--teal-glow),transparent 55%),radial-gradient(ellipse 50% 50% at 55% 88%,var(--gold-glow),transparent 55%);animation:glow-breathe 12s ease-in-out infinite alternate}
-@keyframes glow-breathe{0%{opacity:.7;transform:scale(1)}100%{opacity:1;transform:scale(1.06)}}
-.hero-inner{display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:160px 0 60px;position:relative;z-index:2;max-width:1000px;margin:0 auto;width:100%}
-.hero-badge{display:inline-flex;align-items:center;gap:9px;padding:8px 18px;border:1px solid var(--line2);border-radius:999px;font-size:11px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);background:rgba(200,155,10,.06);margin-bottom:36px;animation:rise .9s cubic-bezier(.16,1,.3,1) both}
-.badge-pip{width:6px;height:6px;background:var(--gold);border-radius:50%;animation:pip 2.4s ease-in-out infinite}
-@keyframes pip{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.4;transform:scale(.6)}}
-.hero-h1{font-family:'Cormorant Garamond',serif;font-size:clamp(64px,10vw,136px);font-weight:300;line-height:.88;letter-spacing:-.04em;color:var(--ink);animation:rise .9s cubic-bezier(.16,1,.3,1) .08s both}
-.hero-h1 strong{font-weight:700}
-.hero-h1 em{font-style:italic;background:linear-gradient(115deg,var(--coral) 0%,var(--gold) 55%,var(--teal) 100%);-webkit-background-clip:text;background-clip:text;color:transparent}
-.hero-sub{max-width:560px;margin:28px auto 44px;font-size:17px;line-height:1.78;color:var(--ink2);font-weight:400;letter-spacing:-.01em;animation:rise .9s cubic-bezier(.16,1,.3,1) .16s both}
-.hero-ctas{display:flex;align-items:center;gap:14px;flex-wrap:wrap;justify-content:center;animation:rise .9s cubic-bezier(.16,1,.3,1) .24s both}
-.btn-primary{display:inline-flex;align-items:center;gap:8px;padding:16px 34px;border-radius:999px;background:var(--coral);color:#fff;font-family:'Instrument Sans',sans-serif;font-size:15px;font-weight:600;text-decoration:none;box-shadow:0 10px 42px var(--coral-glow);transition:transform .22s,box-shadow .22s}
-.btn-primary:hover{transform:translateY(-2px);box-shadow:0 18px 54px var(--coral-glow)}
-.btn-ghost{display:inline-flex;align-items:center;gap:8px;padding:15px 34px;border-radius:999px;border:1px solid var(--line2);background:transparent;color:var(--ink);font-family:'Instrument Sans',sans-serif;font-size:15px;font-weight:500;text-decoration:none;transition:background .2s}
-.btn-ghost:hover{background:var(--line)}
-.hero-logo-wrap{margin-bottom:40px;animation:rise .9s cubic-bezier(.16,1,.3,1) .0s both}
-.hero-logo-wrap img{height:80px;width:auto;filter:drop-shadow(0 8px 32px var(--coral-glow))}
-.hero-logo-fallback{display:inline-flex;align-items:center;gap:14px;text-decoration:none}
-.hlf-mark{width:72px;height:72px;background:var(--coral);border-radius:18px;display:grid;place-items:center;font-family:'Cormorant Garamond',serif;font-size:42px;font-weight:700;font-style:italic;color:#fff;box-shadow:0 12px 48px var(--coral-glow)}
-.hlf-name{font-family:'Cormorant Garamond',serif;font-size:48px;font-weight:600;color:var(--ink);letter-spacing:-.03em}
-.hero-scroll{position:relative;z-index:2;display:flex;flex-direction:column;align-items:center;gap:10px;padding-bottom:40px;animation:rise 1s ease .5s both}
-.scroll-bar{width:1px;height:52px;background:linear-gradient(to bottom,var(--coral),transparent);animation:scroll-ani 2.2s ease-in-out infinite}
-@keyframes scroll-ani{0%{transform:scaleY(0);transform-origin:top;opacity:0}35%{transform:scaleY(1);transform-origin:top;opacity:1}65%{transform:scaleY(1);transform-origin:bottom;opacity:1}100%{transform:scaleY(0);transform-origin:bottom;opacity:0}}
-.scroll-label{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.22em;text-transform:uppercase;color:var(--ink3)}
-@keyframes rise{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:translateY(0)}}
+.hero{
+  min-height:100svh;
+  padding:132px 0 76px;
+  display:flex;
+  align-items:center;
+  position:relative;
+  overflow:hidden;
+}
+
+.hero::before{
+  content:"";
+  position:absolute;
+  width:760px;
+  height:760px;
+  border-radius:50%;
+  top:-310px;
+  right:-260px;
+  background:radial-gradient(circle, rgba(239,232,255,.95), rgba(239,232,255,.25) 46%, transparent 68%);
+  pointer-events:none;
+}
+
+.hero::after{
+  content:"";
+  position:absolute;
+  width:680px;
+  height:680px;
+  border-radius:50%;
+  bottom:-330px;
+  left:-260px;
+  background:radial-gradient(circle, rgba(134,217,229,.26), transparent 66%);
+  pointer-events:none;
+}
+
+.hero-grid{
+  position:relative;
+  z-index:2;
+  display:grid;
+  grid-template-columns:1.02fr .98fr;
+  align-items:center;
+  gap:58px;
+}
+
+.hero-copy{
+  max-width:690px;
+}
+
+.hero-title{
+  margin-top:26px;
+  font-family:"Cormorant Garamond", Georgia, serif;
+  font-size:clamp(66px, 9.5vw, 128px);
+  line-height:.84;
+  letter-spacing:-.065em;
+  font-weight:400;
+  color:var(--ink);
+}
+
+.hero-title strong{
+  font-weight:700;
+}
+
+.hero-title em{
+  font-style:italic;
+  background:linear-gradient(118deg, #d19a05 0%, #d95e49 42%, #52b9c8 100%);
+  -webkit-background-clip:text;
+  background-clip:text;
+  color:transparent;
+}
+
+.hero-copy p{
+  margin-top:28px;
+  max-width:610px;
+  color:var(--muted);
+  font-size:18px;
+  line-height:1.9;
+  letter-spacing:-.01em;
+}
+
+.hero-actions{
+  margin-top:34px;
+  display:flex;
+  align-items:center;
+  flex-wrap:wrap;
+  gap:14px;
+}
+
+.hero-note{
+  margin-top:24px;
+  display:flex;
+  flex-wrap:wrap;
+  gap:10px;
+}
+
+.hero-note span{
+  display:inline-flex;
+  align-items:center;
+  min-height:40px;
+  padding:10px 14px;
+  border:1px solid rgba(13,24,51,.07);
+  border-radius:999px;
+  background:rgba(255,255,255,.58);
+  box-shadow:var(--shadow-sm);
+  color:var(--muted);
+  font-size:13px;
+  font-weight:700;
+}
+
+.hero-visual{
+  position:relative;
+  min-height:720px;
+  display:grid;
+  place-items:center;
+}
+
+.device-stage{
+  position:relative;
+  width:min(100%, 540px);
+  height:720px;
+}
+
+.iphone{
+  position:absolute;
+  border-radius:52px;
+  padding:12px;
+  background:
+    linear-gradient(145deg, rgba(255,255,255,.95), rgba(255,255,255,.58)),
+    rgba(255,255,255,.72);
+  border:1px solid rgba(255,255,255,.80);
+  box-shadow:
+    inset 0 0 0 1px rgba(13,24,51,.05),
+    0 38px 100px rgba(13,24,51,.19);
+}
+
+.iphone-main{
+  width:330px;
+  height:668px;
+  right:34px;
+  top:16px;
+  z-index:4;
+  transform:rotate(3.5deg);
+}
+
+.iphone-back{
+  width:275px;
+  height:560px;
+  left:14px;
+  top:92px;
+  z-index:2;
+  transform:rotate(-7deg);
+  opacity:.96;
+}
+
+.phone-screen{
+  width:100%;
+  height:100%;
+  position:relative;
+  overflow:hidden;
+  border-radius:42px;
+  background:#fff;
+}
+
+.phone-screen::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:
+    linear-gradient(180deg, rgba(255,255,255,.50), rgba(255,255,255,.86) 52%, rgba(255,255,255,.96)),
+    var(--app-bg) center center / cover no-repeat;
+  opacity:.84;
+  transform:scale(1.02);
+}
+
+.phone-screen::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:
+    radial-gradient(circle at 18% 13%, rgba(134,217,229,.38), transparent 25%),
+    radial-gradient(circle at 88% 43%, rgba(239,232,255,.74), transparent 28%),
+    radial-gradient(circle at 12% 84%, rgba(255,244,207,.88), transparent 28%);
+  mix-blend-mode:multiply;
+  opacity:.82;
+}
+
+.phone-content{
+  position:relative;
+  z-index:2;
+  height:100%;
+  display:flex;
+  flex-direction:column;
+  padding:20px 18px 18px;
+}
+
+.phone-status{
+  height:24px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  color:var(--ink);
+  font-size:12px;
+  font-weight:800;
+  margin-bottom:18px;
+}
+
+.phone-top{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:12px;
+  margin-bottom:18px;
+}
+
+.phone-logo{
+  height:28px;
+  width:auto;
+  object-fit:contain;
+}
+
+.phone-logo-fallback{
+  font-family:"Cormorant Garamond", Georgia, serif;
+  font-size:26px;
+  color:var(--ink);
+  font-weight:700;
+  letter-spacing:-.04em;
+}
+
+.phone-actions{
+  display:flex;
+  gap:10px;
+}
+
+.phone-circle{
+  width:48px;
+  height:48px;
+  border-radius:999px;
+  border:1px solid rgba(13,24,51,.08);
+  background:rgba(255,255,255,.82);
+  box-shadow:0 10px 24px rgba(13,24,51,.08);
+  display:grid;
+  place-items:center;
+  color:var(--ink);
+  font-weight:800;
+}
+
+.phone-circle.gold{
+  color:var(--gold);
+  background:rgba(255,255,255,.88);
+}
+
+.phone-card{
+  border:1px solid rgba(13,24,51,.08);
+  background:rgba(255,255,255,.82);
+  box-shadow:0 12px 32px rgba(13,24,51,.08);
+  border-radius:23px;
+}
+
+.trust-card{
+  padding:14px 15px;
+  display:flex;
+  align-items:center;
+  gap:12px;
+  margin-bottom:12px;
+  color:var(--ink);
+  font-size:14px;
+  font-weight:800;
+  letter-spacing:-.02em;
+}
+
+.trust-icon{
+  width:28px;
+  height:28px;
+  border-radius:10px;
+  display:grid;
+  place-items:center;
+  background:var(--teal-soft);
+  color:#1daaba;
+}
+
+.phone-metrics{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:10px;
+  margin-bottom:18px;
+}
+
+.metric{
+  padding:13px 14px;
+  text-align:center;
+}
+
+.metric b{
+  display:block;
+  color:var(--ink);
+  font-size:18px;
+  line-height:1;
+}
+
+.metric span{
+  display:block;
+  margin-top:5px;
+  color:var(--muted);
+  font-size:11px;
+  font-weight:800;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+}
+
+.phone-center{
+  flex:1;
+  display:grid;
+  place-items:center;
+  text-align:center;
+  padding:22px 8px;
+}
+
+.phone-center-mark{
+  width:72px;
+  height:72px;
+  border-radius:26px;
+  margin:0 auto 18px;
+  display:grid;
+  place-items:center;
+  background:rgba(255,255,255,.72);
+  border:1px solid rgba(13,24,51,.07);
+  box-shadow:0 16px 34px rgba(13,24,51,.08);
+  font-size:34px;
+}
+
+.phone-center h3{
+  color:var(--ink);
+  font-size:25px;
+  letter-spacing:-.05em;
+  line-height:1;
+}
+
+.phone-center p{
+  margin-top:9px;
+  color:var(--muted);
+  font-size:14px;
+  line-height:1.5;
+}
+
+.phone-cta{
+  margin:18px auto 0;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  min-height:52px;
+  padding:14px 28px;
+  border-radius:19px;
+  background:#cbf8ff;
+  color:var(--ink);
+  font-weight:900;
+  box-shadow:0 12px 22px rgba(45,175,194,.12);
+}
+
+.phone-tab{
+  height:74px;
+  border-radius:32px;
+  background:rgba(255,255,255,.78);
+  border:1px solid rgba(255,255,255,.72);
+  box-shadow:0 16px 36px rgba(13,24,51,.10);
+  display:grid;
+  grid-template-columns:repeat(5,1fr);
+  align-items:center;
+  padding:7px;
+  gap:3px;
+}
+
+.phone-tab-item{
+  height:58px;
+  border-radius:25px;
+  display:grid;
+  place-items:center;
+  color:rgba(13,24,51,.42);
+  font-size:10px;
+  font-weight:800;
+}
+
+.phone-tab-item b{
+  display:block;
+  font-size:18px;
+  line-height:1;
+  margin-bottom:2px;
+  font-weight:700;
+}
+
+.phone-tab-item.active{
+  color:rgba(13,24,51,.72);
+  background:rgba(255,255,255,.82);
+  box-shadow:inset 0 0 0 1px rgba(13,24,51,.04);
+}
+
+.profile-card{
+  margin-top:auto;
+  min-height:292px;
+  border-radius:36px;
+  position:relative;
+  overflow:hidden;
+  background:
+    linear-gradient(180deg, transparent 0%, rgba(13,24,51,.72) 100%),
+    var(--app-bg) center center / cover no-repeat;
+  box-shadow:0 18px 44px rgba(13,24,51,.12);
+}
+
+.profile-card-content{
+  position:absolute;
+  left:20px;
+  right:20px;
+  bottom:20px;
+  color:#fff;
+}
+
+.profile-card-content small{
+  display:inline-flex;
+  padding:8px 10px;
+  border-radius:999px;
+  background:rgba(255,255,255,.20);
+  backdrop-filter:blur(12px);
+  font-size:10px;
+  font-weight:900;
+  letter-spacing:.10em;
+  text-transform:uppercase;
+}
+
+.profile-card-content h3{
+  margin-top:12px;
+  font-family:"Cormorant Garamond", Georgia, serif;
+  font-size:40px;
+  line-height:.9;
+  letter-spacing:-.05em;
+}
+
+.profile-card-content p{
+  margin-top:8px;
+  color:rgba(255,255,255,.72);
+  font-size:13px;
+  line-height:1.5;
+}
+
+.float-card{
+  position:absolute;
+  z-index:7;
+  padding:14px 16px;
+  border-radius:22px;
+  background:rgba(255,255,255,.76);
+  border:1px solid rgba(255,255,255,.70);
+  backdrop-filter:blur(22px) saturate(170%);
+  -webkit-backdrop-filter:blur(22px) saturate(170%);
+  box-shadow:var(--shadow-md);
+  color:var(--ink);
+  display:flex;
+  align-items:center;
+  gap:11px;
+  font-size:13px;
+  font-weight:800;
+}
+
+.float-card span{
+  width:34px;
+  height:34px;
+  display:grid;
+  place-items:center;
+  flex:0 0 auto;
+  border-radius:13px;
+  background:var(--gold-soft);
+  color:var(--gold);
+}
+
+.float-a{
+  top:78px;
+  left:0;
+}
+
+.float-b{
+  right:0;
+  bottom:58px;
+}
+
+.hero-scroll{
+  margin-top:34px;
+  display:flex;
+  flex-direction:column;
+  gap:10px;
+  align-items:flex-start;
+  color:var(--muted-2);
+  font-family:"DM Mono", monospace;
+  font-size:10px;
+  letter-spacing:.18em;
+  text-transform:uppercase;
+}
+
+.scroll-line{
+  width:1px;
+  height:48px;
+  background:linear-gradient(to bottom, var(--ink), transparent);
+  transform-origin:top;
+  animation:scrollLine 2.3s ease-in-out infinite;
+}
+
+@keyframes scrollLine{
+  0%{transform:scaleY(0);opacity:0}
+  35%{transform:scaleY(1);opacity:1}
+  65%{transform:scaleY(1);opacity:1;transform-origin:bottom}
+  100%{transform:scaleY(0);opacity:0;transform-origin:bottom}
+}
 
 /* MARQUEE */
-.marquee{border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:var(--bg2);overflow:hidden;padding:15px 0}
-.marquee-inner{display:flex;width:max-content;animation:marquee-scroll 32s linear infinite}
-.marquee-inner:hover{animation-play-state:paused}
-.m-item{display:flex;align-items:center;gap:12px;padding:0 30px;font-size:12px;font-weight:600;color:var(--ink2);white-space:nowrap;letter-spacing:.05em}
-.m-dot{color:var(--coral);font-size:16px}
-@keyframes marquee-scroll{to{transform:translateX(-50%)}}
+.marquee{
+  position:relative;
+  z-index:4;
+  overflow:hidden;
+  border-top:1px solid var(--line);
+  border-bottom:1px solid var(--line);
+  background:rgba(255,255,255,.48);
+  backdrop-filter:blur(18px);
+  -webkit-backdrop-filter:blur(18px);
+}
 
-/* LAYOUT */
-.wrap{max-width:1240px;margin:0 auto;padding:0 52px}
-section.s{padding:130px 0}
-.label{font-family:'DM Mono',monospace;font-size:10px;font-weight:400;letter-spacing:.2em;text-transform:uppercase;color:var(--coral);margin-bottom:18px}
-.heading{font-family:'Cormorant Garamond',serif;font-size:clamp(42px,6vw,80px);font-weight:300;line-height:.92;letter-spacing:-.04em;color:var(--ink)}
-.heading strong{font-weight:700}
-.heading em{font-style:italic;color:var(--ink2)}
+.marquee-track{
+  display:flex;
+  width:max-content;
+  padding:17px 0;
+  animation:marquee 34s linear infinite;
+}
+
+.marquee-track:hover{
+  animation-play-state:paused;
+}
+
+.marquee-item{
+  display:flex;
+  align-items:center;
+  gap:12px;
+  padding:0 28px;
+  color:rgba(13,24,51,.58);
+  font-size:12px;
+  font-weight:800;
+  letter-spacing:.055em;
+  white-space:nowrap;
+  text-transform:uppercase;
+}
+
+.marquee-item i{
+  font-style:normal;
+  color:var(--gold);
+}
+
+@keyframes marquee{
+  to{transform:translateX(-50%)}
+}
 
 /* STATS */
-.stats{display:flex;align-items:stretch;border:1px solid var(--line);border-radius:24px;overflow:hidden;background:var(--bg2);margin-top:80px}
-.stat{flex:1;padding:36px 32px;border-right:1px solid var(--line);text-align:center}
-.stat:last-child{border-right:none}
-.stat-n{font-family:'Cormorant Garamond',serif;font-size:52px;font-weight:700;line-height:1;letter-spacing:-.04em;color:var(--ink)}
-.stat-l{font-size:12px;font-weight:600;color:var(--ink3);letter-spacing:.08em;text-transform:uppercase;margin-top:8px}
+.stats-shell{
+  margin-top:-20px;
+  position:relative;
+  z-index:5;
+}
 
-/* FEATURES BENTO */
-.features-intro{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:end;margin-bottom:60px}
-.features-text p{margin-top:20px;font-size:16px;line-height:1.8;color:var(--ink2);max-width:440px}
-.grid-bento{display:grid;grid-template-columns:repeat(12,1fr);grid-template-rows:repeat(3,180px);gap:12px}
-.gc{border:1px solid var(--line);border-radius:22px;padding:28px;background:var(--bg2);display:flex;flex-direction:column;justify-content:flex-end;position:relative;overflow:hidden;transition:border-color .3s,transform .35s cubic-bezier(.16,1,.3,1)}
-.gc:hover{border-color:var(--line2);transform:translateY(-4px)}
-.gc::before{content:'';position:absolute;inset:0;opacity:0;transition:opacity .4s;border-radius:inherit}
-.gc:hover::before{opacity:1}
-.gc1{grid-column:span 5;grid-row:span 2;background:linear-gradient(145deg,var(--bg3),var(--bg2))}
-.gc1::before{background:radial-gradient(ellipse at 30% 80%,var(--coral-glow),transparent 60%)}
-.gc2{grid-column:span 7;grid-row:span 1}.gc2::before{background:radial-gradient(ellipse at 70% 50%,var(--teal-glow),transparent 60%)}
-.gc3{grid-column:span 4;grid-row:span 1}.gc3::before{background:radial-gradient(ellipse at 50% 50%,var(--gold-glow),transparent 60%)}
-.gc4{grid-column:span 3;grid-row:span 1}.gc4::before{background:radial-gradient(ellipse at 50% 50%,var(--coral-glow),transparent 60%)}
-.gc5{grid-column:span 7;grid-row:span 1}.gc5::before{background:radial-gradient(ellipse at 30% 50%,var(--teal-glow),transparent 60%)}
-.gc6{grid-column:span 5;grid-row:span 1}.gc6::before{background:radial-gradient(ellipse at 70% 50%,var(--gold-glow),transparent 60%)}
-.gc-em{font-size:30px;margin-bottom:10px;position:relative;z-index:1}
-.gc-title{font-family:'Cormorant Garamond',serif;font-size:21px;font-weight:600;letter-spacing:-.03em;color:var(--ink);margin-bottom:6px;position:relative;z-index:1}
-.gc-title-lg{font-size:30px}
-.gc-body{font-size:13px;line-height:1.65;color:var(--ink2);position:relative;z-index:1}
-.gc-tag{display:inline-flex;padding:4px 11px;border:1px solid var(--line2);border-radius:999px;font-size:10px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:var(--ink3);margin-bottom:12px;position:relative;z-index:1}
-.swipe-deck{position:absolute;top:22px;right:20px;display:flex}
-.sd{width:64px;height:92px;border-radius:12px;border:1px solid var(--line2);background:var(--bg3);margin-left:-18px;display:flex;align-items:flex-end;padding:8px;font-size:16px;box-shadow:0 8px 28px rgba(0,0,0,.12)}
-.sd:nth-child(1){transform:rotate(-7deg) translateY(8px);z-index:1}
-.sd:nth-child(2){transform:rotate(-1deg);z-index:2}
-.sd:nth-child(3){transform:rotate(6deg) translateY(6px);z-index:1}
+.stats{
+  display:grid;
+  grid-template-columns:repeat(5,1fr);
+  overflow:hidden;
+  border-radius:30px;
+  border:1px solid rgba(255,255,255,.70);
+  background:rgba(255,255,255,.66);
+  box-shadow:var(--shadow-md);
+  backdrop-filter:blur(24px) saturate(170%);
+  -webkit-backdrop-filter:blur(24px) saturate(170%);
+}
 
-/* ISLANDS — REAL PHOTOS */
-.islands-intro{display:flex;align-items:end;justify-content:space-between;gap:40px;margin-bottom:56px}
-.islands-intro p{max-width:400px;font-size:15px;line-height:1.8;color:var(--ink2)}
-.islands-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
-.island{border:1px solid var(--line);border-radius:24px;overflow:hidden;position:relative;background:var(--bg3);cursor:default;transition:transform .35s cubic-bezier(.16,1,.3,1),border-color .3s;min-height:320px}
-.island:hover{transform:translateY(-6px);border-color:var(--line2)}
-.island.wide{grid-column:span 2}
-.island.tall{grid-row:span 2;min-height:668px}
-.island-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .7s ease,filter .6s ease;filter:saturate(.9) brightness(.95)}
-.island:hover .island-img{transform:scale(1.06);filter:saturate(1.15) brightness(1)}
-/* gradient fallback if image fails */
-.isl-ht{background:linear-gradient(145deg,#1a0508,#C93B1A)}
-.isl-jm{background:linear-gradient(145deg,#0a1400,#C89B0A)}
-.isl-do{background:linear-gradient(145deg,#000d1f,#0A9EAA)}
-.isl-tt{background:linear-gradient(145deg,#1a0800,#D4682A)}
-.isl-pr{background:linear-gradient(145deg,#08001a,#7A3EBF)}
-.isl-cu{background:linear-gradient(145deg,#001a08,#0A9EAA)}
-.isl-bb{background:linear-gradient(145deg,#1a0d00,#C89B0A)}
-.isl-lc{background:linear-gradient(145deg,#001a14,#0BB5C2)}
-.isl-cw{background:linear-gradient(145deg,#00101a,#1A9EBF)}
-.isl-gd{background:linear-gradient(145deg,#0a1400,#7BA828)}
-.isl-kn{background:linear-gradient(145deg,#001a05,#2E7D32)}
-.isl-vc{background:linear-gradient(145deg,#001408,#0A7A5A)}
-.isl-ag{background:linear-gradient(145deg,#1a0000,#C93B1A)}
-.island-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.88) 0%,rgba(0,0,0,.18) 55%,transparent 100%)}
-.island-body{position:absolute;bottom:0;left:0;right:0;padding:18px}
-.island-flag{font-size:20px;display:block;margin-bottom:6px}
-.island-name{font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:700;color:#fff;line-height:1;letter-spacing:-.03em}
-.island-sub{font-size:11px;color:rgba(255,255,255,.65);margin-top:4px;line-height:1.4}
-.island-monument{font-size:10px;color:rgba(255,255,255,.45);margin-top:6px;font-style:italic}
+.stat{
+  padding:28px 20px;
+  text-align:center;
+  border-right:1px solid rgba(13,24,51,.07);
+}
+
+.stat:last-child{
+  border-right:0;
+}
+
+.stat-value{
+  font-family:"Cormorant Garamond", Georgia, serif;
+  font-size:54px;
+  line-height:1;
+  letter-spacing:-.055em;
+  font-weight:700;
+  color:var(--ink);
+}
+
+.stat-label{
+  margin-top:8px;
+  color:var(--muted-2);
+  font-size:11px;
+  font-weight:900;
+  letter-spacing:.10em;
+  text-transform:uppercase;
+}
+
+/* FEATURES */
+.feature-grid{
+  display:grid;
+  grid-template-columns:repeat(12,1fr);
+  gap:16px;
+}
+
+.feature-card{
+  position:relative;
+  min-height:230px;
+  padding:30px;
+  border-radius:32px;
+  overflow:hidden;
+  border:1px solid rgba(13,24,51,.08);
+  background:rgba(255,255,255,.62);
+  backdrop-filter:blur(22px) saturate(160%);
+  -webkit-backdrop-filter:blur(22px) saturate(160%);
+  box-shadow:var(--shadow-sm);
+  transition:transform .28s ease, box-shadow .28s ease, border-color .28s ease;
+}
+
+.feature-card:hover{
+  transform:translateY(-4px);
+  box-shadow:var(--shadow-md);
+  border-color:rgba(13,24,51,.14);
+}
+
+.feature-card::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:
+    radial-gradient(circle at 88% 15%, rgba(134,217,229,.18), transparent 30%),
+    radial-gradient(circle at 12% 92%, rgba(239,232,255,.55), transparent 34%);
+  pointer-events:none;
+}
+
+.feature-card > *{
+  position:relative;
+  z-index:1;
+}
+
+.feature-large{
+  grid-column:span 5;
+  grid-row:span 2;
+  min-height:476px;
+}
+
+.feature-wide{
+  grid-column:span 7;
+}
+
+.feature-third{
+  grid-column:span 4;
+}
+
+.feature-half{
+  grid-column:span 6;
+}
+
+.card-tag{
+  display:inline-flex;
+  padding:7px 11px;
+  border-radius:999px;
+  background:rgba(13,24,51,.05);
+  color:rgba(13,24,51,.55);
+  font-size:10px;
+  font-weight:900;
+  letter-spacing:.10em;
+  text-transform:uppercase;
+  margin-bottom:18px;
+}
+
+.feature-icon{
+  width:54px;
+  height:54px;
+  display:grid;
+  place-items:center;
+  border-radius:19px;
+  background:#fff;
+  border:1px solid rgba(13,24,51,.07);
+  box-shadow:var(--shadow-sm);
+  color:var(--gold);
+  font-size:24px;
+  margin-bottom:18px;
+}
+
+.feature-title{
+  font-family:"Cormorant Garamond", Georgia, serif;
+  font-size:36px;
+  line-height:.96;
+  letter-spacing:-.045em;
+  font-weight:700;
+  color:var(--ink);
+  max-width:420px;
+}
+
+.feature-title.small{
+  font-size:29px;
+}
+
+.feature-text{
+  margin-top:12px;
+  color:var(--muted);
+  font-size:14px;
+  line-height:1.75;
+  max-width:480px;
+}
+
+.spark-stack{
+  position:absolute;
+  top:26px;
+  right:24px;
+  display:flex;
+  align-items:flex-end;
+  z-index:2;
+}
+
+.spark-mini{
+  width:70px;
+  height:98px;
+  margin-left:-18px;
+  display:flex;
+  align-items:flex-end;
+  padding:10px;
+  border-radius:18px;
+  background:rgba(255,255,255,.75);
+  border:1px solid rgba(13,24,51,.08);
+  box-shadow:var(--shadow-sm);
+  font-size:18px;
+}
+
+.spark-mini:nth-child(1){
+  transform:rotate(-8deg) translateY(8px);
+}
+
+.spark-mini:nth-child(2){
+  transform:rotate(-1deg);
+}
+
+.spark-mini:nth-child(3){
+  transform:rotate(7deg) translateY(6px);
+}
+
+/* PREMIUM */
+.premium-layout{
+  display:grid;
+  grid-template-columns:.95fr 1.05fr;
+  gap:18px;
+  align-items:stretch;
+}
+
+.premium-panel{
+  position:relative;
+  overflow:hidden;
+  border-radius:38px;
+  padding:34px;
+  border:1px solid rgba(13,24,51,.08);
+  background:rgba(255,255,255,.64);
+  box-shadow:var(--shadow-md);
+  backdrop-filter:blur(24px) saturate(170%);
+  -webkit-backdrop-filter:blur(24px) saturate(170%);
+}
+
+.premium-panel::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:
+    radial-gradient(circle at top left, rgba(255,244,207,.90), transparent 34%),
+    radial-gradient(circle at 85% 12%, rgba(134,217,229,.18), transparent 28%),
+    radial-gradient(circle at 80% 90%, rgba(239,232,255,.70), transparent 34%);
+  pointer-events:none;
+}
+
+.premium-panel > *{
+  position:relative;
+  z-index:1;
+}
+
+.premium-title{
+  margin-top:22px;
+  max-width:540px;
+  font-family:"Cormorant Garamond", Georgia, serif;
+  font-size:clamp(46px, 5vw, 72px);
+  line-height:.88;
+  letter-spacing:-.055em;
+  color:var(--ink);
+  font-weight:600;
+}
+
+.premium-copy{
+  margin-top:18px;
+  color:var(--muted);
+  font-size:16px;
+  line-height:1.85;
+  max-width:540px;
+}
+
+.premium-benefits{
+  margin-top:28px;
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:12px;
+}
+
+.benefit{
+  min-height:126px;
+  padding:18px;
+  border-radius:24px;
+  border:1px solid rgba(13,24,51,.07);
+  background:rgba(255,255,255,.62);
+  box-shadow:var(--shadow-sm);
+}
+
+.benefit b{
+  display:block;
+  color:var(--ink);
+  font-size:15px;
+  letter-spacing:-.01em;
+}
+
+.benefit span{
+  display:block;
+  margin-top:8px;
+  color:var(--muted);
+  font-size:13px;
+  line-height:1.65;
+}
+
+.pricing{
+  margin-top:28px;
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:12px;
+}
+
+.price{
+  padding:19px;
+  border-radius:26px;
+  border:1px solid rgba(13,24,51,.07);
+  background:rgba(255,255,255,.72);
+  box-shadow:var(--shadow-sm);
+}
+
+.price.best{
+  border-color:rgba(209,154,5,.28);
+  box-shadow:0 16px 40px rgba(209,154,5,.11);
+}
+
+.price-top{
+  min-height:26px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:12px;
+  margin-bottom:11px;
+}
+
+.price-name{
+  color:var(--muted);
+  font-size:12px;
+  font-weight:900;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+}
+
+.price-badge{
+  padding:6px 9px;
+  border-radius:999px;
+  color:var(--gold);
+  background:var(--gold-soft);
+  font-size:10px;
+  font-weight:900;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+  white-space:nowrap;
+}
+
+.price-number{
+  font-family:"Cormorant Garamond", Georgia, serif;
+  color:var(--ink);
+  font-size:46px;
+  line-height:.9;
+  letter-spacing:-.06em;
+  font-weight:700;
+}
+
+.price-caption{
+  margin-top:10px;
+  color:var(--muted);
+  font-size:13px;
+  line-height:1.55;
+}
+
+.premium-product{
+  min-height:760px;
+  display:grid;
+  place-items:center;
+}
+
+.premium-device{
+  position:relative;
+  width:min(100%, 360px);
+  height:690px;
+  border-radius:54px;
+  padding:12px;
+  background:rgba(255,255,255,.78);
+  border:1px solid rgba(255,255,255,.80);
+  box-shadow:var(--shadow-lg);
+}
+
+.premium-screen{
+  width:100%;
+  height:100%;
+  border-radius:43px;
+  overflow:hidden;
+  position:relative;
+  background:#fff;
+}
+
+.premium-screen::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:
+    linear-gradient(180deg, rgba(255,255,255,.72), rgba(255,255,255,.94)),
+    var(--app-bg) center center / cover no-repeat;
+  opacity:.90;
+}
+
+.premium-screen::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:
+    radial-gradient(circle at 17% 10%, rgba(134,217,229,.45), transparent 29%),
+    radial-gradient(circle at 88% 52%, rgba(239,232,255,.80), transparent 30%),
+    radial-gradient(circle at 14% 86%, rgba(255,244,207,.95), transparent 29%);
+}
+
+.premium-ui{
+  position:relative;
+  z-index:2;
+  height:100%;
+  padding:20px 18px 18px;
+  display:flex;
+  flex-direction:column;
+}
+
+.premium-header{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:12px;
+  margin-top:20px;
+}
+
+.premium-chip{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  width:64px;
+  height:64px;
+  border-radius:999px;
+  border:1px solid rgba(13,24,51,.07);
+  background:rgba(255,255,255,.78);
+  box-shadow:0 12px 25px rgba(13,24,51,.08);
+  color:var(--gold);
+  font-size:11px;
+  font-weight:900;
+  text-align:center;
+  letter-spacing:.06em;
+}
+
+.premium-card{
+  margin-top:18px;
+  padding:17px;
+  border-radius:25px;
+  border:1px solid rgba(13,24,51,.07);
+  background:rgba(255,255,255,.80);
+  box-shadow:0 12px 26px rgba(13,24,51,.07);
+}
+
+.premium-card-title{
+  color:var(--ink);
+  font-size:16px;
+  line-height:1.35;
+  font-weight:900;
+  letter-spacing:-.025em;
+}
+
+.premium-card-sub{
+  margin-top:8px;
+  color:var(--muted);
+  font-size:13px;
+  line-height:1.55;
+}
+
+.premium-meter{
+  margin-top:14px;
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:10px;
+}
+
+.premium-meter div{
+  padding:14px 12px;
+  border-radius:20px;
+  background:rgba(255,255,255,.76);
+  border:1px solid rgba(13,24,51,.06);
+  text-align:center;
+  color:var(--ink);
+  font-size:19px;
+  font-weight:900;
+}
+
+.premium-meter span{
+  display:block;
+  margin-top:5px;
+  color:var(--muted);
+  font-size:10px;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+}
+
+.premium-empty{
+  flex:1;
+  display:grid;
+  place-items:center;
+  text-align:center;
+  padding:20px 6px;
+}
+
+.premium-empty-icon{
+  width:74px;
+  height:74px;
+  margin:0 auto 17px;
+  border-radius:27px;
+  display:grid;
+  place-items:center;
+  background:rgba(255,255,255,.72);
+  border:1px solid rgba(13,24,51,.07);
+  box-shadow:0 14px 32px rgba(13,24,51,.08);
+  color:var(--gold);
+  font-size:30px;
+}
+
+.premium-empty h3{
+  color:var(--ink);
+  font-size:27px;
+  line-height:1;
+  letter-spacing:-.055em;
+}
+
+.premium-empty p{
+  margin-top:10px;
+  color:var(--muted);
+  font-size:14px;
+  line-height:1.5;
+}
+
+.premium-tab{
+  min-height:70px;
+  border-radius:30px;
+  background:rgba(255,255,255,.76);
+  border:1px solid rgba(255,255,255,.74);
+  box-shadow:0 14px 30px rgba(13,24,51,.10);
+  display:grid;
+  grid-template-columns:repeat(5,1fr);
+  align-items:center;
+  padding:7px;
+}
+
+.premium-tab div{
+  text-align:center;
+  color:rgba(13,24,51,.42);
+  font-size:10px;
+  font-weight:900;
+}
+
+.premium-tab b{
+  display:block;
+  font-size:18px;
+  line-height:1;
+  margin-bottom:3px;
+  font-weight:700;
+}
+
+.premium-tab .on{
+  color:rgba(13,24,51,.72);
+  background:rgba(255,255,255,.86);
+  border-radius:24px;
+  padding:9px 0;
+}
+
+/* ISLANDS */
+.islands-grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:15px;
+}
+
+.island{
+  position:relative;
+  min-height:318px;
+  overflow:hidden;
+  border-radius:30px;
+  background:linear-gradient(140deg, #e8dfd5, #d7c9b9);
+  border:1px solid rgba(13,24,51,.08);
+  box-shadow:var(--shadow-sm);
+  isolation:isolate;
+  transition:transform .28s ease, box-shadow .28s ease;
+}
+
+.island:hover{
+  transform:translateY(-5px);
+  box-shadow:var(--shadow-md);
+}
+
+.island.wide{
+  grid-column:span 2;
+}
+
+.island.tall{
+  grid-row:span 2;
+  min-height:651px;
+}
+
+.island img{
+  position:absolute;
+  inset:0;
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  transition:transform .7s ease, filter .7s ease;
+  filter:saturate(.96) contrast(1.04) brightness(.86);
+}
+
+.island:hover img{
+  transform:scale(1.06);
+  filter:saturate(1.08) contrast(1.04) brightness(.92);
+}
+
+.island::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  z-index:1;
+  background:
+    linear-gradient(to top, rgba(9,16,34,.88) 0%, rgba(9,16,34,.48) 42%, rgba(9,16,34,.08) 78%, transparent 100%);
+}
+
+.island-content{
+  position:absolute;
+  left:0;
+  right:0;
+  bottom:0;
+  z-index:2;
+  padding:22px;
+  color:#fff;
+}
+
+.island-flag{
+  display:block;
+  font-size:22px;
+  margin-bottom:9px;
+}
+
+.island-name{
+  font-family:"Cormorant Garamond", Georgia, serif;
+  font-size:31px;
+  line-height:.95;
+  letter-spacing:-.045em;
+  font-weight:700;
+}
+
+.island-sub{
+  margin-top:7px;
+  color:rgba(255,255,255,.76);
+  font-size:11px;
+  font-weight:900;
+  letter-spacing:.10em;
+  text-transform:uppercase;
+}
+
+.island-monument{
+  margin-top:8px;
+  color:rgba(255,255,255,.62);
+  font-size:13px;
+  line-height:1.5;
+}
 
 /* CULTURE */
-.culture-block{display:grid;grid-template-columns:1fr 1fr;border:1px solid var(--line);border-radius:32px;overflow:hidden;min-height:560px}
-.culture-left{padding:64px;background:linear-gradient(145deg,var(--bg) 0%,var(--bg2) 100%);border-right:1px solid var(--line);display:flex;flex-direction:column;justify-content:center}
-.culture-left p{margin-top:22px;font-size:16px;line-height:1.82;color:var(--ink2);max-width:400px}
-.lang-list{display:flex;flex-wrap:wrap;gap:10px;margin-top:32px}
-.lang-tag{display:inline-flex;align-items:center;gap:7px;padding:10px 16px;border:1px solid rgba(200,155,10,.28);border-radius:999px;background:rgba(200,155,10,.07);font-size:13px;font-weight:600;color:var(--gold)}
-.culture-right{padding:64px;background:linear-gradient(160deg,var(--bg3) 0%,var(--bg2) 100%);display:flex;flex-direction:column;justify-content:center}
-.culture-right .heading{font-size:clamp(32px,4vw,52px)}
-.culture-tiles{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:32px}
-.ctile{height:70px;border-radius:12px;border:1px solid var(--line);display:flex;align-items:center;justify-content:center;font-size:24px;background:var(--bg2);transition:transform .25s}
-.ctile:hover{transform:scale(1.06)}
-.ctile-r{background:linear-gradient(135deg,rgba(201,59,26,.15),rgba(201,59,26,.06))}
-.ctile-g{background:linear-gradient(135deg,rgba(200,155,10,.15),rgba(200,155,10,.06))}
-.ctile-b{background:linear-gradient(135deg,rgba(10,158,170,.15),rgba(10,158,170,.06))}
+.culture-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:18px;
+}
+
+.culture-panel{
+  position:relative;
+  overflow:hidden;
+  min-height:520px;
+  padding:38px;
+  border-radius:38px;
+  border:1px solid rgba(13,24,51,.08);
+  background:rgba(255,255,255,.62);
+  box-shadow:var(--shadow-sm);
+  backdrop-filter:blur(24px) saturate(160%);
+  -webkit-backdrop-filter:blur(24px) saturate(160%);
+}
+
+.culture-panel::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:
+    radial-gradient(circle at 10% 10%, rgba(255,244,207,.95), transparent 32%),
+    radial-gradient(circle at 90% 82%, rgba(134,217,229,.18), transparent 34%);
+  pointer-events:none;
+}
+
+.culture-panel > *{
+  position:relative;
+  z-index:1;
+}
+
+.culture-panel .display{
+  font-size:clamp(43px, 5vw, 66px);
+  margin-top:20px;
+}
+
+.culture-panel p{
+  margin-top:20px;
+  color:var(--muted);
+  font-size:16px;
+  line-height:1.85;
+  max-width:520px;
+}
+
+.language-list{
+  margin-top:28px;
+  display:flex;
+  flex-wrap:wrap;
+  gap:10px;
+}
+
+.language-pill{
+  display:inline-flex;
+  align-items:center;
+  min-height:42px;
+  padding:11px 14px;
+  border-radius:999px;
+  color:var(--ink);
+  background:rgba(255,255,255,.72);
+  border:1px solid rgba(13,24,51,.07);
+  box-shadow:var(--shadow-sm);
+  font-size:13px;
+  font-weight:800;
+}
+
+.vibe-grid{
+  margin-top:32px;
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:12px;
+}
+
+.vibe{
+  min-height:92px;
+  display:grid;
+  place-items:center;
+  border-radius:24px;
+  background:rgba(255,255,255,.70);
+  border:1px solid rgba(13,24,51,.07);
+  box-shadow:var(--shadow-sm);
+  color:var(--ink);
+  font-size:27px;
+}
 
 /* AMBASSADOR */
-.amb-wrap{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:start}
-.comm-table{margin-top:32px;border:1px solid var(--line);border-radius:20px;overflow:hidden}
-.cr{display:grid;grid-template-columns:1fr 1fr 1fr;padding:14px 20px;border-bottom:1px solid var(--line);font-size:13px;font-weight:500;align-items:center}
-.cr:last-child{border-bottom:none}
-.cr-hdr{background:var(--bg3);font-size:10px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--ink3)}
-.cr-plan{font-weight:700;color:var(--ink)}
-.cr-price{color:var(--ink2)}
-.cr-earn{font-family:'DM Mono',monospace;font-size:13px;font-weight:400;color:var(--teal)}
-.amb-features{display:flex;flex-direction:column;gap:16px;margin-top:32px}
-.af{display:flex;gap:16px;align-items:flex-start;padding:18px;border:1px solid var(--line);border-radius:16px;background:var(--bg2);transition:border-color .3s}
-.af:hover{border-color:var(--line2)}
-.af-icon{width:40px;height:40px;flex-shrink:0;border-radius:10px;display:grid;place-items:center;font-size:18px}
-.af-icon-r{background:rgba(201,59,26,.12)}.af-icon-g{background:rgba(200,155,10,.12)}.af-icon-b{background:rgba(10,158,170,.12)}.af-icon-p{background:rgba(120,80,200,.12)}
-.af-title{font-size:13px;font-weight:700;color:var(--ink);margin-bottom:3px}
-.af-body{font-size:13px;color:var(--ink2);line-height:1.55}
+.ambassador-layout{
+  display:grid;
+  grid-template-columns:.95fr 1.05fr;
+  gap:18px;
+}
+
+.amb-card{
+  border-radius:38px;
+  padding:34px;
+  border:1px solid rgba(13,24,51,.08);
+  background:rgba(255,255,255,.62);
+  backdrop-filter:blur(24px) saturate(160%);
+  -webkit-backdrop-filter:blur(24px) saturate(160%);
+  box-shadow:var(--shadow-sm);
+}
+
+.amb-card p{
+  color:var(--muted);
+  font-size:15px;
+  line-height:1.85;
+}
+
+.commission-table{
+  margin-top:26px;
+  overflow:hidden;
+  border-radius:26px;
+  border:1px solid rgba(13,24,51,.08);
+  background:rgba(255,255,255,.58);
+}
+
+.commission-row{
+  display:grid;
+  grid-template-columns:1fr 1fr 1fr;
+  gap:14px;
+  padding:16px 18px;
+  border-bottom:1px solid rgba(13,24,51,.07);
+  align-items:center;
+}
+
+.commission-row:last-child{
+  border-bottom:0;
+}
+
+.commission-row.head{
+  color:var(--muted-2);
+  background:rgba(13,24,51,.035);
+  font-size:10px;
+  font-weight:900;
+  letter-spacing:.13em;
+  text-transform:uppercase;
+}
+
+.commission-row span{
+  color:var(--muted);
+  font-size:13px;
+  font-weight:700;
+}
+
+.commission-row .plan{
+  color:var(--ink);
+  font-weight:900;
+}
+
+.commission-row .earn{
+  color:#2296a6;
+  font-family:"DM Mono", monospace;
+  font-weight:500;
+}
+
+.amb-features{
+  display:grid;
+  gap:12px;
+}
+
+.amb-feature{
+  display:flex;
+  align-items:flex-start;
+  gap:14px;
+  padding:18px;
+  border-radius:25px;
+  border:1px solid rgba(13,24,51,.07);
+  background:rgba(255,255,255,.62);
+  box-shadow:var(--shadow-sm);
+}
+
+.amb-icon{
+  width:44px;
+  height:44px;
+  flex:0 0 auto;
+  display:grid;
+  place-items:center;
+  border-radius:16px;
+  background:var(--gold-soft);
+  color:var(--gold);
+  font-size:18px;
+}
+
+.amb-feature b{
+  display:block;
+  color:var(--ink);
+  font-size:15px;
+  letter-spacing:-.01em;
+  margin-bottom:4px;
+}
+
+.amb-feature span{
+  color:var(--muted);
+  font-size:13px;
+  line-height:1.65;
+}
 
 /* CTA */
-.cta-block{border:1px solid var(--line);border-radius:36px;padding:110px 56px;text-align:center;position:relative;overflow:hidden;background:var(--bg2)}
-.cta-block::before{content:'';position:absolute;inset:0;pointer-events:none;background:radial-gradient(ellipse 65% 65% at 10% 50%,var(--coral-glow),transparent 55%),radial-gradient(ellipse 55% 55% at 90% 50%,var(--teal-glow),transparent 55%),radial-gradient(ellipse 55% 60% at 50% 110%,var(--gold-glow),transparent 50%)}
-.cta-block .heading{position:relative;z-index:1;max-width:780px;margin:0 auto}
-.cta-sub{position:relative;z-index:1;max-width:500px;margin:22px auto 40px;font-size:17px;line-height:1.78;color:var(--ink2)}
-.cta-btns{position:relative;z-index:1;display:flex;align-items:center;justify-content:center;gap:14px;flex-wrap:wrap}
+.cta{
+  position:relative;
+  overflow:hidden;
+  text-align:center;
+  padding:96px 34px;
+  border-radius:42px;
+  border:1px solid rgba(255,255,255,.72);
+  background:
+    radial-gradient(circle at 15% 28%, rgba(255,244,207,.92), transparent 32%),
+    radial-gradient(circle at 85% 30%, rgba(134,217,229,.22), transparent 30%),
+    radial-gradient(circle at 50% 100%, rgba(239,232,255,.70), transparent 35%),
+    rgba(255,255,255,.68);
+  backdrop-filter:blur(24px) saturate(160%);
+  -webkit-backdrop-filter:blur(24px) saturate(160%);
+  box-shadow:var(--shadow-md);
+}
+
+.cta .display{
+  margin-top:20px;
+}
+
+.cta p{
+  max-width:650px;
+  margin:24px auto 0;
+  color:var(--muted);
+  font-size:18px;
+  line-height:1.85;
+}
+
+.cta-actions{
+  margin-top:34px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  flex-wrap:wrap;
+  gap:14px;
+}
 
 /* FOOTER */
-footer{border-top:1px solid var(--line);padding:64px 0 36px}
-.footer-grid{display:grid;grid-template-columns:2.2fr 1fr 1fr 1fr;gap:52px;padding-bottom:48px;border-bottom:1px solid var(--line);margin-bottom:36px}
-.footer-brand img{height:44px;width:auto;display:block;margin-bottom:16px}
-.footer-brand-fallback{display:flex;align-items:center;gap:10px;margin-bottom:16px}
-.fbf-mark{width:40px;height:40px;background:var(--coral);border-radius:10px;display:grid;place-items:center;font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:700;font-style:italic;color:#fff}
-.fbf-name{font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:600;color:var(--ink)}
-.footer-desc{font-size:14px;line-height:1.78;color:var(--ink2);max-width:310px}
-.footer-flags{margin-top:20px;font-size:18px;letter-spacing:2px}
-.footer-col-title{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--ink3);margin-bottom:20px}
-.footer-links{display:flex;flex-direction:column;gap:13px}
-.footer-links a{font-size:14px;font-weight:500;color:var(--ink2);text-decoration:none;transition:color .2s}
-.footer-links a:hover{color:var(--ink)}
-.footer-bottom{display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap}
-.footer-copy{font-size:12px;color:var(--ink3)}
+.footer{
+  padding:76px 0 34px;
+}
+
+.footer-shell{
+  padding-top:42px;
+  border-top:1px solid var(--line);
+}
+
+.footer-grid{
+  display:grid;
+  grid-template-columns:2.1fr 1fr 1fr 1fr;
+  gap:42px;
+  padding-bottom:40px;
+  border-bottom:1px solid var(--line);
+}
+
+.footer-brand{
+  display:flex;
+  align-items:center;
+  gap:12px;
+  margin-bottom:16px;
+}
+
+.footer-brand img{
+  height:42px;
+  width:auto;
+}
+
+.footer-name{
+  font-family:"Cormorant Garamond", Georgia, serif;
+  font-size:29px;
+  line-height:1;
+  letter-spacing:-.035em;
+  font-weight:600;
+  color:var(--ink);
+}
+
+.footer-desc{
+  max-width:340px;
+  color:var(--muted);
+  font-size:14px;
+  line-height:1.8;
+}
+
+.footer-flags{
+  margin-top:18px;
+  font-size:20px;
+  letter-spacing:2px;
+}
+
+.footer-title{
+  color:var(--muted-2);
+  font-family:"DM Mono", monospace;
+  font-size:10px;
+  letter-spacing:.18em;
+  text-transform:uppercase;
+  margin-bottom:16px;
+}
+
+.footer-links{
+  display:flex;
+  flex-direction:column;
+  gap:12px;
+}
+
+.footer-links a{
+  color:var(--muted);
+  font-size:14px;
+  font-weight:700;
+  transition:color .2s ease;
+}
+
+.footer-links a:hover{
+  color:var(--ink);
+}
+
+.footer-bottom{
+  padding-top:22px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  flex-wrap:wrap;
+  gap:14px;
+  color:var(--muted-2);
+  font-size:12px;
+}
 
 /* REVEAL */
-.reveal{opacity:0;transform:translateY(26px);transition:opacity .7s cubic-bezier(.16,1,.3,1),transform .7s cubic-bezier(.16,1,.3,1)}
-.reveal.on{opacity:1;transform:none}
+.reveal{
+  opacity:0;
+  transform:translateY(22px);
+  transition:
+    opacity .78s cubic-bezier(.16,1,.3,1),
+    transform .78s cubic-bezier(.16,1,.3,1);
+}
+
+.reveal.on{
+  opacity:1;
+  transform:none;
+}
 
 /* RESPONSIVE */
-@media(max-width:1024px){
-  nav{padding:18px 28px}nav.stuck{padding:12px 28px}.wrap{padding:0 28px}.hero{padding:0 28px}
-  .features-intro{grid-template-columns:1fr}.grid-bento{grid-template-rows:auto}
-  .gc1,.gc2,.gc3,.gc4,.gc5,.gc6{grid-column:span 12;grid-row:span 1;min-height:200px}
-  .islands-grid{grid-template-columns:repeat(2,1fr)}.island.wide{grid-column:span 1}.island.tall{grid-row:span 1;min-height:320px}
-  .culture-block{grid-template-columns:1fr}.culture-left{border-right:none;border-bottom:1px solid var(--line)}
-  .amb-wrap{grid-template-columns:1fr;gap:40px}.footer-grid{grid-template-columns:1fr 1fr;gap:32px}.nav-links{display:none}
+@media(max-width:1160px){
+  .nav-links{
+    display:none;
+  }
+
+  .hero-grid,
+  .section-head,
+  .premium-layout,
+  .culture-grid,
+  .ambassador-layout{
+    grid-template-columns:1fr;
+  }
+
+  .hero-visual{
+    min-height:680px;
+  }
+
+  .stats{
+    grid-template-columns:repeat(3,1fr);
+  }
+
+  .stat{
+    border-bottom:1px solid rgba(13,24,51,.07);
+  }
+
+  .feature-grid{
+    grid-template-columns:1fr 1fr;
+  }
+
+  .feature-large,
+  .feature-wide,
+  .feature-third,
+  .feature-half{
+    grid-column:span 1;
+    grid-row:span 1;
+    min-height:260px;
+  }
+
+  .islands-grid{
+    grid-template-columns:repeat(2,1fr);
+  }
+
+  .island.wide{
+    grid-column:span 1;
+  }
+
+  .island.tall{
+    grid-row:span 1;
+    min-height:318px;
+  }
+
+  .footer-grid{
+    grid-template-columns:1fr 1fr;
+  }
 }
-@media(max-width:680px){
-  section.s{padding:80px 0}.hero-inner{padding:130px 0 50px}
-  .stats{flex-direction:column}.stat{border-right:none;border-bottom:1px solid var(--line)}.stat:last-child{border-bottom:none}
-  .islands-grid{grid-template-columns:1fr}.culture-left,.culture-right{padding:36px}
-  .cta-block{padding:64px 24px}.footer-grid{grid-template-columns:1fr}.islands-intro{flex-direction:column}
+
+@media(max-width:760px){
+  .wrap{
+    width:min(var(--max), calc(100% - 26px));
+  }
+
+  .section{
+    padding:84px 0;
+  }
+
+  .nav{
+    top:10px;
+  }
+
+  .nav-inner{
+    min-height:62px;
+    padding:9px 10px 9px 13px;
+  }
+
+  .brand img{
+    height:34px;
+  }
+
+  .brand-name{
+    font-size:25px;
+  }
+
+  .nav-pill{
+    min-height:42px;
+    padding:11px 14px;
+    font-size:12px;
+  }
+
+  .hero{
+    padding:116px 0 54px;
+  }
+
+  .hero-title{
+    font-size:clamp(58px, 17vw, 88px);
+  }
+
+  .hero-copy p{
+    font-size:16px;
+  }
+
+  .hero-actions{
+    align-items:stretch;
+    flex-direction:column;
+  }
+
+  .btn{
+    width:100%;
+  }
+
+  .hero-note span{
+    width:100%;
+    justify-content:center;
+    text-align:center;
+  }
+
+  .hero-visual{
+    min-height:610px;
+  }
+
+  .device-stage{
+    height:610px;
+  }
+
+  .iphone-main{
+    width:250px;
+    height:510px;
+    right:4px;
+    top:22px;
+  }
+
+  .iphone-back{
+    width:215px;
+    height:438px;
+    left:0;
+    top:112px;
+  }
+
+  .float-card{
+    display:none;
+  }
+
+  .stats{
+    grid-template-columns:1fr;
+  }
+
+  .stat{
+    border-right:0;
+  }
+
+  .feature-grid,
+  .premium-benefits,
+  .pricing,
+  .islands-grid,
+  .culture-grid,
+  .footer-grid{
+    grid-template-columns:1fr;
+  }
+
+  .feature-card,
+  .premium-panel,
+  .culture-panel,
+  .amb-card{
+    padding:24px;
+    border-radius:30px;
+  }
+
+  .spark-stack{
+    display:none;
+  }
+
+  .premium-product{
+    min-height:650px;
+  }
+
+  .premium-device{
+    width:min(100%, 320px);
+    height:620px;
+  }
+
+  .commission-row{
+    grid-template-columns:1fr;
+    gap:5px;
+  }
+
+  .vibe-grid{
+    grid-template-columns:1fr 1fr;
+  }
+
+  .cta{
+    padding:74px 20px;
+  }
+
+  .footer-bottom{
+    align-items:flex-start;
+    flex-direction:column;
+  }
+}
+
+@media(prefers-reduced-motion:reduce){
+  *,
+  *::before,
+  *::after{
+    animation:none !important;
+    transition:none !important;
+    scroll-behavior:auto !important;
+  }
 }
 </style>
 </head>
+
 <body>
 
 <!-- NAV -->
-<nav id="nav">
-  <a class="nav-logo" href="index.html">
-    <img src="koneksyon-logo-color.png" alt="Koneksyon" onerror="this.style.display='none';this.nextElementSibling.style.display='grid'">
-    <div class="nav-logo-fallback" style="display:none">K</div>
-    <span class="nav-wordmark">Koneksyon</span>
-  </a>
-  <div class="nav-links">
-    <a href="#features">Features</a>
-    <a href="#islands">Islands</a>
-    <a href="#culture">Culture</a>
-    <a href="#ambassador">Ambassador</a>
-    <a href="privacy.html">Privacy</a>
-    <a href="terms.html">Terms</a>
-    <a href="community-guidelines.html">Guidelines</a>
-  </div>
-  <div class="nav-end">
-    <a class="btn-nav" href="download.html">Download →</a>
+<nav class="nav" id="nav">
+  <div class="nav-inner">
+    <a class="brand" href="index.html" aria-label="Koneksyon home">
+      <img src="koneksyon-logo-color.png" alt="Koneksyon" onerror="this.style.display='none';this.nextElementSibling.style.display='grid';" />
+      <span class="brand-mark">K</span>
+      <span class="brand-name">Koneksyon</span>
+    </a>
+
+    <div class="nav-links" aria-label="Primary navigation">
+      <a href="#features">Features</a>
+      <a href="#premium">Premium</a>
+      <a href="#islands">Islands</a>
+      <a href="#culture">Culture</a>
+      <a href="#ambassador">Ambassador</a>
+      <a href="privacy.html">Privacy</a>
+      <a href="terms.html">Terms</a>
+    </div>
+
+    <div class="nav-actions">
+      <a class="nav-pill" href="download.html">Join the Launch</a>
+    </div>
   </div>
 </nav>
 
 <!-- HERO -->
-<div class="hero">
-  <div class="hero-glow"></div>
-  <div class="hero-inner">
-    <div class="hero-logo-wrap">
-      <img src="koneksyon-logo-color.png" alt="Koneksyon" onerror="this.style.display='none';document.querySelector('.hero-logo-fallback').style.display='inline-flex'">
-      <div class="hero-logo-fallback" style="display:none">
-        <div class="hlf-mark">K</div>
-        <span class="hlf-name">Koneksyon</span>
+<header class="hero">
+  <div class="wrap hero-grid">
+    <div class="hero-copy reveal">
+      <div class="eyebrow">Caribbean-inspired · Open to everyone · Launching July 1, 2026</div>
+
+      <h1 class="hero-title">
+        Where culture<br />
+        meets <em>real</em><br />
+        <strong>connection.</strong>
+      </h1>
+
+      <p>
+        Koneksyon is a premium dating app inspired by Caribbean warmth, language,
+        culture, and intentional discovery. Less noise. More trust. More chemistry.
+      </p>
+
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="download.html">Join the Launch →</a>
+        <a class="btn btn-soft" href="#features">Explore the Experience</a>
+      </div>
+
+      <div class="hero-note">
+        <span>Verified-first community</span>
+        <span>13 daily Sparks</span>
+        <span>Kreyòl · Français · Español · English</span>
+      </div>
+
+      <div class="hero-scroll">
+        <span>Scroll</span>
+        <div class="scroll-line"></div>
       </div>
     </div>
-    <div class="hero-badge">
-      <span class="badge-pip"></span>
-      Caribbean-Inspired &nbsp;·&nbsp; Open to Everyone &nbsp;·&nbsp; Launching July 1st, 2026
-    </div>
-    <h1 class="hero-h1 serif">Where culture<br>meets <em>real</em><br><strong>connection.</strong></h1>
-    <p class="hero-sub">A premium dating app inspired by Caribbean warmth and culture — open to everyone who values authentic love, intentional relationships, and real conversation.</p>
-    <div class="hero-ctas">
-      <a class="btn-primary" href="download.html">Join the Launch &nbsp;→</a>
-      <a class="btn-ghost" href="#features">Explore the experience</a>
+
+    <div class="hero-visual reveal" aria-label="Koneksyon app preview">
+      <div class="device-stage">
+
+        <div class="float-card float-a">
+          <span>✦</span>
+          Intentional by design
+        </div>
+
+        <div class="float-card float-b">
+          <span>∞</span>
+          Konekt+ Premium
+        </div>
+
+        <div class="iphone iphone-back" aria-hidden="true">
+          <div class="phone-screen">
+            <div class="phone-content">
+              <div class="phone-status">
+                <span>11:49</span>
+                <span>●●●</span>
+              </div>
+
+              <div class="phone-top">
+                <span class="phone-logo-fallback">Koneksyon</span>
+                <div class="phone-actions">
+                  <div class="phone-circle gold">✦</div>
+                </div>
+              </div>
+
+              <div class="profile-card">
+                <div class="profile-card-content">
+                  <small>Culture Match</small>
+                  <h3>Island energy.</h3>
+                  <p>Discovery shaped by language, values, rhythm, and real intention.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="iphone iphone-main">
+          <div class="phone-screen">
+            <div class="phone-content">
+              <div class="phone-status">
+                <span>11:49</span>
+                <span>5G · 100%</span>
+              </div>
+
+              <div class="phone-top">
+                <img class="phone-logo" src="koneksyon-logo-color.png" alt="Koneksyon app logo" onerror="this.outerHTML='<span class=&quot;phone-logo-fallback&quot;>Koneksyon</span>';" />
+                <div class="phone-actions">
+                  <div class="phone-circle gold">PREM</div>
+                  <div class="phone-circle">↻</div>
+                </div>
+              </div>
+
+              <div class="phone-card trust-card">
+                <span class="trust-icon">♢</span>
+                <span>Complete verification to build more trust.</span>
+              </div>
+
+              <div class="phone-metrics">
+                <div class="phone-card metric">
+                  <b>∞</b>
+                  <span>Likes</span>
+                </div>
+                <div class="phone-card metric">
+                  <b>∞</b>
+                  <span>Sparks</span>
+                </div>
+              </div>
+
+              <div class="phone-center">
+                <div>
+                  <div class="phone-center-mark">🌴</div>
+                  <h3>No profiles right now</h3>
+                  <p>Try again a little later.</p>
+                  <div class="phone-cta">Reload</div>
+                </div>
+              </div>
+
+              <div class="phone-tab">
+                <div class="phone-tab-item active"><b>♢</b> Spark</div>
+                <div class="phone-tab-item"><b>♡</b> Likes</div>
+                <div class="phone-tab-item"><b>↗</b> Chats</div>
+                <div class="phone-tab-item"><b>⌕</b> Vibes</div>
+                <div class="phone-tab-item"><b>◦</b> You</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
     </div>
   </div>
-  <div class="hero-scroll">
-    <span class="scroll-label">Scroll</span>
-    <div class="scroll-bar"></div>
-  </div>
-</div>
+</header>
 
 <!-- MARQUEE -->
-<div class="marquee">
-  <div class="marquee-inner">
-    <div class="m-item"><span class="m-dot">✦</span> Culture-led matching</div>
-    <div class="m-item"><span class="m-dot">✦</span> Verified profiles</div>
-    <div class="m-item"><span class="m-dot">✦</span> Haitian Kreyòl</div>
-    <div class="m-item"><span class="m-dot">✦</span> 13 sparks daily</div>
-    <div class="m-item"><span class="m-dot">✦</span> Safe & intentional</div>
-    <div class="m-item"><span class="m-dot">✦</span> Caribbean-inspired</div>
-    <div class="m-item"><span class="m-dot">✦</span> Open to everyone</div>
-    <div class="m-item"><span class="m-dot">✦</span> Real Koneksyon</div>
-    <div class="m-item"><span class="m-dot">✦</span> Premium dating</div>
-    <div class="m-item"><span class="m-dot">✦</span> Zanara Labs LLC</div>
-    <div class="m-item"><span class="m-dot">✦</span> 13 Caribbean nations</div>
-    <div class="m-item"><span class="m-dot">✦</span> Culture-led matching</div>
-    <div class="m-item"><span class="m-dot">✦</span> Verified profiles</div>
-    <div class="m-item"><span class="m-dot">✦</span> Haitian Kreyòl</div>
-    <div class="m-item"><span class="m-dot">✦</span> 13 sparks daily</div>
-    <div class="m-item"><span class="m-dot">✦</span> Safe & intentional</div>
-    <div class="m-item"><span class="m-dot">✦</span> Caribbean-inspired</div>
-    <div class="m-item"><span class="m-dot">✦</span> Open to everyone</div>
-    <div class="m-item"><span class="m-dot">✦</span> Real Koneksyon</div>
-    <div class="m-item"><span class="m-dot">✦</span> Premium dating</div>
-    <div class="m-item"><span class="m-dot">✦</span> Zanara Labs LLC</div>
-    <div class="m-item"><span class="m-dot">✦</span> 13 Caribbean nations</div>
+<div class="marquee" aria-hidden="true">
+  <div class="marquee-track">
+    <div class="marquee-item"><i>✦</i> Culture-led matching</div>
+    <div class="marquee-item"><i>✦</i> Verified profiles</div>
+    <div class="marquee-item"><i>✦</i> Haitian Kreyòl</div>
+    <div class="marquee-item"><i>✦</i> Premium discovery</div>
+    <div class="marquee-item"><i>✦</i> 13 Sparks daily</div>
+    <div class="marquee-item"><i>✦</i> Safe and intentional</div>
+    <div class="marquee-item"><i>✦</i> Caribbean-inspired</div>
+    <div class="marquee-item"><i>✦</i> Open to everyone</div>
+    <div class="marquee-item"><i>✦</i> Konekt+</div>
+    <div class="marquee-item"><i>✦</i> Real connection</div>
+
+    <div class="marquee-item"><i>✦</i> Culture-led matching</div>
+    <div class="marquee-item"><i>✦</i> Verified profiles</div>
+    <div class="marquee-item"><i>✦</i> Haitian Kreyòl</div>
+    <div class="marquee-item"><i>✦</i> Premium discovery</div>
+    <div class="marquee-item"><i>✦</i> 13 Sparks daily</div>
+    <div class="marquee-item"><i>✦</i> Safe and intentional</div>
+    <div class="marquee-item"><i>✦</i> Caribbean-inspired</div>
+    <div class="marquee-item"><i>✦</i> Open to everyone</div>
+    <div class="marquee-item"><i>✦</i> Konekt+</div>
+    <div class="marquee-item"><i>✦</i> Real connection</div>
   </div>
 </div>
 
 <!-- STATS -->
-<section class="s">
+<section class="section-tight stats-shell">
   <div class="wrap">
     <div class="stats reveal">
-      <div class="stat"><div class="stat-n serif">13</div><div class="stat-l">Daily sparks</div></div>
-      <div class="stat"><div class="stat-n serif">4</div><div class="stat-l">Languages</div></div>
-      <div class="stat"><div class="stat-n serif">13</div><div class="stat-l">Island nations</div></div>
-      <div class="stat"><div class="stat-n serif">Jul 1</div><div class="stat-l">Launch date 2026</div></div>
-      <div class="stat"><div class="stat-n serif">100%</div><div class="stat-l">Verified-first</div></div>
+      <div class="stat">
+        <div class="stat-value">13</div>
+        <div class="stat-label">Daily Sparks</div>
+      </div>
+      <div class="stat">
+        <div class="stat-value">4</div>
+        <div class="stat-label">Languages</div>
+      </div>
+      <div class="stat">
+        <div class="stat-value">13</div>
+        <div class="stat-label">Island Nations</div>
+      </div>
+      <div class="stat">
+        <div class="stat-value">Jul 1</div>
+        <div class="stat-label">Launch Date</div>
+      </div>
+      <div class="stat">
+        <div class="stat-value">100%</div>
+        <div class="stat-label">Verified-first</div>
+      </div>
     </div>
   </div>
 </section>
 
 <!-- FEATURES -->
-<section class="s" id="features">
+<section class="section" id="features">
   <div class="wrap">
-    <div class="features-intro">
-      <div class="features-text">
-        <div class="label">What makes it different</div>
-        <div class="heading serif">Designed like a<br><em>premium social club.</em></div>
-        <p>Every detail is built around safety, culture, and intentional connection. Not another swipe clone.</p>
+    <div class="section-head reveal">
+      <div>
+        <div class="kicker">What makes it different</div>
+        <h2 class="display">
+          Designed like a<br />
+          <em>premium social club.</em>
+        </h2>
       </div>
+      <p class="lede">
+        Koneksyon is built around a calmer, more intentional way to discover people.
+        The product should feel safe, warm, selective, and human — not like another endless swipe clone.
+      </p>
     </div>
-    <div class="grid-bento">
-      <div class="gc gc1 reveal">
-        <div class="swipe-deck"><div class="sd">🇭🇹</div><div class="sd">🇯🇲</div><div class="sd">🇹🇹</div></div>
-        <div class="gc-em">♾️</div>
-        <div class="gc-title gc-title-lg serif">13 Sparks.<br>Make them count.</div>
-        <div class="gc-body">A curated daily swipe limit that makes every match feel intentional — not infinite.</div>
-      </div>
-      <div class="gc gc2 reveal">
-        <div class="gc-em">✅</div>
-        <div class="gc-title serif">Verified-first community</div>
-        <div class="gc-body">Identity verification, approved photos, and active moderation protect every member from fake profiles and bad actors.</div>
-      </div>
-      <div class="gc gc3 reveal">
-        <div class="gc-tag">Culture</div>
-        <div class="gc-title serif">Roots, not just radius.</div>
-        <div class="gc-body">Match by language, origin, values, food, music, love language, and relationship intent.</div>
-      </div>
-      <div class="gc gc4 reveal">
-        <div class="gc-em">💎</div>
-        <div class="gc-title serif">Premium tools</div>
-        <div class="gc-body">Konekt+ features elevate discovery without cheap gimmicks.</div>
-      </div>
-      <div class="gc gc5 reveal">
-        <div class="gc-em">🛡️</div>
-        <div class="gc-title serif">Built-in safety</div>
-        <div class="gc-body">Date safety acknowledgments, blocking, reporting — and a dedicated admin team watching over the community.</div>
-      </div>
-      <div class="gc gc6 reveal">
-        <div class="gc-em">🌍</div>
-        <div class="gc-title serif">Four languages. One vibe.</div>
-        <div class="gc-body">Haitian Kreyòl, French, Spanish, and English — because connection feels deeper in your own language.</div>
-      </div>
+
+    <div class="feature-grid">
+      <article class="feature-card feature-large reveal">
+        <div class="spark-stack" aria-hidden="true">
+          <div class="spark-mini">🇭🇹</div>
+          <div class="spark-mini">🇯🇲</div>
+          <div class="spark-mini">🇹🇹</div>
+        </div>
+        <div class="card-tag">Intentional discovery</div>
+        <div class="feature-icon">∞</div>
+        <h3 class="feature-title">13 Sparks.<br />Make them count.</h3>
+        <p class="feature-text">
+          A curated daily limit helps each profile feel considered. It turns discovery into a choice,
+          not a reflex.
+        </p>
+      </article>
+
+      <article class="feature-card feature-wide reveal">
+        <div class="card-tag">Trust</div>
+        <div class="feature-icon">♢</div>
+        <h3 class="feature-title small">Verified-first community</h3>
+        <p class="feature-text">
+          Identity verification, approved photos, reporting, blocking, and moderation help create
+          a safer space for meaningful connection.
+        </p>
+      </article>
+
+      <article class="feature-card feature-third reveal">
+        <div class="card-tag">Culture</div>
+        <div class="feature-icon">✦</div>
+        <h3 class="feature-title small">Roots, not just radius.</h3>
+        <p class="feature-text">
+          Match by language, origin, values, relationship intent, music, food, and the details that
+          actually shape chemistry.
+        </p>
+      </article>
+
+      <article class="feature-card feature-third reveal">
+        <div class="card-tag">Premium</div>
+        <div class="feature-icon">◇</div>
+        <h3 class="feature-title small">Konekt+ without gimmicks.</h3>
+        <p class="feature-text">
+          Premium tools should feel useful, calm, and elevated — more control, more visibility,
+          and more room to connect.
+        </p>
+      </article>
+
+      <article class="feature-card feature-third reveal">
+        <div class="card-tag">Language</div>
+        <div class="feature-icon">⌁</div>
+        <h3 class="feature-title small">Four languages. One vibe.</h3>
+        <p class="feature-text">
+          Haitian Kreyòl, French, Spanish, and English — because connection feels deeper in the
+          language that feels like home.
+        </p>
+      </article>
     </div>
   </div>
 </section>
 
-<!-- ISLANDS — 13 NATIONS WITH REAL MONUMENT PHOTOS -->
-<section class="s" id="islands">
+<!-- PREMIUM -->
+<section class="section" id="premium">
   <div class="wrap">
-    <div class="islands-intro">
-      <div>
-        <div class="label">13 Island nations</div>
-        <div class="heading serif">The islands<br><em>that inspire us.</em></div>
+    <div class="premium-layout">
+      <div class="premium-panel reveal">
+        <div class="eyebrow">Konekt+ Premium</div>
+        <h2 class="premium-title">Premium should feel quiet, useful, and worth it.</h2>
+        <p class="premium-copy">
+          Konekt+ gives serious members more space to discover and connect while keeping the brand
+          polished. No cheap tricks. Just a cleaner premium experience.
+        </p>
+
+        <div class="premium-benefits">
+          <div class="benefit">
+            <b>Unlimited Likes</b>
+            <span>Keep discovering when the connection feels right.</span>
+          </div>
+          <div class="benefit">
+            <b>Unlimited Sparks</b>
+            <span>Send stronger interest without waiting for a reset.</span>
+          </div>
+          <div class="benefit">
+            <b>Enhanced Visibility</b>
+            <span>Give active members a more visible presence.</span>
+          </div>
+          <div class="benefit">
+            <b>Priority Experience</b>
+            <span>A smoother path for members who are serious.</span>
+          </div>
+        </div>
+
+        <div class="pricing">
+          <div class="price">
+            <div class="price-top">
+              <span class="price-name">Monthly</span>
+            </div>
+            <div class="price-number">$12.99</div>
+            <div class="price-caption">A flexible premium entry point.</div>
+          </div>
+
+          <div class="price">
+            <div class="price-top">
+              <span class="price-name">3 Months</span>
+            </div>
+            <div class="price-number">$32.99</div>
+            <div class="price-caption">Better value for steady discovery.</div>
+          </div>
+
+          <div class="price">
+            <div class="price-top">
+              <span class="price-name">6 Months</span>
+              <span class="price-badge">Popular</span>
+            </div>
+            <div class="price-number">$59.99</div>
+            <div class="price-caption">For members who want consistency.</div>
+          </div>
+
+          <div class="price best">
+            <div class="price-top">
+              <span class="price-name">12 Months</span>
+              <span class="price-badge">Best</span>
+            </div>
+            <div class="price-number">$99.99</div>
+            <div class="price-caption">The strongest value for long-term members.</div>
+          </div>
+        </div>
       </div>
-      <p>Koneksyon draws its soul from the history, culture, and spirit of 13 Caribbean nations — and it's open to everyone who feels that warmth.</p>
+
+      <div class="premium-panel premium-product reveal">
+        <div class="premium-device">
+          <div class="premium-screen">
+            <div class="premium-ui">
+              <div class="phone-status">
+                <span>11:49</span>
+                <span>5G · 100%</span>
+              </div>
+
+              <div class="premium-header">
+                <img class="phone-logo" src="koneksyon-logo-color.png" alt="Koneksyon" onerror="this.outerHTML='<span class=&quot;phone-logo-fallback&quot;>Koneksyon</span>';" />
+                <div class="premium-chip">✦<br />PREM</div>
+              </div>
+
+              <div class="premium-card">
+                <div class="premium-card-title">Konekt+ is active.</div>
+                <div class="premium-card-sub">Unlimited discovery, stronger signals, and a smoother premium experience.</div>
+              </div>
+
+              <div class="premium-meter">
+                <div>∞<span>Likes</span></div>
+                <div>∞<span>Sparks</span></div>
+              </div>
+
+              <div class="premium-empty">
+                <div>
+                  <div class="premium-empty-icon">✦</div>
+                  <h3>Premium energy</h3>
+                  <p>More discovery. More intention. More room for something real.</p>
+                </div>
+              </div>
+
+              <div class="premium-tab">
+                <div class="on"><b>♢</b> Spark</div>
+                <div><b>♡</b> Likes</div>
+                <div><b>↗</b> Chats</div>
+                <div><b>⌕</b> Vibes</div>
+                <div><b>◦</b> You</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ISLANDS -->
+<section class="section" id="islands">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div>
+        <div class="kicker">13 Island nations</div>
+        <h2 class="display">
+          The islands<br />
+          <em>that inspire us.</em>
+        </h2>
+      </div>
+      <p class="lede">
+        Koneksyon draws its soul from Caribbean history, language, rhythm, beauty, and pride.
+        The app is Caribbean-inspired and open to everyone who connects with that warmth.
+      </p>
     </div>
 
     <div class="islands-grid reveal">
 
-      <!-- Haiti — wide + tall = hero -->
-      <div class="island wide tall isl-ht">
-        <img class="island-img" src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a0/Citadelle_Laferri%C3%A8re.jpg/1280px-Citadelle_Laferri%C3%A8re.jpg" alt="Citadelle Laferrière Haiti" loading="lazy" onerror="this.style.display='none'">
-        <div class="island-overlay"></div>
-        <div class="island-body">
+      <article class="island wide tall">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a0/Citadelle_Laferri%C3%A8re.jpg/1280px-Citadelle_Laferri%C3%A8re.jpg" alt="Citadelle Laferrière in Haiti" loading="lazy" onerror="this.remove();" />
+        <div class="island-content">
           <span class="island-flag">🇭🇹</span>
-          <div class="island-name serif">Haiti</div>
+          <div class="island-name">Haiti</div>
           <div class="island-sub">First Black Republic</div>
           <div class="island-monument">Citadelle Laferrière</div>
         </div>
-      </div>
+      </article>
 
-      <!-- Jamaica -->
-      <div class="island isl-jm">
-        <img class="island-img" src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6c/Dunn%27s_River_Falls_-_panoramio_%281%29.jpg/1280px-Dunn%27s_River_Falls_-_panoramio_%281%29.jpg" alt="Dunn's River Falls Jamaica" loading="lazy" onerror="this.style.display='none'">
-        <div class="island-overlay"></div>
-        <div class="island-body">
+      <article class="island">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6c/Dunn%27s_River_Falls_-_panoramio_%281%29.jpg/1280px-Dunn%27s_River_Falls_-_panoramio_%281%29.jpg" alt="Dunn's River Falls in Jamaica" loading="lazy" onerror="this.remove();" />
+        <div class="island-content">
           <span class="island-flag">🇯🇲</span>
-          <div class="island-name serif">Jamaica</div>
+          <div class="island-name">Jamaica</div>
           <div class="island-sub">Island of Springs</div>
-          <div class="island-monument">Dunn's River Falls</div>
+          <div class="island-monument">Dunn’s River Falls</div>
         </div>
-      </div>
+      </article>
 
-      <!-- Dominican Republic -->
-      <div class="island isl-do">
-        <img class="island-img" src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3c/Santo_Domingo_-_Faro_a_Colon.JPG/1280px-Santo_Domingo_-_Faro_a_Colon.JPG" alt="Faro a Colón Dominican Republic" loading="lazy" onerror="this.style.display='none'">
-        <div class="island-overlay"></div>
-        <div class="island-body">
+      <article class="island">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3c/Santo_Domingo_-_Faro_a_Colon.JPG/1280px-Santo_Domingo_-_Faro_a_Colon.JPG" alt="Faro a Colón in the Dominican Republic" loading="lazy" onerror="this.remove();" />
+        <div class="island-content">
           <span class="island-flag">🇩🇴</span>
-          <div class="island-name serif">Dominican Republic</div>
+          <div class="island-name">Dominican Republic</div>
           <div class="island-sub">La Hispaniola</div>
           <div class="island-monument">Faro a Colón, Santo Domingo</div>
         </div>
-      </div>
+      </article>
 
-      <!-- Trinidad & Tobago -->
-      <div class="island isl-tt">
-        <img class="island-img" src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/99/Queen%27s_Park_Savannah.jpg/1280px-Queen%27s_Park_Savannah.jpg" alt="Queen's Park Savannah Trinidad" loading="lazy" onerror="this.style.display='none'">
-        <div class="island-overlay"></div>
-        <div class="island-body">
+      <article class="island">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/99/Queen%27s_Park_Savannah.jpg/1280px-Queen%27s_Park_Savannah.jpg" alt="Queen's Park Savannah in Trinidad and Tobago" loading="lazy" onerror="this.remove();" />
+        <div class="island-content">
           <span class="island-flag">🇹🇹</span>
-          <div class="island-name serif">Trinidad & Tobago</div>
+          <div class="island-name">Trinidad & Tobago</div>
           <div class="island-sub">Land of the Hummingbird</div>
-          <div class="island-monument">Queen's Park Savannah</div>
+          <div class="island-monument">Queen’s Park Savannah</div>
         </div>
-      </div>
+      </article>
 
-      <!-- Puerto Rico — wide -->
-      <div class="island wide isl-pr">
-        <img class="island-img" src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/58/Castillo_San_Felipe_del_Morro_2013.jpg/1280px-Castillo_San_Felipe_del_Morro_2013.jpg" alt="Castillo San Felipe del Morro Puerto Rico" loading="lazy" onerror="this.style.display='none'">
-        <div class="island-overlay"></div>
-        <div class="island-body">
+      <article class="island wide">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/58/Castillo_San_Felipe_del_Morro_2013.jpg/1280px-Castillo_San_Felipe_del_Morro_2013.jpg" alt="Castillo San Felipe del Morro in Puerto Rico" loading="lazy" onerror="this.remove();" />
+        <div class="island-content">
           <span class="island-flag">🇵🇷</span>
-          <div class="island-name serif">Puerto Rico</div>
+          <div class="island-name">Puerto Rico</div>
           <div class="island-sub">La Isla del Encanto</div>
           <div class="island-monument">Castillo San Felipe del Morro</div>
         </div>
-      </div>
+      </article>
 
-      <!-- Cuba -->
-      <div class="island isl-cu">
-        <img class="island-img" src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e5/Castillo_de_los_Tres_Santos_Reyes_Magnos_del_Morro_04.jpg/1280px-Castillo_de_los_Tres_Santos_Reyes_Magnos_del_Morro_04.jpg" alt="Castillo del Morro Cuba" loading="lazy" onerror="this.style.display='none'">
-        <div class="island-overlay"></div>
-        <div class="island-body">
+      <article class="island">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e5/Castillo_de_los_Tres_Santos_Reyes_Magnos_del_Morro_04.jpg/1280px-Castillo_de_los_Tres_Santos_Reyes_Magnos_del_Morro_04.jpg" alt="Castillo del Morro in Cuba" loading="lazy" onerror="this.remove();" />
+        <div class="island-content">
           <span class="island-flag">🇨🇺</span>
-          <div class="island-name serif">Cuba</div>
+          <div class="island-name">Cuba</div>
           <div class="island-sub">Pearl of the Antilles</div>
           <div class="island-monument">Castillo del Morro, Havana</div>
         </div>
-      </div>
+      </article>
 
-      <!-- Barbados -->
-      <div class="island isl-bb">
-        <img class="island-img" src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6d/Barbados_Garrison_Savannah.jpg/1280px-Barbados_Garrison_Savannah.jpg" alt="Garrison Savannah Barbados" loading="lazy" onerror="this.style.display='none'">
-        <div class="island-overlay"></div>
-        <div class="island-body">
+      <article class="island">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6d/Barbados_Garrison_Savannah.jpg/1280px-Barbados_Garrison_Savannah.jpg" alt="Garrison Savannah in Barbados" loading="lazy" onerror="this.remove();" />
+        <div class="island-content">
           <span class="island-flag">🇧🇧</span>
-          <div class="island-name serif">Barbados</div>
+          <div class="island-name">Barbados</div>
           <div class="island-sub">Little England</div>
           <div class="island-monument">Garrison Historic Area</div>
         </div>
-      </div>
+      </article>
 
-      <!-- Saint Lucia -->
-      <div class="island isl-lc">
-        <img class="island-img" src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/76/Pitons_St_Lucia.jpg/1280px-Pitons_St_Lucia.jpg" alt="The Pitons Saint Lucia" loading="lazy" onerror="this.style.display='none'">
-        <div class="island-overlay"></div>
-        <div class="island-body">
+      <article class="island">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/76/Pitons_St_Lucia.jpg/1280px-Pitons_St_Lucia.jpg" alt="The Pitons in Saint Lucia" loading="lazy" onerror="this.remove();" />
+        <div class="island-content">
           <span class="island-flag">🇱🇨</span>
-          <div class="island-name serif">Saint Lucia</div>
+          <div class="island-name">Saint Lucia</div>
           <div class="island-sub">Helen of the West</div>
           <div class="island-monument">The Pitons</div>
         </div>
-      </div>
+      </article>
 
-      <!-- Curaçao — wide -->
-      <div class="island wide isl-cw">
-        <img class="island-img" src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b2/Queen_Emma_Bridge_Curacao.jpg/1280px-Queen_Emma_Bridge_Curacao.jpg" alt="Queen Emma Bridge Curaçao" loading="lazy" onerror="this.style.display='none'">
-        <div class="island-overlay"></div>
-        <div class="island-body">
+      <article class="island wide">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b2/Queen_Emma_Bridge_Curacao.jpg/1280px-Queen_Emma_Bridge_Curacao.jpg" alt="Queen Emma Bridge in Curaçao" loading="lazy" onerror="this.remove();" />
+        <div class="island-content">
           <span class="island-flag">🇨🇼</span>
-          <div class="island-name serif">Curaçao</div>
+          <div class="island-name">Curaçao</div>
           <div class="island-sub">Island of Color</div>
           <div class="island-monument">Queen Emma Bridge, Willemstad</div>
         </div>
-      </div>
+      </article>
 
-      <!-- Grenada -->
-      <div class="island isl-gd">
-        <img class="island-img" src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5c/St_Georges_Grenada.jpg/1280px-St_Georges_Grenada.jpg" alt="St. George's Grenada" loading="lazy" onerror="this.style.display='none'">
-        <div class="island-overlay"></div>
-        <div class="island-body">
+      <article class="island">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5c/St_Georges_Grenada.jpg/1280px-St_Georges_Grenada.jpg" alt="St. George's Harbour in Grenada" loading="lazy" onerror="this.remove();" />
+        <div class="island-content">
           <span class="island-flag">🇬🇩</span>
-          <div class="island-name serif">Grenada</div>
+          <div class="island-name">Grenada</div>
           <div class="island-sub">Isle of Spice</div>
-          <div class="island-monument">St. George's Harbour</div>
+          <div class="island-monument">St. George’s Harbour</div>
         </div>
-      </div>
+      </article>
 
-      <!-- Saint Kitts & Nevis -->
-      <div class="island isl-kn">
-        <img class="island-img" src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/Brimstone_Hill_Fortress_National_Park.jpg/1280px-Brimstone_Hill_Fortress_National_Park.jpg" alt="Brimstone Hill Fortress Saint Kitts" loading="lazy" onerror="this.style.display='none'">
-        <div class="island-overlay"></div>
-        <div class="island-body">
+      <article class="island">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/Brimstone_Hill_Fortress_National_Park.jpg/1280px-Brimstone_Hill_Fortress_National_Park.jpg" alt="Brimstone Hill Fortress in Saint Kitts and Nevis" loading="lazy" onerror="this.remove();" />
+        <div class="island-content">
           <span class="island-flag">🇰🇳</span>
-          <div class="island-name serif">Saint Kitts & Nevis</div>
+          <div class="island-name">Saint Kitts & Nevis</div>
           <div class="island-sub">Gibraltar of the West Indies</div>
           <div class="island-monument">Brimstone Hill Fortress</div>
         </div>
-      </div>
+      </article>
 
-      <!-- Saint Vincent & the Grenadines -->
-      <div class="island isl-vc">
-        <img class="island-img" src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4e/Fort_Charlotte_Saint_Vincent.jpg/1280px-Fort_Charlotte_Saint_Vincent.jpg" alt="Fort Charlotte Saint Vincent" loading="lazy" onerror="this.style.display='none'">
-        <div class="island-overlay"></div>
-        <div class="island-body">
+      <article class="island">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4e/Fort_Charlotte_Saint_Vincent.jpg/1280px-Fort_Charlotte_Saint_Vincent.jpg" alt="Fort Charlotte in Saint Vincent" loading="lazy" onerror="this.remove();" />
+        <div class="island-content">
           <span class="island-flag">🇻🇨</span>
-          <div class="island-name serif">Saint Vincent</div>
+          <div class="island-name">Saint Vincent</div>
           <div class="island-sub">Jewel of the Antilles</div>
           <div class="island-monument">Fort Charlotte, Kingstown</div>
         </div>
-      </div>
+      </article>
 
-      <!-- Antigua & Barbuda — wide -->
-      <div class="island wide isl-ag">
-        <img class="island-img" src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/Nelson%27s_Dockyard_Antigua.jpg/1280px-Nelson%27s_Dockyard_Antigua.jpg" alt="Nelson's Dockyard Antigua" loading="lazy" onerror="this.style.display='none'">
-        <div class="island-overlay"></div>
-        <div class="island-body">
+      <article class="island wide">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/Nelson%27s_Dockyard_Antigua.jpg/1280px-Nelson%27s_Dockyard_Antigua.jpg" alt="Nelson's Dockyard in Antigua and Barbuda" loading="lazy" onerror="this.remove();" />
+        <div class="island-content">
           <span class="island-flag">🇦🇬</span>
-          <div class="island-name serif">Antigua & Barbuda</div>
+          <div class="island-name">Antigua & Barbuda</div>
           <div class="island-sub">Land of 365 Beaches</div>
-          <div class="island-monument">Nelson's Dockyard</div>
+          <div class="island-monument">Nelson’s Dockyard</div>
         </div>
-      </div>
+      </article>
 
     </div>
   </div>
 </section>
 
 <!-- CULTURE -->
-<section class="s" id="culture">
+<section class="section" id="culture">
   <div class="wrap">
-    <div class="culture-block reveal">
-      <div class="culture-left">
-        <div class="label">Language & Identity</div>
-        <div class="heading serif">Built for the way<br><strong>culture connects.</strong></div>
-        <p>Koneksyon speaks Haitian Kreyòl, French, Spanish, and English — because love feels stronger in your own language. And it's open to absolutely everyone who resonates with that spirit.</p>
-        <div class="lang-list">
-          <div class="lang-tag">🇭🇹 Haitian Kreyòl</div>
-          <div class="lang-tag">🇫🇷 Français</div>
-          <div class="lang-tag">🇪🇸 Español</div>
-          <div class="lang-tag">🇺🇸 English</div>
+    <div class="culture-grid">
+      <article class="culture-panel reveal">
+        <div class="kicker">Language & identity</div>
+        <h2 class="display">
+          Built for the way<br />
+          <strong>culture connects.</strong>
+        </h2>
+        <p>
+          Koneksyon speaks Haitian Kreyòl, French, Spanish, and English because intimacy feels
+          stronger in the language that feels like home.
+        </p>
+
+        <div class="language-list">
+          <span class="language-pill">🇭🇹 Haitian Kreyòl</span>
+          <span class="language-pill">🇫🇷 Français</span>
+          <span class="language-pill">🇪🇸 Español</span>
+          <span class="language-pill">🇺🇸 English</span>
         </div>
-      </div>
-      <div class="culture-right">
-        <div class="label">The experience</div>
-        <div class="heading serif"><em>Feel the</em><br><strong>difference.</strong></div>
-        <div class="culture-tiles">
-          <div class="ctile ctile-r">🎵</div>
-          <div class="ctile ctile-g">🍲</div>
-          <div class="ctile ctile-b">💬</div>
-          <div class="ctile ctile-b">🌴</div>
-          <div class="ctile ctile-r">❤️</div>
-          <div class="ctile ctile-g">✨</div>
+      </article>
+
+      <article class="culture-panel reveal">
+        <div class="kicker">The feeling</div>
+        <h2 class="display">
+          Warm. intentional.<br />
+          <em>Actually human.</em>
+        </h2>
+        <p>
+          The experience should feel softer than the typical dating app: more rhythm, more trust,
+          more culture, more respect, and more space for real conversation.
+        </p>
+
+        <div class="vibe-grid" aria-hidden="true">
+          <div class="vibe">🎵</div>
+          <div class="vibe">🍲</div>
+          <div class="vibe">💬</div>
+          <div class="vibe">🌴</div>
+          <div class="vibe">♡</div>
+          <div class="vibe">✦</div>
         </div>
-      </div>
+      </article>
     </div>
   </div>
 </section>
 
-<!-- AMBASSADOR — Boosts & Konekt+ removed -->
-<section class="s" id="ambassador">
+<!-- AMBASSADOR -->
+<section class="section" id="ambassador">
   <div class="wrap">
-    <div class="label">Ambassador program</div>
-    <div class="heading serif" style="margin-bottom:56px">Earn while you<br><em>spread the love.</em></div>
-    <div class="amb-wrap">
-      <div class="reveal">
-        <p style="font-size:15px;line-height:1.8;color:var(--ink2);margin-bottom:24px">Join our founding ambassador team. Share Koneksyon with your community and earn recurring commissions — with a real contract and no vague promises.</p>
-        <div class="comm-table">
-          <div class="cr cr-hdr">
-            <span>Plan</span><span>Price</span><span>You earn</span>
-          </div>
-          <div class="cr">
-            <span class="cr-plan">Monthly</span>
-            <span class="cr-price">$12.99/mo</span>
-            <span class="cr-earn">$2.00 / mo</span>
-          </div>
-          <div class="cr">
-            <span class="cr-plan">3 Months</span>
-            <span class="cr-price">$32.99</span>
-            <span class="cr-earn">$5.00</span>
-          </div>
-          <div class="cr">
-            <span class="cr-plan">6 Months</span>
-            <span class="cr-price">$59.99</span>
-            <span class="cr-earn">$8.00</span>
-          </div>
-          <div class="cr">
-            <span class="cr-plan">12 Months</span>
-            <span class="cr-price">$99.99</span>
-            <span class="cr-earn">$12.00</span>
-          </div>
-        </div>
-        <div style="margin-top:24px">
-          <a class="btn-primary" href="mailto:support@koneksyondatingapp.com?subject=Ambassador%20Program">Apply to be an Ambassador →</a>
-        </div>
+    <div class="section-head reveal">
+      <div>
+        <div class="kicker">Ambassador program</div>
+        <h2 class="display">
+          Earn while you<br />
+          <em>spread the love.</em>
+        </h2>
       </div>
-      <div class="reveal">
+      <p class="lede">
+        A founding ambassador program should feel organized and trustworthy.
+        Clear terms, clear payouts, and a premium brand behind it.
+      </p>
+    </div>
+
+    <div class="ambassador-layout">
+      <article class="amb-card reveal">
+        <p>
+          Join the founding ambassador team. Share Koneksyon with your community and earn recurring
+          commissions with a real contract and clear expectations.
+        </p>
+
+        <div class="commission-table">
+          <div class="commission-row head">
+            <span>Plan</span>
+            <span>Price</span>
+            <span>You earn</span>
+          </div>
+
+          <div class="commission-row">
+            <span class="plan">Monthly</span>
+            <span>$12.99/mo</span>
+            <span class="earn">$2.00 / mo</span>
+          </div>
+
+          <div class="commission-row">
+            <span class="plan">3 Months</span>
+            <span>$32.99</span>
+            <span class="earn">$5.00</span>
+          </div>
+
+          <div class="commission-row">
+            <span class="plan">6 Months</span>
+            <span>$59.99</span>
+            <span class="earn">$8.00</span>
+          </div>
+
+          <div class="commission-row">
+            <span class="plan">12 Months</span>
+            <span>$99.99</span>
+            <span class="earn">$12.00</span>
+          </div>
+        </div>
+
+        <div style="margin-top:24px;">
+          <a class="btn btn-primary" href="mailto:support@koneksyondatingapp.com?subject=Ambassador%20Program">Apply to be an Ambassador →</a>
+        </div>
+      </article>
+
+      <article class="amb-card reveal">
         <div class="amb-features">
-          <div class="af">
-            <div class="af-icon af-icon-r">🎁</div>
+          <div class="amb-feature">
+            <div class="amb-icon">✦</div>
             <div>
-              <div class="af-title">Free Premium access</div>
-              <div class="af-body">Active ambassadors get free Koneksyon Premium for the full duration of their agreement.</div>
+              <b>Free Premium access</b>
+              <span>Active ambassadors get free Koneksyon Premium for the full duration of their agreement.</span>
             </div>
           </div>
-          <div class="af">
-            <div class="af-icon af-icon-b">📊</div>
+
+          <div class="amb-feature">
+            <div class="amb-icon">↗</div>
             <div>
-              <div class="af-title">Real-time dashboard</div>
-              <div class="af-body">Track every referral, see payment status, and request payouts — all inside the app under Settings → Ambassador Portal.</div>
+              <b>Real-time dashboard</b>
+              <span>Track referrals, payment status, and payout requests inside the Ambassador Portal.</span>
             </div>
           </div>
-          <div class="af">
-            <div class="af-icon af-icon-g">💸</div>
+
+          <div class="amb-feature">
+            <div class="amb-icon">$</div>
             <div>
-              <div class="af-title">$1 off for your referrals</div>
-              <div class="af-body">New users who use your code get their first month at $11.99. You still earn the full commission.</div>
+              <b>$1 off for referrals</b>
+              <span>New users who use your code get their first month at $11.99 while you still earn full commission.</span>
             </div>
           </div>
-          <div class="af">
-            <div class="af-icon af-icon-p">⏱️</div>
+
+          <div class="amb-feature">
+            <div class="amb-icon">∞</div>
             <div>
-              <div class="af-title">Up to 12 months recurring</div>
-              <div class="af-body">Monthly commissions keep coming as long as your referral stays subscribed — for up to 12 months per person.</div>
+              <b>Up to 12 months recurring</b>
+              <span>Monthly commissions continue as long as your referral stays subscribed, for up to 12 months per person.</span>
             </div>
           </div>
-          <div class="af">
-            <div class="af-icon af-icon-r">📄</div>
+
+          <div class="amb-feature">
+            <div class="amb-icon">✓</div>
             <div>
-              <div class="af-title">Real contract. No surprises.</div>
-              <div class="af-body">A signed agreement with Zanara Labs LLC. Clear terms, clear expectations, no vague promises.</div>
+              <b>Real contract. No surprises.</b>
+              <span>A signed agreement with Zanara Labs LLC. Clear terms, clear expectations, no vague promises.</span>
             </div>
           </div>
         </div>
-      </div>
+      </article>
     </div>
   </div>
 </section>
 
 <!-- CTA -->
-<section class="s">
+<section class="section">
   <div class="wrap">
-    <div class="cta-block reveal">
-      <div class="label" style="color:var(--gold)">Ready?</div>
-      <div class="heading serif">Your <em>Koneksyon</em><br>is waiting.</div>
-      <p class="cta-sub">Download free. Find your vibe. Build something real. Caribbean-inspired, open to everyone. Launching July 1st, 2026.</p>
-      <div class="cta-btns">
-        <a class="btn-primary" href="download.html">Download Free →</a>
-        <a class="btn-ghost" href="community-guidelines.html">Community Guidelines</a>
+    <div class="cta reveal">
+      <div class="eyebrow">Ready?</div>
+      <h2 class="display">
+        Your <em>Koneksyon</em><br />
+        is waiting.
+      </h2>
+      <p>
+        Download free. Find your vibe. Build something real. Caribbean-inspired,
+        open to everyone, and designed to feel intentional from the first tap.
+      </p>
+
+      <div class="cta-actions">
+        <a class="btn btn-primary" href="download.html">Download Free →</a>
+        <a class="btn btn-soft" href="community-guidelines.html">Community Guidelines</a>
       </div>
     </div>
   </div>
 </section>
 
 <!-- FOOTER -->
-<footer>
-  <div class="wrap">
+<footer class="footer">
+  <div class="wrap footer-shell">
     <div class="footer-grid">
       <div>
         <div class="footer-brand">
-          <img src="koneksyon-logo-color.png" alt="Koneksyon" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
-          <div class="footer-brand-fallback" style="display:none">
-            <div class="fbf-mark">K</div>
-            <span class="fbf-name serif">Koneksyon</span>
-          </div>
+          <img src="koneksyon-logo-color.png" alt="Koneksyon" onerror="this.style.display='none';" />
+          <span class="footer-name">Koneksyon</span>
         </div>
-        <p class="footer-desc">Caribbean-inspired dating and social connection. Built for authenticity, safety, language, and culture. Open to everyone.</p>
+        <p class="footer-desc">
+          Caribbean-inspired dating and social connection. Built for authenticity,
+          safety, language, and culture. Open to everyone.
+        </p>
         <div class="footer-flags">🇭🇹 🇯🇲 🇩🇴 🇹🇹 🇵🇷 🇨🇺 🇧🇧 🇱🇨 🇨🇼 🇬🇩 🇰🇳 🇻🇨 🇦🇬</div>
       </div>
+
       <div>
-        <div class="footer-col-title">App</div>
+        <div class="footer-title">App</div>
         <div class="footer-links">
           <a href="#features">Features</a>
+          <a href="#premium">Premium</a>
           <a href="#islands">Islands</a>
           <a href="#culture">Culture</a>
           <a href="#ambassador">Ambassador</a>
           <a href="download.html">Download</a>
         </div>
       </div>
+
       <div>
-        <div class="footer-col-title">Legal</div>
+        <div class="footer-title">Legal</div>
         <div class="footer-links">
           <a href="privacy.html">Privacy Policy</a>
           <a href="terms.html">Terms of Service</a>
@@ -687,8 +2871,9 @@ footer{border-top:1px solid var(--line);padding:64px 0 36px}
           <a href="community-guidelines.html">Guidelines</a>
         </div>
       </div>
+
       <div>
-        <div class="footer-col-title">Contact</div>
+        <div class="footer-title">Contact</div>
         <div class="footer-links">
           <a href="mailto:support@koneksyondatingapp.com">Support</a>
           <a href="mailto:privacy@koneksyondatingapp.com">Privacy</a>
@@ -696,25 +2881,34 @@ footer{border-top:1px solid var(--line);padding:64px 0 36px}
         </div>
       </div>
     </div>
+
     <div class="footer-bottom">
-      <span class="footer-copy">© 2026 Zanara Labs LLC. All rights reserved. &nbsp;·&nbsp; support@koneksyondatingapp.com</span>
-      <span class="footer-copy">Made with ❤️ for the diaspora</span>
+      <span>© 2026 Zanara Labs LLC. All rights reserved. · support@koneksyondatingapp.com</span>
+      <span>Made with ❤️ for the diaspora</span>
     </div>
   </div>
 </footer>
 
 <script>
-const nav = document.getElementById('nav');
-window.addEventListener('scroll', () => nav.classList.toggle('stuck', window.scrollY > 70), {passive:true});
-const ro = new IntersectionObserver(entries => {
-  entries.forEach((e,i) => {
-    if(e.isIntersecting) setTimeout(() => e.target.classList.add('on'), i * 60);
+const nav = document.getElementById("nav");
+
+window.addEventListener("scroll", () => {
+  nav.classList.toggle("scrolled", window.scrollY > 60);
+}, { passive:true });
+
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach((entry) => {
+    if(entry.isIntersecting){
+      entry.target.classList.add("on");
+      observer.unobserve(entry.target);
+    }
   });
-}, {threshold:.08});
-document.querySelectorAll('.reveal, .gc, .island, .af, .cr:not(.cr-hdr), .stat, .ctile').forEach(el => {
-  el.classList.add('reveal');
-  ro.observe(el);
+}, {
+  threshold:.12
 });
+
+document.querySelectorAll(".reveal").forEach((el) => observer.observe(el));
 </script>
+
 </body>
 </html>
