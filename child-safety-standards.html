@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Child Safety Standards — Koneksyon</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600&family=Instrument+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&family=DM+Mono&display=swap" rel="stylesheet">
+<style>
+:root{color-scheme:light dark;--bg:#FAFAF8;--bg2:#F3F1EC;--bg3:#E8E5DE;--ink:#0C0C0A;--ink2:rgba(12,12,10,.58);--ink3:rgba(12,12,10,.32);--line:rgba(12,12,10,.09);--line2:rgba(12,12,10,.16);--coral:#C93B1A;--gold:#C89B0A;--teal:#0A9EAA;--coral-glow:rgba(201,59,26,.18)}
+@media(prefers-color-scheme:dark){:root{--bg:#09090B;--bg2:#111113;--bg3:#1A1A1E;--ink:#F5F4F0;--ink2:rgba(245,244,240,.58);--ink3:rgba(245,244,240,.30);--line:rgba(245,244,240,.08);--line2:rgba(245,244,240,.14);--coral:#E04B27;--gold:#D4A81A;--teal:#14B8C4;--coral-glow:rgba(224,75,39,.22)}}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Instrument Sans',system-ui,sans-serif;background:var(--bg);color:var(--ink);line-height:1.7;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:9999;opacity:.03;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)'/%3E%3C/svg%3E");background-size:200px}
+nav{position:fixed;top:0;left:0;right:0;z-index:900;display:flex;align-items:center;justify-content:space-between;padding:22px 52px;transition:padding .4s,background .4s,backdrop-filter .4s,border-color .4s;border-bottom:1px solid transparent}
+nav.stuck{padding:14px 52px;background:rgba(9,9,11,.88);backdrop-filter:blur(32px) saturate(200%);border-color:var(--line)}
+@media(prefers-color-scheme:light){nav.stuck{background:rgba(250,250,248,.92)}}
+.nav-logo{display:flex;align-items:center;gap:11px;text-decoration:none}
+.nav-logo img{height:38px;width:auto;display:block}
+.nlf{width:36px;height:36px;background:var(--coral);border-radius:8px;display:none;place-items:center;font-family:'Cormorant Garamond',serif;font-size:20px;font-weight:700;font-style:italic;color:#fff}
+.nav-wordmark{font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:600;color:var(--ink);letter-spacing:-.01em}
+.nav-links{display:flex;align-items:center;gap:24px}
+.nav-links a{font-size:13px;font-weight:500;color:var(--ink2);text-decoration:none;transition:color .2s;white-space:nowrap}
+.nav-links a:hover,.nav-links a.active{color:var(--coral)}
+.btn-nav{display:inline-flex;align-items:center;gap:6px;padding:10px 22px;border-radius:999px;background:var(--coral);color:#fff;font-family:'Instrument Sans',sans-serif;font-size:13px;font-weight:600;text-decoration:none;box-shadow:0 6px 28px var(--coral-glow);transition:transform .2s,box-shadow .2s;white-space:nowrap}
+.page-header{padding:160px 52px 80px;text-align:center;position:relative;overflow:hidden;border-bottom:1px solid var(--line)}
+.page-header::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 60% 80% at 50% 0%,var(--coral-glow),transparent 60%);pointer-events:none}
+.page-header-inner{position:relative;z-index:1;max-width:760px;margin:0 auto}
+.ph-label{font-family:'DM Mono',monospace;font-size:10px;font-weight:400;letter-spacing:.2em;text-transform:uppercase;color:var(--coral);margin-bottom:16px}
+.ph-title{font-family:'Cormorant Garamond',serif;font-size:clamp(48px,7vw,88px);font-weight:300;line-height:.9;letter-spacing:-.04em;color:var(--ink)}
+.ph-title strong{font-weight:700}
+.ph-sub{margin-top:20px;font-size:15px;color:var(--ink2);line-height:1.7}
+.ph-meta{display:flex;align-items:center;justify-content:center;gap:12px;margin-top:28px;flex-wrap:wrap}
+.ph-chip{display:inline-flex;align-items:center;gap:7px;padding:8px 16px;border:1px solid var(--line2);border-radius:999px;font-size:12px;font-weight:600;color:var(--ink2);background:var(--bg2)}
+.page-wrap{display:grid;grid-template-columns:260px 1fr;gap:0;max-width:1200px;margin:0 auto;padding:0 52px 100px;align-items:start}
+.toc{position:sticky;top:100px;padding:32px 32px 32px 0;border-right:1px solid var(--line);margin-top:60px}
+.toc-title{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--ink3);margin-bottom:18px}
+.toc-list{list-style:none;display:flex;flex-direction:column;gap:2px}
+.toc-list a{font-size:12px;font-weight:500;color:var(--ink2);text-decoration:none;padding:6px 10px;border-radius:8px;display:block;transition:background .2s,color .2s}
+.toc-list a:hover{background:var(--bg3);color:var(--ink)}
+.content{padding:60px 0 0 56px}
+.section{margin-bottom:52px;padding-bottom:52px;border-bottom:1px solid var(--line)}
+.section:last-child{border-bottom:none}
+.section-num{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--coral);margin-bottom:10px}
+.section-title{font-family:'Cormorant Garamond',serif;font-size:clamp(26px,3vw,36px);font-weight:600;letter-spacing:-.03em;color:var(--ink);margin-bottom:18px;line-height:1.1}
+.section p{font-size:15px;line-height:1.82;color:var(--ink2);margin-bottom:14px}
+.section ul{margin:14px 0 14px 20px;display:flex;flex-direction:column;gap:8px}
+.section ul li{font-size:15px;line-height:1.7;color:var(--ink2)}
+.section ul li::marker{color:var(--coral)}
+.link{color:var(--coral);font-weight:600;text-decoration:none}.link:hover{text-decoration:underline}
+.warn-box{border:1px solid rgba(201,59,26,.25);border-radius:16px;padding:20px 24px;background:rgba(201,59,26,.06);margin:18px 0}
+.warn-box p{font-size:14px;font-weight:600;color:var(--coral);margin:0;line-height:1.65}
+.info-box{border:1px solid var(--line2);border-radius:16px;padding:20px 24px;background:var(--bg2);margin:18px 0}
+footer{border-top:1px solid var(--line);padding:48px 52px 32px}
+.footer-inner{max-width:1200px;margin:0 auto;display:flex;flex-direction:column;gap:28px}
+.footer-top{display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap}
+.footer-brand{display:flex;align-items:center;gap:10px;text-decoration:none}
+.footer-brand img{height:32px;width:auto}
+.fbf{width:30px;height:30px;background:var(--coral);border-radius:7px;display:none;place-items:center;font-family:'Cormorant Garamond',serif;font-size:16px;font-weight:700;font-style:italic;color:#fff}
+.footer-brand-name{font-family:'Cormorant Garamond',serif;font-size:18px;font-weight:600;color:var(--ink)}
+.footer-links{display:flex;align-items:center;gap:20px;flex-wrap:wrap}
+.footer-links a{font-size:13px;font-weight:500;color:var(--ink2);text-decoration:none;transition:color .2s}
+.footer-links a:hover{color:var(--ink)}
+.footer-bottom{display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;padding-top:20px;border-top:1px solid var(--line)}
+.footer-copy{font-size:12px;color:var(--ink3)}
+@media(max-width:960px){nav{padding:14px 20px}nav.stuck{padding:10px 20px}.nav-links{display:none}.page-header{padding:120px 20px 60px}.page-wrap{grid-template-columns:1fr;padding:0 20px 60px}.toc{display:none}.content{padding:40px 0 0}footer{padding:36px 20px 24px}}
+</style>
+</head>
+<body>
+
+<nav id="nav">
+  <a class="nav-logo" href="index.html">
+    <img src="koneksyon-logo-color.png" alt="Koneksyon" onerror="this.style.display='none';this.nextElementSibling.style.display='grid'">
+    <div class="nlf">K</div>
+    <span class="nav-wordmark">Koneksyon</span>
+  </a>
+  <div class="nav-links">
+    <a href="index.html">Home</a>
+    <a href="privacy.html">Privacy</a>
+    <a href="terms.html">Terms</a>
+    <a href="community-guidelines.html">Guidelines</a>
+    <a href="child-safety-standards.html" class="active">Child Safety</a>
+  </div>
+  <a class="btn-nav" href="download.html">Download →</a>
+</nav>
+
+<div class="page-header">
+  <div class="page-header-inner">
+    <div class="ph-label">Safety</div>
+    <div class="ph-title"><strong>Child Safety</strong><br>Standards</div>
+    <p class="ph-sub">Koneksyon’s public standards against Child Sexual Abuse and Exploitation (CSAE), Child Sexual Abuse Material (CSAM), and child endangerment.</p>
+    <div class="ph-meta">
+      <div class="ph-chip">📅 Effective June 29, 2026</div>
+      <div class="ph-chip">🏢 Zanara Labs LLC · Florida, USA</div>
+      <div class="ph-chip">✉️ childsupport@koneksyondatingapp.com</div>
+    </div>
+  </div>
+</div>
+
+<div class="page-wrap">
+  <aside class="toc">
+    <div class="toc-title">Contents</div>
+    <ul class="toc-list">
+      <li><a href="#intro">Introduction</a></li>
+      <li><a href="#zero-tolerance">1. Zero Tolerance</a></li>
+      <li><a href="#adult-only">2. Adults Only</a></li>
+      <li><a href="#reporting">3. Reporting</a></li>
+      <li><a href="#online-report">4. Online Report Form</a></li>
+      <li><a href="#enforcement">5. Enforcement</a></li>
+      <li><a href="#law">6. Legal Compliance</a></li>
+      <li><a href="#contact">7. Child Safety Contact</a></li>
+    </ul>
+  </aside>
+
+  <div class="content">
+    <div class="section" id="intro">
+      <div class="section-num">Introduction</div>
+      <div class="section-title">Purpose of These Standards</div>
+      <p>Koneksyon is a Caribbean-inspired dating and social connection app operated by Zanara Labs LLC. Koneksyon is designed for adults only and is not directed to children.</p>
+      <p>These Child Safety Standards explain Koneksyon’s rules and enforcement approach for preventing, detecting, reporting, and removing content or conduct involving Child Sexual Abuse and Exploitation (CSAE), Child Sexual Abuse Material (CSAM), and child endangerment.</p>
+      <div class="info-box"><p>These standards apply together with our <a class="link" href="terms.html">Terms of Service</a>, <a class="link" href="community-guidelines.html">Community Guidelines</a>, and <a class="link" href="privacy.html">Privacy Policy</a>.</p></div>
+    </div>
+
+    <div class="section" id="zero-tolerance">
+      <div class="section-num">Section 1</div>
+      <div class="section-title">Zero Tolerance for CSAE and CSAM</div>
+      <p>Koneksyon and Zanara Labs LLC strictly prohibit Child Sexual Abuse and Exploitation (CSAE), Child Sexual Abuse Material (CSAM), grooming, sextortion, trafficking of a minor, sexualization of minors, and any content or conduct that exploits, abuses, endangers, or targets children.</p>
+      <p>Users may not upload, create, share, request, promote, distribute, possess, or attempt to obtain CSAE or CSAM content through Koneksyon. Users may not use Koneksyon to contact, groom, exploit, threaten, blackmail, manipulate, or endanger a minor.</p>
+      <div class="warn-box"><p>Any CSAE, CSAM, grooming, sextortion, trafficking of a minor, or child endangerment concern may lead to immediate account removal and reporting to appropriate authorities.</p></div>
+    </div>
+
+    <div class="section" id="adult-only">
+      <div class="section-num">Section 2</div>
+      <div class="section-title">Adults-Only Platform</div>
+      <p>Koneksyon is only for users who are at least eighteen (18) years old. Minors are not allowed to create accounts, use the app, appear in dating profiles, or participate in conversations on the platform.</p>
+      <p>Users may not misrepresent their age, create an account for a minor, ask a minor to use the app, or use the app to communicate with minors for sexual, romantic, exploitative, or otherwise inappropriate purposes.</p>
+    </div>
+
+    <div class="section" id="reporting">
+      <div class="section-num">Section 3</div>
+      <div class="section-title">User Reporting and In-App Feedback</div>
+      <p>Koneksyon provides in-app reporting and blocking tools so users can report profiles, photos, messages, and behavior that may violate our safety rules. Users can also contact our Trust & Safety team by email.</p>
+      <p>To report a child safety concern, use the app’s report feature when available, or email our designated Child Safety contact at <a class="link" href="mailto:childsupport@koneksyondatingapp.com?subject=Child%20Safety%20Report">childsupport@koneksyondatingapp.com</a>.</p>
+      <p>Reports should include the username, profile details, screenshots if safe and lawful to share, and a short explanation of the concern. Do not forward, upload, or redistribute suspected CSAM.</p>
+    </div>
+
+
+
+    <div class="section" id="online-report">
+      <div class="section-num">Section 4</div>
+      <div class="section-title">Submit a Child Safety Report Online</div>
+      <p>Use this secure online form to report suspected Child Sexual Abuse and Exploitation (CSAE), Child Sexual Abuse Material (CSAM), grooming, sextortion, a suspected minor on Koneksyon, or any other child safety concern involving the Koneksyon app.</p>
+      <p>You may also email our designated Child Safety contact directly at <a class="link" href="mailto:childsupport@koneksyondatingapp.com?subject=Child%20Safety%20Report">childsupport@koneksyondatingapp.com</a>.</p>
+      <div class="warn-box"><p>If someone is in immediate danger, contact local law enforcement or emergency services first. Do not upload, forward, or redistribute suspected Child Sexual Abuse Material.</p></div>
+      <div class="zoho-form-box">
+        <div id="zf_div_Q5CYz7qnqh7fxUBYoZOb49yikDN_9MIMb7gcLnVNvm0"></div>
+        <script type="text/javascript">
+        (function() {
+          try{
+            var f = document.createElement("iframe");
+            var ifrmSrc = 'https://forms.zohopublic.com/koneksyon1/form/KoneksyonChildSafetyReport/formperma/Q5CYz7qnqh7fxUBYoZOb49yikDN_9MIMb7gcLnVNvm0?zf_rszfm=1';
+            try{
+              if (!((new RegExp("[?&]referrername=")).test(ifrmSrc))) {
+                var rfr = window.location.href;
+                try { rfr = window.self !== window.top ? window.top.location.href : (/^https?:\/\/[\w.-]+\.[a-zA-Z]{2,}/i.test(rfr) ? rfr : ""); } catch (e) {}
+                if (rfr && rfr !== "") {
+                  if (rfr.length > 1800) {
+                    var queryIndex = rfr.indexOf('?');
+                    if (queryIndex > -1) { rfr = rfr.substring(0, queryIndex); }
+                    if (rfr.length > 1800) { rfr = rfr.substring(0, 1800); }
+                  }
+                  ifrmSrc += ((ifrmSrc.indexOf('?') > 0) ? '&' : '?') + 'referrername=' + encodeURIComponent(rfr);
+                }
+              }
+            }catch(e){}
+            f.src = ifrmSrc;
+            f.style.border = "none";
+            f.style.height = "1834px";
+            f.style.width = "100%";
+            f.style.transition = "all 0.5s ease";
+            f.setAttribute("aria-label", "Koneksyon Child Safety Report");
+            var d = document.getElementById("zf_div_Q5CYz7qnqh7fxUBYoZOb49yikDN_9MIMb7gcLnVNvm0");
+            d.appendChild(f);
+            window.addEventListener('message', function (event){
+              var evntData = event.data;
+              if( evntData && evntData.constructor == String ){
+                var zf_ifrm_data = evntData.split("|");
+                if ( zf_ifrm_data.length == 2 || zf_ifrm_data.length == 3 ) {
+                  var zf_perma = zf_ifrm_data[0];
+                  var zf_ifrm_ht_nw = ( parseInt(zf_ifrm_data[1], 10) + 15 ) + "px";
+                  var iframe = document.getElementById("zf_div_Q5CYz7qnqh7fxUBYoZOb49yikDN_9MIMb7gcLnVNvm0").getElementsByTagName("iframe")[0];
+                  if ( (iframe.src).indexOf('formperma') > 0 && (iframe.src).indexOf(zf_perma) > 0 ) {
+                    var prevIframeHeight = iframe.style.height;
+                    var zf_tout = false;
+                    if( zf_ifrm_data.length == 3 ) { iframe.scrollIntoView(); zf_tout = true; }
+                    if ( prevIframeHeight != zf_ifrm_ht_nw ) {
+                      if( zf_tout ) { setTimeout(function(){ iframe.style.height = zf_ifrm_ht_nw; },500); }
+                      else { iframe.style.height = zf_ifrm_ht_nw; }
+                    }
+                  }
+                }
+              }
+            }, false);
+          }catch(e){}
+        })();
+        </script>
+      </div>
+      <p class="form-note">Reports submitted through this form are sent to the Koneksyon Child Safety team for review.</p>
+    </div>
+
+    <div class="section" id="enforcement">
+      <div class="section-num">Section 5</div>
+      <div class="section-title">Review, Removal, and Enforcement</div>
+      <p>When Koneksyon receives a child safety report or obtains actual knowledge of suspected CSAE or CSAM, we may review the content, restrict access, remove content, preserve relevant information, suspend or terminate accounts, block devices or identifiers, and take other action needed to protect users and comply with law.</p>
+      <p>Koneksyon may use a combination of automated tools, user reports, human review, and third-party services to help detect and enforce child safety standards.</p>
+    </div>
+
+    <div class="section" id="law">
+      <div class="section-num">Section 6</div>
+      <div class="section-title">Compliance With Child Safety Laws</div>
+      <p>Koneksyon complies with applicable child safety laws and regulations. When we confirm or obtain actual knowledge of CSAM, we may report it to the National Center for Missing & Exploited Children (NCMEC) or another appropriate regional authority, as required by applicable law.</p>
+      <p>Koneksyon may also cooperate with law enforcement, regulators, child protection organizations, app stores, and other authorized entities when necessary to investigate, prevent, or respond to child exploitation or child endangerment.</p>
+    </div>
+
+    <div class="section" id="contact">
+      <div class="section-num">Section 7</div>
+      <div class="section-title">Designated Child Safety Point of Contact</div>
+      <p>Designated Child Safety contact for Koneksyon and Zanara Labs LLC:</p>
+      <p><a class="link" href="mailto:childsupport@koneksyondatingapp.com?subject=Child%20Safety%20Report">childsupport@koneksyondatingapp.com</a></p>
+      <p>This contact can receive notifications from Google Play or other authorized parties about potential CSAE content found in Koneksyon and can coordinate review, enforcement, preservation, removal, and reporting actions.</p>
+      <p><strong>Koneksyon</strong> — operated by Zanara Labs LLC · Florida, United States</p>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <a class="footer-brand" href="index.html">
+        <img src="koneksyon-logo-color.png" alt="Koneksyon" onerror="this.style.display='none';this.nextElementSibling.style.display='grid'">
+        <div class="fbf">K</div>
+        <span class="footer-brand-name">Koneksyon</span>
+      </a>
+      <div class="footer-links">
+        <a href="index.html">Home</a>
+        <a href="privacy.html">Privacy</a>
+        <a href="terms.html">Terms</a>
+        <a href="cookies.html">Cookies</a>
+        <a href="community-guidelines.html">Guidelines</a>
+        <a href="child-safety-standards.html">Child Safety</a>
+        <a href="download.html">Download</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span class="footer-copy">© 2026 Zanara Labs LLC. All rights reserved. &nbsp;·&nbsp; childsupport@koneksyondatingapp.com</span>
+      <span class="footer-copy">Child Safety Standards</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+const nav = document.getElementById('nav');
+window.addEventListener('scroll', () => nav.classList.toggle('stuck', window.scrollY > 60), {passive:true});
+</script>
+</body>
+</html>
