@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-  <title>Koneksyon — Culture, Community, Connection</title>
+  <title>Koneksyon — Premium Culture-First Platform</title>
   <meta name="description" content="Koneksyon is a Caribbean-inspired platform for intentional dating, B-Konekt business networking, creators, events, and real community connection." />
   <meta name="theme-color" content="#050814" />
   <meta property="og:title" content="Koneksyon — Culture, Community, Connection" />
@@ -524,24 +524,192 @@
     .product-item b { display: block; color: var(--ink-strong); margin-bottom: 7px; font-size: 18px; }
     .product-item span { display: block; color: var(--muted); font-weight: 680; line-height: 1.55; }
 
-    .gallery { display: grid; grid-template-columns: repeat(12, 1fr); gap: 14px; }
-    .gallery a {
+    .vibes-section {
       position: relative;
-      display: block;
-      min-height: 360px;
-      border-radius: clamp(22px, 3vw, 32px);
       overflow: hidden;
-      border: 1px solid var(--line);
-      background: #111827;
-      box-shadow: 0 14px 36px rgba(0,0,0,.16);
+      background: #030303;
+      color: #fff8ec;
+      border-block: 1px solid rgba(255, 248, 236, .10);
+      padding: clamp(76px, 9vw, 128px) 0 clamp(86px, 10vw, 144px);
     }
 
-    .gallery a:nth-child(1), .gallery a:nth-child(2) { grid-column: span 6; min-height: clamp(420px, 46vw, 580px); }
-    .gallery a:nth-child(n+3) { grid-column: span 4; }
-    .gallery img { width: 100%; height: 100%; object-fit: cover; transition: transform .8s var(--ease), filter .8s var(--ease); }
-    .gallery a:hover img { transform: scale(1.035); filter: saturate(1.06) contrast(1.03); }
-    .gallery a::after { content: ""; position: absolute; inset: 0; background: linear-gradient(to top, rgba(0,0,0,.55), transparent 52%); }
-    .gallery span { position: absolute; z-index: 2; left: 18px; bottom: 18px; color: #fff8ec; font-size: 15px; font-weight: 900; letter-spacing: -.02em; }
+    .vibes-section::before {
+      content: "";
+      position: absolute;
+      inset: 0 0 auto;
+      height: 4px;
+      background: linear-gradient(90deg, var(--blue) 0 50%, #e1262f 50% 100%);
+    }
+
+    .vibes-section::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      background:
+        radial-gradient(circle at 14% 10%, rgba(40,196,200,.16), transparent 28%),
+        radial-gradient(circle at 90% 4%, rgba(255,107,74,.14), transparent 26%);
+      opacity: .65;
+    }
+
+    .vibes-section .wrap { position: relative; z-index: 1; }
+    .vibes-head {
+      display: grid;
+      grid-template-columns: minmax(0, .95fr) minmax(320px, .55fr);
+      gap: clamp(24px, 6vw, 92px);
+      align-items: end;
+      margin-bottom: clamp(30px, 5vw, 58px);
+    }
+
+    .vibes-eyebrow {
+      color: var(--gold);
+      font-size: 12px;
+      font-weight: 950;
+      letter-spacing: .36em;
+      text-transform: uppercase;
+      margin-bottom: 18px;
+    }
+
+    .vibes-head h2 {
+      color: #fff8ec;
+      font-family: "Instrument Sans", system-ui, sans-serif;
+      font-size: clamp(54px, 8vw, 116px);
+      line-height: .82;
+      letter-spacing: -.06em;
+      text-transform: uppercase;
+      font-weight: 950;
+    }
+
+    .vibes-head p {
+      color: rgba(255, 248, 236, .68);
+      font-size: clamp(16px, 1.2vw, 20px);
+      line-height: 1.7;
+      font-weight: 700;
+    }
+
+    .share-photo {
+      justify-self: start;
+      margin-top: 22px;
+      min-height: 50px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0 20px;
+      border: 1px solid rgba(255,248,236,.26);
+      background: transparent;
+      color: #fff8ec;
+      border-radius: 0;
+      font-size: 12px;
+      font-weight: 950;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      transition: background .2s var(--ease), transform .2s var(--ease), border-color .2s var(--ease);
+    }
+
+    .share-photo:hover { background: rgba(255,248,236,.08); transform: translateY(-2px); border-color: rgba(255,248,236,.48); }
+
+    .vibes-carousel {
+      position: relative;
+      overflow: hidden;
+      width: 100%;
+    }
+
+    .vibes-track {
+      display: flex;
+      gap: 14px;
+      transition: transform .55s var(--ease);
+      will-change: transform;
+    }
+
+    .vibe-card {
+      position: relative;
+      flex: 0 0 calc((100% - 28px) / 3);
+      height: clamp(430px, 42vw, 590px);
+      overflow: hidden;
+      background: #111;
+      border: 1px solid rgba(255,248,236,.10);
+      cursor: pointer;
+    }
+
+    .vibe-card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center center;
+      filter: saturate(1.08) contrast(1.05) brightness(.92);
+      transition: transform .8s var(--ease), filter .8s var(--ease);
+    }
+
+    .vibe-card:hover img { transform: scale(1.045); filter: saturate(1.14) contrast(1.08) brightness(1); }
+    .vibe-card::after { content: ""; position: absolute; inset: 0; background: linear-gradient(to top, rgba(0,0,0,.58), rgba(0,0,0,0) 54%); opacity: .92; }
+    .vibe-card span { position: absolute; z-index: 2; left: 18px; bottom: 18px; color: #fff8ec; font-size: 13px; font-weight: 950; letter-spacing: .12em; text-transform: uppercase; }
+
+    .vibes-controls {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+      margin-top: 24px;
+    }
+
+    .vibes-arrow {
+      width: 44px;
+      height: 44px;
+      display: grid;
+      place-items: center;
+      border-radius: 999px;
+      border: 1px solid rgba(255,248,236,.16);
+      background: transparent;
+      color: #fff8ec;
+      cursor: pointer;
+      transition: transform .2s var(--ease), background .2s var(--ease), border-color .2s var(--ease);
+    }
+
+    .vibes-arrow:hover { transform: translateY(-2px); background: rgba(255,248,236,.08); border-color: rgba(255,248,236,.35); }
+    .vibes-dots { display: flex; align-items: center; justify-content: center; gap: 8px; }
+    .vibes-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 999px;
+      border: 0;
+      background: rgba(255,248,236,.38);
+      cursor: pointer;
+      transition: width .25s var(--ease), background .25s var(--ease);
+    }
+
+    .vibes-dot.active { width: 24px; background: #fff8ec; }
+
+    .event-proof {
+      margin-top: clamp(54px, 7vw, 86px);
+      display: grid;
+      grid-template-columns: minmax(280px, .72fr) minmax(0, 1fr) minmax(280px, .62fr);
+      gap: clamp(26px, 4vw, 56px);
+      align-items: center;
+      padding-top: clamp(42px, 6vw, 70px);
+      border-top: 1px solid rgba(255,248,236,.10);
+    }
+
+    .event-photo {
+      min-height: clamp(340px, 32vw, 460px);
+      overflow: hidden;
+      background: #111;
+      border: 1px solid rgba(255,248,236,.10);
+    }
+
+    .event-photo img { width: 100%; height: 100%; object-fit: cover; object-position: center; filter: saturate(1.1) contrast(1.04); }
+    .event-copy .date { color: rgba(255,248,236,.48); font-size: 13px; font-weight: 950; letter-spacing: .08em; text-transform: uppercase; margin-bottom: 14px; }
+    .event-copy h3 { color: #fff8ec; font-size: clamp(42px, 5.2vw, 78px); line-height: .9; letter-spacing: -.055em; text-transform: uppercase; max-width: 650px; }
+    .event-copy h3 strong { display: block; color: #e1262f; }
+    .event-list { margin-top: 24px; display: grid; gap: 10px; color: rgba(255,248,236,.70); font-weight: 720; }
+    .event-list span::before { content: "•"; color: #e1262f; margin-right: 12px; }
+    .coming-up { border-left: 1px solid rgba(255,248,236,.12); padding-left: clamp(22px, 3vw, 36px); }
+    .coming-up .title { color: rgba(255,248,236,.44); font-size: 12px; font-weight: 950; letter-spacing: .34em; text-transform: uppercase; margin-bottom: 22px; }
+    .mini-event { display: grid; grid-template-columns: 62px 1fr; gap: 18px; align-items: center; padding: 18px 0; border-top: 1px solid rgba(255,248,236,.10); }
+    .mini-event:last-child { border-bottom: 1px solid rgba(255,248,236,.10); }
+    .mini-date { color: #fff8ec; font-size: 26px; line-height: .88; font-weight: 950; letter-spacing: -.05em; }
+    .mini-date small { display: block; color: var(--gold); font-size: 11px; letter-spacing: .18em; margin-bottom: 6px; }
+    .mini-event b { display: block; color: #fff8ec; margin-bottom: 5px; }
+    .mini-event span { color: rgba(255,248,236,.52); font-size: 13px; font-weight: 700; }
 
     .trust-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 14px; }
     .trust-card { padding: 24px 22px; min-height: 230px; border: 1px solid var(--line); border-radius: 28px; background: var(--surface); }
@@ -630,7 +798,9 @@
       .visual-card { grid-template-columns: 1fr; }
       .below-fold { gap: 12px; }
       .feature-card { min-height: 220px; }
-      .gallery a, .gallery a:nth-child(1), .gallery a:nth-child(2), .gallery a:nth-child(n+3) { grid-column: span 12; min-height: 390px; }
+      .vibes-head, .event-proof { grid-template-columns: 1fr; }
+      .coming-up { border-left: 0; padding-left: 0; }
+      .vibe-card { flex-basis: calc((100% - 14px) / 2); height: clamp(390px, 62vw, 540px); }
       .trust-grid { grid-template-columns: 1fr; }
       .footer-grid { grid-template-columns: 1fr; }
       .cta-card { min-height: 560px; }
@@ -641,6 +811,10 @@
       .pill { font-size: 10px; letter-spacing: .08em; }
       .hero-actions .btn { width: 100%; }
       .hero-visual { min-height: 400px; }
+      .vibes-head h2 { font-size: clamp(48px, 15vw, 72px); }
+      .vibe-card { flex-basis: 100%; height: 460px; }
+      .vibes-section { padding-top: 68px; }
+      .event-copy h3 { font-size: clamp(38px, 12vw, 58px); }
     }
 
     @media (prefers-reduced-motion: reduce) {
@@ -794,23 +968,53 @@
       </div>
     </section>
 
-    <section id="activities" aria-label="Launch activities gallery">
+    <section id="activities" class="vibes-section" aria-label="Launch activities gallery">
       <div class="wrap">
-        <div class="section-head">
+        <div class="vibes-head">
           <div>
-            <div class="eyebrow">Launch activities</div>
-            <h2>Real people. Real rooms. Real energy.</h2>
+            <div class="vibes-eyebrow">The proof</div>
+            <h2>Launch Gallery</h2>
           </div>
-          <p class="section-copy">A premium website should not look empty. These photos create trust because they show the community, launch moments, founders, guests, creators, and B-Konekt energy around the platform.</p>
+          <div>
+            <p>Like TapTap, this section treats the photos as the brand experience, not just decoration. Large images, a dark stage, clean controls, and less text make the activity photos feel more premium.</p>
+            <a class="share-photo" href="mailto:support@koneksyondatingapp.com?subject=Koneksyon%20launch%20photo">Share your photo →</a>
+          </div>
         </div>
 
-        <div class="gallery">
-          <a href="./assets/founder-talk.jpg" data-lightbox><img src="./assets/founder-talk.jpg" alt="Founder speaking at a Koneksyon launch activity" loading="lazy" decoding="async" /><span>Founder moment</span></a>
-          <a href="./assets/launch-style.jpg" data-lightbox><img src="./assets/launch-style.jpg" alt="Guests dressed in black at a Koneksyon launch activity" loading="lazy" decoding="async" /><span>Culture & style</span></a>
-          <a href="./assets/creators.jpg" data-lightbox><img src="./assets/creators.jpg" alt="Koneksyon creators and supporters" loading="lazy" decoding="async" /><span>Creators</span></a>
-          <a href="./assets/guests.jpg" data-lightbox><img src="./assets/guests.jpg" alt="Guests connecting at a Koneksyon activity" loading="lazy" decoding="async" /><span>Community</span></a>
-          <a href="./assets/hero-community.jpg" data-lightbox><img src="./assets/hero-community.jpg" alt="Koneksyon group photo during launch activities" loading="lazy" decoding="async" /><span>Launch night</span></a>
-          <a href="./assets/bkonekt-founders.jpg" data-lightbox><img src="./assets/bkonekt-founders.jpg" alt="B-Konekt founders and community" loading="lazy" decoding="async" /><span>B-Konekt</span></a>
+        <div class="vibes-carousel" aria-label="Koneksyon launch photo carousel">
+          <div class="vibes-track" id="vibesTrack">
+            <a class="vibe-card" href="./assets/founder-talk.jpg" data-lightbox><img src="./assets/founder-talk.jpg" alt="Founder speaking at a Koneksyon launch activity" loading="lazy" decoding="async" /><span>Founder moment</span></a>
+            <a class="vibe-card" href="./assets/launch-style.jpg" data-lightbox><img src="./assets/launch-style.jpg" alt="Guests dressed in black at a Koneksyon launch activity" loading="lazy" decoding="async" /><span>Culture & style</span></a>
+            <a class="vibe-card" href="./assets/creators.jpg" data-lightbox><img src="./assets/creators.jpg" alt="Koneksyon creators and supporters" loading="lazy" decoding="async" /><span>Creators</span></a>
+            <a class="vibe-card" href="./assets/guests.jpg" data-lightbox><img src="./assets/guests.jpg" alt="Guests connecting at a Koneksyon activity" loading="lazy" decoding="async" /><span>Community</span></a>
+            <a class="vibe-card" href="./assets/hero-community.jpg" data-lightbox><img src="./assets/hero-community.jpg" alt="Koneksyon group photo during launch activities" loading="lazy" decoding="async" /><span>Launch night</span></a>
+            <a class="vibe-card" href="./assets/bkonekt-founders.jpg" data-lightbox><img src="./assets/bkonekt-founders.jpg" alt="B-Konekt founders and community" loading="lazy" decoding="async" /><span>B-Konekt</span></a>
+          </div>
+        </div>
+
+        <div class="vibes-controls" aria-label="Gallery controls">
+          <button class="vibes-arrow" type="button" id="vibesPrev" aria-label="Previous launch photos">‹</button>
+          <div class="vibes-dots" id="vibesDots" aria-label="Gallery pages"></div>
+          <button class="vibes-arrow" type="button" id="vibesNext" aria-label="Next launch photos">›</button>
+        </div>
+
+        <div class="event-proof">
+          <div class="event-photo"><img src="./assets/brand-banner.jpg" alt="Koneksyon launch banner and community moment" loading="lazy" decoding="async" /></div>
+          <div class="event-copy">
+            <div class="date">Koneksyon Launch Activities</div>
+            <h3>Real rooms <strong>real connection</strong></h3>
+            <div class="event-list">
+              <span>Community moments around the app launch</span>
+              <span>Spark for dating, B-Konekt for business and creators</span>
+              <span>Culture-first energy that makes the brand feel alive</span>
+            </div>
+          </div>
+          <div class="coming-up">
+            <div class="title">Also inside</div>
+            <div class="mini-event"><div class="mini-date"><small>01</small>S</div><div><b>Spark</b><span>Intentional dating</span></div></div>
+            <div class="mini-event"><div class="mini-date"><small>02</small>B</div><div><b>B-Konekt</b><span>Business and creators</span></div></div>
+            <div class="mini-event"><div class="mini-date"><small>03</small>18+</div><div><b>Safety</b><span>Adults-only standards</span></div></div>
+          </div>
         </div>
       </div>
     </section>
@@ -968,6 +1172,63 @@
         menuBtn.setAttribute("aria-label", "Open menu");
       });
     });
+
+    const vibesTrack = document.getElementById("vibesTrack");
+    const vibesPrev = document.getElementById("vibesPrev");
+    const vibesNext = document.getElementById("vibesNext");
+    const vibesDots = document.getElementById("vibesDots");
+    const vibeCards = Array.from(document.querySelectorAll(".vibe-card"));
+    let vibeIndex = 0;
+
+    function visibleVibeCount() {
+      if (window.matchMedia("(max-width: 700px)").matches) return 1;
+      if (window.matchMedia("(max-width: 980px)").matches) return 2;
+      return 3;
+    }
+
+    function vibeMaxIndex() {
+      return Math.max(0, vibeCards.length - visibleVibeCount());
+    }
+
+    function renderVibeDots() {
+      if (!vibesDots) return;
+      const total = vibeMaxIndex() + 1;
+      vibesDots.innerHTML = "";
+      for (let i = 0; i < total; i += 1) {
+        const dot = document.createElement("button");
+        dot.type = "button";
+        dot.className = "vibes-dot" + (i === vibeIndex ? " active" : "");
+        dot.setAttribute("aria-label", "Show gallery page " + (i + 1));
+        dot.addEventListener("click", () => {
+          vibeIndex = i;
+          updateVibes();
+        });
+        vibesDots.appendChild(dot);
+      }
+    }
+
+    function updateVibes() {
+      if (!vibesTrack || !vibeCards.length) return;
+      vibeIndex = Math.min(vibeIndex, vibeMaxIndex());
+      const card = vibeCards[0];
+      const gap = parseFloat(getComputedStyle(vibesTrack).gap) || 0;
+      const step = card.getBoundingClientRect().width + gap;
+      vibesTrack.style.transform = "translateX(" + (-vibeIndex * step) + "px)";
+      renderVibeDots();
+    }
+
+    vibesPrev?.addEventListener("click", () => {
+      vibeIndex = vibeIndex <= 0 ? vibeMaxIndex() : vibeIndex - 1;
+      updateVibes();
+    });
+
+    vibesNext?.addEventListener("click", () => {
+      vibeIndex = vibeIndex >= vibeMaxIndex() ? 0 : vibeIndex + 1;
+      updateVibes();
+    });
+
+    window.addEventListener("resize", updateVibes);
+    updateVibes();
 
     const lightbox = document.getElementById("lightbox");
     const lightboxImg = document.getElementById("lightboxImg");
