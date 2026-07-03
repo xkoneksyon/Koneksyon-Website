@@ -1,0 +1,1283 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>Koneksyon — Premium Culture-First Platform</title>
+  <meta name="description" content="Koneksyon is a Caribbean-inspired platform for intentional dating, B-Konekt business networking, creators, events, and real community connection." />
+  <meta name="theme-color" content="#050814" />
+  <meta property="og:title" content="Koneksyon — Culture, Community, Connection" />
+  <meta property="og:description" content="Spark for intentional dating. B-Konekt for business, creators, founders, events, and culture." />
+  <meta property="og:image" content="./assets/brand-banner.jpg" />
+  <link rel="icon" href="./assets/favicon.png" />
+  <link rel="apple-touch-icon" href="./assets/favicon-192.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght,SOFT,WONK@9..144,500..900,0..100,0..1&family=Instrument+Sans:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      color-scheme: dark;
+      --bg: #050814;
+      --bg-2: #08101f;
+      --bg-3: #0d162a;
+      --ink: #fff8ec;
+      --ink-strong: #ffffff;
+      --muted: rgba(255, 248, 236, .72);
+      --soft: rgba(255, 248, 236, .50);
+      --line: rgba(255, 248, 236, .14);
+      --line-strong: rgba(255, 248, 236, .25);
+      --surface: rgba(255, 248, 236, .065);
+      --surface-2: rgba(255, 248, 236, .105);
+      --cream: #fff8ec;
+      --navy: #071126;
+      --gold: #eecb6a;
+      --coral: #ff6b4a;
+      --teal: #28c4c8;
+      --blue: #113e96;
+      --shadow: 0 28px 90px rgba(0, 0, 0, .42);
+      --shadow-soft: 0 18px 50px rgba(0, 0, 0, .25);
+      --max: 1220px;
+      --page-pad: clamp(18px, 4.8vw, 64px);
+      --section: clamp(72px, 10vw, 132px);
+      --nav-h: 76px;
+      --banner-h: 38px;
+      --radius-xl: clamp(28px, 4vw, 46px);
+      --radius-lg: clamp(22px, 3vw, 34px);
+      --radius-md: 20px;
+      --ease: cubic-bezier(.2, .7, .2, 1);
+    }
+
+    html[data-theme="light"] {
+      --bg: #f7f1e8;
+      --bg-2: #fffaf1;
+      --bg-3: #efe3d2;
+      --ink: #071126;
+      --ink-strong: #030711;
+      --muted: rgba(7, 17, 38, .69);
+      --soft: rgba(7, 17, 38, .47);
+      --line: rgba(7, 17, 38, .12);
+      --line-strong: rgba(7, 17, 38, .22);
+      --surface: rgba(7, 17, 38, .052);
+      --surface-2: rgba(7, 17, 38, .085);
+      --shadow: 0 28px 90px rgba(7, 17, 38, .16);
+      --shadow-soft: 0 18px 50px rgba(7, 17, 38, .12);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      min-height: 100vh;
+      min-height: 100dvh;
+      font-family: "Instrument Sans", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background:
+        radial-gradient(circle at 6% 2%, rgba(40, 196, 200, .18), transparent 30%),
+        radial-gradient(circle at 98% 0%, rgba(255, 107, 74, .15), transparent 28%),
+        radial-gradient(circle at 70% 80%, rgba(238, 203, 106, .10), transparent 32%),
+        linear-gradient(180deg, var(--bg), var(--bg-2) 42%, var(--bg));
+      color: var(--ink);
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+    }
+
+    a { color: inherit; text-decoration: none; }
+    img { display: block; max-width: 100%; }
+    button { font: inherit; }
+    ::selection { background: rgba(238, 203, 106, .42); color: var(--ink-strong); }
+
+    .wrap {
+      width: min(var(--max), calc(100% - var(--page-pad)));
+      margin-inline: auto;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      width: fit-content;
+      color: var(--coral);
+      font-size: clamp(11px, .78vw, 12px);
+      font-weight: 950;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+    }
+
+    .eyebrow::before {
+      content: "";
+      width: 8px;
+      height: 8px;
+      border-radius: 999px;
+      background: var(--coral);
+      box-shadow: 0 0 0 7px rgba(255, 107, 74, .14);
+    }
+
+    .launch-banner {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 120;
+      height: var(--banner-h);
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      border-bottom: 1px solid rgba(255, 248, 236, .12);
+      background: linear-gradient(90deg, #113e96, #071126 28%, #071126 70%, #e1262f);
+      color: #fff8ec;
+      box-shadow: 0 12px 30px rgba(0,0,0,.26);
+    }
+
+    .banner-track {
+      display: inline-flex;
+      align-items: center;
+      gap: 40px;
+      width: max-content;
+      white-space: nowrap;
+      animation: bannerMove 28s linear infinite;
+      will-change: transform;
+    }
+
+    .banner-track span {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 12px;
+      font-weight: 950;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+    }
+
+    .banner-track span::before {
+      content: "";
+      width: 7px;
+      height: 7px;
+      border-radius: 999px;
+      background: var(--gold);
+      box-shadow: 0 0 0 6px rgba(238,203,106,.14);
+    }
+
+    @keyframes bannerMove {
+      from { transform: translateX(0); }
+      to { transform: translateX(-50%); }
+    }
+
+    .nav-shell {
+      position: fixed;
+      top: calc(max(14px, env(safe-area-inset-top)) + var(--banner-h));
+      left: 0;
+      right: 0;
+      z-index: 100;
+      pointer-events: none;
+    }
+
+    .nav {
+      pointer-events: auto;
+      min-height: var(--nav-h);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+      padding: 10px 12px 10px clamp(18px, 2.4vw, 28px);
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: rgba(5, 8, 20, .70);
+      backdrop-filter: blur(28px) saturate(160%);
+      -webkit-backdrop-filter: blur(28px) saturate(160%);
+      box-shadow: 0 18px 60px rgba(0, 0, 0, .28);
+    }
+
+    html[data-theme="light"] .nav {
+      background: rgba(255, 250, 241, .78);
+      box-shadow: 0 18px 60px rgba(7, 17, 38, .11);
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      width: clamp(132px, 15vw, 176px);
+      height: 54px;
+      flex: 0 0 auto;
+    }
+
+    .brand-logo {
+      width: 100%;
+      max-height: 44px;
+      height: auto;
+      object-fit: contain;
+      object-position: left center;
+      display: block;
+    }
+
+    .brand-text {
+      display: none;
+      color: var(--cream);
+      font-family: "Fraunces", Georgia, serif;
+      font-size: 27px;
+      font-weight: 850;
+      letter-spacing: -.055em;
+      line-height: 1;
+    }
+
+    .brand.logo-fallback .brand-text { display: inline-flex; }
+
+    .nav-center {
+      display: flex;
+      align-items: center;
+      gap: clamp(18px, 2.5vw, 30px);
+    }
+
+    .nav-center a {
+      color: var(--muted);
+      font-size: 13px;
+      font-weight: 900;
+      letter-spacing: -.015em;
+      transition: color .2s var(--ease);
+    }
+
+    .nav-center a:hover { color: var(--ink-strong); }
+
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex: 0 0 auto;
+    }
+
+    .theme-btn,
+    .menu-btn {
+      min-width: 48px;
+      height: 48px;
+      display: inline-grid;
+      place-items: center;
+      border-radius: 999px;
+      border: 1px solid var(--line);
+      background: transparent;
+      color: var(--ink);
+      cursor: pointer;
+      transition: transform .22s var(--ease), background .22s var(--ease), border-color .22s var(--ease);
+    }
+
+    .theme-btn {
+      padding: 0 14px;
+      gap: 8px;
+      grid-auto-flow: column;
+      font-size: 12px;
+      font-weight: 900;
+      letter-spacing: -.02em;
+    }
+
+    .theme-btn:hover,
+    .menu-btn:hover { transform: translateY(-1px); background: var(--surface-2); border-color: var(--line-strong); }
+    .menu-btn { display: none; font-size: 21px; }
+
+    .nav-cta,
+    .btn {
+      min-height: 50px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      border-radius: 999px;
+      border: 1px solid transparent;
+      padding: 0 22px;
+      font-size: clamp(13px, .9vw, 14px);
+      font-weight: 950;
+      letter-spacing: -.015em;
+      transition: transform .22s var(--ease), box-shadow .22s var(--ease), background .22s var(--ease);
+      white-space: nowrap;
+    }
+
+    .nav-cta,
+    .btn-primary {
+      color: #071126;
+      background: var(--cream);
+      box-shadow: 0 16px 40px rgba(0, 0, 0, .18);
+    }
+
+    html[data-theme="light"] .nav-cta,
+    html[data-theme="light"] .btn-primary { color: var(--cream); background: var(--navy); }
+    .btn-secondary { color: var(--ink); background: rgba(255, 248, 236, .075); border-color: var(--line-strong); }
+    html[data-theme="light"] .btn-secondary { background: rgba(255, 255, 255, .56); }
+    .btn:hover,
+    .nav-cta:hover { transform: translateY(-2px); }
+
+    .mobile-menu {
+      pointer-events: auto;
+      display: none;
+      margin-top: 10px;
+      padding: 12px;
+      border: 1px solid var(--line);
+      border-radius: 28px;
+      background: rgba(5, 8, 20, .92);
+      backdrop-filter: blur(22px);
+      -webkit-backdrop-filter: blur(22px);
+      box-shadow: var(--shadow);
+    }
+
+    html[data-theme="light"] .mobile-menu { background: rgba(255, 250, 241, .96); }
+    .mobile-menu.open { display: block; }
+    .mobile-menu a { display: block; padding: 15px 14px; border-radius: 16px; color: var(--ink); font-weight: 900; }
+    .mobile-menu a:hover { background: var(--surface-2); }
+
+    .hero {
+      position: relative;
+      min-height: 100svh;
+      display: grid;
+      align-items: center;
+      padding: calc(var(--banner-h) + var(--nav-h) + 58px) 0 clamp(34px, 7vw, 78px);
+    }
+
+    .hero-shell {
+      position: relative;
+      overflow: hidden;
+      min-height: clamp(680px, calc(100svh - 150px), 860px);
+      display: grid;
+      grid-template-columns: minmax(0, 1.04fr) minmax(390px, .96fr);
+      gap: clamp(20px, 3.4vw, 48px);
+      padding: clamp(22px, 3.4vw, 44px);
+      border-radius: var(--radius-xl);
+      border: 1px solid var(--line);
+      background:
+        linear-gradient(135deg, rgba(255, 248, 236, .08), rgba(255, 248, 236, .025)),
+        var(--surface);
+      box-shadow: var(--shadow);
+      isolation: isolate;
+    }
+
+    .hero-shell::before {
+      content: "";
+      position: absolute;
+      inset: 14px;
+      z-index: -1;
+      border-radius: calc(var(--radius-xl) - 14px);
+      border: 1px solid rgba(255, 248, 236, .08);
+      pointer-events: none;
+    }
+
+    html[data-theme="light"] .hero-shell::before { border-color: rgba(7,17,38,.08); }
+
+    .hero-copy {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: clamp(28px, 4vw, 54px);
+      padding: clamp(16px, 2vw, 28px);
+      max-width: 690px;
+      z-index: 2;
+    }
+
+    .hero-kicker {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: clamp(22px, 3vw, 34px);
+    }
+
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      width: fit-content;
+      min-height: 36px;
+      padding: 0 14px;
+      border: 1px solid var(--line-strong);
+      border-radius: 999px;
+      background: rgba(255, 248, 236, .07);
+      color: var(--muted);
+      font-size: 11px;
+      font-weight: 950;
+      letter-spacing: .105em;
+      text-transform: uppercase;
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+    }
+
+    html[data-theme="light"] .pill { background: rgba(255, 255, 255, .56); }
+    .pill-dot { width: 7px; height: 7px; border-radius: 999px; background: var(--teal); box-shadow: 0 0 0 6px rgba(40,196,200,.14); }
+
+    h1 {
+      font-family: "Fraunces", Georgia, serif;
+      font-size: clamp(58px, 8.8vw, 128px);
+      line-height: .82;
+      letter-spacing: -.078em;
+      font-weight: 900;
+      color: var(--ink-strong);
+      max-width: 850px;
+    }
+
+    h1 .gold {
+      color: var(--gold);
+      font-style: italic;
+      font-variation-settings: "WONK" 1, "SOFT" 70;
+    }
+
+    .hero-lead {
+      max-width: 650px;
+      margin-top: clamp(22px, 3vw, 32px);
+      color: var(--muted);
+      font-size: clamp(17px, 1.35vw, 21px);
+      line-height: 1.68;
+      font-weight: 720;
+      letter-spacing: -.015em;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: clamp(24px, 3vw, 36px);
+    }
+
+    .hero-proof {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 12px;
+    }
+
+    .proof-card {
+      min-height: 116px;
+      padding: 18px;
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      background: rgba(255, 248, 236, .052);
+    }
+
+    html[data-theme="light"] .proof-card { background: rgba(255, 255, 255, .52); }
+    .proof-card b { display: block; color: var(--ink-strong); font-size: clamp(18px, 1.6vw, 24px); font-weight: 950; letter-spacing: -.05em; margin-bottom: 6px; }
+    .proof-card span { color: var(--muted); font-size: 13px; line-height: 1.45; font-weight: 720; }
+
+    .hero-visual {
+      position: relative;
+      min-height: 580px;
+      border-radius: calc(var(--radius-xl) - 12px);
+      overflow: hidden;
+      align-self: stretch;
+      box-shadow: var(--shadow-soft);
+      border: 1px solid rgba(255, 248, 236, .14);
+      background: #111827;
+    }
+
+    .hero-visual img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center 38%;
+      filter: saturate(1.05) contrast(1.04);
+    }
+
+    .hero-visual::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(180deg, rgba(0, 0, 0, .04), rgba(0, 0, 0, .64)),
+        linear-gradient(90deg, rgba(5, 8, 20, .32), transparent 50%);
+      pointer-events: none;
+    }
+
+    .visual-card {
+      position: absolute;
+      z-index: 2;
+      left: 20px;
+      right: 20px;
+      bottom: 20px;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 14px;
+      align-items: end;
+      padding: 18px;
+      border: 1px solid rgba(255, 248, 236, .20);
+      border-radius: 26px;
+      background: rgba(5, 8, 20, .66);
+      color: #fff8ec;
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+    }
+
+    .visual-card strong { display: block; font-size: 20px; letter-spacing: -.045em; margin-bottom: 6px; }
+    .visual-card p { color: rgba(255,248,236,.75); font-size: 13px; font-weight: 700; line-height: 1.5; }
+    .visual-badge { display: inline-flex; align-items: center; justify-content: center; min-height: 42px; padding: 0 14px; border-radius: 999px; background: var(--gold); color: #071126; font-size: 12px; font-weight: 950; white-space: nowrap; }
+
+    .below-fold {
+      position: relative;
+      margin-top: clamp(16px, 2.8vw, 32px);
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+    }
+
+    .feature-card {
+      min-height: 260px;
+      padding: clamp(22px, 2.5vw, 30px);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-lg);
+      background: var(--surface);
+      overflow: hidden;
+      position: relative;
+    }
+
+    .feature-card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at 84% 10%, rgba(238, 203, 106, .16), transparent 34%);
+      opacity: .9;
+      pointer-events: none;
+    }
+
+    .feature-card > * { position: relative; }
+    .feature-card .num { display: block; color: var(--soft); font-weight: 950; font-size: 12px; letter-spacing: .14em; margin-bottom: 42px; }
+    .feature-card h3 { color: var(--ink-strong); font-size: clamp(28px, 3vw, 42px); line-height: .94; letter-spacing: -.06em; margin-bottom: 14px; }
+    .feature-card p { color: var(--muted); font-size: 15px; line-height: 1.62; font-weight: 680; }
+
+    section { padding: var(--section) 0; }
+    .section-head { display: grid; grid-template-columns: .82fr 1.18fr; gap: clamp(28px, 6vw, 82px); align-items: end; margin-bottom: clamp(34px, 5vw, 60px); }
+    h2 { color: var(--ink-strong); font-family: "Fraunces", Georgia, serif; font-size: clamp(44px, 6.4vw, 86px); line-height: .92; letter-spacing: -.068em; font-weight: 900; }
+    .section-copy { color: var(--muted); font-size: clamp(17px, 1.25vw, 20px); line-height: 1.72; font-weight: 680; max-width: 700px; }
+
+    .experience-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    .experience-card {
+      position: relative;
+      min-height: clamp(500px, 62vw, 700px);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-xl);
+      overflow: hidden;
+      background: #111827;
+      box-shadow: var(--shadow-soft);
+    }
+
+    .experience-card img { width: 100%; height: 100%; object-fit: cover; filter: saturate(1.02); }
+    .experience-card::after { content: ""; position: absolute; inset: 0; background: linear-gradient(to top, rgba(0, 0, 0, .72), rgba(0, 0, 0, .08) 58%); }
+    .experience-content { position: absolute; z-index: 2; left: clamp(22px, 3vw, 34px); right: clamp(22px, 3vw, 34px); bottom: clamp(22px, 3vw, 34px); color: #fff8ec; }
+    .experience-content h3 { font-size: clamp(34px, 4vw, 56px); line-height: .92; letter-spacing: -.062em; margin: 16px 0 12px; }
+    .experience-content p { color: rgba(255,248,236,.74); line-height: 1.65; font-weight: 700; max-width: 530px; }
+
+    .product-strip {
+      padding: clamp(24px, 4vw, 42px);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-xl);
+      background:
+        linear-gradient(135deg, rgba(40,196,200,.12), transparent 34%),
+        linear-gradient(315deg, rgba(255,107,74,.13), transparent 34%),
+        var(--surface);
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      align-items: stretch;
+    }
+
+    .product-copy { padding: clamp(8px, 2vw, 18px); align-self: center; }
+    .product-copy h2 { margin: 18px 0; }
+    .product-copy p { color: var(--muted); font-size: clamp(17px, 1.25vw, 20px); line-height: 1.72; font-weight: 680; max-width: 600px; }
+    .product-list { display: grid; gap: 12px; }
+    .product-item { padding: 20px; border: 1px solid var(--line); border-radius: 24px; background: rgba(255,248,236,.054); }
+    html[data-theme="light"] .product-item { background: rgba(255,255,255,.50); }
+    .product-item b { display: block; color: var(--ink-strong); margin-bottom: 7px; font-size: 18px; }
+    .product-item span { display: block; color: var(--muted); font-weight: 680; line-height: 1.55; }
+
+    .vibes-section {
+      position: relative;
+      overflow: hidden;
+      background: #030303;
+      color: #fff8ec;
+      border-block: 1px solid rgba(255, 248, 236, .10);
+      padding: clamp(76px, 9vw, 128px) 0 clamp(86px, 10vw, 144px);
+    }
+
+    .vibes-section::before {
+      content: "";
+      position: absolute;
+      inset: 0 0 auto;
+      height: 4px;
+      background: linear-gradient(90deg, var(--blue) 0 50%, #e1262f 50% 100%);
+    }
+
+    .vibes-section::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      background:
+        radial-gradient(circle at 14% 10%, rgba(40,196,200,.16), transparent 28%),
+        radial-gradient(circle at 90% 4%, rgba(255,107,74,.14), transparent 26%);
+      opacity: .65;
+    }
+
+    .vibes-section .wrap { position: relative; z-index: 1; }
+    .vibes-head {
+      display: grid;
+      grid-template-columns: minmax(0, .95fr) minmax(320px, .55fr);
+      gap: clamp(24px, 6vw, 92px);
+      align-items: end;
+      margin-bottom: clamp(30px, 5vw, 58px);
+    }
+
+    .vibes-eyebrow {
+      color: var(--gold);
+      font-size: 12px;
+      font-weight: 950;
+      letter-spacing: .36em;
+      text-transform: uppercase;
+      margin-bottom: 18px;
+    }
+
+    .vibes-head h2 {
+      color: #fff8ec;
+      font-family: "Instrument Sans", system-ui, sans-serif;
+      font-size: clamp(54px, 8vw, 116px);
+      line-height: .82;
+      letter-spacing: -.06em;
+      text-transform: uppercase;
+      font-weight: 950;
+    }
+
+    .vibes-head p {
+      color: rgba(255, 248, 236, .68);
+      font-size: clamp(16px, 1.2vw, 20px);
+      line-height: 1.7;
+      font-weight: 700;
+    }
+
+    .share-photo {
+      justify-self: start;
+      margin-top: 22px;
+      min-height: 50px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0 20px;
+      border: 1px solid rgba(255,248,236,.26);
+      background: transparent;
+      color: #fff8ec;
+      border-radius: 0;
+      font-size: 12px;
+      font-weight: 950;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      transition: background .2s var(--ease), transform .2s var(--ease), border-color .2s var(--ease);
+    }
+
+    .share-photo:hover { background: rgba(255,248,236,.08); transform: translateY(-2px); border-color: rgba(255,248,236,.48); }
+
+    .vibes-carousel {
+      position: relative;
+      overflow: hidden;
+      width: 100%;
+    }
+
+    .vibes-track {
+      display: flex;
+      gap: 14px;
+      transition: transform .55s var(--ease);
+      will-change: transform;
+    }
+
+    .vibe-card {
+      position: relative;
+      flex: 0 0 calc((100% - 28px) / 3);
+      height: clamp(430px, 42vw, 590px);
+      overflow: hidden;
+      background: #111;
+      border: 1px solid rgba(255,248,236,.10);
+      cursor: pointer;
+    }
+
+    .vibe-card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center center;
+      filter: saturate(1.08) contrast(1.05) brightness(.92);
+      transition: transform .8s var(--ease), filter .8s var(--ease);
+    }
+
+    .vibe-card:hover img { transform: scale(1.045); filter: saturate(1.14) contrast(1.08) brightness(1); }
+    .vibe-card::after { content: ""; position: absolute; inset: 0; background: linear-gradient(to top, rgba(0,0,0,.58), rgba(0,0,0,0) 54%); opacity: .92; }
+    .vibe-card span { position: absolute; z-index: 2; left: 18px; bottom: 18px; color: #fff8ec; font-size: 13px; font-weight: 950; letter-spacing: .12em; text-transform: uppercase; }
+
+    .vibes-controls {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+      margin-top: 24px;
+    }
+
+    .vibes-arrow {
+      width: 44px;
+      height: 44px;
+      display: grid;
+      place-items: center;
+      border-radius: 999px;
+      border: 1px solid rgba(255,248,236,.16);
+      background: transparent;
+      color: #fff8ec;
+      cursor: pointer;
+      transition: transform .2s var(--ease), background .2s var(--ease), border-color .2s var(--ease);
+    }
+
+    .vibes-arrow:hover { transform: translateY(-2px); background: rgba(255,248,236,.08); border-color: rgba(255,248,236,.35); }
+    .vibes-dots { display: flex; align-items: center; justify-content: center; gap: 8px; }
+    .vibes-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 999px;
+      border: 0;
+      background: rgba(255,248,236,.38);
+      cursor: pointer;
+      transition: width .25s var(--ease), background .25s var(--ease);
+    }
+
+    .vibes-dot.active { width: 24px; background: #fff8ec; }
+
+    .event-proof {
+      margin-top: clamp(54px, 7vw, 86px);
+      display: grid;
+      grid-template-columns: minmax(280px, .72fr) minmax(0, 1fr) minmax(280px, .62fr);
+      gap: clamp(26px, 4vw, 56px);
+      align-items: center;
+      padding-top: clamp(42px, 6vw, 70px);
+      border-top: 1px solid rgba(255,248,236,.10);
+    }
+
+    .event-photo {
+      min-height: clamp(340px, 32vw, 460px);
+      overflow: hidden;
+      background: #111;
+      border: 1px solid rgba(255,248,236,.10);
+    }
+
+    .event-photo img { width: 100%; height: 100%; object-fit: cover; object-position: center; filter: saturate(1.1) contrast(1.04); }
+    .event-copy .date { color: rgba(255,248,236,.48); font-size: 13px; font-weight: 950; letter-spacing: .08em; text-transform: uppercase; margin-bottom: 14px; }
+    .event-copy h3 { color: #fff8ec; font-size: clamp(42px, 5.2vw, 78px); line-height: .9; letter-spacing: -.055em; text-transform: uppercase; max-width: 650px; }
+    .event-copy h3 strong { display: block; color: #e1262f; }
+    .event-list { margin-top: 24px; display: grid; gap: 10px; color: rgba(255,248,236,.70); font-weight: 720; }
+    .event-list span::before { content: "•"; color: #e1262f; margin-right: 12px; }
+    .coming-up { border-left: 1px solid rgba(255,248,236,.12); padding-left: clamp(22px, 3vw, 36px); }
+    .coming-up .title { color: rgba(255,248,236,.44); font-size: 12px; font-weight: 950; letter-spacing: .34em; text-transform: uppercase; margin-bottom: 22px; }
+    .mini-event { display: grid; grid-template-columns: 62px 1fr; gap: 18px; align-items: center; padding: 18px 0; border-top: 1px solid rgba(255,248,236,.10); }
+    .mini-event:last-child { border-bottom: 1px solid rgba(255,248,236,.10); }
+    .mini-date { color: #fff8ec; font-size: 26px; line-height: .88; font-weight: 950; letter-spacing: -.05em; }
+    .mini-date small { display: block; color: var(--gold); font-size: 11px; letter-spacing: .18em; margin-bottom: 6px; }
+    .mini-event b { display: block; color: #fff8ec; margin-bottom: 5px; }
+    .mini-event span { color: rgba(255,248,236,.52); font-size: 13px; font-weight: 700; }
+
+    .trust-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 14px; }
+    .trust-card { padding: 24px 22px; min-height: 230px; border: 1px solid var(--line); border-radius: 28px; background: var(--surface); }
+    .trust-card b { display: block; color: var(--ink-strong); font-size: 20px; letter-spacing: -.035em; margin: 16px 0 10px; }
+    .trust-card p { color: var(--muted); font-size: 14px; line-height: 1.62; font-weight: 680; }
+    .trust-icon { width: 44px; height: 44px; display: grid; place-items: center; border: 1px solid var(--line); border-radius: 16px; background: var(--surface-2); font-weight: 950; color: var(--gold); }
+
+    .faq-grid { display: grid; grid-template-columns: .8fr 1.2fr; gap: clamp(26px, 5vw, 70px); align-items: start; }
+    .faq-list { display: grid; gap: 12px; }
+    details { border: 1px solid var(--line); border-radius: 24px; background: var(--surface); overflow: hidden; }
+    summary { cursor: pointer; padding: 20px 22px; color: var(--ink-strong); font-weight: 900; list-style: none; }
+    summary::-webkit-details-marker { display: none; }
+    details p { padding: 0 22px 22px; color: var(--muted); line-height: 1.65; font-weight: 680; }
+
+    .cta-card {
+      position: relative;
+      overflow: hidden;
+      min-height: clamp(520px, 58vw, 680px);
+      display: grid;
+      align-items: end;
+      padding: clamp(28px, 5vw, 66px);
+      border: 1px solid rgba(255,248,236,.14);
+      border-radius: var(--radius-xl);
+      background: #071126;
+      color: #fff8ec;
+      box-shadow: var(--shadow);
+    }
+
+    .cta-card img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: .36; }
+    .cta-card::after { content: ""; position: absolute; inset: 0; background: linear-gradient(90deg, rgba(5,8,20,.90), rgba(5,8,20,.22)); }
+    .cta-content { position: relative; z-index: 2; max-width: 780px; }
+    .cta-content h2 { color: #fff8ec; }
+    .cta-content p { color: rgba(255,248,236,.76); margin-top: 18px; font-size: clamp(17px, 1.3vw, 20px); line-height: 1.7; font-weight: 700; }
+
+    footer { border-top: 1px solid var(--line); padding: clamp(46px, 6vw, 70px) 0 calc(34px + env(safe-area-inset-bottom)); }
+    .footer-grid { display: grid; grid-template-columns: 1.15fr repeat(3, .65fr); gap: 34px; }
+    .footer-logo { width: 172px; margin-bottom: 18px; }
+    .footer-about p { color: var(--muted); max-width: 480px; line-height: 1.7; font-weight: 680; }
+    .footer-col h4 { color: var(--soft); font-size: 12px; letter-spacing: .14em; text-transform: uppercase; margin-bottom: 14px; }
+    .footer-col a { display: block; color: var(--muted); font-size: 14px; font-weight: 800; margin: 10px 0; }
+    .footer-col a:hover { color: var(--ink-strong); }
+    .copyright { margin-top: 38px; padding-top: 20px; border-top: 1px solid var(--line); display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; color: var(--soft); font-size: 13px; font-weight: 680; }
+
+    .lightbox {
+      position: fixed;
+      inset: 0;
+      z-index: 200;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: var(--page-pad);
+      background: rgba(0, 0, 0, .82);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+    }
+
+    .lightbox.open { display: flex; }
+    .lightbox img { max-width: min(1120px, 100%); max-height: 84vh; border-radius: 24px; object-fit: contain; box-shadow: 0 28px 90px rgba(0,0,0,.55); }
+    .lightbox button { position: absolute; top: max(22px, env(safe-area-inset-top)); right: max(22px, env(safe-area-inset-right)); width: 48px; height: 48px; border: 1px solid rgba(255,255,255,.22); border-radius: 999px; color: #fff; background: rgba(255,255,255,.10); cursor: pointer; font-size: 24px; }
+
+    @media (max-width: 1080px) {
+      .nav-center { display: none; }
+      .menu-btn { display: grid; }
+      .hero-shell { grid-template-columns: 1fr; }
+      .hero-copy { max-width: 100%; }
+      .hero-visual { min-height: 520px; }
+      .below-fold, .product-strip, .experience-grid, .section-head, .faq-grid { grid-template-columns: 1fr; }
+      .trust-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .footer-grid { grid-template-columns: 1fr 1fr; }
+    }
+
+    @media (max-width: 720px) {
+      :root { --page-pad: 28px; --nav-h: 66px; }
+      .nav-shell { top: calc(max(10px, env(safe-area-inset-top)) + var(--banner-h)); }
+      .nav { border-radius: 24px; padding: 8px 9px 8px 16px; }
+      .brand { width: 128px; height: 46px; }
+      .nav-cta { display: none; }
+      .hero { align-items: start; padding-top: calc(var(--banner-h) + var(--nav-h) + 36px); }
+      .hero-shell { min-height: auto; padding: 14px; border-radius: 30px; }
+      .hero-copy { padding: 12px; }
+      h1 { font-size: clamp(54px, 17vw, 82px); }
+      .hero-proof { grid-template-columns: 1fr; }
+      .hero-visual { min-height: 460px; border-radius: 24px; }
+      .visual-card { grid-template-columns: 1fr; }
+      .below-fold { gap: 12px; }
+      .feature-card { min-height: 220px; }
+      .vibes-head, .event-proof { grid-template-columns: 1fr; }
+      .coming-up { border-left: 0; padding-left: 0; }
+      .vibe-card { flex-basis: calc((100% - 14px) / 2); height: clamp(390px, 62vw, 540px); }
+      .trust-grid { grid-template-columns: 1fr; }
+      .footer-grid { grid-template-columns: 1fr; }
+      .cta-card { min-height: 560px; }
+    }
+
+    @media (max-width: 420px) {
+      :root { --page-pad: 22px; }
+      .pill { font-size: 10px; letter-spacing: .08em; }
+      .hero-actions .btn { width: 100%; }
+      .hero-visual { min-height: 400px; }
+      .vibes-head h2 { font-size: clamp(48px, 15vw, 72px); }
+      .vibe-card { flex-basis: 100%; height: 460px; }
+      .vibes-section { padding-top: 68px; }
+      .event-copy h3 { font-size: clamp(38px, 12vw, 58px); }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      * { scroll-behavior: auto !important; animation: none !important; transition: none !important; }
+    }
+  </style>
+</head>
+<body>
+  <div class="launch-banner" role="status" aria-label="Koneksyon launch update">
+    <div class="banner-track">
+      <span>Launch update: Koneksyon is postponed because of the World Cup — new date coming soon.</span>
+      <span>Launch update: Koneksyon is postponed because of the World Cup — new date coming soon.</span>
+      <span>Launch update: Koneksyon is postponed because of the World Cup — new date coming soon.</span>
+      <span>Launch update: Koneksyon is postponed because of the World Cup — new date coming soon.</span>
+    </div>
+  </div>
+
+  <header class="nav-shell">
+    <div class="wrap">
+      <nav class="nav" aria-label="Main navigation">
+        <a class="brand" href="#top" aria-label="Koneksyon home">
+          <img class="brand-logo" src="./assets/logo-white.png" alt="Koneksyon" onerror="this.style.display='none'; this.nextElementSibling.style.display='inline-flex';" />
+          <span class="brand-text">Koneksyon</span>
+        </a>
+
+        <div class="nav-center">
+          <a href="#spark">Spark</a>
+          <a href="#bkonekt">B-Konekt</a>
+          <a href="#activities">Activities</a>
+          <a href="#safety">Safety</a>
+          <a href="privacy.html">Privacy</a>
+          <a href="terms.html">Terms</a>
+        </div>
+
+        <div class="nav-actions">
+          <a class="nav-cta" href="download.html">Get Launch Updates</a>
+          <button class="menu-btn" id="menuBtn" type="button" aria-label="Open menu">☰</button>
+        </div>
+      </nav>
+      <div class="mobile-menu" id="mobileMenu">
+        <a href="#spark">Spark</a>
+        <a href="#bkonekt">B-Konekt</a>
+        <a href="#activities">Activities</a>
+        <a href="#safety">Safety</a>
+        <a href="privacy.html">Privacy</a>
+        <a href="terms.html">Terms</a>
+        <a href="https://www.instagram.com/koneksyondatingapp?igsh=c25handtdTJjZGdi" target="_blank" rel="noopener">Instagram</a>
+        <a href="https://www.tiktok.com/@koneksy0n?_r=1&_t=ZP-97iwZ5knZs7" target="_blank" rel="noopener">TikTok</a>
+        <a href="download.html">Get Launch Updates</a>
+      </div>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero" aria-label="Koneksyon introduction">
+      <div class="wrap">
+        <div class="hero-shell">
+          <div class="hero-copy">
+            <div>
+              <div class="hero-kicker">
+                <span class="pill"><span class="pill-dot"></span> Caribbean-inspired</span>
+                <span class="pill">Open to everyone</span>
+                <span class="pill">Adults only · 18+</span>
+              </div>
+
+              <h1>Culture. Community. <span class="gold">Connection.</span></h1>
+              <p class="hero-lead">Koneksyon is more than a dating app. Spark helps people build intentional relationships. B-Konekt brings creators, founders, professionals, events, and community into one culture-first platform.</p>
+
+              <div class="hero-actions">
+                <a class="btn btn-primary" href="download.html">Get Launch Updates</a>
+                <a class="btn btn-secondary" href="#activities">View launch activities</a>
+              </div>
+            </div>
+
+            <div class="hero-proof" aria-label="Platform highlights">
+              <div class="proof-card"><b>Spark</b><span>Dating based on values, intention, language, culture, and real compatibility.</span></div>
+              <div class="proof-card"><b>B-Konekt</b><span>Business, creators, mentors, founders, services, and cultural opportunity.</span></div>
+              <div class="proof-card"><b>Trust</b><span>Adults-only positioning with verification, reporting, blocking, and clear policies.</span></div>
+            </div>
+          </div>
+
+          <div class="hero-visual">
+            <img src="./assets/brand-banner.jpg" alt="Koneksyon launch moment with community members" />
+            <div class="visual-card">
+              <div>
+                <strong>Real launch energy.</strong>
+                <p>Built around people, events, creators, and culture — not only profile slides.</p>
+              </div>
+              <span class="visual-badge">Launch proof</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="below-fold" aria-label="Core platform pillars">
+          <article class="feature-card" id="spark">
+            <span class="num">01 · SPARK</span>
+            <h3>Intentional dating.</h3>
+            <p>Meet people through values, roots, language, lifestyle, chemistry, and relationship goals — with less generic noise.</p>
+          </article>
+          <article class="feature-card" id="bkonekt">
+            <span class="num">02 · B-KONEKT</span>
+            <h3>Network with purpose.</h3>
+            <p>A dedicated lane for entrepreneurs, creators, professionals, mentors, ambassadors, services, and events.</p>
+          </article>
+          <article class="feature-card">
+            <span class="num">03 · CULTURE</span>
+            <h3>More than matching.</h3>
+            <p>Launch activities, real rooms, and community proof help Koneksyon feel alive before and after the app launches.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section aria-label="Koneksyon experiences">
+      <div class="wrap">
+        <div class="section-head">
+          <div>
+            <div class="eyebrow">Two experiences</div>
+            <h2>Dating and opportunity should not feel the same.</h2>
+          </div>
+          <p class="section-copy">A premium platform needs clear architecture. Spark is for relationship discovery. B-Konekt is for business, creators, events, mentorship, and cultural networking. This separation makes Koneksyon feel bigger, cleaner, and more useful than a traditional dating app.</p>
+        </div>
+
+        <div class="experience-grid">
+          <article class="experience-card">
+            <img src="./assets/community-selfie.jpg" alt="Koneksyon community selfie" loading="lazy" decoding="async" />
+            <div class="experience-content">
+              <div class="eyebrow">Spark</div>
+              <h3>Find people who feel aligned.</h3>
+              <p>Relationship discovery built around intention, shared values, identity, language, and lifestyle.</p>
+            </div>
+          </article>
+          <article class="experience-card">
+            <img src="./assets/bkonekt-founders.jpg" alt="B-Konekt business and founder moment" loading="lazy" decoding="async" />
+            <div class="experience-content">
+              <div class="eyebrow">B-Konekt</div>
+              <h3>Build with your community.</h3>
+              <p>Networking for founders, creators, professionals, services, event partners, and people building something.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section aria-label="Product positioning">
+      <div class="wrap">
+        <div class="product-strip">
+          <div class="product-copy">
+            <div class="eyebrow">Why Koneksyon</div>
+            <h2>Dating, business, culture, and real community in one brand.</h2>
+            <p>Koneksyon brings Spark and B-Konekt together so people can meet intentionally, build professionally, and stay connected through culture-driven experiences.</p>
+          </div>
+          <div class="product-list">
+            <div class="product-item"><b>Clear value in the hero</b><span>Users understand Spark, B-Konekt, culture, safety, and launch activity without scrolling too much.</span></div>
+            <div class="product-item"><b>Dark premium identity</b><span>The homepage now stays in one polished dark visual system, so the brand feels consistent and intentional.</span></div>
+            <div class="product-item"><b>Responsive by device</b><span>Fluid type, adaptive spacing, safe-area support, and layout shifts for phone, tablet, and desktop.</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="activities" class="vibes-section" aria-label="Launch activities gallery">
+      <div class="wrap">
+        <div class="vibes-head">
+          <div>
+            <div class="vibes-eyebrow">The proof</div>
+            <h2>Launch Gallery</h2>
+          </div>
+          <div>
+            <p>This gallery uses an event-style layout: large photos, a dark stage, clean controls, and less text so the activity photos feel premium and real.</p>
+            <a class="share-photo" href="mailto:support@koneksyondatingapp.com?subject=Koneksyon%20launch%20photo">Share your photo →</a>
+          </div>
+        </div>
+
+        <div class="vibes-carousel" aria-label="Koneksyon launch photo carousel">
+          <div class="vibes-track" id="vibesTrack">
+            <a class="vibe-card" href="./assets/founder-talk.jpg" data-lightbox><img src="./assets/founder-talk.jpg" alt="Founder speaking at a Koneksyon launch activity" loading="lazy" decoding="async" /><span>Founder moment</span></a>
+            <a class="vibe-card" href="./assets/launch-style.jpg" data-lightbox><img src="./assets/launch-style.jpg" alt="Guests dressed in black at a Koneksyon launch activity" loading="lazy" decoding="async" /><span>Culture & style</span></a>
+            <a class="vibe-card" href="./assets/creators.jpg" data-lightbox><img src="./assets/creators.jpg" alt="Koneksyon creators and supporters" loading="lazy" decoding="async" /><span>Creators</span></a>
+            <a class="vibe-card" href="./assets/guests.jpg" data-lightbox><img src="./assets/guests.jpg" alt="Guests connecting at a Koneksyon activity" loading="lazy" decoding="async" /><span>Community</span></a>
+            <a class="vibe-card" href="./assets/hero-community.jpg" data-lightbox><img src="./assets/hero-community.jpg" alt="Koneksyon group photo during launch activities" loading="lazy" decoding="async" /><span>Launch night</span></a>
+            <a class="vibe-card" href="./assets/bkonekt-founders.jpg" data-lightbox><img src="./assets/bkonekt-founders.jpg" alt="B-Konekt founders and community" loading="lazy" decoding="async" /><span>B-Konekt</span></a>
+          </div>
+        </div>
+
+        <div class="vibes-controls" aria-label="Gallery controls">
+          <button class="vibes-arrow" type="button" id="vibesPrev" aria-label="Previous launch photos">‹</button>
+          <div class="vibes-dots" id="vibesDots" aria-label="Gallery pages"></div>
+          <button class="vibes-arrow" type="button" id="vibesNext" aria-label="Next launch photos">›</button>
+        </div>
+
+        <div class="event-proof">
+          <div class="event-photo"><img src="./assets/brand-banner.jpg" alt="Koneksyon launch banner and community moment" loading="lazy" decoding="async" /></div>
+          <div class="event-copy">
+            <div class="date">Koneksyon Launch Activities</div>
+            <h3>Real rooms <strong>real connection</strong></h3>
+            <div class="event-list">
+              <span>Community moments around the app launch</span>
+              <span>Spark for dating, B-Konekt for business and creators</span>
+              <span>Culture-first energy that makes the brand feel alive</span>
+            </div>
+          </div>
+          <div class="coming-up">
+            <div class="title">Also inside</div>
+            <div class="mini-event"><div class="mini-date"><small>01</small>S</div><div><b>Spark</b><span>Intentional dating</span></div></div>
+            <div class="mini-event"><div class="mini-date"><small>02</small>B</div><div><b>B-Konekt</b><span>Business and creators</span></div></div>
+            <div class="mini-event"><div class="mini-date"><small>03</small>18+</div><div><b>Safety</b><span>Adults-only standards</span></div></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="safety" aria-label="Trust and safety">
+      <div class="wrap">
+        <div class="section-head">
+          <div>
+            <div class="eyebrow">Trust and safety</div>
+            <h2>Premium also means protected.</h2>
+          </div>
+          <p class="section-copy">Koneksyon is positioned as an adults-only community with clear reporting paths, profile standards, privacy pages, and child safety information. The website should make that easy to find.</p>
+        </div>
+
+        <div class="trust-grid">
+          <article class="trust-card"><span class="trust-icon">18+</span><b>Adults only</b><p>Koneksyon is not for minors and should clearly communicate its adults-only standard.</p></article>
+          <article class="trust-card"><span class="trust-icon">✓</span><b>Verification-first</b><p>Selfie verification and profile requirements help reduce fake behavior and protect trust.</p></article>
+          <article class="trust-card"><span class="trust-icon">!</span><b>Report and block</b><p>Users need clear ways to report unsafe behavior and block unwanted communication.</p></article>
+          <article class="trust-card"><span class="trust-icon">§</span><b>Public policies</b><p>Terms, Privacy, Community Guidelines, and Child Safety pages are linked from the website.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section aria-label="Frequently asked questions">
+      <div class="wrap faq-grid">
+        <div>
+          <div class="eyebrow">Questions</div>
+          <h2>Clear answers build confidence.</h2>
+        </div>
+        <div class="faq-list">
+          <details open>
+            <summary>Is Koneksyon only for Caribbean people?</summary>
+            <p>No. Koneksyon is Caribbean-inspired and open to everyone. Culture is part of the brand, but the platform welcomes people from every background.</p>
+          </details>
+          <details>
+            <summary>What is B-Konekt?</summary>
+            <p>B-Konekt is the networking side of Koneksyon for founders, creators, professionals, mentors, services, events, and community opportunities.</p>
+          </details>
+          <details>
+            <summary>How is Spark different from a normal dating feed?</summary>
+            <p>Spark focuses on intention, values, language, roots, lifestyle, and compatibility instead of making the whole product feel like a generic slide-left / slide-right feed.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <section aria-label="Get Launch Updates">
+      <div class="wrap">
+        <div class="cta-card">
+          <img src="./assets/brand-banner.jpg" alt="Koneksyon community launch banner" loading="lazy" decoding="async" />
+          <div class="cta-content">
+            <div class="eyebrow">Get launch updates</div>
+            <h2>Your Koneksyon starts with culture.</h2>
+            <p>Explore Spark for intentional dating and B-Konekt for business, creators, events, mentorship, services, and community. The official launch date will be announced soon.</p>
+            <div class="hero-actions">
+              <a class="btn btn-primary" href="download.html">Download App</a>
+              <a class="btn btn-secondary" href="mailto:support@koneksyondatingapp.com">Contact the Team</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap">
+      <div class="footer-grid">
+        <div class="footer-about">
+          <img class="footer-logo" src="./assets/logo-white.png" alt="Koneksyon" onerror="this.remove();" />
+          <p>Caribbean-inspired platform for intentional dating, B-Konekt networking, creators, events, mentorship, and community. Open to everyone. Adults only.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Platform</h4>
+          <a href="#spark">Spark</a>
+          <a href="#bkonekt">B-Konekt</a>
+          <a href="#activities">Activities</a>
+          <a href="download.html">Download</a>
+        </div>
+        <div class="footer-col">
+          <h4>Safety</h4>
+          <a href="community-guidelines.html">Community Guidelines</a>
+          <a href="child-safety-standards.html">Child Safety</a>
+          <a href="privacy.html">Privacy Policy</a>
+          <a href="terms.html">Terms</a>
+        </div>
+        <div class="footer-col">
+          <h4>Contact</h4>
+          <a href="mailto:support@koneksyondatingapp.com">Support</a>
+          <a href="mailto:privacy@koneksyondatingapp.com">Privacy</a>
+          <a href="mailto:childsupport@koneksyondatingapp.com">Child Safety</a>
+          <a href="https://www.instagram.com/koneksyondatingapp?igsh=c25handtdTJjZGdi" target="_blank" rel="noopener">Instagram</a>
+          <a href="https://www.tiktok.com/@koneksy0n?_r=1&_t=ZP-97iwZ5knZs7" target="_blank" rel="noopener">TikTok</a>
+          <a href="https://www.facebook.com/share/1DBJ64sJe9/?mibextid=wwXIfr" target="_blank" rel="noopener">Facebook</a>
+        </div>
+      </div>
+      <div class="copyright">
+        <span>© 2026 Zanara Labs LLC. All rights reserved.</span>
+        <span>Koneksyon — where culture meets connection.</span>
+      </div>
+    </div>
+  </footer>
+
+  <div class="lightbox" id="lightbox" aria-hidden="true">
+    <button type="button" id="closeLightbox" aria-label="Close image">×</button>
+    <img id="lightboxImg" src="" alt="" />
+  </div>
+
+  <script>
+    const menuBtn = document.getElementById("menuBtn");
+    const mobileMenu = document.getElementById("mobileMenu");
+
+    menuBtn.addEventListener("click", () => {
+      const isOpen = mobileMenu.classList.toggle("open");
+      menuBtn.setAttribute("aria-label", isOpen ? "Close menu" : "Open menu");
+      menuBtn.textContent = isOpen ? "×" : "☰";
+    });
+
+    mobileMenu.querySelectorAll("a").forEach((link) => {
+      link.addEventListener("click", () => {
+        mobileMenu.classList.remove("open");
+        menuBtn.textContent = "☰";
+        menuBtn.setAttribute("aria-label", "Open menu");
+      });
+    });
+
+    const vibesTrack = document.getElementById("vibesTrack");
+    const vibesPrev = document.getElementById("vibesPrev");
+    const vibesNext = document.getElementById("vibesNext");
+    const vibesDots = document.getElementById("vibesDots");
+    const vibeCards = Array.from(document.querySelectorAll(".vibe-card"));
+    let vibeIndex = 0;
+
+    function visibleVibeCount() {
+      if (window.matchMedia("(max-width: 700px)").matches) return 1;
+      if (window.matchMedia("(max-width: 980px)").matches) return 2;
+      return 3;
+    }
+
+    function vibeMaxIndex() {
+      return Math.max(0, vibeCards.length - visibleVibeCount());
+    }
+
+    function renderVibeDots() {
+      if (!vibesDots) return;
+      const total = vibeMaxIndex() + 1;
+      vibesDots.innerHTML = "";
+      for (let i = 0; i < total; i += 1) {
+        const dot = document.createElement("button");
+        dot.type = "button";
+        dot.className = "vibes-dot" + (i === vibeIndex ? " active" : "");
+        dot.setAttribute("aria-label", "Show gallery page " + (i + 1));
+        dot.addEventListener("click", () => {
+          vibeIndex = i;
+          updateVibes();
+        });
+        vibesDots.appendChild(dot);
+      }
+    }
+
+    function updateVibes() {
+      if (!vibesTrack || !vibeCards.length) return;
+      vibeIndex = Math.min(vibeIndex, vibeMaxIndex());
+      const card = vibeCards[0];
+      const gap = parseFloat(getComputedStyle(vibesTrack).gap) || 0;
+      const step = card.getBoundingClientRect().width + gap;
+      vibesTrack.style.transform = "translateX(" + (-vibeIndex * step) + "px)";
+      renderVibeDots();
+    }
+
+    vibesPrev?.addEventListener("click", () => {
+      vibeIndex = vibeIndex <= 0 ? vibeMaxIndex() : vibeIndex - 1;
+      updateVibes();
+    });
+
+    vibesNext?.addEventListener("click", () => {
+      vibeIndex = vibeIndex >= vibeMaxIndex() ? 0 : vibeIndex + 1;
+      updateVibes();
+    });
+
+    window.addEventListener("resize", updateVibes);
+    updateVibes();
+
+    const lightbox = document.getElementById("lightbox");
+    const lightboxImg = document.getElementById("lightboxImg");
+    const closeLightbox = document.getElementById("closeLightbox");
+
+    document.querySelectorAll("[data-lightbox]").forEach((link) => {
+      link.addEventListener("click", (event) => {
+        event.preventDefault();
+        lightboxImg.src = link.getAttribute("href");
+        lightboxImg.alt = link.querySelector("img")?.alt || "Koneksyon launch photo";
+        lightbox.classList.add("open");
+        lightbox.setAttribute("aria-hidden", "false");
+      });
+    });
+
+    function closeGallery() {
+      lightbox.classList.remove("open");
+      lightbox.setAttribute("aria-hidden", "true");
+      lightboxImg.src = "";
+    }
+
+    closeLightbox.addEventListener("click", closeGallery);
+    lightbox.addEventListener("click", (event) => { if (event.target === lightbox) closeGallery(); });
+    window.addEventListener("keydown", (event) => { if (event.key === "Escape") closeGallery(); });
+  </script>
+</body>
+</html>
