@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="dark" data-theme-mode="system">
+<html lang="en" data-theme="dark">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
@@ -14,20 +14,9 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght,SOFT,WONK@9..144,500..900,0..100,0..1&family=Instrument+Sans:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
-  <script>
-    (function () {
-      var saved = localStorage.getItem("koneksyon-theme-mode") || "system";
-      var prefersDark = window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches;
-      var theme = saved === "system" ? (prefersDark ? "dark" : "light") : saved;
-      document.documentElement.setAttribute("data-theme", theme);
-      document.documentElement.setAttribute("data-theme-mode", saved);
-      var meta = document.querySelector('meta[name="theme-color"]');
-      if (meta) meta.setAttribute("content", theme === "dark" ? "#050814" : "#f7f1e8");
-    })();
-  </script>
   <style>
     :root {
-      color-scheme: light dark;
+      color-scheme: dark;
       --bg: #050814;
       --bg-2: #08101f;
       --bg-3: #0d162a;
@@ -51,6 +40,7 @@
       --page-pad: clamp(18px, 4.8vw, 64px);
       --section: clamp(72px, 10vw, 132px);
       --nav-h: 76px;
+      --banner-h: 38px;
       --radius-xl: clamp(28px, 4vw, 46px);
       --radius-lg: clamp(22px, 3vw, 34px);
       --radius-md: 20px;
@@ -121,9 +111,59 @@
       box-shadow: 0 0 0 7px rgba(255, 107, 74, .14);
     }
 
+    .launch-banner {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 120;
+      height: var(--banner-h);
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      border-bottom: 1px solid rgba(255, 248, 236, .12);
+      background: linear-gradient(90deg, #113e96, #071126 28%, #071126 70%, #e1262f);
+      color: #fff8ec;
+      box-shadow: 0 12px 30px rgba(0,0,0,.26);
+    }
+
+    .banner-track {
+      display: inline-flex;
+      align-items: center;
+      gap: 40px;
+      width: max-content;
+      white-space: nowrap;
+      animation: bannerMove 28s linear infinite;
+      will-change: transform;
+    }
+
+    .banner-track span {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 12px;
+      font-weight: 950;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+    }
+
+    .banner-track span::before {
+      content: "";
+      width: 7px;
+      height: 7px;
+      border-radius: 999px;
+      background: var(--gold);
+      box-shadow: 0 0 0 6px rgba(238,203,106,.14);
+    }
+
+    @keyframes bannerMove {
+      from { transform: translateX(0); }
+      to { transform: translateX(-50%); }
+    }
+
     .nav-shell {
       position: fixed;
-      top: max(14px, env(safe-area-inset-top));
+      top: calc(max(14px, env(safe-area-inset-top)) + var(--banner-h));
       left: 0;
       right: 0;
       z-index: 100;
@@ -161,12 +201,24 @@
 
     .brand-logo {
       width: 100%;
+      max-height: 44px;
       height: auto;
+      object-fit: contain;
+      object-position: left center;
+      display: block;
     }
 
-    .logo-light { display: none; }
-    html[data-theme="light"] .logo-dark { display: none; }
-    html[data-theme="light"] .logo-light { display: block; }
+    .brand-text {
+      display: none;
+      color: var(--cream);
+      font-family: "Fraunces", Georgia, serif;
+      font-size: 27px;
+      font-weight: 850;
+      letter-spacing: -.055em;
+      line-height: 1;
+    }
+
+    .brand.logo-fallback .brand-text { display: inline-flex; }
 
     .nav-center {
       display: flex;
@@ -272,7 +324,7 @@
       min-height: 100svh;
       display: grid;
       align-items: center;
-      padding: calc(var(--nav-h) + 52px) 0 clamp(34px, 7vw, 78px);
+      padding: calc(var(--banner-h) + var(--nav-h) + 58px) 0 clamp(34px, 7vw, 78px);
     }
 
     .hero-shell {
@@ -783,13 +835,11 @@
 
     @media (max-width: 720px) {
       :root { --page-pad: 28px; --nav-h: 66px; }
-      .nav-shell { top: max(10px, env(safe-area-inset-top)); }
+      .nav-shell { top: calc(max(10px, env(safe-area-inset-top)) + var(--banner-h)); }
       .nav { border-radius: 24px; padding: 8px 9px 8px 16px; }
       .brand { width: 128px; height: 46px; }
-      .theme-btn { min-width: 46px; padding: 0; }
-      .theme-label { display: none; }
       .nav-cta { display: none; }
-      .hero { align-items: start; padding-top: calc(var(--nav-h) + 36px); }
+      .hero { align-items: start; padding-top: calc(var(--banner-h) + var(--nav-h) + 36px); }
       .hero-shell { min-height: auto; padding: 14px; border-radius: 30px; }
       .hero-copy { padding: 12px; }
       h1 { font-size: clamp(54px, 17vw, 82px); }
@@ -823,12 +873,21 @@
   </style>
 </head>
 <body>
+  <div class="launch-banner" role="status" aria-label="Koneksyon launch update">
+    <div class="banner-track">
+      <span>Launch update: Koneksyon is postponed because of the World Cup — new date coming soon.</span>
+      <span>Launch update: Koneksyon is postponed because of the World Cup — new date coming soon.</span>
+      <span>Launch update: Koneksyon is postponed because of the World Cup — new date coming soon.</span>
+      <span>Launch update: Koneksyon is postponed because of the World Cup — new date coming soon.</span>
+    </div>
+  </div>
+
   <header class="nav-shell">
     <div class="wrap">
       <nav class="nav" aria-label="Main navigation">
         <a class="brand" href="#top" aria-label="Koneksyon home">
-          <img class="brand-logo logo-dark" src="./assets/logo-nav-white.png" alt="Koneksyon" />
-          <img class="brand-logo logo-light" src="./assets/logo-nav-color.png" alt="Koneksyon" />
+          <img class="brand-logo" src="./assets/logo-white.png" alt="Koneksyon" onerror="this.style.display='none'; this.nextElementSibling.style.display='inline-flex';" />
+          <span class="brand-text">Koneksyon</span>
         </a>
 
         <div class="nav-center">
@@ -841,10 +900,7 @@
         </div>
 
         <div class="nav-actions">
-          <button class="theme-btn" id="themeBtn" type="button" aria-label="Change appearance mode">
-            <span id="themeIcon">◐</span><span class="theme-label" id="themeLabel">Auto</span>
-          </button>
-          <a class="nav-cta" href="download.html">Join the Launch</a>
+          <a class="nav-cta" href="download.html">Get Launch Updates</a>
           <button class="menu-btn" id="menuBtn" type="button" aria-label="Open menu">☰</button>
         </div>
       </nav>
@@ -855,7 +911,9 @@
         <a href="#safety">Safety</a>
         <a href="privacy.html">Privacy</a>
         <a href="terms.html">Terms</a>
-        <a href="download.html">Join the Launch</a>
+        <a href="https://www.instagram.com/koneksyondatingapp?igsh=c25handtdTJjZGdi" target="_blank" rel="noopener">Instagram</a>
+        <a href="https://www.tiktok.com/@koneksy0n?_r=1&_t=ZP-97iwZ5knZs7" target="_blank" rel="noopener">TikTok</a>
+        <a href="download.html">Get Launch Updates</a>
       </div>
     </div>
   </header>
@@ -876,7 +934,7 @@
               <p class="hero-lead">Koneksyon is more than a dating app. Spark helps people build intentional relationships. B-Konekt brings creators, founders, professionals, events, and community into one culture-first platform.</p>
 
               <div class="hero-actions">
-                <a class="btn btn-primary" href="download.html">Join Koneksyon</a>
+                <a class="btn btn-primary" href="download.html">Get Launch Updates</a>
                 <a class="btn btn-secondary" href="#activities">View launch activities</a>
               </div>
             </div>
@@ -893,7 +951,7 @@
             <div class="visual-card">
               <div>
                 <strong>Real launch energy.</strong>
-                <p>Built around people, events, creators, and culture — not only profile swipes.</p>
+                <p>Built around people, events, creators, and culture — not only profile slides.</p>
               </div>
               <span class="visual-badge">Launch proof</span>
             </div>
@@ -955,13 +1013,13 @@
       <div class="wrap">
         <div class="product-strip">
           <div class="product-copy">
-            <div class="eyebrow">What was missing</div>
-            <h2>The first page now explains the product immediately.</h2>
-            <p>The homepage needs to show what Koneksyon is, why it is different, where B-Konekt fits, and proof that the brand has real community energy. That is what this version puts above the fold.</p>
+            <div class="eyebrow">Why Koneksyon</div>
+            <h2>Dating, business, culture, and real community in one brand.</h2>
+            <p>Koneksyon brings Spark and B-Konekt together so people can meet intentionally, build professionally, and stay connected through culture-driven experiences.</p>
           </div>
           <div class="product-list">
             <div class="product-item"><b>Clear value in the hero</b><span>Users understand Spark, B-Konekt, culture, safety, and launch activity without scrolling too much.</span></div>
-            <div class="product-item"><b>Automatic appearance mode</b><span>The website follows the person’s device setting by default and still gives a premium manual mode control.</span></div>
+            <div class="product-item"><b>Dark premium identity</b><span>The homepage now stays in one polished dark visual system, so the brand feels consistent and intentional.</span></div>
             <div class="product-item"><b>Responsive by device</b><span>Fluid type, adaptive spacing, safe-area support, and layout shifts for phone, tablet, and desktop.</span></div>
           </div>
         </div>
@@ -976,7 +1034,7 @@
             <h2>Launch Gallery</h2>
           </div>
           <div>
-            <p>Like TapTap, this section treats the photos as the brand experience, not just decoration. Large images, a dark stage, clean controls, and less text make the activity photos feel more premium.</p>
+            <p>This gallery uses an event-style layout: large photos, a dark stage, clean controls, and less text so the activity photos feel premium and real.</p>
             <a class="share-photo" href="mailto:support@koneksyondatingapp.com?subject=Koneksyon%20launch%20photo">Share your photo →</a>
           </div>
         </div>
@@ -1055,20 +1113,20 @@
           </details>
           <details>
             <summary>How is Spark different from a normal dating feed?</summary>
-            <p>Spark focuses on intention, values, language, roots, lifestyle, and compatibility instead of making the whole product feel like a generic swipe app.</p>
+            <p>Spark focuses on intention, values, language, roots, lifestyle, and compatibility instead of making the whole product feel like a generic slide-left / slide-right feed.</p>
           </details>
         </div>
       </div>
     </section>
 
-    <section aria-label="Join Koneksyon">
+    <section aria-label="Get Launch Updates">
       <div class="wrap">
         <div class="cta-card">
           <img src="./assets/brand-banner.jpg" alt="Koneksyon community launch banner" loading="lazy" decoding="async" />
           <div class="cta-content">
-            <div class="eyebrow">Join the launch</div>
+            <div class="eyebrow">Get launch updates</div>
             <h2>Your Koneksyon starts with culture.</h2>
-            <p>Explore Spark for intentional dating and B-Konekt for business, creators, events, mentorship, services, and community.</p>
+            <p>Explore Spark for intentional dating and B-Konekt for business, creators, events, mentorship, services, and community. The official launch date will be announced soon.</p>
             <div class="hero-actions">
               <a class="btn btn-primary" href="download.html">Download App</a>
               <a class="btn btn-secondary" href="mailto:support@koneksyondatingapp.com">Contact the Team</a>
@@ -1083,8 +1141,7 @@
     <div class="wrap">
       <div class="footer-grid">
         <div class="footer-about">
-          <img class="footer-logo logo-dark" src="./assets/logo-nav-white.png" alt="Koneksyon" />
-          <img class="footer-logo logo-light" src="./assets/logo-nav-color.png" alt="Koneksyon" />
+          <img class="footer-logo" src="./assets/logo-white.png" alt="Koneksyon" onerror="this.remove();" />
           <p>Caribbean-inspired platform for intentional dating, B-Konekt networking, creators, events, mentorship, and community. Open to everyone. Adults only.</p>
         </div>
         <div class="footer-col">
@@ -1106,6 +1163,9 @@
           <a href="mailto:support@koneksyondatingapp.com">Support</a>
           <a href="mailto:privacy@koneksyondatingapp.com">Privacy</a>
           <a href="mailto:childsupport@koneksyondatingapp.com">Child Safety</a>
+          <a href="https://www.instagram.com/koneksyondatingapp?igsh=c25handtdTJjZGdi" target="_blank" rel="noopener">Instagram</a>
+          <a href="https://www.tiktok.com/@koneksy0n?_r=1&_t=ZP-97iwZ5knZs7" target="_blank" rel="noopener">TikTok</a>
+          <a href="https://www.facebook.com/share/1DBJ64sJe9/?mibextid=wwXIfr" target="_blank" rel="noopener">Facebook</a>
         </div>
       </div>
       <div class="copyright">
@@ -1121,43 +1181,8 @@
   </div>
 
   <script>
-    const root = document.documentElement;
-    const themeBtn = document.getElementById("themeBtn");
-    const themeIcon = document.getElementById("themeIcon");
-    const themeLabel = document.getElementById("themeLabel");
     const menuBtn = document.getElementById("menuBtn");
     const mobileMenu = document.getElementById("mobileMenu");
-    const themeMeta = document.querySelector('meta[name="theme-color"]');
-    const media = window.matchMedia("(prefers-color-scheme: dark)");
-    const modes = ["system", "dark", "light"];
-
-    function currentMode() {
-      return localStorage.getItem("koneksyon-theme-mode") || "system";
-    }
-
-    function applyTheme(mode) {
-      const resolved = mode === "system" ? (media.matches ? "dark" : "light") : mode;
-      root.setAttribute("data-theme", resolved);
-      root.setAttribute("data-theme-mode", mode);
-      if (themeMeta) themeMeta.setAttribute("content", resolved === "dark" ? "#050814" : "#f7f1e8");
-      if (themeIcon && themeLabel) {
-        if (mode === "system") { themeIcon.textContent = "◐"; themeLabel.textContent = "Auto"; }
-        if (mode === "dark") { themeIcon.textContent = "☾"; themeLabel.textContent = "Dark"; }
-        if (mode === "light") { themeIcon.textContent = "☀"; themeLabel.textContent = "Light"; }
-      }
-    }
-
-    applyTheme(currentMode());
-
-    media.addEventListener("change", () => {
-      if (currentMode() === "system") applyTheme("system");
-    });
-
-    themeBtn.addEventListener("click", () => {
-      const next = modes[(modes.indexOf(currentMode()) + 1) % modes.length];
-      localStorage.setItem("koneksyon-theme-mode", next);
-      applyTheme(next);
-    });
 
     menuBtn.addEventListener("click", () => {
       const isOpen = mobileMenu.classList.toggle("open");
