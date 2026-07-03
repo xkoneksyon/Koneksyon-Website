@@ -8,9 +8,9 @@
   <meta name="theme-color" content="#050814" />
   <meta property="og:title" content="Koneksyon — Culture, Community & Real Connection" />
   <meta property="og:description" content="Spark for intentional dating. B-Konekt for business, creators, events, mentorship, and community." />
-  <meta property="og:image" content="assets/brand-banner.jpg" />
-  <link rel="icon" href="assets/favicon.png" />
-  <link rel="apple-touch-icon" href="assets/favicon-192.png" />
+  <meta property="og:image" content="./assets/brand-banner.jpg" />
+  <link rel="icon" href="./assets/favicon.png" />
+  <link rel="apple-touch-icon" href="./assets/favicon-192.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700;800;900&family=Fraunces:opsz,wght,SOFT,WONK@9..144,500..900,0..100,0..1&display=swap" rel="stylesheet" />
@@ -106,19 +106,8 @@
 
     html[data-theme="light"] .nav { background: rgba(255, 249, 239, .76); }
 
-    .brand { display: flex; align-items: center; gap: 12px; min-width: 220px; }
-    .brand-mark {
-      width: 42px;
-      height: 42px;
-      border-radius: 15px;
-      overflow: hidden;
-      display: grid;
-      place-items: center;
-      background: #050814;
-      border: 1px solid rgba(255,255,255,.12);
-    }
-    .brand-mark img { width: 38px; height: 38px; object-fit: contain; }
-    .brand-logo { width: 164px; height: auto; max-height: 34px; object-fit: contain; }
+    .brand { display: flex; align-items: center; min-width: 180px; }
+    .brand-logo { width: 170px; height: auto; max-height: 36px; object-fit: contain; }
     .logo-light { display: none; }
     html[data-theme="light"] .logo-dark { display: none; }
     html[data-theme="light"] .logo-light { display: block; }
@@ -488,7 +477,6 @@
       .wrap { width: min(var(--max), calc(100% - 28px)); }
       .nav { top: 10px; width: calc(100% - 20px); padding-left: 12px; border-radius: 22px; }
       .brand-logo { width: 134px; }
-      .brand-mark { width: 39px; height: 39px; border-radius: 13px; }
       .nav-cta { display: none; }
       .hero { padding-top: 104px; padding-bottom: 44px; }
       .hero-card, .hero-content { min-height: 704px; }
@@ -509,9 +497,8 @@
 <body>
   <nav class="nav" aria-label="Main navigation">
     <a class="brand" href="#top" aria-label="Koneksyon home">
-      <span class="brand-mark"><img src="assets/favicon.png" alt="" /></span>
-      <img class="brand-logo logo-dark" src="assets/logo-white.png" alt="Koneksyon" />
-      <img class="brand-logo logo-light" src="assets/logo-color.png" alt="Koneksyon" />
+      <img class="brand-logo logo-dark" src="./assets/logo-white.png" alt="Koneksyon" />
+      <img class="brand-logo logo-light" src="./assets/logo-color.png" alt="Koneksyon" />
     </a>
     <div class="nav-links">
       <a href="#spark">Spark</a>
@@ -542,7 +529,7 @@
     <section class="hero" aria-labelledby="hero-title">
       <div class="wrap">
         <div class="hero-card">
-          <div class="hero-media"><img src="assets/hero-community.jpg" alt="Koneksyon launch community moment" /></div>
+          <div class="hero-media"><img src="./assets/hero-community.jpg" alt="Koneksyon launch community moment" /></div>
           <div class="hero-content">
             <div>
               <div class="eyebrow">Caribbean-inspired · Open to everyone · 18+</div>
@@ -579,7 +566,7 @@
         <div class="platform-cards">
           <article class="platform-card">
             <div class="platform-img">
-              <img src="assets/community-selfie.jpg" alt="People taking a selfie at a Koneksyon activity" />
+              <img src="./assets/community-selfie.jpg" alt="People taking a selfie at a Koneksyon activity" />
               <span class="platform-tag">Spark</span>
             </div>
             <div class="platform-body">
@@ -589,7 +576,7 @@
           </article>
           <article class="platform-card" id="bkonekt">
             <div class="platform-img">
-              <img src="assets/bkonekt-founders.jpg" alt="B-Konekt founders and business community moment" />
+              <img src="./assets/bkonekt-founders.jpg" alt="B-Konekt founders and business community moment" />
               <span class="platform-tag">B-Konekt</span>
             </div>
             <div class="platform-body">
@@ -611,7 +598,7 @@
     <section class="editorial">
       <div class="wrap split-layout">
         <div class="feature-image">
-          <img src="assets/brand-banner.jpg" alt="Koneksyon banner at a launch activity" />
+          <img src="./assets/brand-banner.jpg" alt="Koneksyon banner at a launch activity" />
           <div class="caption">
             <b>A real community, not only a landing page.</b>
             <span>Your launch photos give the website proof: people are already showing up, meeting, supporting the brand, and creating the culture around the product.</span>
@@ -651,13 +638,13 @@
           <p>Use these photos as proof of activity around the app launch. The website should feel editorial and real, not generic. Tap a photo to view it larger.</p>
         </div>
         <div class="gallery">
-          <button class="gallery-item wide" type="button"><img src="assets/founder-talk.jpg" alt="Founder speaking at a Koneksyon activity" /><span>Founder moment</span></button>
-          <button class="gallery-item mid" type="button"><img src="assets/launch-style.jpg" alt="Guests dressed in black at a Koneksyon launch activity" /><span>Culture & style</span></button>
-          <button class="gallery-item mid" type="button"><img src="assets/creators.jpg" alt="Koneksyon creators and supporters" /><span>Creators</span></button>
-          <button class="gallery-item small" type="button"><img src="assets/guests.jpg" alt="Guests connecting at an event" /><span>Community</span></button>
-          <button class="gallery-item small" type="button"><img src="assets/community-selfie.jpg" alt="Supporters taking a selfie" /><span>Supporters</span></button>
-          <button class="gallery-item small" type="button"><img src="assets/brand-banner.jpg" alt="Koneksyon banner and launch moment" /><span>Brand proof</span></button>
-          <button class="gallery-item small" type="button"><img src="assets/bkonekt-founders.jpg" alt="B-Konekt founders and business connection" /><span>B-Konekt</span></button>
+          <button class="gallery-item wide" type="button"><img src="./assets/founder-talk.jpg" alt="Founder speaking at a Koneksyon activity" /><span>Founder moment</span></button>
+          <button class="gallery-item mid" type="button"><img src="./assets/launch-style.jpg" alt="Guests dressed in black at a Koneksyon launch activity" /><span>Culture & style</span></button>
+          <button class="gallery-item mid" type="button"><img src="./assets/creators.jpg" alt="Koneksyon creators and supporters" /><span>Creators</span></button>
+          <button class="gallery-item small" type="button"><img src="./assets/guests.jpg" alt="Guests connecting at an event" /><span>Community</span></button>
+          <button class="gallery-item small" type="button"><img src="./assets/community-selfie.jpg" alt="Supporters taking a selfie" /><span>Supporters</span></button>
+          <button class="gallery-item small" type="button"><img src="./assets/brand-banner.jpg" alt="Koneksyon banner and launch moment" /><span>Brand proof</span></button>
+          <button class="gallery-item small" type="button"><img src="./assets/bkonekt-founders.jpg" alt="B-Konekt founders and business connection" /><span>B-Konekt</span></button>
         </div>
       </div>
     </section>
@@ -702,7 +689,7 @@
     <section class="cta">
       <div class="wrap">
         <div class="cta-card">
-          <img src="assets/brand-banner.jpg" alt="" />
+          <img src="./assets/brand-banner.jpg" alt="" />
           <div class="cta-content">
             <div class="kicker">Join the launch</div>
             <h2>Your Koneksyon starts with culture.</h2>
@@ -721,8 +708,8 @@
     <div class="wrap">
       <div class="footer-grid">
         <div class="footer-about">
-          <img class="footer-logo logo-dark" src="assets/logo-white.png" alt="Koneksyon" />
-          <img class="footer-logo logo-light" src="assets/logo-color.png" alt="Koneksyon" />
+          <img class="footer-logo logo-dark" src="./assets/logo-white.png" alt="Koneksyon" />
+          <img class="footer-logo logo-light" src="./assets/logo-color.png" alt="Koneksyon" />
           <p>Caribbean-inspired lifestyle platform for dating, business, creators, events, mentorship, and community. Open to everyone. Adults only.</p>
         </div>
         <div class="footer-col">
@@ -755,7 +742,7 @@
 
   <div class="lightbox" id="lightbox" aria-hidden="true">
     <button type="button" id="closeLightbox" aria-label="Close image">×</button>
-    <img id="lightboxImage" src="assets/brand-banner.jpg" alt="Expanded Koneksyon activity photo" />
+    <img id="lightboxImage" src="./assets/brand-banner.jpg" alt="Expanded Koneksyon activity photo" />
   </div>
 
   <script>
