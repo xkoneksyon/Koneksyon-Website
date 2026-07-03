@@ -1,702 +1,873 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="dark">
+<html lang="en" data-theme="dark" data-theme-mode="system">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Koneksyon — Culture, Community & Real Connection</title>
-  <meta name="description" content="Koneksyon is a Caribbean-inspired lifestyle platform for intentional dating, B-Konekt business networking, creators, events, and community connection." />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>Koneksyon — Culture, Community, Connection</title>
+  <meta name="description" content="Koneksyon is a Caribbean-inspired platform for intentional dating, B-Konekt business networking, creators, events, and real community connection." />
   <meta name="theme-color" content="#050814" />
-  <meta property="og:title" content="Koneksyon — Culture, Community & Real Connection" />
-  <meta property="og:description" content="Spark for intentional dating. B-Konekt for business, creators, events, mentorship, and community." />
+  <meta property="og:title" content="Koneksyon — Culture, Community, Connection" />
+  <meta property="og:description" content="Spark for intentional dating. B-Konekt for business, creators, founders, events, and culture." />
   <meta property="og:image" content="./assets/brand-banner.jpg" />
   <link rel="icon" href="./assets/favicon.png" />
   <link rel="apple-touch-icon" href="./assets/favicon-192.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700;800;900&family=Fraunces:opsz,wght,SOFT,WONK@9..144,500..900,0..100,0..1&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght,SOFT,WONK@9..144,500..900,0..100,0..1&family=Instrument+Sans:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <script>
+    (function () {
+      var saved = localStorage.getItem("koneksyon-theme-mode") || "system";
+      var prefersDark = window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches;
+      var theme = saved === "system" ? (prefersDark ? "dark" : "light") : saved;
+      document.documentElement.setAttribute("data-theme", theme);
+      document.documentElement.setAttribute("data-theme-mode", saved);
+      var meta = document.querySelector('meta[name="theme-color"]');
+      if (meta) meta.setAttribute("content", theme === "dark" ? "#050814" : "#f7f1e8");
+    })();
+  </script>
   <style>
     :root {
-      color-scheme: dark;
+      color-scheme: light dark;
       --bg: #050814;
-      --bg2: #0a1024;
-      --surface: rgba(255, 248, 236, .055);
-      --surface2: rgba(255, 248, 236, .085);
+      --bg-2: #08101f;
+      --bg-3: #0d162a;
       --ink: #fff8ec;
-      --muted: rgba(255, 248, 236, .70);
-      --soft: rgba(255, 248, 236, .45);
+      --ink-strong: #ffffff;
+      --muted: rgba(255, 248, 236, .72);
+      --soft: rgba(255, 248, 236, .50);
       --line: rgba(255, 248, 236, .14);
-      --line2: rgba(255, 248, 236, .25);
-      --orange: #ff7448;
-      --gold: #e9bf66;
-      --teal: #26c8c6;
-      --blue: #153d96;
-      --danger: #fb3153;
-      --shadow: 0 30px 100px rgba(0,0,0,.44);
-      --radius: 34px;
-      --max: 1240px;
+      --line-strong: rgba(255, 248, 236, .25);
+      --surface: rgba(255, 248, 236, .065);
+      --surface-2: rgba(255, 248, 236, .105);
+      --cream: #fff8ec;
+      --navy: #071126;
+      --gold: #eecb6a;
+      --coral: #ff6b4a;
+      --teal: #28c4c8;
+      --blue: #113e96;
+      --shadow: 0 28px 90px rgba(0, 0, 0, .42);
+      --shadow-soft: 0 18px 50px rgba(0, 0, 0, .25);
+      --max: 1220px;
+      --page-pad: clamp(18px, 4.8vw, 64px);
+      --section: clamp(72px, 10vw, 132px);
+      --nav-h: 76px;
+      --radius-xl: clamp(28px, 4vw, 46px);
+      --radius-lg: clamp(22px, 3vw, 34px);
+      --radius-md: 20px;
+      --ease: cubic-bezier(.2, .7, .2, 1);
     }
 
     html[data-theme="light"] {
-      color-scheme: light;
-      --bg: #f6efe5;
-      --bg2: #fff9ef;
-      --surface: rgba(255,255,255,.67);
-      --surface2: rgba(255,255,255,.88);
+      --bg: #f7f1e8;
+      --bg-2: #fffaf1;
+      --bg-3: #efe3d2;
       --ink: #071126;
-      --muted: rgba(7, 17, 38, .66);
-      --soft: rgba(7, 17, 38, .44);
-      --line: rgba(7, 17, 38, .13);
-      --line2: rgba(7, 17, 38, .24);
-      --shadow: 0 30px 100px rgba(15, 23, 42, .16);
+      --ink-strong: #030711;
+      --muted: rgba(7, 17, 38, .69);
+      --soft: rgba(7, 17, 38, .47);
+      --line: rgba(7, 17, 38, .12);
+      --line-strong: rgba(7, 17, 38, .22);
+      --surface: rgba(7, 17, 38, .052);
+      --surface-2: rgba(7, 17, 38, .085);
+      --shadow: 0 28px 90px rgba(7, 17, 38, .16);
+      --shadow-soft: 0 18px 50px rgba(7, 17, 38, .12);
     }
 
     * { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; }
     body {
       min-height: 100vh;
-      overflow-x: hidden;
+      min-height: 100dvh;
       font-family: "Instrument Sans", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      color: var(--ink);
       background:
-        radial-gradient(circle at 15% 4%, rgba(38, 200, 198, .16), transparent 32%),
-        radial-gradient(circle at 92% 0%, rgba(255, 116, 72, .18), transparent 34%),
-        linear-gradient(180deg, var(--bg), var(--bg2) 48%, var(--bg));
+        radial-gradient(circle at 6% 2%, rgba(40, 196, 200, .18), transparent 30%),
+        radial-gradient(circle at 98% 0%, rgba(255, 107, 74, .15), transparent 28%),
+        radial-gradient(circle at 70% 80%, rgba(238, 203, 106, .10), transparent 32%),
+        linear-gradient(180deg, var(--bg), var(--bg-2) 42%, var(--bg));
+      color: var(--ink);
+      overflow-x: hidden;
       -webkit-font-smoothing: antialiased;
       text-rendering: optimizeLegibility;
     }
 
-    body::before {
-      content: "";
-      position: fixed;
-      inset: 0;
-      pointer-events: none;
-      z-index: -1;
-      opacity: .18;
-      background-image:
-        linear-gradient(rgba(255,255,255,.08) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255,255,255,.08) 1px, transparent 1px);
-      background-size: 80px 80px;
-      mask-image: radial-gradient(circle at center, black, transparent 76%);
-    }
-
     a { color: inherit; text-decoration: none; }
     img { display: block; max-width: 100%; }
-    button, input { font: inherit; }
-    .wrap { width: min(var(--max), calc(100% - 44px)); margin-inline: auto; }
+    button { font: inherit; }
+    ::selection { background: rgba(238, 203, 106, .42); color: var(--ink-strong); }
+
+    .wrap {
+      width: min(var(--max), calc(100% - var(--page-pad)));
+      margin-inline: auto;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      width: fit-content;
+      color: var(--coral);
+      font-size: clamp(11px, .78vw, 12px);
+      font-weight: 950;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+    }
+
+    .eyebrow::before {
+      content: "";
+      width: 8px;
+      height: 8px;
+      border-radius: 999px;
+      background: var(--coral);
+      box-shadow: 0 0 0 7px rgba(255, 107, 74, .14);
+    }
+
+    .nav-shell {
+      position: fixed;
+      top: max(14px, env(safe-area-inset-top));
+      left: 0;
+      right: 0;
+      z-index: 100;
+      pointer-events: none;
+    }
 
     .nav {
-      position: fixed;
-      z-index: 1000;
-      left: 50%;
-      top: 16px;
-      transform: translateX(-50%);
-      width: min(1180px, calc(100% - 32px));
+      pointer-events: auto;
+      min-height: var(--nav-h);
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 16px;
-      padding: 10px 10px 10px 18px;
+      gap: 18px;
+      padding: 10px 12px 10px clamp(18px, 2.4vw, 28px);
       border: 1px solid var(--line);
       border-radius: 999px;
-      background: rgba(5, 8, 20, .68);
-      box-shadow: 0 20px 60px rgba(0,0,0,.22);
-      backdrop-filter: blur(22px) saturate(150%);
-      -webkit-backdrop-filter: blur(22px) saturate(150%);
+      background: rgba(5, 8, 20, .70);
+      backdrop-filter: blur(28px) saturate(160%);
+      -webkit-backdrop-filter: blur(28px) saturate(160%);
+      box-shadow: 0 18px 60px rgba(0, 0, 0, .28);
     }
 
-    html[data-theme="light"] .nav { background: rgba(255, 249, 239, .76); }
+    html[data-theme="light"] .nav {
+      background: rgba(255, 250, 241, .78);
+      box-shadow: 0 18px 60px rgba(7, 17, 38, .11);
+    }
 
-    .brand { display: flex; align-items: center; min-width: 180px; }
-    .brand-logo { width: 170px; height: auto; max-height: 36px; object-fit: contain; }
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      width: clamp(132px, 15vw, 176px);
+      height: 54px;
+      flex: 0 0 auto;
+    }
+
+    .brand-logo {
+      width: 100%;
+      height: auto;
+    }
+
     .logo-light { display: none; }
     html[data-theme="light"] .logo-dark { display: none; }
     html[data-theme="light"] .logo-light { display: block; }
 
-    .nav-links { display: flex; align-items: center; gap: 24px; }
-    .nav-links a {
-      font-size: 13px;
-      font-weight: 850;
-      color: var(--muted);
-      letter-spacing: -.01em;
+    .nav-center {
+      display: flex;
+      align-items: center;
+      gap: clamp(18px, 2.5vw, 30px);
     }
-    .nav-links a:hover { color: var(--ink); }
 
-    .nav-actions { display: flex; justify-content: flex-end; align-items: center; gap: 10px; min-width: 220px; }
-    .icon-btn,
+    .nav-center a {
+      color: var(--muted);
+      font-size: 13px;
+      font-weight: 900;
+      letter-spacing: -.015em;
+      transition: color .2s var(--ease);
+    }
+
+    .nav-center a:hover { color: var(--ink-strong); }
+
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex: 0 0 auto;
+    }
+
+    .theme-btn,
     .menu-btn {
-      width: 42px;
-      height: 42px;
+      min-width: 48px;
+      height: 48px;
+      display: inline-grid;
+      place-items: center;
       border-radius: 999px;
       border: 1px solid var(--line);
       background: transparent;
       color: var(--ink);
       cursor: pointer;
-      display: grid;
-      place-items: center;
+      transition: transform .22s var(--ease), background .22s var(--ease), border-color .22s var(--ease);
     }
-    .menu-btn { display: none; }
-    .nav-cta {
-      min-height: 42px;
+
+    .theme-btn {
+      padding: 0 14px;
+      gap: 8px;
+      grid-auto-flow: column;
+      font-size: 12px;
+      font-weight: 900;
+      letter-spacing: -.02em;
+    }
+
+    .theme-btn:hover,
+    .menu-btn:hover { transform: translateY(-1px); background: var(--surface-2); border-color: var(--line-strong); }
+    .menu-btn { display: none; font-size: 21px; }
+
+    .nav-cta,
+    .btn {
+      min-height: 50px;
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      padding: 0 18px;
+      gap: 10px;
       border-radius: 999px;
-      background: var(--ink);
-      color: var(--bg);
-      font-size: 13px;
+      border: 1px solid transparent;
+      padding: 0 22px;
+      font-size: clamp(13px, .9vw, 14px);
       font-weight: 950;
+      letter-spacing: -.015em;
+      transition: transform .22s var(--ease), box-shadow .22s var(--ease), background .22s var(--ease);
       white-space: nowrap;
     }
-    html[data-theme="light"] .nav-cta { background: #071126; color: #fff8ec; }
+
+    .nav-cta,
+    .btn-primary {
+      color: #071126;
+      background: var(--cream);
+      box-shadow: 0 16px 40px rgba(0, 0, 0, .18);
+    }
+
+    html[data-theme="light"] .nav-cta,
+    html[data-theme="light"] .btn-primary { color: var(--cream); background: var(--navy); }
+    .btn-secondary { color: var(--ink); background: rgba(255, 248, 236, .075); border-color: var(--line-strong); }
+    html[data-theme="light"] .btn-secondary { background: rgba(255, 255, 255, .56); }
+    .btn:hover,
+    .nav-cta:hover { transform: translateY(-2px); }
 
     .mobile-menu {
-      position: fixed;
-      z-index: 999;
-      top: 84px;
-      left: 22px;
-      right: 22px;
+      pointer-events: auto;
       display: none;
+      margin-top: 10px;
+      padding: 12px;
       border: 1px solid var(--line);
       border-radius: 28px;
-      padding: 10px;
-      background: rgba(5,8,20,.94);
+      background: rgba(5, 8, 20, .92);
+      backdrop-filter: blur(22px);
+      -webkit-backdrop-filter: blur(22px);
       box-shadow: var(--shadow);
-      backdrop-filter: blur(20px);
     }
-    html[data-theme="light"] .mobile-menu { background: rgba(255, 249, 239, .96); }
-    .mobile-menu.open { display: block; }
-    .mobile-menu a { display: block; padding: 14px 16px; border-radius: 18px; font-weight: 850; color: var(--ink); }
-    .mobile-menu a:hover { background: rgba(255,116,72,.12); }
 
-    .hero { position: relative; padding: 128px 0 70px; min-height: 100vh; display: grid; align-items: end; }
-    .hero-card {
+    html[data-theme="light"] .mobile-menu { background: rgba(255, 250, 241, .96); }
+    .mobile-menu.open { display: block; }
+    .mobile-menu a { display: block; padding: 15px 14px; border-radius: 16px; color: var(--ink); font-weight: 900; }
+    .mobile-menu a:hover { background: var(--surface-2); }
+
+    .hero {
+      position: relative;
+      min-height: 100svh;
+      display: grid;
+      align-items: center;
+      padding: calc(var(--nav-h) + 52px) 0 clamp(34px, 7vw, 78px);
+    }
+
+    .hero-shell {
       position: relative;
       overflow: hidden;
-      min-height: 725px;
-      border-radius: 46px;
+      min-height: clamp(680px, calc(100svh - 150px), 860px);
+      display: grid;
+      grid-template-columns: minmax(0, 1.04fr) minmax(390px, .96fr);
+      gap: clamp(20px, 3.4vw, 48px);
+      padding: clamp(22px, 3.4vw, 44px);
+      border-radius: var(--radius-xl);
       border: 1px solid var(--line);
-      background: #050814;
+      background:
+        linear-gradient(135deg, rgba(255, 248, 236, .08), rgba(255, 248, 236, .025)),
+        var(--surface);
       box-shadow: var(--shadow);
       isolation: isolate;
     }
-    .hero-media { position: absolute; inset: 0; z-index: -3; }
-    .hero-media img { width: 100%; height: 100%; object-fit: cover; object-position: center 33%; filter: saturate(1.04) contrast(1.02); }
-    .hero-card::before {
+
+    .hero-shell::before {
       content: "";
       position: absolute;
-      inset: 0;
-      z-index: -2;
-      background:
-        linear-gradient(90deg, rgba(5,8,20,.94) 0%, rgba(5,8,20,.74) 42%, rgba(5,8,20,.18) 100%),
-        linear-gradient(0deg, rgba(5,8,20,.80), transparent 50%);
-    }
-    .hero-card::after {
-      content: "";
-      position: absolute;
-      inset: 18px;
-      border: 1px solid rgba(255,248,236,.15);
-      border-radius: 34px;
-      pointer-events: none;
+      inset: 14px;
       z-index: -1;
+      border-radius: calc(var(--radius-xl) - 14px);
+      border: 1px solid rgba(255, 248, 236, .08);
+      pointer-events: none;
     }
-    .hero-content {
-      width: min(790px, 100%);
-      min-height: 725px;
-      padding: clamp(28px, 5vw, 68px);
+
+    html[data-theme="light"] .hero-shell::before { border-color: rgba(7,17,38,.08); }
+
+    .hero-copy {
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-      color: #fff8ec;
+      gap: clamp(28px, 4vw, 54px);
+      padding: clamp(16px, 2vw, 28px);
+      max-width: 690px;
+      z-index: 2;
     }
-    .eyebrow {
-      display: inline-flex;
-      width: fit-content;
-      align-items: center;
-      gap: 10px;
-      padding: 10px 14px;
-      border: 1px solid rgba(255,248,236,.19);
-      border-radius: 999px;
-      background: rgba(255,248,236,.08);
-      color: rgba(255,248,236,.80);
-      backdrop-filter: blur(10px);
-      font-size: 11px;
-      letter-spacing: .12em;
-      font-weight: 950;
-      text-transform: uppercase;
-    }
-    .eyebrow::before { content: ""; width: 8px; height: 8px; border-radius: 999px; background: var(--orange); box-shadow: 0 0 0 6px rgba(255,116,72,.15); }
-    h1, h2, h3 { text-wrap: balance; }
-    h1 {
-      max-width: 820px;
-      margin-top: 26px;
-      font-family: "Fraunces", Georgia, serif;
-      font-size: clamp(62px, 9.2vw, 128px);
-      line-height: .86;
-      letter-spacing: -.078em;
-      font-weight: 860;
-    }
-    h1 em { color: var(--gold); font-style: italic; font-variation-settings: "WONK" 1, "SOFT" 54; }
-    .hero-copy {
-      max-width: 665px;
-      margin-top: 26px;
-      color: rgba(255,248,236,.76);
-      font-size: clamp(17px, 1.35vw, 22px);
-      line-height: 1.68;
-      font-weight: 650;
-    }
-    .actions { margin-top: 34px; display: flex; flex-wrap: wrap; gap: 12px; }
-    .btn {
-      min-height: 52px;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      padding: 0 22px;
-      border-radius: 999px;
-      border: 1px solid rgba(255,248,236,.18);
-      font-size: 14px;
-      font-weight: 950;
-      transition: transform .2s ease, background .2s ease, border-color .2s ease;
-    }
-    .btn:hover { transform: translateY(-2px); }
-    .btn-primary { background: #fff8ec; color: #050814; }
-    .btn-soft { background: rgba(255,255,255,.08); color: #fff8ec; }
-    .btn-dark { background: var(--ink); color: var(--bg); }
-    html[data-theme="light"] .btn-dark { background: #071126; color: #fff8ec; }
 
-    .hero-statbar {
+    .hero-kicker {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: clamp(22px, 3vw, 34px);
+    }
+
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      width: fit-content;
+      min-height: 36px;
+      padding: 0 14px;
+      border: 1px solid var(--line-strong);
+      border-radius: 999px;
+      background: rgba(255, 248, 236, .07);
+      color: var(--muted);
+      font-size: 11px;
+      font-weight: 950;
+      letter-spacing: .105em;
+      text-transform: uppercase;
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+    }
+
+    html[data-theme="light"] .pill { background: rgba(255, 255, 255, .56); }
+    .pill-dot { width: 7px; height: 7px; border-radius: 999px; background: var(--teal); box-shadow: 0 0 0 6px rgba(40,196,200,.14); }
+
+    h1 {
+      font-family: "Fraunces", Georgia, serif;
+      font-size: clamp(58px, 8.8vw, 128px);
+      line-height: .82;
+      letter-spacing: -.078em;
+      font-weight: 900;
+      color: var(--ink-strong);
+      max-width: 850px;
+    }
+
+    h1 .gold {
+      color: var(--gold);
+      font-style: italic;
+      font-variation-settings: "WONK" 1, "SOFT" 70;
+    }
+
+    .hero-lead {
+      max-width: 650px;
+      margin-top: clamp(22px, 3vw, 32px);
+      color: var(--muted);
+      font-size: clamp(17px, 1.35vw, 21px);
+      line-height: 1.68;
+      font-weight: 720;
+      letter-spacing: -.015em;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: clamp(24px, 3vw, 36px);
+    }
+
+    .hero-proof {
       display: grid;
       grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 10px;
-      max-width: 740px;
-      margin-top: 44px;
-    }
-    .hero-stat {
-      border-top: 1px solid rgba(255,248,236,.24);
-      padding-top: 14px;
-      color: rgba(255,248,236,.72);
-      font-size: 13px;
-      line-height: 1.42;
-      font-weight: 700;
-    }
-    .hero-stat b { display: block; margin-bottom: 4px; color: #fff8ec; font-size: 23px; letter-spacing: -.04em; font-weight: 950; }
-
-    section { position: relative; }
-    .intro, .platform, .editorial, .safety, .faq { padding: 105px 0; }
-    .section-grid {
-      display: grid;
-      grid-template-columns: .9fr 1.1fr;
-      gap: 52px;
-      align-items: start;
-    }
-    .kicker { color: var(--orange); margin-bottom: 18px; font-size: 12px; font-weight: 950; letter-spacing: .14em; text-transform: uppercase; }
-    h2 {
-      font-family: "Fraunces", Georgia, serif;
-      font-size: clamp(43px, 6.1vw, 84px);
-      line-height: .94;
-      letter-spacing: -.067em;
-      font-weight: 840;
-    }
-    .lead { color: var(--muted); font-size: clamp(18px, 1.5vw, 22px); line-height: 1.72; font-weight: 650; }
-    .quote-box {
-      margin-top: 30px;
-      padding: 22px 24px;
-      border-left: 3px solid var(--orange);
-      border-radius: 0 22px 22px 0;
-      background: rgba(255,116,72,.085);
-      color: var(--muted);
-      font-weight: 760;
-      line-height: 1.65;
+      gap: 12px;
     }
 
-    .platform-cards { margin-top: 44px; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; }
-    .platform-card {
-      overflow: hidden;
+    .proof-card {
+      min-height: 116px;
+      padding: 18px;
       border: 1px solid var(--line);
-      border-radius: var(--radius);
-      background: var(--surface);
-      box-shadow: 0 16px 55px rgba(0,0,0,.16);
+      border-radius: 24px;
+      background: rgba(255, 248, 236, .052);
     }
-    .platform-img { position: relative; height: 290px; overflow: hidden; background: #111; }
-    .platform-img img { width: 100%; height: 100%; object-fit: cover; transition: transform .8s ease; }
-    .platform-card:hover .platform-img img { transform: scale(1.045); }
-    .platform-tag {
+
+    html[data-theme="light"] .proof-card { background: rgba(255, 255, 255, .52); }
+    .proof-card b { display: block; color: var(--ink-strong); font-size: clamp(18px, 1.6vw, 24px); font-weight: 950; letter-spacing: -.05em; margin-bottom: 6px; }
+    .proof-card span { color: var(--muted); font-size: 13px; line-height: 1.45; font-weight: 720; }
+
+    .hero-visual {
+      position: relative;
+      min-height: 580px;
+      border-radius: calc(var(--radius-xl) - 12px);
+      overflow: hidden;
+      align-self: stretch;
+      box-shadow: var(--shadow-soft);
+      border: 1px solid rgba(255, 248, 236, .14);
+      background: #111827;
+    }
+
+    .hero-visual img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center 38%;
+      filter: saturate(1.05) contrast(1.04);
+    }
+
+    .hero-visual::after {
+      content: "";
       position: absolute;
-      left: 18px;
-      top: 18px;
-      display: inline-flex;
-      padding: 8px 11px;
-      border-radius: 999px;
-      background: rgba(5,8,20,.70);
+      inset: 0;
+      background:
+        linear-gradient(180deg, rgba(0, 0, 0, .04), rgba(0, 0, 0, .64)),
+        linear-gradient(90deg, rgba(5, 8, 20, .32), transparent 50%);
+      pointer-events: none;
+    }
+
+    .visual-card {
+      position: absolute;
+      z-index: 2;
+      left: 20px;
+      right: 20px;
+      bottom: 20px;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 14px;
+      align-items: end;
+      padding: 18px;
+      border: 1px solid rgba(255, 248, 236, .20);
+      border-radius: 26px;
+      background: rgba(5, 8, 20, .66);
       color: #fff8ec;
-      backdrop-filter: blur(10px);
-      font-size: 11px;
-      font-weight: 950;
-      letter-spacing: .13em;
-      text-transform: uppercase;
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
     }
-    .platform-body { padding: 28px; }
-    .platform-body h3 { font-size: clamp(30px, 3.2vw, 48px); line-height: .96; letter-spacing: -.058em; margin-bottom: 14px; }
-    .platform-body p { color: var(--muted); font-size: 15.5px; line-height: 1.72; font-weight: 650; }
 
-    .marquee {
-      overflow: hidden;
-      border-block: 1px solid var(--line);
-      background: rgba(255,248,236,.04);
-      padding: 16px 0;
-      white-space: nowrap;
-    }
-    html[data-theme="light"] .marquee { background: rgba(255,255,255,.42); }
-    .marquee-track { display: inline-flex; gap: 18px; animation: scroll 28s linear infinite; }
-    .marquee span { color: var(--muted); font-weight: 950; letter-spacing: -.02em; font-size: clamp(18px, 2.4vw, 38px); }
-    .dot { color: var(--orange) !important; }
-    @keyframes scroll { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+    .visual-card strong { display: block; font-size: 20px; letter-spacing: -.045em; margin-bottom: 6px; }
+    .visual-card p { color: rgba(255,248,236,.75); font-size: 13px; font-weight: 700; line-height: 1.5; }
+    .visual-badge { display: inline-flex; align-items: center; justify-content: center; min-height: 42px; padding: 0 14px; border-radius: 999px; background: var(--gold); color: #071126; font-size: 12px; font-weight: 950; white-space: nowrap; }
 
-    .split-layout { display: grid; grid-template-columns: 1.04fr .96fr; gap: 18px; align-items: stretch; }
-    .feature-image {
+    .below-fold {
       position: relative;
-      overflow: hidden;
-      min-height: 760px;
-      border-radius: 40px;
-      border: 1px solid var(--line);
-      background: #111;
-      box-shadow: var(--shadow);
+      margin-top: clamp(16px, 2.8vw, 32px);
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
     }
-    .feature-image img { width: 100%; height: 100%; object-fit: cover; object-position: center top; }
-    .feature-image::after { content: ""; position: absolute; inset: 0; background: linear-gradient(to top, rgba(0,0,0,.72), transparent 55%); }
-    .caption { position: absolute; z-index: 2; left: 28px; right: 28px; bottom: 28px; color: #fff8ec; max-width: 560px; }
-    .caption b { display: block; margin-bottom: 10px; font-size: 31px; line-height: 1.02; letter-spacing: -.052em; }
-    .caption span { display: block; color: rgba(255,248,236,.75); line-height: 1.58; font-weight: 690; }
-    .stack { display: grid; gap: 18px; }
-    .panel {
+
+    .feature-card {
+      min-height: 260px;
+      padding: clamp(22px, 2.5vw, 30px);
       border: 1px solid var(--line);
-      border-radius: var(--radius);
+      border-radius: var(--radius-lg);
       background: var(--surface);
-      padding: clamp(24px, 3.2vw, 36px);
-      min-height: 250px;
-    }
-    .panel h3 { font-size: clamp(31px, 4vw, 56px); line-height: .96; letter-spacing: -.06em; margin-bottom: 16px; }
-    .panel p, .panel li { color: var(--muted); line-height: 1.72; font-weight: 660; }
-    .panel ul { list-style: none; display: grid; gap: 12px; margin-top: 16px; }
-    .panel li { position: relative; padding-left: 22px; }
-    .panel li::before { content: ""; position: absolute; left: 0; top: .72em; width: 8px; height: 8px; border-radius: 50%; background: var(--orange); }
-    .mini-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; margin-top: 22px; }
-    .mini-stat { padding: 18px; border-radius: 22px; border: 1px solid var(--line); background: var(--surface2); }
-    .mini-stat b { display: block; color: var(--ink); font-size: 24px; letter-spacing: -.05em; margin-bottom: 4px; }
-    .mini-stat span { color: var(--muted); font-size: 13px; font-weight: 750; }
-
-    .gallery-section { padding: 112px 0; border-block: 1px solid var(--line); background: rgba(255,248,236,.035); }
-    html[data-theme="light"] .gallery-section { background: rgba(255,255,255,.36); }
-    .section-head { display: grid; grid-template-columns: .9fr 1.1fr; gap: 42px; align-items: end; margin-bottom: 36px; }
-    .section-head p { color: var(--muted); font-size: 17px; line-height: 1.7; font-weight: 650; }
-    .gallery { display: grid; grid-template-columns: repeat(12, 1fr); gap: 14px; }
-    .gallery-item {
+      overflow: hidden;
       position: relative;
-      min-height: 390px;
-      border-radius: 28px;
+    }
+
+    .feature-card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at 84% 10%, rgba(238, 203, 106, .16), transparent 34%);
+      opacity: .9;
+      pointer-events: none;
+    }
+
+    .feature-card > * { position: relative; }
+    .feature-card .num { display: block; color: var(--soft); font-weight: 950; font-size: 12px; letter-spacing: .14em; margin-bottom: 42px; }
+    .feature-card h3 { color: var(--ink-strong); font-size: clamp(28px, 3vw, 42px); line-height: .94; letter-spacing: -.06em; margin-bottom: 14px; }
+    .feature-card p { color: var(--muted); font-size: 15px; line-height: 1.62; font-weight: 680; }
+
+    section { padding: var(--section) 0; }
+    .section-head { display: grid; grid-template-columns: .82fr 1.18fr; gap: clamp(28px, 6vw, 82px); align-items: end; margin-bottom: clamp(34px, 5vw, 60px); }
+    h2 { color: var(--ink-strong); font-family: "Fraunces", Georgia, serif; font-size: clamp(44px, 6.4vw, 86px); line-height: .92; letter-spacing: -.068em; font-weight: 900; }
+    .section-copy { color: var(--muted); font-size: clamp(17px, 1.25vw, 20px); line-height: 1.72; font-weight: 680; max-width: 700px; }
+
+    .experience-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    .experience-card {
+      position: relative;
+      min-height: clamp(500px, 62vw, 700px);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-xl);
+      overflow: hidden;
+      background: #111827;
+      box-shadow: var(--shadow-soft);
+    }
+
+    .experience-card img { width: 100%; height: 100%; object-fit: cover; filter: saturate(1.02); }
+    .experience-card::after { content: ""; position: absolute; inset: 0; background: linear-gradient(to top, rgba(0, 0, 0, .72), rgba(0, 0, 0, .08) 58%); }
+    .experience-content { position: absolute; z-index: 2; left: clamp(22px, 3vw, 34px); right: clamp(22px, 3vw, 34px); bottom: clamp(22px, 3vw, 34px); color: #fff8ec; }
+    .experience-content h3 { font-size: clamp(34px, 4vw, 56px); line-height: .92; letter-spacing: -.062em; margin: 16px 0 12px; }
+    .experience-content p { color: rgba(255,248,236,.74); line-height: 1.65; font-weight: 700; max-width: 530px; }
+
+    .product-strip {
+      padding: clamp(24px, 4vw, 42px);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-xl);
+      background:
+        linear-gradient(135deg, rgba(40,196,200,.12), transparent 34%),
+        linear-gradient(315deg, rgba(255,107,74,.13), transparent 34%),
+        var(--surface);
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      align-items: stretch;
+    }
+
+    .product-copy { padding: clamp(8px, 2vw, 18px); align-self: center; }
+    .product-copy h2 { margin: 18px 0; }
+    .product-copy p { color: var(--muted); font-size: clamp(17px, 1.25vw, 20px); line-height: 1.72; font-weight: 680; max-width: 600px; }
+    .product-list { display: grid; gap: 12px; }
+    .product-item { padding: 20px; border: 1px solid var(--line); border-radius: 24px; background: rgba(255,248,236,.054); }
+    html[data-theme="light"] .product-item { background: rgba(255,255,255,.50); }
+    .product-item b { display: block; color: var(--ink-strong); margin-bottom: 7px; font-size: 18px; }
+    .product-item span { display: block; color: var(--muted); font-weight: 680; line-height: 1.55; }
+
+    .gallery { display: grid; grid-template-columns: repeat(12, 1fr); gap: 14px; }
+    .gallery a {
+      position: relative;
+      display: block;
+      min-height: 360px;
+      border-radius: clamp(22px, 3vw, 32px);
       overflow: hidden;
       border: 1px solid var(--line);
-      background: #111;
-      cursor: pointer;
+      background: #111827;
+      box-shadow: 0 14px 36px rgba(0,0,0,.16);
     }
-    .gallery-item.wide { grid-column: span 6; min-height: 580px; }
-    .gallery-item.mid { grid-column: span 4; }
-    .gallery-item.small { grid-column: span 3; }
-    .gallery-item img { width: 100%; height: 100%; object-fit: cover; transition: transform .7s ease; }
-    .gallery-item:hover img { transform: scale(1.035); }
-    .gallery-item::after { content: ""; position: absolute; inset: 0; background: linear-gradient(to top, rgba(0,0,0,.52), transparent 52%); }
-    .gallery-item span { position: absolute; z-index: 2; left: 19px; bottom: 19px; color: #fff8ec; font-size: 15px; font-weight: 900; letter-spacing: -.02em; }
 
-    .safety-grid { margin-top: 36px; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 14px; }
-    .safety-card { border-top: 1px solid var(--line2); padding-top: 20px; }
-    .safety-card b { display: block; margin-bottom: 9px; font-size: 18px; letter-spacing: -.025em; }
-    .safety-card p { color: var(--muted); font-size: 14px; line-height: 1.62; font-weight: 650; }
+    .gallery a:nth-child(1), .gallery a:nth-child(2) { grid-column: span 6; min-height: clamp(420px, 46vw, 580px); }
+    .gallery a:nth-child(n+3) { grid-column: span 4; }
+    .gallery img { width: 100%; height: 100%; object-fit: cover; transition: transform .8s var(--ease), filter .8s var(--ease); }
+    .gallery a:hover img { transform: scale(1.035); filter: saturate(1.06) contrast(1.03); }
+    .gallery a::after { content: ""; position: absolute; inset: 0; background: linear-gradient(to top, rgba(0,0,0,.55), transparent 52%); }
+    .gallery span { position: absolute; z-index: 2; left: 18px; bottom: 18px; color: #fff8ec; font-size: 15px; font-weight: 900; letter-spacing: -.02em; }
 
-    .cta { padding: 84px 0 120px; }
+    .trust-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 14px; }
+    .trust-card { padding: 24px 22px; min-height: 230px; border: 1px solid var(--line); border-radius: 28px; background: var(--surface); }
+    .trust-card b { display: block; color: var(--ink-strong); font-size: 20px; letter-spacing: -.035em; margin: 16px 0 10px; }
+    .trust-card p { color: var(--muted); font-size: 14px; line-height: 1.62; font-weight: 680; }
+    .trust-icon { width: 44px; height: 44px; display: grid; place-items: center; border: 1px solid var(--line); border-radius: 16px; background: var(--surface-2); font-weight: 950; color: var(--gold); }
+
+    .faq-grid { display: grid; grid-template-columns: .8fr 1.2fr; gap: clamp(26px, 5vw, 70px); align-items: start; }
+    .faq-list { display: grid; gap: 12px; }
+    details { border: 1px solid var(--line); border-radius: 24px; background: var(--surface); overflow: hidden; }
+    summary { cursor: pointer; padding: 20px 22px; color: var(--ink-strong); font-weight: 900; list-style: none; }
+    summary::-webkit-details-marker { display: none; }
+    details p { padding: 0 22px 22px; color: var(--muted); line-height: 1.65; font-weight: 680; }
+
     .cta-card {
       position: relative;
       overflow: hidden;
-      min-height: 540px;
+      min-height: clamp(520px, 58vw, 680px);
       display: grid;
       align-items: end;
-      border-radius: 46px;
-      border: 1px solid rgba(255,248,236,.15);
-      background: #050814;
+      padding: clamp(28px, 5vw, 66px);
+      border: 1px solid rgba(255,248,236,.14);
+      border-radius: var(--radius-xl);
+      background: #071126;
+      color: #fff8ec;
       box-shadow: var(--shadow);
     }
-    .cta-card img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: .45; }
-    .cta-card::after { content: ""; position: absolute; inset: 0; background: linear-gradient(90deg, rgba(5,8,20,.92), rgba(5,8,20,.42), rgba(5,8,20,.18)); }
-    .cta-content { position: relative; z-index: 2; max-width: 810px; padding: clamp(28px, 5vw, 66px); color: #fff8ec; }
+
+    .cta-card img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: .36; }
+    .cta-card::after { content: ""; position: absolute; inset: 0; background: linear-gradient(90deg, rgba(5,8,20,.90), rgba(5,8,20,.22)); }
+    .cta-content { position: relative; z-index: 2; max-width: 780px; }
     .cta-content h2 { color: #fff8ec; }
-    .cta-content p { margin-top: 18px; color: rgba(255,248,236,.76); font-size: 18px; line-height: 1.72; font-weight: 650; }
+    .cta-content p { color: rgba(255,248,236,.76); margin-top: 18px; font-size: clamp(17px, 1.3vw, 20px); line-height: 1.7; font-weight: 700; }
 
-    .faq-grid { margin-top: 34px; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; }
-    .faq-card { padding: 25px; border: 1px solid var(--line); border-radius: 26px; background: var(--surface); }
-    .faq-card b { display: block; margin-bottom: 12px; font-size: 18px; letter-spacing: -.025em; }
-    .faq-card p { color: var(--muted); line-height: 1.65; font-weight: 650; font-size: 14.5px; }
-
-    footer { border-top: 1px solid var(--line); padding: 56px 0 38px; }
-    .footer-grid { display: grid; grid-template-columns: 1.2fr repeat(3, .7fr); gap: 30px; }
-    .footer-logo { width: 194px; height: auto; max-height: 48px; object-fit: contain; margin-bottom: 16px; }
-    .footer-about p { max-width: 470px; color: var(--muted); line-height: 1.7; font-weight: 650; }
-    .footer-col h4 { margin-bottom: 14px; color: var(--soft); font-size: 12px; letter-spacing: .13em; text-transform: uppercase; }
-    .footer-col a { display: block; margin: 10px 0; color: var(--muted); font-size: 14px; font-weight: 760; }
-    .footer-col a:hover { color: var(--ink); }
-    .copyright { margin-top: 40px; padding-top: 22px; border-top: 1px solid var(--line); display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px; color: var(--soft); font-size: 13px; font-weight: 650; }
+    footer { border-top: 1px solid var(--line); padding: clamp(46px, 6vw, 70px) 0 calc(34px + env(safe-area-inset-bottom)); }
+    .footer-grid { display: grid; grid-template-columns: 1.15fr repeat(3, .65fr); gap: 34px; }
+    .footer-logo { width: 172px; margin-bottom: 18px; }
+    .footer-about p { color: var(--muted); max-width: 480px; line-height: 1.7; font-weight: 680; }
+    .footer-col h4 { color: var(--soft); font-size: 12px; letter-spacing: .14em; text-transform: uppercase; margin-bottom: 14px; }
+    .footer-col a { display: block; color: var(--muted); font-size: 14px; font-weight: 800; margin: 10px 0; }
+    .footer-col a:hover { color: var(--ink-strong); }
+    .copyright { margin-top: 38px; padding-top: 20px; border-top: 1px solid var(--line); display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; color: var(--soft); font-size: 13px; font-weight: 680; }
 
     .lightbox {
       position: fixed;
       inset: 0;
-      z-index: 2000;
+      z-index: 200;
       display: none;
       align-items: center;
       justify-content: center;
-      padding: 24px;
-      background: rgba(5,8,20,.86);
-      backdrop-filter: blur(16px);
+      padding: var(--page-pad);
+      background: rgba(0, 0, 0, .82);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
     }
+
     .lightbox.open { display: flex; }
-    .lightbox img { max-width: min(100%, 1100px); max-height: 86vh; border-radius: 28px; box-shadow: var(--shadow); object-fit: contain; }
-    .lightbox button { position: absolute; top: 22px; right: 22px; width: 48px; height: 48px; border-radius: 50%; border: 1px solid rgba(255,255,255,.24); background: rgba(255,255,255,.09); color: #fff; cursor: pointer; font-size: 22px; }
+    .lightbox img { max-width: min(1120px, 100%); max-height: 84vh; border-radius: 24px; object-fit: contain; box-shadow: 0 28px 90px rgba(0,0,0,.55); }
+    .lightbox button { position: absolute; top: max(22px, env(safe-area-inset-top)); right: max(22px, env(safe-area-inset-right)); width: 48px; height: 48px; border: 1px solid rgba(255,255,255,.22); border-radius: 999px; color: #fff; background: rgba(255,255,255,.10); cursor: pointer; font-size: 24px; }
 
-    @media (max-width: 1020px) {
-      .nav-links { display: none; }
+    @media (max-width: 1080px) {
+      .nav-center { display: none; }
       .menu-btn { display: grid; }
-      .brand, .nav-actions { min-width: auto; }
-      .section-grid, .split-layout, .section-head { grid-template-columns: 1fr; }
-      .platform-cards { grid-template-columns: 1fr; }
-      .feature-image { min-height: 620px; }
-      .safety-grid, .faq-grid { grid-template-columns: repeat(2, 1fr); }
+      .hero-shell { grid-template-columns: 1fr; }
+      .hero-copy { max-width: 100%; }
+      .hero-visual { min-height: 520px; }
+      .below-fold, .product-strip, .experience-grid, .section-head, .faq-grid { grid-template-columns: 1fr; }
+      .trust-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
       .footer-grid { grid-template-columns: 1fr 1fr; }
-      .gallery-item.wide { grid-column: span 12; }
-      .gallery-item.mid { grid-column: span 6; }
-      .gallery-item.small { grid-column: span 6; }
     }
 
-    @media (max-width: 680px) {
-      .wrap { width: min(var(--max), calc(100% - 28px)); }
-      .nav { top: 10px; width: calc(100% - 20px); padding-left: 12px; border-radius: 22px; }
-      .brand-logo { width: 134px; }
+    @media (max-width: 720px) {
+      :root { --page-pad: 28px; --nav-h: 66px; }
+      .nav-shell { top: max(10px, env(safe-area-inset-top)); }
+      .nav { border-radius: 24px; padding: 8px 9px 8px 16px; }
+      .brand { width: 128px; height: 46px; }
+      .theme-btn { min-width: 46px; padding: 0; }
+      .theme-label { display: none; }
       .nav-cta { display: none; }
-      .hero { padding-top: 104px; padding-bottom: 44px; }
-      .hero-card, .hero-content { min-height: 704px; }
-      .hero-card { border-radius: 30px; }
-      .hero-card::after { inset: 11px; border-radius: 23px; }
-      .hero-card::before { background: linear-gradient(180deg, rgba(5,8,20,.88), rgba(5,8,20,.40) 46%, rgba(5,8,20,.94)); }
-      .hero-content { padding: 24px; }
-      h1 { font-size: clamp(54px, 16vw, 76px); }
-      .hero-statbar { grid-template-columns: 1fr; }
-      .intro, .platform, .editorial, .safety, .faq { padding: 76px 0; }
-      .platform-img { height: 235px; }
-      .gallery-item.wide, .gallery-item.mid, .gallery-item.small { grid-column: span 12; min-height: 430px; }
-      .safety-grid, .faq-grid, .mini-grid, .footer-grid { grid-template-columns: 1fr; }
-      .cta-card { min-height: 520px; border-radius: 30px; }
+      .hero { align-items: start; padding-top: calc(var(--nav-h) + 36px); }
+      .hero-shell { min-height: auto; padding: 14px; border-radius: 30px; }
+      .hero-copy { padding: 12px; }
+      h1 { font-size: clamp(54px, 17vw, 82px); }
+      .hero-proof { grid-template-columns: 1fr; }
+      .hero-visual { min-height: 460px; border-radius: 24px; }
+      .visual-card { grid-template-columns: 1fr; }
+      .below-fold { gap: 12px; }
+      .feature-card { min-height: 220px; }
+      .gallery a, .gallery a:nth-child(1), .gallery a:nth-child(2), .gallery a:nth-child(n+3) { grid-column: span 12; min-height: 390px; }
+      .trust-grid { grid-template-columns: 1fr; }
+      .footer-grid { grid-template-columns: 1fr; }
+      .cta-card { min-height: 560px; }
+    }
+
+    @media (max-width: 420px) {
+      :root { --page-pad: 22px; }
+      .pill { font-size: 10px; letter-spacing: .08em; }
+      .hero-actions .btn { width: 100%; }
+      .hero-visual { min-height: 400px; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      * { scroll-behavior: auto !important; animation: none !important; transition: none !important; }
     }
   </style>
 </head>
 <body>
-  <nav class="nav" aria-label="Main navigation">
-    <a class="brand" href="#top" aria-label="Koneksyon home">
-      <img class="brand-logo logo-dark" src="./assets/logo-white.png" alt="Koneksyon" />
-      <img class="brand-logo logo-light" src="./assets/logo-color.png" alt="Koneksyon" />
-    </a>
-    <div class="nav-links">
-      <a href="#spark">Spark</a>
-      <a href="#bkonekt">B-Konekt</a>
-      <a href="#activities">Activities</a>
-      <a href="#safety">Safety</a>
-      <a href="privacy.html">Privacy</a>
-      <a href="terms.html">Terms</a>
-    </div>
-    <div class="nav-actions">
-      <button class="icon-btn" id="themeBtn" type="button" aria-label="Toggle dark and light mode">☀</button>
-      <a class="nav-cta" href="download.html">Join the Launch</a>
-      <button class="menu-btn" id="menuBtn" type="button" aria-label="Open menu">☰</button>
-    </div>
-  </nav>
+  <header class="nav-shell">
+    <div class="wrap">
+      <nav class="nav" aria-label="Main navigation">
+        <a class="brand" href="#top" aria-label="Koneksyon home">
+          <img class="brand-logo logo-dark" src="./assets/logo-nav-white.png" alt="Koneksyon" />
+          <img class="brand-logo logo-light" src="./assets/logo-nav-color.png" alt="Koneksyon" />
+        </a>
 
-  <div class="mobile-menu" id="mobileMenu">
-    <a href="#spark">Spark</a>
-    <a href="#bkonekt">B-Konekt</a>
-    <a href="#activities">Activities</a>
-    <a href="#safety">Safety</a>
-    <a href="community-guidelines.html">Guidelines</a>
-    <a href="child-safety-standards.html">Child Safety</a>
-    <a href="download.html">Join the Launch</a>
-  </div>
+        <div class="nav-center">
+          <a href="#spark">Spark</a>
+          <a href="#bkonekt">B-Konekt</a>
+          <a href="#activities">Activities</a>
+          <a href="#safety">Safety</a>
+          <a href="privacy.html">Privacy</a>
+          <a href="terms.html">Terms</a>
+        </div>
+
+        <div class="nav-actions">
+          <button class="theme-btn" id="themeBtn" type="button" aria-label="Change appearance mode">
+            <span id="themeIcon">◐</span><span class="theme-label" id="themeLabel">Auto</span>
+          </button>
+          <a class="nav-cta" href="download.html">Join the Launch</a>
+          <button class="menu-btn" id="menuBtn" type="button" aria-label="Open menu">☰</button>
+        </div>
+      </nav>
+      <div class="mobile-menu" id="mobileMenu">
+        <a href="#spark">Spark</a>
+        <a href="#bkonekt">B-Konekt</a>
+        <a href="#activities">Activities</a>
+        <a href="#safety">Safety</a>
+        <a href="privacy.html">Privacy</a>
+        <a href="terms.html">Terms</a>
+        <a href="download.html">Join the Launch</a>
+      </div>
+    </div>
+  </header>
 
   <main id="top">
-    <section class="hero" aria-labelledby="hero-title">
+    <section class="hero" aria-label="Koneksyon introduction">
       <div class="wrap">
-        <div class="hero-card">
-          <div class="hero-media"><img src="./assets/hero-community.jpg" alt="Koneksyon launch community moment" /></div>
-          <div class="hero-content">
+        <div class="hero-shell">
+          <div class="hero-copy">
             <div>
-              <div class="eyebrow">Caribbean-inspired · Open to everyone · 18+</div>
-              <h1 id="hero-title">Culture. Community. <em>Connection.</em></h1>
-              <p class="hero-copy">Koneksyon is more than a dating app. Spark helps people build intentional relationships. B-Konekt brings creators, founders, professionals, events, and community into one culture-first platform.</p>
-              <div class="actions">
+              <div class="hero-kicker">
+                <span class="pill"><span class="pill-dot"></span> Caribbean-inspired</span>
+                <span class="pill">Open to everyone</span>
+                <span class="pill">Adults only · 18+</span>
+              </div>
+
+              <h1>Culture. Community. <span class="gold">Connection.</span></h1>
+              <p class="hero-lead">Koneksyon is more than a dating app. Spark helps people build intentional relationships. B-Konekt brings creators, founders, professionals, events, and community into one culture-first platform.</p>
+
+              <div class="hero-actions">
                 <a class="btn btn-primary" href="download.html">Join Koneksyon</a>
-                <a class="btn btn-soft" href="#activities">View launch activities</a>
+                <a class="btn btn-secondary" href="#activities">View launch activities</a>
               </div>
             </div>
-            <div class="hero-statbar" aria-label="Platform highlights">
-              <div class="hero-stat"><b>Spark</b>Intentional dating based on values, identity, language, and real chemistry.</div>
-              <div class="hero-stat"><b>B-Konekt</b>Business networking for creators, entrepreneurs, mentors, and partners.</div>
-              <div class="hero-stat"><b>Safety</b>Adults-only platform with verification, reporting, moderation, and clear policies.</div>
+
+            <div class="hero-proof" aria-label="Platform highlights">
+              <div class="proof-card"><b>Spark</b><span>Dating based on values, intention, language, culture, and real compatibility.</span></div>
+              <div class="proof-card"><b>B-Konekt</b><span>Business, creators, mentors, founders, services, and cultural opportunity.</span></div>
+              <div class="proof-card"><b>Trust</b><span>Adults-only positioning with verification, reporting, blocking, and clear policies.</span></div>
+            </div>
+          </div>
+
+          <div class="hero-visual">
+            <img src="./assets/brand-banner.jpg" alt="Koneksyon launch moment with community members" />
+            <div class="visual-card">
+              <div>
+                <strong>Real launch energy.</strong>
+                <p>Built around people, events, creators, and culture — not only profile swipes.</p>
+              </div>
+              <span class="visual-badge">Launch proof</span>
             </div>
           </div>
         </div>
-      </div>
-    </section>
 
-    <section class="intro" id="spark">
-      <div class="wrap">
-        <div class="section-grid">
-          <div>
-            <div class="kicker">The platform</div>
-            <h2>Not a clone. A connection brand with culture behind it.</h2>
-          </div>
-          <div>
-            <p class="lead">The goal is to make Koneksyon feel like a real movement: photos from actual activities, a clear brand identity, a premium landing experience, and a product story that separates Spark from B-Konekt.</p>
-            <div class="quote-box">A high-standard site should make Apple, Google, partners, ambassadors, and users immediately understand that Koneksyon is not only a swipe product — it is a lifestyle platform.</div>
-          </div>
-        </div>
-
-        <div class="platform-cards">
-          <article class="platform-card">
-            <div class="platform-img">
-              <img src="./assets/community-selfie.jpg" alt="People taking a selfie at a Koneksyon activity" />
-              <span class="platform-tag">Spark</span>
-            </div>
-            <div class="platform-body">
-              <h3>Dating with less noise.</h3>
-              <p>Discover people through values, culture, language, roots, relationship goals, personality, and vibe — not only the first photo.</p>
-            </div>
+        <div class="below-fold" aria-label="Core platform pillars">
+          <article class="feature-card" id="spark">
+            <span class="num">01 · SPARK</span>
+            <h3>Intentional dating.</h3>
+            <p>Meet people through values, roots, language, lifestyle, chemistry, and relationship goals — with less generic noise.</p>
           </article>
-          <article class="platform-card" id="bkonekt">
-            <div class="platform-img">
-              <img src="./assets/bkonekt-founders.jpg" alt="B-Konekt founders and business community moment" />
-              <span class="platform-tag">B-Konekt</span>
-            </div>
-            <div class="platform-body">
-              <h3>Business, creators, and opportunity.</h3>
-              <p>B-Konekt is the professional side of Koneksyon: networking, mentors, entrepreneurs, creators, event partners, and people building through culture.</p>
-            </div>
+          <article class="feature-card" id="bkonekt">
+            <span class="num">02 · B-KONEKT</span>
+            <h3>Network with purpose.</h3>
+            <p>A dedicated lane for entrepreneurs, creators, professionals, mentors, ambassadors, services, and events.</p>
+          </article>
+          <article class="feature-card">
+            <span class="num">03 · CULTURE</span>
+            <h3>More than matching.</h3>
+            <p>Launch activities, real rooms, and community proof help Koneksyon feel alive before and after the app launches.</p>
           </article>
         </div>
       </div>
     </section>
 
-    <div class="marquee" aria-hidden="true">
-      <div class="marquee-track">
-        <span>Dating</span><span class="dot">•</span><span>Business</span><span class="dot">•</span><span>Creators</span><span class="dot">•</span><span>Culture</span><span class="dot">•</span><span>Events</span><span class="dot">•</span><span>Community</span><span class="dot">•</span>
-        <span>Dating</span><span class="dot">•</span><span>Business</span><span class="dot">•</span><span>Creators</span><span class="dot">•</span><span>Culture</span><span class="dot">•</span><span>Events</span><span class="dot">•</span><span>Community</span><span class="dot">•</span>
-      </div>
-    </div>
-
-    <section class="editorial">
-      <div class="wrap split-layout">
-        <div class="feature-image">
-          <img src="./assets/brand-banner.jpg" alt="Koneksyon banner at a launch activity" />
-          <div class="caption">
-            <b>A real community, not only a landing page.</b>
-            <span>Your launch photos give the website proof: people are already showing up, meeting, supporting the brand, and creating the culture around the product.</span>
-          </div>
-        </div>
-        <div class="stack">
-          <div class="panel">
-            <div class="kicker">Why Koneksyon is different</div>
-            <h3>Two experiences under one premium brand.</h3>
-            <p>Spark is for intentional romantic connection. B-Konekt is for business, creators, events, mentorship, and community. This makes Koneksyon feel bigger, more useful, and more defensible than a standard dating app landing page.</p>
-            <div class="mini-grid">
-              <div class="mini-stat"><b>4</b><span>Languages planned in the app</span></div>
-              <div class="mini-stat"><b>18+</b><span>Adults-only community</span></div>
-            </div>
-          </div>
-          <div class="panel">
-            <div class="kicker">B-Konekt use cases</div>
-            <h3>Meet people who are building something.</h3>
-            <ul>
-              <li>Entrepreneurs looking for collaborators, services, and visibility.</li>
-              <li>Creators looking for brands, photographers, media, and events.</li>
-              <li>Professionals and mentors open to community networking.</li>
-              <li>Ambassadors, launch partners, and event organizers.</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="gallery-section" id="activities">
+    <section aria-label="Koneksyon experiences">
       <div class="wrap">
         <div class="section-head">
           <div>
-            <div class="kicker">Launch activities</div>
+            <div class="eyebrow">Two experiences</div>
+            <h2>Dating and opportunity should not feel the same.</h2>
+          </div>
+          <p class="section-copy">A premium platform needs clear architecture. Spark is for relationship discovery. B-Konekt is for business, creators, events, mentorship, and cultural networking. This separation makes Koneksyon feel bigger, cleaner, and more useful than a traditional dating app.</p>
+        </div>
+
+        <div class="experience-grid">
+          <article class="experience-card">
+            <img src="./assets/community-selfie.jpg" alt="Koneksyon community selfie" loading="lazy" decoding="async" />
+            <div class="experience-content">
+              <div class="eyebrow">Spark</div>
+              <h3>Find people who feel aligned.</h3>
+              <p>Relationship discovery built around intention, shared values, identity, language, and lifestyle.</p>
+            </div>
+          </article>
+          <article class="experience-card">
+            <img src="./assets/bkonekt-founders.jpg" alt="B-Konekt business and founder moment" loading="lazy" decoding="async" />
+            <div class="experience-content">
+              <div class="eyebrow">B-Konekt</div>
+              <h3>Build with your community.</h3>
+              <p>Networking for founders, creators, professionals, services, event partners, and people building something.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section aria-label="Product positioning">
+      <div class="wrap">
+        <div class="product-strip">
+          <div class="product-copy">
+            <div class="eyebrow">What was missing</div>
+            <h2>The first page now explains the product immediately.</h2>
+            <p>The homepage needs to show what Koneksyon is, why it is different, where B-Konekt fits, and proof that the brand has real community energy. That is what this version puts above the fold.</p>
+          </div>
+          <div class="product-list">
+            <div class="product-item"><b>Clear value in the hero</b><span>Users understand Spark, B-Konekt, culture, safety, and launch activity without scrolling too much.</span></div>
+            <div class="product-item"><b>Automatic appearance mode</b><span>The website follows the person’s device setting by default and still gives a premium manual mode control.</span></div>
+            <div class="product-item"><b>Responsive by device</b><span>Fluid type, adaptive spacing, safe-area support, and layout shifts for phone, tablet, and desktop.</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="activities" aria-label="Launch activities gallery">
+      <div class="wrap">
+        <div class="section-head">
+          <div>
+            <div class="eyebrow">Launch activities</div>
             <h2>Real people. Real rooms. Real energy.</h2>
           </div>
-          <p>Use these photos as proof of activity around the app launch. The website should feel editorial and real, not generic. Tap a photo to view it larger.</p>
+          <p class="section-copy">A premium website should not look empty. These photos create trust because they show the community, launch moments, founders, guests, creators, and B-Konekt energy around the platform.</p>
         </div>
+
         <div class="gallery">
-          <button class="gallery-item wide" type="button"><img src="./assets/founder-talk.jpg" alt="Founder speaking at a Koneksyon activity" /><span>Founder moment</span></button>
-          <button class="gallery-item mid" type="button"><img src="./assets/launch-style.jpg" alt="Guests dressed in black at a Koneksyon launch activity" /><span>Culture & style</span></button>
-          <button class="gallery-item mid" type="button"><img src="./assets/creators.jpg" alt="Koneksyon creators and supporters" /><span>Creators</span></button>
-          <button class="gallery-item small" type="button"><img src="./assets/guests.jpg" alt="Guests connecting at an event" /><span>Community</span></button>
-          <button class="gallery-item small" type="button"><img src="./assets/community-selfie.jpg" alt="Supporters taking a selfie" /><span>Supporters</span></button>
-          <button class="gallery-item small" type="button"><img src="./assets/brand-banner.jpg" alt="Koneksyon banner and launch moment" /><span>Brand proof</span></button>
-          <button class="gallery-item small" type="button"><img src="./assets/bkonekt-founders.jpg" alt="B-Konekt founders and business connection" /><span>B-Konekt</span></button>
+          <a href="./assets/founder-talk.jpg" data-lightbox><img src="./assets/founder-talk.jpg" alt="Founder speaking at a Koneksyon launch activity" loading="lazy" decoding="async" /><span>Founder moment</span></a>
+          <a href="./assets/launch-style.jpg" data-lightbox><img src="./assets/launch-style.jpg" alt="Guests dressed in black at a Koneksyon launch activity" loading="lazy" decoding="async" /><span>Culture & style</span></a>
+          <a href="./assets/creators.jpg" data-lightbox><img src="./assets/creators.jpg" alt="Koneksyon creators and supporters" loading="lazy" decoding="async" /><span>Creators</span></a>
+          <a href="./assets/guests.jpg" data-lightbox><img src="./assets/guests.jpg" alt="Guests connecting at a Koneksyon activity" loading="lazy" decoding="async" /><span>Community</span></a>
+          <a href="./assets/hero-community.jpg" data-lightbox><img src="./assets/hero-community.jpg" alt="Koneksyon group photo during launch activities" loading="lazy" decoding="async" /><span>Launch night</span></a>
+          <a href="./assets/bkonekt-founders.jpg" data-lightbox><img src="./assets/bkonekt-founders.jpg" alt="B-Konekt founders and community" loading="lazy" decoding="async" /><span>B-Konekt</span></a>
         </div>
       </div>
     </section>
 
-    <section class="safety" id="safety">
+    <section id="safety" aria-label="Trust and safety">
       <div class="wrap">
         <div class="section-head">
           <div>
-            <div class="kicker">Trust and safety</div>
-            <h2>A premium brand needs premium protection.</h2>
+            <div class="eyebrow">Trust and safety</div>
+            <h2>Premium also means protected.</h2>
           </div>
-          <p>Koneksyon is positioned as an adults-only platform with safety pages and product rules that support verification, reporting, blocking, moderation, privacy, and child safety standards.</p>
+          <p class="section-copy">Koneksyon is positioned as an adults-only community with clear reporting paths, profile standards, privacy pages, and child safety information. The website should make that easy to find.</p>
         </div>
-        <div class="safety-grid">
-          <div class="safety-card"><b>18+ platform</b><p>Koneksyon is not designed for minors and should remain clearly adults-only across the website and app stores.</p></div>
-          <div class="safety-card"><b>Verification-first</b><p>Selfie verification and profile requirements help reduce fake accounts and protect the community.</p></div>
-          <div class="safety-card"><b>Report and block</b><p>Users should always be able to report unsafe behavior, block unwanted contact, and contact support.</p></div>
-          <div class="safety-card"><b>Clear policies</b><p>Terms, Privacy, Community Guidelines, and Child Safety pages are linked directly from the footer.</p></div>
+
+        <div class="trust-grid">
+          <article class="trust-card"><span class="trust-icon">18+</span><b>Adults only</b><p>Koneksyon is not for minors and should clearly communicate its adults-only standard.</p></article>
+          <article class="trust-card"><span class="trust-icon">✓</span><b>Verification-first</b><p>Selfie verification and profile requirements help reduce fake behavior and protect trust.</p></article>
+          <article class="trust-card"><span class="trust-icon">!</span><b>Report and block</b><p>Users need clear ways to report unsafe behavior and block unwanted communication.</p></article>
+          <article class="trust-card"><span class="trust-icon">§</span><b>Public policies</b><p>Terms, Privacy, Community Guidelines, and Child Safety pages are linked from the website.</p></article>
         </div>
       </div>
     </section>
 
-    <section class="faq">
-      <div class="wrap">
-        <div class="section-grid">
-          <div>
-            <div class="kicker">Brand clarity</div>
-            <h2>Built for app review, partners, and users.</h2>
-          </div>
-          <div>
-            <p class="lead">The site explains the product in a way that looks serious: Spark is the dating layer, B-Konekt is the networking layer, and your photos prove that Koneksyon has real activity behind it.</p>
-          </div>
+    <section aria-label="Frequently asked questions">
+      <div class="wrap faq-grid">
+        <div>
+          <div class="eyebrow">Questions</div>
+          <h2>Clear answers build confidence.</h2>
         </div>
-        <div class="faq-grid">
-          <div class="faq-card"><b>Is Koneksyon only Haitian?</b><p>No. It is Caribbean-inspired and open to everyone who respects the culture and community standards.</p></div>
-          <div class="faq-card"><b>What is B-Konekt?</b><p>B-Konekt is the business and community side for entrepreneurs, creators, mentors, partners, and events.</p></div>
-          <div class="faq-card"><b>Why use launch photos?</b><p>Real photos make the brand feel alive, credible, and harder to confuse with a generic dating template.</p></div>
+        <div class="faq-list">
+          <details open>
+            <summary>Is Koneksyon only for Caribbean people?</summary>
+            <p>No. Koneksyon is Caribbean-inspired and open to everyone. Culture is part of the brand, but the platform welcomes people from every background.</p>
+          </details>
+          <details>
+            <summary>What is B-Konekt?</summary>
+            <p>B-Konekt is the networking side of Koneksyon for founders, creators, professionals, mentors, services, events, and community opportunities.</p>
+          </details>
+          <details>
+            <summary>How is Spark different from a normal dating feed?</summary>
+            <p>Spark focuses on intention, values, language, roots, lifestyle, and compatibility instead of making the whole product feel like a generic swipe app.</p>
+          </details>
         </div>
       </div>
     </section>
 
-    <section class="cta">
+    <section aria-label="Join Koneksyon">
       <div class="wrap">
         <div class="cta-card">
-          <img src="./assets/brand-banner.jpg" alt="" />
+          <img src="./assets/brand-banner.jpg" alt="Koneksyon community launch banner" loading="lazy" decoding="async" />
           <div class="cta-content">
-            <div class="kicker">Join the launch</div>
+            <div class="eyebrow">Join the launch</div>
             <h2>Your Koneksyon starts with culture.</h2>
-            <p>Explore Spark for intentional dating and B-Konekt for business, creators, events, mentorship, and community.</p>
-            <div class="actions">
+            <p>Explore Spark for intentional dating and B-Konekt for business, creators, events, mentorship, services, and community.</p>
+            <div class="hero-actions">
               <a class="btn btn-primary" href="download.html">Download App</a>
-              <a class="btn btn-soft" href="mailto:support@koneksyondatingapp.com">Contact the Team</a>
+              <a class="btn btn-secondary" href="mailto:support@koneksyondatingapp.com">Contact the Team</a>
             </div>
           </div>
         </div>
@@ -708,9 +879,9 @@
     <div class="wrap">
       <div class="footer-grid">
         <div class="footer-about">
-          <img class="footer-logo logo-dark" src="./assets/logo-white.png" alt="Koneksyon" />
-          <img class="footer-logo logo-light" src="./assets/logo-color.png" alt="Koneksyon" />
-          <p>Caribbean-inspired lifestyle platform for dating, business, creators, events, mentorship, and community. Open to everyone. Adults only.</p>
+          <img class="footer-logo logo-dark" src="./assets/logo-nav-white.png" alt="Koneksyon" />
+          <img class="footer-logo logo-light" src="./assets/logo-nav-color.png" alt="Koneksyon" />
+          <p>Caribbean-inspired platform for intentional dating, B-Konekt networking, creators, events, mentorship, and community. Open to everyone. Adults only.</p>
         </div>
         <div class="footer-col">
           <h4>Platform</h4>
@@ -742,58 +913,85 @@
 
   <div class="lightbox" id="lightbox" aria-hidden="true">
     <button type="button" id="closeLightbox" aria-label="Close image">×</button>
-    <img id="lightboxImage" src="./assets/brand-banner.jpg" alt="Expanded Koneksyon activity photo" />
+    <img id="lightboxImg" src="" alt="" />
   </div>
 
   <script>
     const root = document.documentElement;
-    const themeBtn = document.getElementById('themeBtn');
-    const menuBtn = document.getElementById('menuBtn');
-    const mobileMenu = document.getElementById('mobileMenu');
-    const savedTheme = localStorage.getItem('koneksyon-theme');
+    const themeBtn = document.getElementById("themeBtn");
+    const themeIcon = document.getElementById("themeIcon");
+    const themeLabel = document.getElementById("themeLabel");
+    const menuBtn = document.getElementById("menuBtn");
+    const mobileMenu = document.getElementById("mobileMenu");
+    const themeMeta = document.querySelector('meta[name="theme-color"]');
+    const media = window.matchMedia("(prefers-color-scheme: dark)");
+    const modes = ["system", "dark", "light"];
 
-    if (savedTheme === 'light' || savedTheme === 'dark') root.setAttribute('data-theme', savedTheme);
-
-    function syncThemeIcon() {
-      themeBtn.textContent = root.getAttribute('data-theme') === 'light' ? '☾' : '☀';
+    function currentMode() {
+      return localStorage.getItem("koneksyon-theme-mode") || "system";
     }
-    syncThemeIcon();
 
-    themeBtn.addEventListener('click', () => {
-      const next = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
-      root.setAttribute('data-theme', next);
-      localStorage.setItem('koneksyon-theme', next);
-      syncThemeIcon();
+    function applyTheme(mode) {
+      const resolved = mode === "system" ? (media.matches ? "dark" : "light") : mode;
+      root.setAttribute("data-theme", resolved);
+      root.setAttribute("data-theme-mode", mode);
+      if (themeMeta) themeMeta.setAttribute("content", resolved === "dark" ? "#050814" : "#f7f1e8");
+      if (themeIcon && themeLabel) {
+        if (mode === "system") { themeIcon.textContent = "◐"; themeLabel.textContent = "Auto"; }
+        if (mode === "dark") { themeIcon.textContent = "☾"; themeLabel.textContent = "Dark"; }
+        if (mode === "light") { themeIcon.textContent = "☀"; themeLabel.textContent = "Light"; }
+      }
+    }
+
+    applyTheme(currentMode());
+
+    media.addEventListener("change", () => {
+      if (currentMode() === "system") applyTheme("system");
     });
 
-    menuBtn.addEventListener('click', () => mobileMenu.classList.toggle('open'));
-    mobileMenu.querySelectorAll('a').forEach(link => link.addEventListener('click', () => mobileMenu.classList.remove('open')));
+    themeBtn.addEventListener("click", () => {
+      const next = modes[(modes.indexOf(currentMode()) + 1) % modes.length];
+      localStorage.setItem("koneksyon-theme-mode", next);
+      applyTheme(next);
+    });
 
-    const lightbox = document.getElementById('lightbox');
-    const lightboxImage = document.getElementById('lightboxImage');
-    const closeLightbox = document.getElementById('closeLightbox');
+    menuBtn.addEventListener("click", () => {
+      const isOpen = mobileMenu.classList.toggle("open");
+      menuBtn.setAttribute("aria-label", isOpen ? "Close menu" : "Open menu");
+      menuBtn.textContent = isOpen ? "×" : "☰";
+    });
 
-    document.querySelectorAll('.gallery-item img').forEach(img => {
-      img.addEventListener('click', () => {
-        lightboxImage.src = img.src;
-        lightboxImage.alt = img.alt;
-        lightbox.classList.add('open');
-        lightbox.setAttribute('aria-hidden', 'false');
+    mobileMenu.querySelectorAll("a").forEach((link) => {
+      link.addEventListener("click", () => {
+        mobileMenu.classList.remove("open");
+        menuBtn.textContent = "☰";
+        menuBtn.setAttribute("aria-label", "Open menu");
       });
     });
 
-    closeLightbox.addEventListener('click', () => {
-      lightbox.classList.remove('open');
-      lightbox.setAttribute('aria-hidden', 'true');
+    const lightbox = document.getElementById("lightbox");
+    const lightboxImg = document.getElementById("lightboxImg");
+    const closeLightbox = document.getElementById("closeLightbox");
+
+    document.querySelectorAll("[data-lightbox]").forEach((link) => {
+      link.addEventListener("click", (event) => {
+        event.preventDefault();
+        lightboxImg.src = link.getAttribute("href");
+        lightboxImg.alt = link.querySelector("img")?.alt || "Koneksyon launch photo";
+        lightbox.classList.add("open");
+        lightbox.setAttribute("aria-hidden", "false");
+      });
     });
 
-    lightbox.addEventListener('click', event => {
-      if (event.target === lightbox) closeLightbox.click();
-    });
+    function closeGallery() {
+      lightbox.classList.remove("open");
+      lightbox.setAttribute("aria-hidden", "true");
+      lightboxImg.src = "";
+    }
 
-    document.addEventListener('keydown', event => {
-      if (event.key === 'Escape' && lightbox.classList.contains('open')) closeLightbox.click();
-    });
+    closeLightbox.addEventListener("click", closeGallery);
+    lightbox.addEventListener("click", (event) => { if (event.target === lightbox) closeGallery(); });
+    window.addEventListener("keydown", (event) => { if (event.key === "Escape") closeGallery(); });
   </script>
 </body>
 </html>
