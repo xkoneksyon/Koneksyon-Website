@@ -50,6 +50,8 @@
     }
     a{text-decoration:none;color:inherit}
     img{display:block;max-width:100%}
+    img[src]{color:transparent}
+    .photo-card img,.phone img,.orb img,.k-logo-center img,.brand-logo{background:#f2f0ea}
     .wrap{width:min(var(--max),calc(100% - var(--pad)));margin-inline:auto}
 
     .nav{
@@ -1239,6 +1241,27 @@
     }, { threshold: 0.18 });
 
     cards.forEach((card) => observer.observe(card));
+  
+    document.querySelectorAll("img").forEach((img) => {
+      img.addEventListener("error", () => {
+        const alt = img.getAttribute("alt") || "Koneksyon";
+        img.style.display = "none";
+        const box = document.createElement("div");
+        box.style.width = "100%";
+        box.style.height = "100%";
+        box.style.display = "grid";
+        box.style.placeItems = "center";
+        box.style.background = "linear-gradient(135deg,#fbfaf7,#eee9df)";
+        box.style.color = "#111114";
+        box.style.fontWeight = "900";
+        box.style.fontSize = "18px";
+        box.style.textAlign = "center";
+        box.style.padding = "20px";
+        box.textContent = alt;
+        img.parentNode.appendChild(box);
+      }, { once: true });
+    });
+
   </script>
 </body>
 </html>
