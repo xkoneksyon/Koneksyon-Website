@@ -3,11 +3,11 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-  <title>Koneksyon — Real Connection</title>
-  <meta name="description" content="Koneksyon is a Caribbean-inspired dating and social connection app built for love, friendship, community, culture, and intentional connection." />
-  <meta name="theme-color" content="#fbfaf7" />
+  <title>Koneksyon — Intentional Connection</title>
+  <meta name="description" content="Koneksyon is a Caribbean-inspired social connection platform for Intentions, Opportunities, Experiences, K-Letters, Pop & Konekt, and real community." />
+  <meta name="theme-color" content="#07080d" />
   <meta property="og:title" content="Koneksyon — Where Culture Meets Connection" />
-  <meta property="og:description" content="Caribbean-inspired. Open to everyone. Built for love, friendship, community, and real connection." />
+  <meta property="og:description" content="Caribbean-inspired. Open to everyone. Built for intentional personal, professional, and community connection." />
   <meta property="og:image" content="./assets/brand-banner.jpg" />
   <link rel="icon" href="./assets/favicon.png" />
   <link rel="apple-touch-icon" href="./assets/favicon-192.png" />
@@ -17,832 +17,266 @@
 
   <style>
     :root{
-      --paper:#fbfaf7;
-      --paper2:#f3f1ec;
-      --ink:#111114;
-      --muted:#747279;
-      --soft:#aaa8af;
-      --line:#e8e5dd;
-      --white:#fff;
-      --black:#111114;
-      --blue:#113e96;
-      --teal:#23bfc3;
-      --pink:#ff365f;
-      --gold:#ffca4f;
-      --purple:#6d55ff;
-      --green:#55e36f;
-      --shadow:0 24px 70px rgba(17,17,20,.12);
-      --shadow2:0 18px 44px rgba(17,17,20,.08);
+      --bg:#07080d;
+      --bg-soft:#0b0d14;
+      --surface:#10131d;
+      --surface-2:#151927;
+      --surface-3:#1a2030;
+      --text:#f7f8fb;
+      --muted:#a9b0c0;
+      --soft:#7f8798;
+      --line:rgba(255,255,255,.09);
+      --line-strong:rgba(255,255,255,.16);
+      --gold:#f3c857;
+      --teal:#2fd1c4;
+      --pink:#ff527f;
+      --purple:#8b5cf6;
+      --blue:#4f7cff;
+      --green:#5fe09a;
       --max:1180px;
-      --pad:clamp(18px,5vw,70px);
+      --pad:clamp(18px,5vw,72px);
+      --shadow:0 30px 90px rgba(0,0,0,.46);
       --ease:cubic-bezier(.2,.7,.2,1);
     }
 
     *{box-sizing:border-box;margin:0;padding:0}
-    html{scroll-behavior:smooth}
+    html{scroll-behavior:smooth;background:var(--bg)}
     body{
       font-family:"Instrument Sans",system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
-      background:var(--paper);
-      color:var(--ink);
+      background:
+        radial-gradient(circle at 8% 0%,rgba(79,124,255,.08),transparent 26%),
+        radial-gradient(circle at 92% 8%,rgba(255,82,127,.07),transparent 24%),
+        var(--bg);
+      color:var(--text);
       overflow-x:hidden;
       -webkit-font-smoothing:antialiased;
       text-rendering:optimizeLegibility;
     }
+
     a{text-decoration:none;color:inherit}
     img{display:block;max-width:100%}
-    img[src]{color:transparent}
-    .photo-card img,.phone img,.orb img,.k-logo-center img,.brand-logo{background:#f2f0ea}
+    button{font:inherit}
     .wrap{width:min(var(--max),calc(100% - var(--pad)));margin-inline:auto}
+    .eyebrow{font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--soft);font-weight:900}
+    .section-copy{max-width:720px;color:var(--muted);font-size:18px;line-height:1.7;font-weight:600}
+    .section-title{font-size:clamp(44px,6vw,82px);line-height:.96;letter-spacing:-.065em;font-weight:900}
+    .section-head{display:grid;gap:18px;max-width:900px;margin-bottom:52px}
 
     .nav{
-      position:fixed;
-      z-index:100;
-      top:max(16px,env(safe-area-inset-top));
-      left:50%;
-      transform:translateX(-50%);
-      width:min(860px,calc(100% - 24px));
-      min-height:74px;
-      padding:8px 10px 8px 22px;
-      border-radius:999px;
-      background:rgba(255,255,255,.84);
-      border:1px solid rgba(17,17,20,.08);
-      box-shadow:0 16px 44px rgba(17,17,20,.08);
-      backdrop-filter:blur(22px) saturate(160%);
-      -webkit-backdrop-filter:blur(22px) saturate(160%);
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap:18px;
+      position:fixed;z-index:100;top:max(16px,env(safe-area-inset-top));left:50%;transform:translateX(-50%);
+      width:min(930px,calc(100% - 24px));min-height:70px;padding:8px 10px 8px 18px;
+      display:flex;align-items:center;justify-content:space-between;gap:18px;
+      border:1px solid var(--line);border-radius:999px;background:rgba(10,12,18,.82);
+      backdrop-filter:blur(20px) saturate(140%);-webkit-backdrop-filter:blur(20px) saturate(140%);
+      box-shadow:0 20px 50px rgba(0,0,0,.3);
     }
 
-    .brand{
-      display:flex;
-      align-items:center;
-      gap:10px;
-      min-width:max-content;
-    }
-
-    .brand-logo{
-      width:142px;
-      height:auto;
-      object-fit:contain;
-    }
-
-    .nav-links{
-      display:flex;
-      align-items:center;
-      gap:24px;
-      color:#25252b;
-      font-size:15px;
-      font-weight:850;
-    }
-
-    .nav-links a{opacity:.9;transition:opacity .18s var(--ease)}
+    .brand{display:flex;align-items:center;gap:10px}
+    .brand-logo{width:140px;height:auto;object-fit:contain;filter:brightness(1.14)}
+    .nav-links{display:flex;align-items:center;gap:22px;color:#d8dce7;font-size:14px;font-weight:800}
+    .nav-links a{opacity:.78;transition:opacity .2s var(--ease)}
     .nav-links a:hover{opacity:1}
-
     .nav-cta{
-      min-height:52px;
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-      padding:0 22px;
-      border-radius:999px;
-      color:#fff;
-      background:#111114;
-      font-size:15px;
-      font-weight:900;
-      white-space:nowrap;
+      min-height:48px;padding:0 20px;border-radius:999px;display:inline-flex;align-items:center;justify-content:center;
+      color:#0b0c10;background:linear-gradient(135deg,var(--gold),#fff0a0);font-size:14px;font-weight:900;
     }
-
     .menu-btn{
-      display:none;
-      width:50px;height:50px;
-      border-radius:999px;
-      border:0;
-      background:#111114;
-      color:white;
-      font-size:22px;
-      cursor:pointer;
+      display:none;width:48px;height:48px;border-radius:50%;border:1px solid var(--line);
+      background:var(--surface-2);color:#fff;cursor:pointer;
     }
-
     .mobile-menu{
-      display:none;
-      position:fixed;
-      z-index:99;
-      top:100px;
-      left:14px;
-      right:14px;
-      padding:12px;
-      border:1px solid var(--line);
-      border-radius:26px;
-      background:#fff;
-      box-shadow:var(--shadow);
+      display:none;position:fixed;z-index:99;top:96px;left:14px;right:14px;padding:10px;
+      border-radius:24px;border:1px solid var(--line);background:rgba(12,14,21,.96);box-shadow:var(--shadow);
     }
     .mobile-menu.open{display:block}
-    .mobile-menu a{
-      display:block;
-      padding:15px;
-      border-radius:16px;
-      color:#29292f;
-      font-weight:850;
-    }
-    .mobile-menu a:hover{background:#f1eee7}
+    .mobile-menu a{display:block;padding:15px;border-radius:14px;color:#e7eaf2;font-weight:800}
+    .mobile-menu a:hover{background:var(--surface-2)}
 
     .hero{
-      min-height:100svh;
-      padding:120px 0 72px;
-      position:relative;
-      display:grid;
-      align-items:center;
-      overflow:hidden;
-      background:
-        radial-gradient(circle at 12% 12%,rgba(17,62,150,.045),transparent 26%),
-        radial-gradient(circle at 88% 8%,rgba(255,54,95,.06),transparent 24%),
-        linear-gradient(180deg,#fbfaf7 0%,#fbfaf7 78%,#f6f3ed 100%);
+      min-height:100svh;padding:138px 0 82px;display:flex;align-items:center;position:relative;overflow:hidden;
     }
-
-    .hero-inner{
-      min-height:690px;
-      position:relative;
-      display:grid;
-      place-items:center;
-      text-align:center;
+    .hero::before{
+      content:"";position:absolute;inset:auto auto -220px 50%;transform:translateX(-50%);
+      width:min(1100px,92vw);height:520px;border-radius:50%;
+      background:radial-gradient(circle,rgba(139,92,246,.16),transparent 68%);
+      filter:blur(18px);pointer-events:none;
     }
-
-    .k-logo-center{
-      width:116px;
-      height:116px;
-      border-radius:50%;
-      background:#fff;
-      border:1px solid var(--line);
-      box-shadow:var(--shadow);
-      display:grid;
-      place-items:center;
-      margin:0 auto 36px;
-      animation:floatLogo 7s ease-in-out infinite;
-      overflow:hidden;
+    .hero-grid{
+      position:relative;display:grid;grid-template-columns:1.02fr .98fr;align-items:center;gap:clamp(42px,7vw,92px);
     }
-    .k-logo-center img{
-      width:78px;
-      height:78px;
-      object-fit:contain;
-    }
-
-    @keyframes floatLogo{
-      0%,100%{transform:translateY(0)}
-      50%{transform:translateY(-10px)}
-    }
-
-    h1{
-      max-width:1040px;
-      margin-inline:auto;
-      font-size:clamp(62px,8.7vw,132px);
-      line-height:.92;
-      letter-spacing:-.086em;
-      font-weight:950;
-    }
-    h1 .muted-line{
-      display:block;
-      color:#8f8e94;
-    }
-
-    .hero-sub{
-      max-width:730px;
-      margin:28px auto 0;
-      color:var(--muted);
-      font-size:clamp(17px,1.35vw,21px);
-      line-height:1.62;
-      font-weight:650;
-      letter-spacing:-.015em;
-    }
-
-    .hero-actions{
-      display:flex;
-      justify-content:center;
-      flex-wrap:wrap;
-      gap:12px;
-      margin-top:34px;
-    }
-
+    .hero-copy{display:grid;gap:26px}
+    .hero-kicker{display:inline-flex;align-items:center;gap:10px;color:#cbd1de;font-size:13px;font-weight:800}
+    .hero-kicker span{width:8px;height:8px;border-radius:50%;background:var(--teal);box-shadow:0 0 20px rgba(47,209,196,.75)}
+    h1{font-size:clamp(60px,7.8vw,112px);line-height:.9;letter-spacing:-.082em;font-weight:900;max-width:760px}
+    h1 .soft{display:block;color:#8b93a6}
+    .hero-sub{max-width:690px;color:var(--muted);font-size:clamp(18px,1.5vw,21px);line-height:1.68;font-weight:600}
+    .hero-actions{display:flex;flex-wrap:wrap;gap:12px}
     .btn{
-      min-height:56px;
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-      gap:10px;
-      border-radius:999px;
-      padding:0 23px;
-      border:1px solid var(--line);
-      background:#fff;
-      color:#111;
-      font-weight:900;
-      box-shadow:0 12px 28px rgba(17,17,20,.06);
-      transition:transform .22s var(--ease), box-shadow .22s var(--ease);
+      min-height:56px;padding:0 24px;border-radius:999px;border:1px solid var(--line-strong);
+      display:inline-flex;align-items:center;justify-content:center;gap:10px;
+      background:var(--surface-2);color:#fff;font-weight:900;transition:transform .2s var(--ease),border-color .2s var(--ease);
     }
-    .btn.dark{
-      color:white;
-      border-color:#111114;
-      background:#111114;
-    }
-    .btn:hover{transform:translateY(-2px);box-shadow:0 18px 42px rgba(17,17,20,.1)}
+    .btn.primary{color:#090a0e;border-color:transparent;background:linear-gradient(135deg,var(--gold),#fff1ad)}
+    .btn:hover{transform:translateY(-2px);border-color:rgba(255,255,255,.25)}
+    .hero-note{display:flex;gap:22px;flex-wrap:wrap;color:#848c9e;font-size:13px;font-weight:700}
+    .hero-note span{display:flex;align-items:center;gap:8px}
+    .hero-note i{width:6px;height:6px;border-radius:50%;background:#60697d}
 
-    .orbital{
-      position:absolute;
-      inset:0;
-      pointer-events:none;
-    }
-
-    .orb{
-      position:absolute;
-      width:clamp(72px,7vw,96px);
-      height:clamp(72px,7vw,96px);
-      border-radius:50%;
-      display:grid;
-      place-items:center;
-      border:1px solid rgba(17,17,20,.08);
-      background:#fff;
-      box-shadow:var(--shadow);
-      overflow:hidden;
-      animation:float 8s ease-in-out infinite;
-    }
-    .orb img{width:100%;height:100%;object-fit:cover}
-    .orb.icon img{width:74%;height:74%;object-fit:contain}
-    .orb.text{
-      font-size:clamp(22px,2.6vw,36px);
-      font-weight:950;
-      letter-spacing:-.06em;
-    }
-    .orb.dark{background:#111;color:#fff}
-    .orb.blue{background:#1462ff;color:#fff}
-    .orb.green{background:#82ef58;color:#111}
-    .orb.pink{background:#ff365f;color:#fff}
-    .orb.yellow{background:#ffdc42;color:#111}
-    .orb.purple{background:#7b3cff;color:#fff}
-    .orb.teal{background:#18c9c4;color:#071126}
-    .orb:nth-child(2n){animation-duration:9.5s}
-    .orb:nth-child(3n){animation-duration:7.2s}
-
-    @keyframes float{
-      0%,100%{transform:translateY(0)}
-      50%{transform:translateY(-16px)}
-    }
-
-    .o1{left:5%;top:8%}
-    .o2{left:13%;top:24%}
-    .o3{left:4%;top:45%}
-    .o4{left:17%;bottom:13%}
-    .o5{left:4%;bottom:4%}
-    .o6{right:9%;top:13%}
-    .o7{right:4%;top:32%}
-    .o8{right:14%;bottom:17%}
-    .o9{right:4%;bottom:5%}
-    .o10{right:25%;top:26%}
-
-    .trusted{
-      margin-top:78px;
-      color:#9a989f;
-      text-align:center;
-      font-size:14px;
-      font-weight:760;
-    }
-
-    .logo-cloud{
-      margin:22px auto 0;
-      width:min(900px,100%);
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      gap:clamp(22px,4vw,46px);
-      flex-wrap:wrap;
-      color:#aaa8af;
-      font-size:clamp(20px,2.2vw,30px);
-      font-weight:950;
-      letter-spacing:-.055em;
-      opacity:.84;
-    }
-
-    section{padding:clamp(82px,10vw,142px) 0}
-
-    .library{
-      background:#fff;
-      border-block:1px solid var(--line);
-      overflow:hidden;
-    }
-
-    .library-head{
-      text-align:center;
-      max-width:860px;
-      margin:0 auto clamp(50px,6vw,78px);
-    }
-    .kicker{
-      color:#8b8890;
-      font-size:clamp(18px,2vw,26px);
-      font-weight:900;
-      letter-spacing:-.045em;
-      margin-bottom:16px;
-    }
-    h2{
-      font-size:clamp(48px,6.5vw,92px);
-      line-height:.93;
-      letter-spacing:-.078em;
-      font-weight:950;
-    }
-    .section-sub{
-      max-width:740px;
-      margin:22px auto 0;
-      color:var(--muted);
-      font-size:clamp(17px,1.25vw,20px);
-      line-height:1.65;
-      font-weight:650;
-    }
-
-    .screen-track{
-      display:flex;
-      gap:28px;
-      width:max-content;
-      padding:6px 0 18px;
-      animation:marquee 35s linear infinite;
-    }
-    .screen-track:hover{animation-play-state:paused}
-
-    @keyframes marquee{
-      from{transform:translateX(0)}
-      to{transform:translateX(-50%)}
-    }
-
-    .screen-card{
-      flex:0 0 auto;
-      width:305px;
-    }
-    .screen-title{
-      font-size:18px;
-      font-weight:900;
-      margin:0 0 16px 6px;
-      letter-spacing:-.035em;
-    }
+    .phone-stage{position:relative;min-height:700px;display:grid;place-items:center}
     .phone{
-      width:305px;
-      height:632px;
-      border-radius:38px;
-      border:1px solid #dedbd3;
-      overflow:hidden;
-      background:#111;
-      box-shadow:0 24px 66px rgba(17,17,20,.14);
+      position:relative;width:min(360px,78vw);aspect-ratio:9/19.5;border-radius:44px;padding:10px;
+      background:linear-gradient(145deg,#222837,#080a10);border:1px solid rgba(255,255,255,.19);
+      box-shadow:0 42px 110px rgba(0,0,0,.58);overflow:hidden;
     }
-    .phone img{
-      width:100%;
-      height:100%;
-      object-fit:cover;
-      object-position:top center;
+    .phone::before{
+      content:"";position:absolute;left:50%;top:14px;transform:translateX(-50%);
+      width:104px;height:25px;border-radius:999px;background:#07080d;z-index:2;
     }
+    .phone img{width:100%;height:100%;object-fit:cover;object-position:top;border-radius:34px;background:#0b0d14}
+    .float-card{
+      position:absolute;min-width:210px;padding:16px 18px;border-radius:22px;
+      background:rgba(16,19,29,.92);border:1px solid var(--line-strong);box-shadow:0 22px 55px rgba(0,0,0,.38);
+      backdrop-filter:blur(16px);
+    }
+    .float-card b{display:block;font-size:14px;margin-bottom:5px}
+    .float-card p{font-size:12px;color:var(--muted);line-height:1.5}
+    .float-a{left:0;top:18%}
+    .float-b{right:-12px;bottom:18%}
+    .float-icon{width:36px;height:36px;border-radius:12px;display:grid;place-items:center;margin-bottom:12px;font-weight:900}
+    .float-a .float-icon{background:rgba(47,209,196,.14);color:var(--teal)}
+    .float-b .float-icon{background:rgba(243,200,87,.13);color:var(--gold)}
 
-    .feature-grid{
-      display:grid;
-      grid-template-columns:repeat(3,1fr);
-      gap:18px;
-    }
-    .feature{
-      min-height:360px;
-      padding:30px;
-      border:1px solid var(--line);
-      border-radius:36px;
-      background:#fff;
-      box-shadow:var(--shadow2);
-      opacity:0;
-      transform:translateY(24px);
-      transition:opacity .7s var(--ease),transform .7s var(--ease);
-    }
-    .feature.in-view{opacity:1;transform:translateY(0)}
-    .feature:nth-child(2){transition-delay:.08s}
-    .feature:nth-child(3){transition-delay:.16s}
-    .feature:nth-child(5){transition-delay:.08s}
-    .feature:nth-child(6){transition-delay:.16s}
-    .label{
-      color:#aaa8af;
-      font-size:12px;
-      font-weight:950;
-      letter-spacing:.16em;
-      text-transform:uppercase;
-    }
-    .feature h3{
-      margin-top:70px;
-      font-size:clamp(30px,3vw,46px);
-      line-height:.96;
-      letter-spacing:-.065em;
-    }
-    .feature p{
-      margin-top:16px;
-      color:var(--muted);
-      font-weight:650;
-      line-height:1.62;
-    }
+    .trust-strip{padding:24px 0;border-block:1px solid var(--line);background:#090b11}
+    .trust-row{display:flex;justify-content:center;gap:clamp(26px,5vw,70px);flex-wrap:wrap;color:#8f97aa;font-weight:900;letter-spacing:-.02em}
 
-    .creation{
-      background:#fff;
-      border-block:1px solid var(--line);
-    }
-    .creation-grid{
-      display:grid;
-      grid-template-columns:repeat(3,1fr);
-      gap:22px;
-      margin-top:52px;
-    }
-    .creation-card{text-align:center}
-    .mock-box{
-      height:320px;
-      border-radius:28px;
-      background:#f2f2f2;
-      display:grid;
-      place-items:center;
-      overflow:hidden;
-      margin-bottom:26px;
-    }
-    .toast{
-      min-height:72px;
-      padding:0 28px;
-      border-radius:999px;
-      background:#111;
-      color:#fff;
-      display:inline-flex;
-      align-items:center;
-      gap:14px;
-      font-size:19px;
-      font-weight:900;
-      box-shadow:0 14px 34px rgba(17,17,20,.20);
-    }
-    .toast span{
-      width:42px;height:42px;border-radius:50%;display:grid;place-items:center;
-      border:1px solid rgba(255,255,255,.22);
-    }
-    .save-ui{
-      width:min(250px,84%);
-      border-radius:18px;
-      background:#fff;
-      box-shadow:0 18px 44px rgba(17,17,20,.12);
-      padding:20px;
-      text-align:left;
-    }
-    .save-ui small{color:#999;font-weight:760}
-    .save-line{
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap:12px;
-      padding:14px 0;
-      border-bottom:1px solid #eee;
-      font-weight:850;
-    }
-    .comment-ui{
-      width:min(275px,86%);
-      border-radius:22px;
-      background:#fff;
-      box-shadow:0 18px 44px rgba(17,17,20,.12);
-      padding:20px;
-      text-align:left;
-    }
-    .comment-input{
-      margin-top:14px;
-      min-height:56px;
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      border-radius:16px;
-      background:#f3f3f3;
-      padding:0 14px;
-      color:#555;
-    }
-    .creation-card h3{
-      font-size:25px;
-      letter-spacing:-.05em;
-      margin-bottom:8px;
-    }
-    .creation-card p{
-      color:var(--muted);
-      font-size:17px;
-      line-height:1.45;
-      max-width:330px;
-      margin:auto;
-    }
+    section{padding:clamp(86px,10vw,142px) 0}
+    .dark-band{background:var(--bg-soft);border-block:1px solid var(--line)}
 
-    .real{
-      background:#08090d;
-      color:#fff;
-      overflow:hidden;
+    .pill-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+    .pillar{
+      min-height:380px;padding:30px;border-radius:34px;border:1px solid var(--line);
+      background:linear-gradient(180deg,rgba(255,255,255,.05),rgba(255,255,255,.02));
+      box-shadow:0 22px 60px rgba(0,0,0,.25);display:flex;flex-direction:column;justify-content:space-between;
     }
-    .real .library-head h2,
-    .real .library-head .kicker{color:#fff}
-    .real .section-sub{color:rgba(255,255,255,.68)}
+    .pillar-number{font-size:12px;letter-spacing:.16em;color:var(--soft);font-weight:900}
+    .pillar h3{font-size:clamp(34px,3.4vw,50px);letter-spacing:-.055em;line-height:.96}
+    .pillar p{color:var(--muted);line-height:1.65;font-weight:600}
+    .pillar-tag{display:inline-flex;align-items:center;gap:8px;color:#dfe3ec;font-size:13px;font-weight:800}
+    .pillar-tag i{width:8px;height:8px;border-radius:50%}
+    .pillar:nth-child(1) .pillar-tag i{background:var(--pink)}
+    .pillar:nth-child(2) .pillar-tag i{background:var(--teal)}
+    .pillar:nth-child(3) .pillar-tag i{background:var(--purple)}
 
-    .photo-track{
-      display:flex;
-      gap:18px;
-      width:max-content;
-      animation:photoMove 42s linear infinite;
-      padding:8px 0;
+    .experience-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:22px}
+    .experience-main,.experience-side{
+      border-radius:36px;border:1px solid var(--line);overflow:hidden;background:var(--surface);box-shadow:var(--shadow);
     }
-    .photo-track:hover{animation-play-state:paused}
-    @keyframes photoMove{
-      from{transform:translateX(0)}
-      to{transform:translateX(-50%)}
+    .experience-main{min-height:640px;position:relative}
+    .experience-main img{width:100%;height:100%;object-fit:cover}
+    .experience-main::after{
+      content:"";position:absolute;inset:0;background:linear-gradient(to top,rgba(7,8,13,.92),rgba(7,8,13,.08) 60%);
     }
-    .photo-card{
-      position:relative;
-      width:310px;
-      height:430px;
-      flex:0 0 auto;
-      border-radius:32px;
-      overflow:hidden;
-      background:#222;
+    .experience-overlay{position:absolute;z-index:2;left:32px;right:32px;bottom:32px}
+    .experience-overlay h3{font-size:clamp(36px,4vw,58px);letter-spacing:-.06em}
+    .experience-overlay p{margin-top:14px;color:#c8ced9;max-width:600px;line-height:1.65}
+    .experience-side{padding:24px;display:grid;gap:14px}
+    .mini-card{
+      padding:22px;border-radius:24px;border:1px solid var(--line);background:var(--surface-2);
+      display:grid;grid-template-columns:48px 1fr;gap:16px;align-items:start;
     }
-    .photo-card.wide{width:430px}
-    .photo-card img{
-      width:100%;
-      height:100%;
-      object-fit:cover;
-      filter:saturate(1.04) contrast(1.02);
-    }
-    .photo-card::after{
-      content:"";
-      position:absolute;inset:0;
-      background:linear-gradient(to top,rgba(0,0,0,.62),rgba(0,0,0,0) 55%);
-      pointer-events:none;
-    }
-    .photo-card span{
-      position:absolute;
-      z-index:2;
-      left:20px;
-      bottom:18px;
-      font-size:13px;
-      font-weight:950;
-      letter-spacing:.13em;
-      text-transform:uppercase;
-      color:#fff;
-    }
+    .mini-icon{width:48px;height:48px;border-radius:16px;display:grid;place-items:center;font-weight:900}
+    .mini-card:nth-child(1) .mini-icon{background:rgba(139,92,246,.15);color:#b89cff}
+    .mini-card:nth-child(2) .mini-icon{background:rgba(47,209,196,.14);color:var(--teal)}
+    .mini-card:nth-child(3) .mini-icon{background:rgba(255,82,127,.14);color:#ff7d9f}
+    .mini-card:nth-child(4) .mini-icon{background:rgba(243,200,87,.14);color:var(--gold)}
+    .mini-card h4{font-size:19px;margin-bottom:7px}
+    .mini-card p{color:var(--muted);font-size:14px;line-height:1.55}
 
-    .plans{
-      background:#fff;
-      border-block:1px solid var(--line);
+    .feature-list{display:grid;gap:1px;border:1px solid var(--line);border-radius:34px;overflow:hidden;background:var(--line)}
+    .feature-row{
+      display:grid;grid-template-columns:180px 1fr 220px;gap:28px;align-items:center;
+      padding:28px;background:var(--bg-soft);
     }
-    .plan-grid{
-      display:grid;
-      grid-template-columns:repeat(3,1fr);
-      gap:18px;
-      margin-top:50px;
-    }
+    .feature-row strong{font-size:14px;color:#e8ebf3}
+    .feature-row h3{font-size:clamp(28px,3vw,42px);letter-spacing:-.045em}
+    .feature-row p{color:var(--muted);line-height:1.55;font-size:14px}
+
+    .gallery{background:#05060a;border-block:1px solid var(--line)}
+    .gallery-grid{display:grid;grid-template-columns:1.1fr .9fr .9fr;gap:16px}
+    .gallery-card{position:relative;min-height:420px;border-radius:30px;overflow:hidden;border:1px solid var(--line)}
+    .gallery-card.tall{min-height:590px}
+    .gallery-card img{width:100%;height:100%;object-fit:cover}
+    .gallery-card::after{content:"";position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.66),transparent 58%)}
+    .gallery-card span{position:absolute;z-index:2;left:20px;bottom:18px;font-size:12px;letter-spacing:.15em;text-transform:uppercase;font-weight:900}
+
+    .plans-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
     .plan{
-      min-height:350px;
-      border-radius:34px;
-      border:1px solid var(--line);
-      background:#fff;
-      box-shadow:var(--shadow2);
-      padding:28px;
+      min-height:420px;padding:28px;border-radius:34px;border:1px solid var(--line);
+      background:linear-gradient(180deg,rgba(255,255,255,.05),rgba(255,255,255,.02));
+      display:flex;flex-direction:column;
     }
-    .plan.featured{
-      background:#111;
-      color:#fff;
-      border-color:#111;
-    }
-    .plan small{
-      display:block;
-      color:inherit;
-      opacity:.55;
-      font-size:12px;
-      font-weight:950;
-      letter-spacing:.16em;
-      text-transform:uppercase;
-      margin-bottom:18px;
-    }
-    .plan h3{
-      font-size:36px;
-      letter-spacing:-.065em;
-      line-height:.98;
-    }
-    .price{
-      margin:18px 0 24px;
-      font-size:44px;
-      font-weight:950;
-      letter-spacing:-.075em;
-      line-height:1;
-    }
-    .price span{
-      font-size:15px;
-      color:inherit;
-      opacity:.55;
-      letter-spacing:0;
-    }
-    .plan ul{
-      list-style:none;
-      display:grid;
-      gap:12px;
-      color:inherit;
-      opacity:.76;
-      font-weight:700;
-      line-height:1.4;
-    }
-    .plan li::before{
-      content:"✓";
-      color:var(--green);
-      margin-right:10px;
-      font-weight:950;
-    }
+    .plan.featured{border-color:rgba(243,200,87,.42);background:linear-gradient(145deg,#171b2a,#0f121c)}
+    .plan small{font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--soft);font-weight:900}
+    .plan h3{font-size:36px;letter-spacing:-.055em;margin-top:16px}
+    .price{font-size:44px;font-weight:900;letter-spacing:-.06em;margin:16px 0 24px}
+    .price span{font-size:14px;color:var(--soft);letter-spacing:0}
+    .plan ul{list-style:none;display:grid;gap:13px;color:#c7ccd8;line-height:1.45;font-weight:650}
+    .plan li::before{content:"✓";color:var(--green);margin-right:10px;font-weight:900}
+    .plan .btn{margin-top:auto}
 
-    .safety-grid{
-      display:grid;
-      grid-template-columns:repeat(4,1fr);
-      gap:16px;
-      margin-top:50px;
-    }
-    .safe{
-      min-height:230px;
-      padding:24px;
-      border:1px solid var(--line);
-      border-radius:30px;
-      background:#fff;
-      box-shadow:var(--shadow2);
-    }
-    .safe-icon{
-      width:48px;
-      height:48px;
-      border-radius:50%;
-      background:#f1eee7;
-      display:grid;
-      place-items:center;
-      margin-bottom:18px;
-      font-weight:950;
-    }
-    .safe b{
-      display:block;
-      font-size:19px;
-      margin-bottom:8px;
-      letter-spacing:-.035em;
-    }
-    .safe p{
-      color:var(--muted);
-      font-weight:650;
-      font-size:14px;
-      line-height:1.6;
-    }
-
-    .never{
-      text-align:center;
-      overflow:hidden;
-      padding-bottom:40px;
-    }
-    .brand-marquee{
-      display:flex;
-      gap:34px 46px;
-      flex-wrap:wrap;
-      justify-content:center;
-      margin-top:70px;
-      width:min(1240px,100%);
-      margin-inline:auto;
-    }
-    .wordmark{
-      display:flex;
-      align-items:center;
-      gap:13px;
-      font-size:clamp(24px,2.6vw,36px);
-      font-weight:950;
-      letter-spacing:-.06em;
-      white-space:nowrap;
-    }
-    .wordmark .mini{
-      width:48px;height:48px;border-radius:50%;
-      display:grid;place-items:center;
-      border:1px solid var(--line);
-      background:#fff;
-      color:#111;
-      overflow:hidden;
-    }
-    .wordmark .mini img{width:76%;height:76%;object-fit:contain}
-    .wordmark:nth-child(3n){color:#555}
-    .wordmark:nth-child(4n){color:#888}
+    .safety-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+    .safe{padding:24px;min-height:240px;border-radius:28px;border:1px solid var(--line);background:var(--surface)}
+    .safe-icon{width:48px;height:48px;border-radius:16px;background:var(--surface-3);display:grid;place-items:center;margin-bottom:20px;font-weight:900}
+    .safe h3{font-size:20px;margin-bottom:10px}
+    .safe p{color:var(--muted);font-size:14px;line-height:1.6}
 
     .final{
-      text-align:center;
-      position:relative;
-      overflow:hidden;
-      border-radius:58px;
-      background:#111114;
-      color:#fff;
-      min-height:460px;
-      padding:clamp(46px,8vw,96px);
-      display:grid;
-      place-items:center;
-      box-shadow:var(--shadow);
+      position:relative;overflow:hidden;min-height:500px;border-radius:54px;border:1px solid var(--line);
+      background:#0a0d15;display:grid;place-items:center;text-align:center;padding:clamp(44px,8vw,100px);box-shadow:var(--shadow);
     }
     .final::before{
-      content:"";
-      position:absolute;inset:0;
-      background:
-        radial-gradient(circle at 18% 30%,rgba(255,54,95,.25),transparent 30%),
-        radial-gradient(circle at 82% 26%,rgba(35,191,195,.18),transparent 28%);
+      content:"";position:absolute;inset:0;
+      background:radial-gradient(circle at 20% 20%,rgba(255,82,127,.20),transparent 28%),
+                 radial-gradient(circle at 80% 18%,rgba(47,209,196,.18),transparent 28%),
+                 radial-gradient(circle at 50% 100%,rgba(139,92,246,.18),transparent 32%);
     }
-    .final > *{position:relative}
-    .final h2{color:#fff}
-    .final p{
-      max-width:720px;
-      margin:22px auto 0;
-      color:rgba(255,255,255,.72);
-      font-size:19px;
-      line-height:1.65;
-      font-weight:650;
-    }
+    .final > div{position:relative;max-width:840px}
+    .final h2{font-size:clamp(50px,7vw,92px);line-height:.95;letter-spacing:-.07em}
+    .final p{margin:24px auto 0;max-width:700px;color:#c0c6d2;font-size:19px;line-height:1.68}
 
-    footer{
-      border-top:1px solid var(--line);
-      padding:64px 0 38px;
-    }
-    .footer-grid{
-      display:grid;
-      grid-template-columns:1.25fr repeat(3,.65fr);
-      gap:34px;
-    }
-    footer p{
-      color:var(--muted);
-      margin-top:14px;
-      max-width:460px;
-      font-weight:650;
-      line-height:1.65;
-    }
-    footer h4{
-      color:var(--soft);
-      font-size:12px;
-      font-weight:950;
-      letter-spacing:.16em;
-      text-transform:uppercase;
-      margin-bottom:14px;
-    }
-    footer a:not(.brand){
-      display:block;
-      margin:10px 0;
-      color:var(--muted);
-      font-size:14px;
-      font-weight:780;
-    }
-    footer a:hover{color:#111}
-    .copyright{
-      display:flex;
-      justify-content:space-between;
-      flex-wrap:wrap;
-      gap:16px;
-      margin-top:36px;
-      padding-top:20px;
-      border-top:1px solid var(--line);
-      color:var(--soft);
-      font-size:13px;
-      font-weight:650;
-    }
+    footer{padding:64px 0 36px;border-top:1px solid var(--line);background:#05060a}
+    .footer-grid{display:grid;grid-template-columns:1.25fr repeat(3,.65fr);gap:34px}
+    footer p{color:var(--muted);max-width:470px;margin-top:14px;line-height:1.65;font-weight:600}
+    footer h4{color:var(--soft);font-size:12px;letter-spacing:.16em;text-transform:uppercase;margin-bottom:14px}
+    footer a:not(.brand){display:block;margin:10px 0;color:var(--muted);font-size:14px;font-weight:750}
+    footer a:hover{color:#fff}
+    .copyright{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;margin-top:36px;padding-top:20px;border-top:1px solid var(--line);color:var(--soft);font-size:13px}
 
     @media(max-width:1050px){
-      .nav{width:min(680px,calc(100% - 24px))}
-      .nav-links{display:none}
-      .menu-btn{display:grid}
-      .o4,.o5,.o8,.o9,.o10{display:none}
-      .feature-grid,.creation-grid,.plan-grid{grid-template-columns:1fr}
+      .hero-grid,.experience-grid{grid-template-columns:1fr}
+      .phone-stage{min-height:620px}
+      .pill-grid,.plans-grid{grid-template-columns:1fr}
+      .feature-row{grid-template-columns:130px 1fr}
+      .feature-row p{grid-column:2}
       .safety-grid{grid-template-columns:repeat(2,1fr)}
+      .gallery-grid{grid-template-columns:1fr 1fr}
+      .gallery-card:first-child{grid-column:1/-1}
       .footer-grid{grid-template-columns:1fr 1fr}
+      .nav{width:min(720px,calc(100% - 24px))}
+      .nav-links{display:none}.menu-btn{display:grid}
     }
 
     @media(max-width:700px){
-      .nav{min-height:66px;padding-left:14px}
-      .brand-logo{width:118px}
-      .nav-cta{display:none}
-      .hero{padding-top:104px}
-      .hero-inner{min-height:auto;padding:58px 0 34px}
-      .k-logo-center{width:92px;height:92px;margin-bottom:28px}
-      .k-logo-center img{width:62px;height:62px}
-      h1{font-size:clamp(52px,16vw,78px)}
-      .orbital{
-        position:relative;
-        display:grid;
-        grid-template-columns:repeat(4,58px);
-        gap:12px;
-        justify-content:center;
-        margin:0 0 28px;
-      }
-      .orb{
-        position:static;
-        width:58px;
-        height:58px;
-        border-radius:50%;
-        animation:none;
-      }
-      .orb.icon img{width:72%;height:72%}
-      .o4,.o5,.o8,.o9{display:grid}
-      .screen-card,.phone{width:262px}
-      .phone{height:542px;border-radius:34px}
-      .photo-card{width:260px;height:370px;border-radius:28px}
-      .photo-card.wide{width:330px}
-      .safety-grid,.footer-grid{grid-template-columns:1fr}
-      .mock-box{height:260px}
-      .final{border-radius:36px}
+      .nav{min-height:64px;padding-left:14px}.brand-logo{width:118px}.nav-cta{display:none}
+      .hero{padding-top:112px}.hero-grid{gap:54px}.phone-stage{min-height:520px}
+      .phone{width:min(310px,82vw)}.float-card{min-width:170px;padding:14px}.float-a{left:-6px}.float-b{right:-6px}
+      .feature-row{grid-template-columns:1fr;gap:14px}.feature-row p{grid-column:1}
+      .gallery-grid,.safety-grid,.footer-grid{grid-template-columns:1fr}
+      .gallery-card:first-child{grid-column:auto}.gallery-card,.gallery-card.tall{min-height:420px}
+      .final{border-radius:34px}
     }
 
-    @media(prefers-reduced-motion:reduce){
-      *{animation:none!important;transition:none!important;scroll-behavior:auto!important}
-      .feature{opacity:1;transform:none}
-    }
+    @media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important}}
   </style>
 </head>
 
@@ -853,304 +287,364 @@
     </a>
 
     <div class="nav-links">
-      <a href="#screens">Screens</a>
+      <a href="#platform">Platform</a>
+      <a href="#experience">Experience</a>
       <a href="#features">Features</a>
       <a href="#plans">Premium</a>
       <a href="#safety">Safety</a>
-      <a href="#gallery">Gallery</a>
     </div>
 
-    <a class="nav-cta" href="#download">Join for free</a>
+    <a class="nav-cta" href="#download">Join Koneksyon</a>
     <button class="menu-btn" id="menuBtn" type="button" aria-label="Open menu">☰</button>
   </nav>
 
   <div class="mobile-menu" id="mobileMenu">
-    <a href="#screens">Screens</a>
+    <a href="#platform">Platform</a>
+    <a href="#experience">Experience</a>
     <a href="#features">Features</a>
     <a href="#plans">Premium</a>
     <a href="#safety">Safety</a>
-    <a href="#gallery">Gallery</a>
-    <a href="#download">Join for free</a>
+    <a href="#download">Join Koneksyon</a>
   </div>
 
   <main id="top">
     <section class="hero">
-      <div class="wrap hero-inner">
-        <div class="orbital" aria-hidden="true">
-          <div class="orb blue icon o1"><img src="./assets/favicon-192.png" alt=""></div>
-          <div class="orb photo o2"><img src="./assets/community-selfie.jpg" alt=""></div>
-          <div class="orb green text o3">13</div>
-          <div class="orb pink text o4">♡</div>
-          <div class="orb photo o5"><img src="./assets/bkonekt-founders.jpg" alt=""></div>
-          <div class="orb photo o6"><img src="./assets/launch-style.jpg" alt=""></div>
-          <div class="orb safe text o7">✓</div>
-          <div class="orb purple text o8">💬</div>
-          <div class="orb yellow text o9">★</div>
-          <div class="orb teal text o10">HT</div>
-        </div>
+      <div class="wrap hero-grid">
+        <div class="hero-copy">
+          <div class="hero-kicker"><span></span> Caribbean-inspired. Open to everyone.</div>
 
-        <div>
-          <div class="k-logo-center">
-            <img src="./assets/favicon-192.png" alt="Koneksyon icon">
-          </div>
-
-          <h1>Find real connection.
-            <span class="muted-line">Through culture.</span>
+          <h1>
+            Connect with intention.
+            <span class="soft">Not endless swiping.</span>
           </h1>
 
-          <p class="hero-sub">Koneksyon is a Caribbean-inspired dating and social app for love, friendship, community, and intentional connections. Open to everyone.</p>
+          <p class="hero-sub">
+            Koneksyon is a social connection platform for relationships, friendship, creators,
+            entrepreneurs, events, and meaningful opportunities — all in one place.
+          </p>
 
           <div class="hero-actions" id="download">
-            <a class="btn dark" href="mailto:support@koneksyondatingapp.com?subject=Koneksyon%20Launch">Join for free</a>
-            <a class="btn" href="#plans">See our plans →</a>
+            <a class="btn primary" href="mailto:support@koneksyondatingapp.com?subject=Koneksyon%20Access">Join for free</a>
+            <a class="btn" href="#platform">Explore the platform</a>
           </div>
 
-          <div class="trusted">Built for people who want more than another dating app</div>
-          <div class="logo-cloud">
-            <span>Dating</span>
-            <span>Friendship</span>
-            <span>Community</span>
-            <span>Culture</span>
-            <span>Verified</span>
+          <div class="hero-note">
+            <span><i></i> No swipe-first discovery</span>
+            <span><i></i> Verified profiles</span>
+            <span><i></i> Personal and professional modes</span>
+          </div>
+        </div>
+
+        <div class="phone-stage">
+          <div class="float-card float-a">
+            <div class="float-icon">✦</div>
+            <b>Intentions</b>
+            <p>Choose friendship, marriage, long-term, casual, or serious relationship.</p>
+          </div>
+
+          <div class="phone">
+            <img src="./assets/vibes-screen.png" alt="Koneksyon app experience">
+          </div>
+
+          <div class="float-card float-b">
+            <div class="float-icon">B</div>
+            <b>B-Konekt</b>
+            <p>Discover creators, founders, clients, mentors, and opportunities.</p>
           </div>
         </div>
       </div>
     </section>
 
-    <section class="library">
-      <div class="wrap library-head">
-        <div class="kicker">A growing culture-first platform</div>
-        <h2>Love. Friendship. Community.</h2>
-        <p class="section-sub">A cleaner way to meet people through intention, language, roots, rhythm, and real chemistry.</p>
+    <div class="trust-strip">
+      <div class="wrap trust-row">
+        <span>Intentions</span>
+        <span>Opportunities</span>
+        <span>Experiences</span>
+        <span>K-Letters</span>
+        <span>Pop & Konekt</span>
+        <span>Let’s Meet</span>
+      </div>
+    </div>
+
+    <section id="platform">
+      <div class="wrap">
+        <div class="section-head">
+          <div class="eyebrow">Three ways to discover</div>
+          <h2 class="section-title">One platform. Different reasons to connect.</h2>
+          <p class="section-copy">
+            Koneksyon separates personal connection, professional opportunity, and shared experiences
+            so every interaction starts with a clear purpose.
+          </p>
+        </div>
+
+        <div class="pill-grid">
+          <article class="pillar">
+            <div>
+              <div class="pillar-number">01</div>
+              <h3>Intentions</h3>
+            </div>
+            <p>
+              Meet people based on the kind of connection you are genuinely open to:
+              marriage, serious relationship, long-term, casual, or friendship.
+            </p>
+            <div class="pillar-tag"><i></i> Personal connection</div>
+          </article>
+
+          <article class="pillar">
+            <div>
+              <div class="pillar-number">02</div>
+              <h3>Opportunities</h3>
+            </div>
+            <p>
+              Use B-Konekt to discover creators, founders, clients, mentors,
+              entrepreneurs, and people open to collaboration.
+            </p>
+            <div class="pillar-tag"><i></i> Professional connection</div>
+          </article>
+
+          <article class="pillar">
+            <div>
+              <div class="pillar-number">03</div>
+              <h3>Experiences</h3>
+            </div>
+            <p>
+              Join events, Circles, Pop & Konekt, and culture-led moments
+              that make meeting people feel natural.
+            </p>
+            <div class="pillar-tag"><i></i> Community connection</div>
+          </article>
+        </div>
       </div>
     </section>
 
-    <section class="library" id="screens">
-      <div class="wrap library-head">
-        <div class="kicker">Real product preview</div>
-        <h2>Explore the Koneksyon experience.</h2>
-        <p class="section-sub">Spark, Vibes, profiles, launch moments, and community energy — presented like a premium product library.</p>
-      </div>
+    <section class="dark-band" id="experience">
+      <div class="wrap">
+        <div class="section-head">
+          <div class="eyebrow">The Koneksyon experience</div>
+          <h2 class="section-title">Built for more than profile browsing.</h2>
+          <p class="section-copy">
+            Every major feature is designed to help people understand why they are connecting,
+            how they want to continue, and when they are ready to move forward.
+          </p>
+        </div>
 
-      <div class="screen-track">
-        <div class="screen-card"><div class="screen-title">Spark</div><div class="phone"><img src="./assets/spark-screen.png" alt="Koneksyon Spark screen"></div></div>
-        <div class="screen-card"><div class="screen-title">Vibes</div><div class="phone"><img src="./assets/vibes-screen.png" alt="Koneksyon Vibes screen"></div></div>
-        <div class="screen-card"><div class="screen-title">Brand</div><div class="phone"><img src="./assets/brand-poster.png" alt="Koneksyon brand poster"></div></div>
-        <div class="screen-card"><div class="screen-title">Launch</div><div class="phone"><img src="./assets/brand-banner.jpg" alt="Koneksyon launch banner"></div></div>
-        <div class="screen-card"><div class="screen-title">Community</div><div class="phone"><img src="./assets/hero-community.jpg" alt="Koneksyon community"></div></div>
+        <div class="experience-grid">
+          <article class="experience-main">
+            <img src="./assets/hero-community.jpg" alt="Koneksyon community">
+            <div class="experience-overlay">
+              <div class="eyebrow">Real people. Real rooms.</div>
+              <h3>Culture creates the context.</h3>
+              <p>
+                Koneksyon combines digital discovery with real community, shared language,
+                culture, and experiences.
+              </p>
+            </div>
+          </article>
 
-        <div class="screen-card"><div class="screen-title">Spark</div><div class="phone"><img src="./assets/spark-screen.png" alt="Koneksyon Spark screen"></div></div>
-        <div class="screen-card"><div class="screen-title">Vibes</div><div class="phone"><img src="./assets/vibes-screen.png" alt="Koneksyon Vibes screen"></div></div>
-        <div class="screen-card"><div class="screen-title">Brand</div><div class="phone"><img src="./assets/brand-poster.png" alt="Koneksyon brand poster"></div></div>
-        <div class="screen-card"><div class="screen-title">Launch</div><div class="phone"><img src="./assets/brand-banner.jpg" alt="Koneksyon launch banner"></div></div>
-        <div class="screen-card"><div class="screen-title">Community</div><div class="phone"><img src="./assets/hero-community.jpg" alt="Koneksyon community"></div></div>
+          <div class="experience-side">
+            <article class="mini-card">
+              <div class="mini-icon">✉</div>
+              <div>
+                <h4>K-Letters</h4>
+                <p>Start with anonymous letters and let personality lead before either person reveals more.</p>
+              </div>
+            </article>
+
+            <article class="mini-card">
+              <div class="mini-icon">●</div>
+              <div>
+                <h4>Pop & Konekt</h4>
+                <p>Join guided live interactions where both people choose whether to continue privately.</p>
+              </div>
+            </article>
+
+            <article class="mini-card">
+              <div class="mini-icon">↗</div>
+              <div>
+                <h4>Unified Requests</h4>
+                <p>Personal and professional requests stay organized until both people choose to open the conversation.</p>
+              </div>
+            </article>
+
+            <article class="mini-card">
+              <div class="mini-icon">✓</div>
+              <div>
+                <h4>Let’s Meet</h4>
+                <p>Propose a date, time, location, and activity inside an active chat with accept, decline, and reschedule options.</p>
+              </div>
+            </article>
+          </div>
+        </div>
       </div>
     </section>
 
     <section id="features">
       <div class="wrap">
-        <div class="library-head">
-          <div class="kicker">From swipe to real connection.</div>
-          <h2>Designed for intention.</h2>
-          <p class="section-sub">Koneksyon feels different because the product is built around trust, language, culture, and a slower discovery rhythm.</p>
+        <div class="section-head">
+          <div class="eyebrow">Core product logic</div>
+          <h2 class="section-title">Clear actions. Clear expectations.</h2>
+          <p class="section-copy">
+            Koneksyon is built around deliberate connection, not addictive swiping.
+          </p>
         </div>
 
-        <div class="feature-grid">
-          <article class="feature reveal">
-            <span class="label">01 · Spark</span>
-            <h3>Make every daily like count.</h3>
-            <p>Free members get 13 daily likes and 3 Sparks, creating a calmer, more intentional discovery flow.</p>
+        <div class="feature-list">
+          <article class="feature-row">
+            <strong>Discovery</strong>
+            <h3>Purpose-based feeds</h3>
+            <p>Separate Intentions, Opportunities, and Experiences keep discovery relevant.</p>
           </article>
 
-          <article class="feature reveal">
-            <span class="label">02 · Vibes</span>
-            <h3>Preview people through energy.</h3>
-            <p>Vibes gives the app a social layer, helping users explore culture, chemistry, and personality before the conversation starts.</p>
+          <article class="feature-row">
+            <strong>Requests</strong>
+            <h3>Konekt before chat</h3>
+            <p>A conversation opens only after the request is accepted.</p>
           </article>
 
-          <article class="feature reveal">
-            <span class="label">03 · Language</span>
-            <h3>Speak in what feels like home.</h3>
-            <p>Haitian Kreyòl, French, Spanish, and English are part of the identity because connection feels deeper in the right language.</p>
+          <article class="feature-row">
+            <strong>Priority</strong>
+            <h3>Priority Konekt</h3>
+            <p>Send a stronger signal without turning the experience into a swipe game.</p>
           </article>
 
-          <article class="feature reveal">
-            <span class="label">04 · Trust</span>
-            <h3>Verified-first community.</h3>
-            <p>Photo rules, selfie verification, reporting, blocking, and public safety pages help the brand feel safer and more serious.</p>
+          <article class="feature-row">
+            <strong>Conversation</strong>
+            <h3>Realtime chat</h3>
+            <p>Text, replies, photo messages, editing, deletion, read receipts, and safety controls.</p>
           </article>
 
-          <article class="feature reveal">
-            <span class="label">05 · B-Konekt</span>
-            <h3>More than dating.</h3>
-            <p>A space for friendship, networking, events, creators, founders, mentors, and cultural opportunities.</p>
+          <article class="feature-row">
+            <strong>Meeting</strong>
+            <h3>Let’s Meet</h3>
+            <p>Move from chat to a structured plan with clear date, time, place, and safety guidance.</p>
           </article>
 
-          <article class="feature reveal">
-            <span class="label">06 · Premium</span>
-            <h3>More control when you want it.</h3>
-            <p>Konekt+ gives users more likes, more Sparks, visibility tools, and a cleaner way to grow their chances.</p>
+          <article class="feature-row">
+            <strong>Trust</strong>
+            <h3>Verification-first</h3>
+            <p>Selfie verification, approved photos, reporting, blocking, and moderation support a safer community.</p>
           </article>
         </div>
       </div>
     </section>
 
-    <section class="creation">
+    <section class="gallery">
       <div class="wrap">
-        <div class="library-head">
-          <div class="kicker">From profile to conversation.</div>
-          <h2>Every step should feel simple.</h2>
+        <div class="section-head">
+          <div class="eyebrow">Community in real life</div>
+          <h2 class="section-title">A platform backed by real people.</h2>
+          <p class="section-copy">
+            The Koneksyon brand is built through community, events, creators, founders, and cultural experiences.
+          </p>
         </div>
 
-        <div class="creation-grid">
-          <article class="creation-card">
-            <div class="mock-box">
-              <div class="toast"><span>✓</span> Verified profile</div>
-            </div>
-            <h3>Build trust first</h3>
-            <p>Verification and photo standards make the experience feel safer from the start.</p>
+        <div class="gallery-grid">
+          <article class="gallery-card tall">
+            <img src="./assets/bkonekt-founders.jpg" alt="Koneksyon founders">
+            <span>Founders</span>
           </article>
-
-          <article class="creation-card">
-            <div class="mock-box">
-              <div class="save-ui">
-                <small>Quick match</small>
-                <div class="save-line"><span>Spark</span><b>★</b></div>
-                <div class="save-line"><span>Konekt+</span><b>⚡</b></div>
-                <div class="save-line"><span>Message</span><b>→</b></div>
-              </div>
-            </div>
-            <h3>Choose with intention</h3>
-            <p>Pass, Spark, Konekt+, Message, and Like all have clear purpose.</p>
+          <article class="gallery-card">
+            <img src="./assets/launch-style.jpg" alt="Koneksyon launch">
+            <span>Launch</span>
           </article>
-
-          <article class="creation-card">
-            <div class="mock-box">
-              <div class="comment-ui">
-                <b>You matched</b>
-                <p style="color:#666;margin-top:6px">Start with something real.</p>
-                <div class="comment-input"><span>Send a message</span><b>↑</b></div>
-              </div>
-            </div>
-            <h3>Start better conversations</h3>
-            <p>The experience leads users toward respectful, real interaction.</p>
+          <article class="gallery-card">
+            <img src="./assets/community-selfie.jpg" alt="Koneksyon community">
+            <span>Community</span>
           </article>
         </div>
       </div>
     </section>
 
-    <section class="real" id="gallery">
-      <div class="wrap library-head">
-        <div class="kicker">Real people. Real rooms.</div>
-        <h2>This is the proof.</h2>
-        <p class="section-sub">Community photos give the brand a stronger, more human launch story.</p>
-      </div>
-
-      <div class="photo-track">
-        <div class="photo-card"><img src="./assets/bkonekt-founders.jpg" alt="Koneksyon event"><span>Founders</span></div>
-        <div class="photo-card"><img src="./assets/launch-style.jpg" alt="Koneksyon event guests"><span>Launch style</span></div>
-        <div class="photo-card wide"><img src="./assets/community-selfie.jpg" alt="Koneksyon community selfie"><span>Community</span></div>
-        <div class="photo-card wide"><img src="./assets/hero-community.jpg" alt="Koneksyon community"><span>Real rooms</span></div>
-        <div class="photo-card"><img src="./assets/founder-talk.jpg" alt="Koneksyon founder talk"><span>Founder talk</span></div>
-        <div class="photo-card"><img src="./assets/guests.jpg" alt="Koneksyon guests"><span>Guests</span></div>
-        <div class="photo-card"><img src="./assets/creators.jpg" alt="Koneksyon creators"><span>Creators</span></div>
-
-        <div class="photo-card"><img src="./assets/bkonekt-founders.jpg" alt="Koneksyon event"><span>Founders</span></div>
-        <div class="photo-card"><img src="./assets/launch-style.jpg" alt="Koneksyon event guests"><span>Launch style</span></div>
-        <div class="photo-card wide"><img src="./assets/community-selfie.jpg" alt="Koneksyon community selfie"><span>Community</span></div>
-        <div class="photo-card wide"><img src="./assets/hero-community.jpg" alt="Koneksyon community"><span>Real rooms</span></div>
-        <div class="photo-card"><img src="./assets/founder-talk.jpg" alt="Koneksyon founder talk"><span>Founder talk</span></div>
-        <div class="photo-card"><img src="./assets/guests.jpg" alt="Koneksyon guests"><span>Guests</span></div>
-        <div class="photo-card"><img src="./assets/creators.jpg" alt="Koneksyon creators"><span>Creators</span></div>
-      </div>
-    </section>
-
-    <section class="plans" id="plans">
+    <section id="plans">
       <div class="wrap">
-        <div class="library-head">
-          <div class="kicker">Never run out of meaningful chances.</div>
-          <h2>Free to start. Premium when you want more.</h2>
-          <p class="section-sub">Use Koneksyon for free, or upgrade when you want more likes, more Sparks, and better visibility.</p>
+        <div class="section-head">
+          <div class="eyebrow">Free to connect</div>
+          <h2 class="section-title">Premium when you want more control.</h2>
+          <p class="section-copy">
+            The core platform works free. Premium Subscription adds advanced tools,
+            while Konekt+ remains a separate visibility feature.
+          </p>
         </div>
 
-        <div class="plan-grid">
+        <div class="plans-grid">
           <article class="plan">
             <small>Free</small>
             <h3>Start connecting.</h3>
             <div class="price">$0 <span>/ month</span></div>
             <ul>
-              <li>13 likes per day</li>
-              <li>3 Sparks daily</li>
-              <li>Preview who liked you</li>
+              <li>Intentions, Opportunities, and Experiences</li>
+              <li>Konekt requests and chats</li>
+              <li>K-Letters and Pop & Konekt</li>
               <li>Verified community access</li>
             </ul>
+            <a class="btn" href="#download">Join free</a>
           </article>
 
           <article class="plan featured">
-            <small>Premium Konekt+</small>
+            <small>Premium Subscription</small>
             <h3>More control.</h3>
             <div class="price">$12.99 <span>/ month</span></div>
             <ul>
-              <li>30 likes per day</li>
-              <li>10 Sparks included</li>
-              <li>Refresh Sparks anytime</li>
-              <li>See exactly who liked you</li>
-              <li>Priority messaging access</li>
+              <li>See who sent you a request</li>
+              <li>Advanced filters by origin and language</li>
+              <li>More Priority Konekts</li>
+              <li>Read receipts and private browsing</li>
+              <li>One Konekt+ visibility credit monthly</li>
             </ul>
+            <a class="btn primary" href="#download">Explore Premium</a>
           </article>
 
           <article class="plan">
-            <small>Boost</small>
-            <h3>Stand out when it matters.</h3>
-            <div class="price">Konekt+ <span>/ boost</span></div>
+            <small>Konekt+</small>
+            <h3>Increase visibility.</h3>
+            <div class="price">1 credit <span>/ activation</span></div>
             <ul>
-              <li>Timed visibility boost</li>
-              <li>Available to free and premium users</li>
-              <li>Appear higher in discovery</li>
-              <li>Use when you want extra attention</li>
+              <li>Timed profile visibility</li>
+              <li>Separate from Premium Subscription</li>
+              <li>Higher placement in discovery</li>
+              <li>Activate only when you choose</li>
             </ul>
+            <a class="btn" href="#download">Learn more</a>
           </article>
         </div>
       </div>
     </section>
 
-    <section id="safety">
+    <section class="dark-band" id="safety">
       <div class="wrap">
-        <div class="library-head">
-          <div class="kicker">Safety & trust.</div>
-          <h2>Premium also means protected.</h2>
-          <p class="section-sub">Koneksyon makes safety easy to find and easy to understand.</p>
+        <div class="section-head">
+          <div class="eyebrow">Safety and trust</div>
+          <h2 class="section-title">Connection should feel protected.</h2>
+          <p class="section-copy">
+            Safety tools stay visible across profiles, requests, chats, and Let’s Meet.
+          </p>
         </div>
 
         <div class="safety-grid">
-          <article class="safe"><div class="safe-icon">18+</div><b>Adults only</b><p>Koneksyon is not for minors and clearly communicates its adult-only standard.</p></article>
-          <article class="safe"><div class="safe-icon">✓</div><b>Verification</b><p>Selfie verification and profile requirements help reduce fake behavior.</p></article>
-          <article class="safe"><div class="safe-icon">!</div><b>Report & block</b><p>Users need clear ways to report unsafe behavior and control communication.</p></article>
-          <article class="safe"><div class="safe-icon">§</div><b>Public policies</b><p>Terms, Privacy, Community Guidelines, and Child Safety pages stay visible.</p></article>
+          <article class="safe">
+            <div class="safe-icon">18+</div>
+            <h3>Adults only</h3>
+            <p>Koneksyon is for adults and clearly communicates its age standard.</p>
+          </article>
+
+          <article class="safe">
+            <div class="safe-icon">✓</div>
+            <h3>Verification</h3>
+            <p>Selfie verification and approved photos help reduce impersonation and fake behavior.</p>
+          </article>
+
+          <article class="safe">
+            <div class="safe-icon">!</div>
+            <h3>Control</h3>
+            <p>Users can report, block, unmatch, and control who can continue communicating.</p>
+          </article>
+
+          <article class="safe">
+            <div class="safe-icon">§</div>
+            <h3>Public standards</h3>
+            <p>Terms, Privacy, Community Guidelines, and Child Safety standards remain easy to access.</p>
+          </article>
         </div>
-      </div>
-    </section>
-
-    <section class="never">
-      <div class="wrap library-head">
-        <div class="kicker">Koneksyon ecosystem</div>
-        <h2>Love. Friendship. Community.</h2>
-        <p class="section-sub">A brand system that feels clean, real, and built for modern connection.</p>
-      </div>
-
-      <div class="brand-marquee">
-        <div class="wordmark"><span class="mini"><img src="./assets/favicon-192.png" alt=""></span>Koneksyon</div>
-        <div class="wordmark"><span class="mini">♡</span>Love</div>
-        <div class="wordmark"><span class="mini">★</span>Spark</div>
-        <div class="wordmark"><span class="mini">13</span>Daily Likes</div>
-        <div class="wordmark"><span class="mini">HT</span>Kreyòl</div>
-        <div class="wordmark"><span class="mini">FR</span>French</div>
-        <div class="wordmark"><span class="mini">ES</span>Spanish</div>
-        <div class="wordmark"><span class="mini">EN</span>English</div>
-        <div class="wordmark"><span class="mini">✓</span>Verified</div>
-        <div class="wordmark"><span class="mini">∞</span>B-Konekt</div>
-        <div class="wordmark"><span class="mini">🌴</span>Culture</div>
-        <div class="wordmark"><span class="mini">💬</span>Chats</div>
       </div>
     </section>
 
@@ -1158,10 +652,14 @@
       <div class="wrap">
         <div class="final">
           <div>
-            <h2>Your Koneksyon starts here.</h2>
-            <p>Download free. Find your vibe. Meet people through culture, language, chemistry, friendship, and real connection.</p>
-            <div class="hero-actions">
-              <a class="btn dark" href="mailto:support@koneksyondatingapp.com?subject=Koneksyon%20Launch">Join for free</a>
+            <div class="eyebrow">Where culture meets connection</div>
+            <h2>Your next connection can start differently.</h2>
+            <p>
+              Choose an intention, explore an opportunity, join an experience,
+              or begin with a letter. Koneksyon gives every connection a reason to start.
+            </p>
+            <div class="hero-actions" style="justify-content:center;margin-top:32px">
+              <a class="btn primary" href="mailto:support@koneksyondatingapp.com?subject=Koneksyon%20Access">Join Koneksyon</a>
               <a class="btn" href="community-guidelines.html">Community Guidelines</a>
             </div>
           </div>
@@ -1177,15 +675,18 @@
           <a href="#top" class="brand">
             <img class="brand-logo" src="./assets/logo-color.png" alt="Koneksyon">
           </a>
-          <p>Caribbean-inspired dating and social connection. Built for authenticity, safety, language, culture, and community. Open to everyone.</p>
+          <p>
+            Caribbean-inspired social connection for Intentions, Opportunities,
+            Experiences, K-Letters, Pop & Konekt, and community. Open to everyone.
+          </p>
         </div>
 
         <div>
-          <h4>App</h4>
-          <a href="#screens">Screens</a>
+          <h4>Platform</h4>
+          <a href="#platform">Intentions</a>
+          <a href="#platform">Opportunities</a>
+          <a href="#platform">Experiences</a>
           <a href="#features">Features</a>
-          <a href="#plans">Premium</a>
-          <a href="#download">Download</a>
         </div>
 
         <div>
@@ -1230,38 +731,24 @@
       });
     });
 
-    const cards = document.querySelectorAll(".reveal");
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add("in-view");
-          observer.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.18 });
-
-    cards.forEach((card) => observer.observe(card));
-  
     document.querySelectorAll("img").forEach((img) => {
       img.addEventListener("error", () => {
         const alt = img.getAttribute("alt") || "Koneksyon";
         img.style.display = "none";
-        const box = document.createElement("div");
-        box.style.width = "100%";
-        box.style.height = "100%";
-        box.style.display = "grid";
-        box.style.placeItems = "center";
-        box.style.background = "linear-gradient(135deg,#fbfaf7,#eee9df)";
-        box.style.color = "#111114";
-        box.style.fontWeight = "900";
-        box.style.fontSize = "18px";
-        box.style.textAlign = "center";
-        box.style.padding = "20px";
-        box.textContent = alt;
-        img.parentNode.appendChild(box);
+        const fallback = document.createElement("div");
+        fallback.style.width = "100%";
+        fallback.style.height = "100%";
+        fallback.style.display = "grid";
+        fallback.style.placeItems = "center";
+        fallback.style.background = "linear-gradient(135deg,#111522,#080a11)";
+        fallback.style.color = "#f7f8fb";
+        fallback.style.fontWeight = "900";
+        fallback.style.textAlign = "center";
+        fallback.style.padding = "20px";
+        fallback.textContent = alt;
+        img.parentNode.appendChild(fallback);
       }, { once: true });
     });
-
   </script>
 </body>
 </html>
