@@ -16,103 +16,43 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
   <style>
-    :root{
-      --bg:#080b11;
-      --text:#f7f8fb;
-      --muted:#9ba4b4;
-      --muted2:#70798a;
-      --glass:rgba(255,255,255,.075);
-      --glass-hover:rgba(255,255,255,.105);
-      --line:rgba(255,255,255,.13);
-      --line-hi:rgba(255,255,255,.23);
-      --blue:#4f8cff;
-      --shadow:0 16px 44px rgba(0,0,0,.28);
-    }
-
+    :root{--bg:#080b11;--text:#f7f8fb;--muted:#9ba4b4;--line:rgba(255,255,255,.13);--line-hi:rgba(255,255,255,.23);--blue:#4f8cff}
     *{box-sizing:border-box}
     html,body{margin:0;min-height:100%;background:#06080d;color:var(--text);font-family:Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;-webkit-font-smoothing:antialiased}
-    body{overflow-x:hidden}
-    a{color:inherit;text-decoration:none}
-    button{font:inherit}
-
+    body{overflow-x:hidden}a{color:inherit;text-decoration:none}button{font:inherit}
     .page{position:relative;width:min(100%,620px);min-height:100vh;margin:0 auto;background:linear-gradient(180deg,#0d121d 0%,#090c13 30%,#080b11 100%);overflow:hidden}
     .page:before{content:"";position:absolute;inset:160px -35px -40px;background:url('/assets/hero-community.jpg') center/cover no-repeat;filter:blur(46px) saturate(.85);transform:scale(1.12);opacity:.16;pointer-events:none}
     .page:after{content:"";position:absolute;inset:0;background:radial-gradient(circle at 50% 22%,rgba(88,125,188,.08),transparent 35%),linear-gradient(180deg,transparent,rgba(0,0,0,.10));pointer-events:none}
-
     .cover{height:188px;position:relative;background:linear-gradient(180deg,rgba(0,0,0,.02),rgba(4,7,12,.22)),url('/assets/hero-community.jpg') center 42%/cover no-repeat;border-bottom:1px solid rgba(255,255,255,.055)}
     .cover:after{content:"";position:absolute;inset:auto 0 0;height:44px;background:linear-gradient(transparent,rgba(9,12,18,.62));pointer-events:none}
-
     .language{position:absolute;z-index:20;top:max(12px,env(safe-area-inset-top));right:12px}
     .lang-button{height:27px;padding:0 9px;border:1px solid rgba(255,255,255,.14);border-radius:999px;background:rgba(11,14,21,.48);color:#f6f7fa;display:flex;align-items:center;gap:5px;font-size:9px;font-weight:700;letter-spacing:.08em;backdrop-filter:blur(24px) saturate(135%);-webkit-backdrop-filter:blur(24px) saturate(135%);cursor:pointer;box-shadow:inset 0 1px 0 rgba(255,255,255,.05),0 5px 18px rgba(0,0,0,.18)}
-    .lang-button svg{width:10px;height:10px;transition:transform .18s ease}
-    .language.open .lang-button svg{transform:rotate(180deg)}
-    .lang-menu{position:absolute;right:0;top:34px;min-width:132px;padding:5px;border:1px solid rgba(255,255,255,.11);border-radius:14px;background:rgba(15,19,27,.92);box-shadow:0 18px 50px rgba(0,0,0,.38);backdrop-filter:blur(28px) saturate(140%);-webkit-backdrop-filter:blur(28px) saturate(140%);display:none}
-    .language.open .lang-menu{display:block}
-    .lang-option{width:100%;height:31px;border:0;border-radius:9px;background:transparent;color:#cfd5df;text-align:left;padding:0 9px;font-size:10px;font-weight:600;cursor:pointer}
-    .lang-option:hover,.lang-option.active{background:rgba(255,255,255,.08);color:#fff}
-
+    .lang-button svg{width:10px;height:10px;transition:transform .18s ease}.language.open .lang-button svg{transform:rotate(180deg)}
+    .lang-menu{position:absolute;right:0;top:34px;min-width:132px;padding:5px;border:1px solid rgba(255,255,255,.11);border-radius:14px;background:rgba(15,19,27,.92);box-shadow:0 18px 50px rgba(0,0,0,.38);backdrop-filter:blur(28px) saturate(140%);-webkit-backdrop-filter:blur(28px) saturate(140%);display:none}.language.open .lang-menu{display:block}
+    .lang-option{width:100%;height:31px;border:0;border-radius:9px;background:transparent;color:#cfd5df;text-align:left;padding:0 9px;font-size:10px;font-weight:600;cursor:pointer}.lang-option:hover,.lang-option.active{background:rgba(255,255,255,.08);color:#fff}
     .profile{position:relative;z-index:2;margin-top:-55px;padding:0 16px 26px;text-align:center}
-    .profile-logo{width:108px;height:108px;margin:0 auto;border-radius:50%;display:grid;place-items:center;background:rgba(8,12,19,.96);border:4px solid rgba(248,250,255,.96);box-shadow:0 0 0 2px var(--blue),0 16px 42px rgba(0,0,0,.36);overflow:hidden;padding:17px}
-    .profile-logo img{width:100%;height:100%;object-fit:contain}
-
-    .brand{margin:18px 0 0;font-size:27px;line-height:1;font-weight:800;letter-spacing:-.045em}
-    .slogan{margin:7px auto 0;max-width:390px;color:#c8cfda;font-size:13px;line-height:1.4;font-weight:500}
-
+    .profile-logo{width:108px;height:108px;margin:0 auto;border-radius:50%;display:grid;place-items:center;background:rgba(8,12,19,.96);border:4px solid rgba(248,250,255,.96);box-shadow:0 0 0 2px var(--blue),0 16px 42px rgba(0,0,0,.36);overflow:hidden;padding:17px}.profile-logo img{width:100%;height:100%;object-fit:contain}
+    .brand{margin:18px 0 0;font-size:27px;line-height:1;font-weight:800;letter-spacing:-.045em}.slogan{margin:7px auto 0;max-width:390px;color:#c8cfda;font-size:13px;line-height:1.4;font-weight:500}
     .socials{display:flex;justify-content:center;align-items:center;gap:9px;margin-top:21px;flex-wrap:nowrap}
-    .social{width:40px;height:40px;flex:0 0 40px;border-radius:50%;display:grid;place-items:center;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.19);color:#f7f8fb;box-shadow:inset 0 1px 0 rgba(255,255,255,.08),0 7px 18px rgba(0,0,0,.17);backdrop-filter:blur(22px) saturate(135%);-webkit-backdrop-filter:blur(22px) saturate(135%);transition:transform .2s ease,background .2s ease,border-color .2s ease}
-    .social:hover{transform:translateY(-2px);background:rgba(255,255,255,.11);border-color:rgba(255,255,255,.27)}
-    .social svg{width:18px;height:18px}
-
+    .social{width:40px;height:40px;flex:0 0 40px;border-radius:50%;display:grid;place-items:center;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.19);color:#f7f8fb;box-shadow:inset 0 1px 0 rgba(255,255,255,.08),0 7px 18px rgba(0,0,0,.17);backdrop-filter:blur(22px) saturate(135%);-webkit-backdrop-filter:blur(22px) saturate(135%);transition:transform .2s ease,background .2s ease,border-color .2s ease}.social:hover{transform:translateY(-2px);background:rgba(255,255,255,.11);border-color:rgba(255,255,255,.27)}.social svg{width:18px;height:18px}
     .links{position:relative;z-index:2;display:grid;gap:10px;margin-top:27px}
-    .link{position:relative;min-height:56px;padding:0 15px;border-radius:19px;border:1px solid var(--line);background:linear-gradient(180deg,rgba(255,255,255,.088),rgba(255,255,255,.052));box-shadow:inset 0 1px 0 rgba(255,255,255,.08),0 10px 28px rgba(0,0,0,.15);display:grid;grid-template-columns:30px 1fr 20px;align-items:center;gap:8px;backdrop-filter:blur(26px) saturate(145%);-webkit-backdrop-filter:blur(26px) saturate(145%);transition:transform .2s ease,border-color .2s ease,background .2s ease;overflow:hidden}
-    .link:before{content:"";position:absolute;inset:0;background:linear-gradient(112deg,rgba(255,255,255,.035),transparent 34%,rgba(255,255,255,.018));pointer-events:none}
-    .link:hover{transform:translateY(-1px);border-color:var(--line-hi);background:linear-gradient(180deg,rgba(255,255,255,.115),rgba(255,255,255,.07))}
-    .link.smart-link{border-color:rgba(104,151,255,.25);background:linear-gradient(180deg,rgba(76,120,203,.15),rgba(255,255,255,.05))}
-    .link-icon{position:relative;z-index:1;width:30px;height:30px;display:grid;place-items:center;color:#f8f9fb}
-    .link-icon svg{width:18px;height:18px}
-    .link-title{position:relative;z-index:1;text-align:center;font-size:12.5px;font-weight:700;letter-spacing:-.008em}
-    .link-arrow{position:relative;z-index:1;display:grid;place-items:center;color:#8d96a6}
-    .link-arrow svg{width:14px;height:14px}
-
-    .smart-note{margin:15px auto 0;max-width:390px;color:#6d7686;font-size:9px;line-height:1.5;font-weight:500}
-    .footer{position:relative;z-index:2;padding:26px 10px max(22px,env(safe-area-inset-bottom));text-align:center;color:#5f6878;font-size:9px;line-height:1.5}
-    .footer-links{display:flex;justify-content:center;gap:12px;flex-wrap:wrap;margin-top:7px;color:#7f8898;font-weight:600}
-
-    @media(max-width:430px){
-      .cover{height:178px}
-      .profile{margin-top:-52px;padding-left:13px;padding-right:13px}
-      .profile-logo{width:102px;height:102px;padding:16px}
-      .brand{font-size:25px;margin-top:17px}
-      .slogan{font-size:12.5px}
-      .socials{gap:8px;margin-top:19px}
-      .social{width:38px;height:38px;flex-basis:38px}
-      .social svg{width:17px;height:17px}
-      .links{gap:9px;margin-top:25px}
-      .link{min-height:54px;padding:0 13px;border-radius:18px;grid-template-columns:28px 1fr 18px}
-      .link-icon{width:28px;height:28px}.link-icon svg{width:17px;height:17px}
-      .link-title{font-size:12px}
-    }
+    .link{position:relative;min-height:56px;padding:0 15px;border-radius:19px;border:1px solid var(--line);background:linear-gradient(180deg,rgba(255,255,255,.088),rgba(255,255,255,.052));box-shadow:inset 0 1px 0 rgba(255,255,255,.08),0 10px 28px rgba(0,0,0,.15);display:grid;grid-template-columns:30px 1fr 20px;align-items:center;gap:8px;backdrop-filter:blur(26px) saturate(145%);-webkit-backdrop-filter:blur(26px) saturate(145%);transition:transform .2s ease,border-color .2s ease,background .2s ease;overflow:hidden}.link:before{content:"";position:absolute;inset:0;background:linear-gradient(112deg,rgba(255,255,255,.035),transparent 34%,rgba(255,255,255,.018));pointer-events:none}.link:hover{transform:translateY(-1px);border-color:var(--line-hi);background:linear-gradient(180deg,rgba(255,255,255,.115),rgba(255,255,255,.07))}
+    .link-icon{position:relative;z-index:1;width:30px;height:30px;display:grid;place-items:center;color:#f8f9fb}.link-icon svg{width:18px;height:18px}.link-title{position:relative;z-index:1;text-align:center;font-size:12.5px;font-weight:700;letter-spacing:-.008em}.link-arrow{position:relative;z-index:1;display:grid;place-items:center;color:#8d96a6}.link-arrow svg{width:14px;height:14px}
+    .footer{position:relative;z-index:2;padding:26px 10px max(22px,env(safe-area-inset-bottom));text-align:center;color:#5f6878;font-size:9px;line-height:1.5}.footer-links{display:flex;justify-content:center;gap:12px;flex-wrap:wrap;margin-top:7px;color:#7f8898;font-weight:600}
+    @media(max-width:430px){.cover{height:178px}.profile{margin-top:-52px;padding-left:13px;padding-right:13px}.profile-logo{width:102px;height:102px;padding:16px}.brand{font-size:25px;margin-top:17px}.slogan{font-size:12.5px}.socials{gap:8px;margin-top:19px}.social{width:38px;height:38px;flex-basis:38px}.social svg{width:17px;height:17px}.links{gap:9px;margin-top:25px}.link{min-height:54px;padding:0 13px;border-radius:18px;grid-template-columns:28px 1fr 18px}.link-icon{width:28px;height:28px}.link-icon svg{width:17px;height:17px}.link-title{font-size:12px}}
   </style>
 </head>
 <body>
   <main class="page">
     <div class="language" id="languagePicker">
       <button class="lang-button" id="langButton" type="button" aria-haspopup="true" aria-expanded="false"><span id="langCode">EN</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></button>
-      <div class="lang-menu" role="menu">
-        <button class="lang-option active" data-lang="en" type="button">English</button>
-        <button class="lang-option" data-lang="fr" type="button">Français</button>
-        <button class="lang-option" data-lang="es" type="button">Español</button>
-        <button class="lang-option" data-lang="ht" type="button">Kreyòl</button>
-      </div>
+      <div class="lang-menu" role="menu"><button class="lang-option active" data-lang="en" type="button">English</button><button class="lang-option" data-lang="fr" type="button">Français</button><button class="lang-option" data-lang="es" type="button">Español</button><button class="lang-option" data-lang="ht" type="button">Kreyòl</button></div>
     </div>
-
     <div class="cover" aria-hidden="true"></div>
-
     <section class="profile">
       <div class="profile-logo"><img src="/assets/logo-white.png" alt="Koneksyon logo" /></div>
       <h1 class="brand">Koneksyon</h1>
       <p class="slogan" data-i18n="slogan">Where Culture Meets Connection.</p>
-
       <div class="socials" aria-label="Koneksyon social links">
         <a class="social" href="https://www.instagram.com/koneksyondatingapp?igsi=c25handtdTJjZGdi" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.4" cy="6.6" r=".8" fill="currentColor" stroke="none"/></svg></a>
         <a class="social" href="https://www.tiktok.com/@koneksy0n?_r=1&amp;_t=ZP-99TbmiYpQsQ" target="_blank" rel="noopener noreferrer" aria-label="TikTok"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M14 4v10.2a4.3 4.3 0 1 1-3.2-4.15"/><path d="M14 4c.8 2.45 2.35 3.85 4.8 4.2"/></svg></a>
@@ -120,117 +60,34 @@
         <a class="social" href="https://koneksyondatingapp.com/" target="_blank" rel="noopener noreferrer" aria-label="Website"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14.5 14.5 0 0 1 0 18M12 3a14.5 14.5 0 0 0 0 18"/></svg></a>
         <a class="social" href="mailto:support@koneksyondatingapp.com" aria-label="Support"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="3"/><path d="m4.5 7 7.5 5.5L19.5 7"/></svg></a>
       </div>
-
       <div class="links">
-        <a class="link smart-link smart-download" href="https://koneksyondatingapp.com/">
-          <span class="link-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12"/><path d="m7 10 5 5 5-5"/><path d="M5 20h14"/></svg></span>
-          <span class="link-title" id="smartTitle">Open Koneksyon</span>
-          <span class="link-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg></span>
-        </a>
-
-        <a class="link" href="https://apps.apple.com/us/app/koneksyon-konnect-grow/id6776052442" target="_blank" rel="noopener noreferrer">
-          <span class="link-icon"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M16.9 13.1c0-2.5 2-3.7 2.1-3.8-1.2-1.7-3-1.9-3.7-1.9-1.6-.2-3.1.9-3.9.9-.8 0-2-.9-3.3-.9-1.7 0-3.3 1-4.2 2.5-1.8 3.1-.5 7.8 1.3 10.4.9 1.3 1.9 2.7 3.3 2.6 1.3-.1 1.8-.8 3.4-.8s2 .8 3.4.8c1.4 0 2.3-1.3 3.2-2.6 1-1.5 1.4-3 1.4-3.1-.1 0-3-.9-3-4.1ZM14.3 5.8c.7-.9 1.2-2.1 1.1-3.3-1.1 0-2.4.7-3.2 1.6-.7.8-1.3 2-1.1 3.2 1.2.1 2.5-.6 3.2-1.5Z"/></svg></span>
-          <span class="link-title" data-i18n="appStore">Download on the App Store</span>
-          <span class="link-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg></span>
-        </a>
-
-        <a class="link" href="https://play.google.com/store/apps/details?id=com.koneksyondatingapp.app&amp;pcampaignid=web_share" target="_blank" rel="noopener noreferrer">
-          <span class="link-icon"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M5.3 3.8c-.5.35-.8.95-.8 1.72v12.96c0 .77.3 1.37.8 1.72L13.7 12 5.3 3.8Zm9.45 9.22-2.1 2.05-5.52 5.4c.17.03.36.02.56-.04l9.72-5.53-2.66-1.88Zm2.66-3.92L7.69 3.57a1.24 1.24 0 0 0-.56-.04l7.62 7.45 2.66-1.88Zm1.08.62-2.7 1.9.39.38-.39.38 2.7 1.9c.86.49 1.51.1 1.51-.88v-2.8c0-.98-.65-1.37-1.51-.88Z"/></svg></span>
-          <span class="link-title" data-i18n="googlePlay">Download on Google Play</span>
-          <span class="link-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg></span>
-        </a>
-
-        <a class="link" href="https://koneksyondatingapp.com/" target="_blank" rel="noopener noreferrer">
-          <span class="link-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14.5 14.5 0 0 1 0 18M12 3a14.5 14.5 0 0 0 0 18"/></svg></span>
-          <span class="link-title" data-i18n="website">Koneksyon Website</span>
-          <span class="link-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg></span>
-        </a>
-
-        <a class="link" href="https://www.instagram.com/koneksyondatingapp?igsi=c25handtdTJjZGdi" target="_blank" rel="noopener noreferrer">
-          <span class="link-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.4" cy="6.6" r=".8" fill="currentColor" stroke="none"/></svg></span>
-          <span class="link-title">Instagram</span>
-          <span class="link-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg></span>
-        </a>
-
-        <a class="link" href="https://www.tiktok.com/@koneksy0n?_r=1&amp;_t=ZP-99TbmiYpQsQ" target="_blank" rel="noopener noreferrer">
-          <span class="link-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M14 4v10.2a4.3 4.3 0 1 1-3.2-4.15"/><path d="M14 4c.8 2.45 2.35 3.85 4.8 4.2"/></svg></span>
-          <span class="link-title">TikTok</span>
-          <span class="link-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg></span>
-        </a>
-
-        <a class="link" href="https://www.facebook.com/share/14urwNKTymF/?mibextid=wwXIfr" target="_blank" rel="noopener noreferrer">
-          <span class="link-icon"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M13.7 21v-8h2.75l.4-3.12H13.7V7.9c0-.9.25-1.52 1.57-1.52h1.68V3.6a22.6 22.6 0 0 0-2.45-.13c-2.43 0-4.1 1.48-4.1 4.2v2.21H7.65V13h2.75v8h3.3Z"/></svg></span>
-          <span class="link-title">Facebook</span>
-          <span class="link-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg></span>
-        </a>
-
-        <a class="link" href="mailto:support@koneksyondatingapp.com">
-          <span class="link-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="3"/><path d="m4.5 7 7.5 5.5L19.5 7"/></svg></span>
-          <span class="link-title" data-i18n="support">Contact &amp; Support</span>
-          <span class="link-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg></span>
-        </a>
+        <a class="link" href="https://apps.apple.com/us/app/koneksyon-konnect-grow/id6776052442" target="_blank" rel="noopener noreferrer"><span class="link-icon"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M16.9 13.1c0-2.5 2-3.7 2.1-3.8-1.2-1.7-3-1.9-3.7-1.9-1.6-.2-3.1.9-3.9.9-.8 0-2-.9-3.3-.9-1.7 0-3.3 1-4.2 2.5-1.8 3.1-.5 7.8 1.3 10.4.9 1.3 1.9 2.7 3.3 2.6 1.3-.1 1.8-.8 3.4-.8s2 .8 3.4.8c1.4 0 2.3-1.3 3.2-2.6 1-1.5 1.4-3 1.4-3.1-.1 0-3-.9-3-4.1ZM14.3 5.8c.7-.9 1.2-2.1 1.1-3.3-1.1 0-2.4.7-3.2 1.6-.7.8-1.3 2-1.1 3.2 1.2.1 2.5-.6 3.2-1.5Z"/></svg></span><span class="link-title" data-i18n="appStore">Download on the App Store</span><span class="link-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg></span></a>
+        <a class="link" href="https://play.google.com/store/apps/details?id=com.koneksyondatingapp.app&amp;pcampaignid=web_share" target="_blank" rel="noopener noreferrer"><span class="link-icon"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M5.3 3.8c-.5.35-.8.95-.8 1.72v12.96c0 .77.3 1.37.8 1.72L13.7 12 5.3 3.8Zm9.45 9.22-2.1 2.05-5.52 5.4c.17.03.36.02.56-.04l9.72-5.53-2.66-1.88Zm2.66-3.92L7.69 3.57a1.24 1.24 0 0 0-.56-.04l7.62 7.45 2.66-1.88Zm1.08.62-2.7 1.9.39.38-.39.38 2.7 1.9c.86.49 1.51.1 1.51-.88v-2.8c0-.98-.65-1.37-1.51-.88Z"/></svg></span><span class="link-title" data-i18n="googlePlay">Download on Google Play</span><span class="link-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg></span></a>
+        <a class="link" href="https://koneksyondatingapp.com/" target="_blank" rel="noopener noreferrer"><span class="link-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14.5 14.5 0 0 1 0 18M12 3a14.5 14.5 0 0 0 0 18"/></svg></span><span class="link-title" data-i18n="website">Koneksyon Website</span><span class="link-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg></span></a>
+        <a class="link" href="https://www.instagram.com/koneksyondatingapp?igsi=c25handtdTJjZGdi" target="_blank" rel="noopener noreferrer"><span class="link-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.4" cy="6.6" r=".8" fill="currentColor" stroke="none"/></svg></span><span class="link-title">Instagram</span><span class="link-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg></span></a>
+        <a class="link" href="https://www.tiktok.com/@koneksy0n?_r=1&amp;_t=ZP-99TbmiYpQsQ" target="_blank" rel="noopener noreferrer"><span class="link-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M14 4v10.2a4.3 4.3 0 1 1-3.2-4.15"/><path d="M14 4c.8 2.45 2.35 3.85 4.8 4.2"/></svg></span><span class="link-title">TikTok</span><span class="link-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg></span></a>
+        <a class="link" href="https://www.facebook.com/share/14urwNKTymF/?mibextid=wwXIfr" target="_blank" rel="noopener noreferrer"><span class="link-icon"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M13.7 21v-8h2.75l.4-3.12H13.7V7.9c0-.9.25-1.52 1.57-1.52h1.68V3.6a22.6 22.6 0 0 0-2.45-.13c-2.43 0-4.1 1.48-4.1 4.2v2.21H7.65V13h2.75v8h3.3Z"/></svg></span><span class="link-title">Facebook</span><span class="link-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg></span></a>
+        <a class="link" href="mailto:support@koneksyondatingapp.com"><span class="link-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="3"/><path d="m4.5 7 7.5 5.5L19.5 7"/></svg></span><span class="link-title" data-i18n="support">Contact &amp; Support</span><span class="link-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg></span></a>
       </div>
-
-      <p class="smart-note" id="smartNote">The first button automatically chooses the best Koneksyon destination for your device.</p>
     </section>
-
-    <footer class="footer">
-      <div>© 2026 Koneksyon</div>
-      <div class="footer-links"><a href="/privacy.html" data-i18n="privacy">Privacy</a><a href="/terms.html" data-i18n="terms">Terms</a><a href="/community-guidelines.html" data-i18n="guidelines">Community Guidelines</a></div>
-    </footer>
+    <footer class="footer"><div>© 2026 Koneksyon</div><div class="footer-links"><a href="/privacy.html" data-i18n="privacy">Privacy</a><a href="/terms.html" data-i18n="terms">Terms</a><a href="/community-guidelines.html" data-i18n="guidelines">Community Guidelines</a></div></footer>
   </main>
-
   <script>
     const COPY={
-      en:{code:'EN',slogan:'Where Culture Meets Connection.',appStore:'Download on the App Store',googlePlay:'Download on Google Play',website:'Koneksyon Website',support:'Contact & Support',privacy:'Privacy',terms:'Terms',guidelines:'Community Guidelines',smartIOS:'Open Koneksyon on the App Store',smartAndroid:'Open Koneksyon on Google Play',smartDesktop:'Visit Koneksyon Website',noteIOS:'This button opens Koneksyon on the App Store for this device.',noteAndroid:'This button opens Koneksyon on Google Play for this device.',noteDesktop:'This button opens the official Koneksyon website on this device.'},
-      fr:{code:'FR',slogan:'Là où la culture crée des connexions.',appStore:'Télécharger sur l’App Store',googlePlay:'Télécharger sur Google Play',website:'Site web de Koneksyon',support:'Contact et assistance',privacy:'Confidentialité',terms:'Conditions',guidelines:'Règles de la communauté',smartIOS:'Ouvrir Koneksyon sur l’App Store',smartAndroid:'Ouvrir Koneksyon sur Google Play',smartDesktop:'Visiter le site web de Koneksyon',noteIOS:'Ce bouton ouvre Koneksyon sur l’App Store pour cet appareil.',noteAndroid:'Ce bouton ouvre Koneksyon sur Google Play pour cet appareil.',noteDesktop:'Ce bouton ouvre le site officiel de Koneksyon sur cet appareil.'},
-      es:{code:'ES',slogan:'Donde la cultura crea conexiones.',appStore:'Descargar en App Store',googlePlay:'Descargar en Google Play',website:'Sitio web de Koneksyon',support:'Contacto y soporte',privacy:'Privacidad',terms:'Términos',guidelines:'Normas de la comunidad',smartIOS:'Abrir Koneksyon en App Store',smartAndroid:'Abrir Koneksyon en Google Play',smartDesktop:'Visitar el sitio web de Koneksyon',noteIOS:'Este botón abre Koneksyon en App Store para este dispositivo.',noteAndroid:'Este botón abre Koneksyon en Google Play para este dispositivo.',noteDesktop:'Este botón abre el sitio web oficial de Koneksyon en este dispositivo.'},
-      ht:{code:'HT',slogan:'Kote kilti kreye koneksyon.',appStore:'Telechaje sou App Store',googlePlay:'Telechaje sou Google Play',website:'Sit wèb Koneksyon',support:'Kontak ak sipò',privacy:'Konfidansyalite',terms:'Kondisyon',guidelines:'Règ kominote a',smartIOS:'Louvri Koneksyon sou App Store',smartAndroid:'Louvri Koneksyon sou Google Play',smartDesktop:'Vizite sit wèb Koneksyon',noteIOS:'Bouton sa a ap louvri Koneksyon sou App Store pou aparèy sa a.',noteAndroid:'Bouton sa a ap louvri Koneksyon sou Google Play pou aparèy sa a.',noteDesktop:'Bouton sa a ap louvri sit wèb ofisyèl Koneksyon an sou aparèy sa a.'}
+      en:{code:'EN',slogan:'Where Culture Meets Connection.',appStore:'Download on the App Store',googlePlay:'Download on Google Play',website:'Koneksyon Website',support:'Contact & Support',privacy:'Privacy',terms:'Terms',guidelines:'Community Guidelines'},
+      fr:{code:'FR',slogan:'Là où la culture crée des connexions.',appStore:'Télécharger sur l’App Store',googlePlay:'Télécharger sur Google Play',website:'Site web de Koneksyon',support:'Contact et assistance',privacy:'Confidentialité',terms:'Conditions',guidelines:'Règles de la communauté'},
+      es:{code:'ES',slogan:'Donde la cultura crea conexiones.',appStore:'Descargar en App Store',googlePlay:'Descargar en Google Play',website:'Sitio web de Koneksyon',support:'Contacto y soporte',privacy:'Privacidad',terms:'Términos',guidelines:'Normas de la comunidad'},
+      ht:{code:'HT',slogan:'Kote kilti kreye koneksyon.',appStore:'Telechaje sou App Store',googlePlay:'Telechaje sou Google Play',website:'Sit wèb Koneksyon',support:'Kontak ak sipò',privacy:'Konfidansyalite',terms:'Kondisyon',guidelines:'Règ kominote a'}
     };
-
-    const APPLE='https://apps.apple.com/us/app/koneksyon-konnect-grow/id6776052442';
-    const GOOGLE='https://play.google.com/store/apps/details?id=com.koneksyondatingapp.app&pcampaignid=web_share';
-    const WEBSITE='https://koneksyondatingapp.com/';
-    const ua=navigator.userAgent||navigator.vendor||window.opera||'';
-    const isIOS=/iPad|iPhone|iPod/.test(ua)||(navigator.platform==='MacIntel'&&navigator.maxTouchPoints>1);
-    const isAndroid=/Android/i.test(ua);
-    const smartDestination=isIOS?APPLE:isAndroid?GOOGLE:WEBSITE;
-    document.querySelectorAll('.smart-download').forEach(el=>{el.href=smartDestination;});
-
     const picker=document.getElementById('languagePicker');
     const button=document.getElementById('langButton');
     const code=document.getElementById('langCode');
-    const smartTitle=document.getElementById('smartTitle');
-    const smartNote=document.getElementById('smartNote');
     const options=[...document.querySelectorAll('.lang-option')];
-
-    function setLanguage(lang){
-      const dict=COPY[lang]||COPY.en;
-      document.documentElement.lang=lang==='ht'?'ht':lang;
-      code.textContent=dict.code;
-      document.querySelectorAll('[data-i18n]').forEach(el=>{const key=el.dataset.i18n;if(dict[key])el.textContent=dict[key];});
-      smartTitle.textContent=isIOS?dict.smartIOS:isAndroid?dict.smartAndroid:dict.smartDesktop;
-      smartNote.textContent=isIOS?dict.noteIOS:isAndroid?dict.noteAndroid:dict.noteDesktop;
-      options.forEach(o=>o.classList.toggle('active',o.dataset.lang===lang));
-      try{localStorage.setItem('koneksyon-connect-language',lang);}catch(e){}
-    }
-
-    button.addEventListener('click',()=>{
-      const open=picker.classList.toggle('open');
-      button.setAttribute('aria-expanded',String(open));
-    });
-    options.forEach(option=>option.addEventListener('click',()=>{
-      setLanguage(option.dataset.lang);
-      picker.classList.remove('open');
-      button.setAttribute('aria-expanded','false');
-    }));
-    document.addEventListener('click',e=>{
-      if(!picker.contains(e.target)){picker.classList.remove('open');button.setAttribute('aria-expanded','false');}
-    });
-
-    let saved='en';
-    try{saved=localStorage.getItem('koneksyon-connect-language')||'en';}catch(e){}
-    setLanguage(COPY[saved]?saved:'en');
+    function setLanguage(lang){const dict=COPY[lang]||COPY.en;document.documentElement.lang=lang==='ht'?'ht':lang;code.textContent=dict.code;document.querySelectorAll('[data-i18n]').forEach(el=>{const key=el.dataset.i18n;if(dict[key])el.textContent=dict[key];});options.forEach(o=>o.classList.toggle('active',o.dataset.lang===lang));try{localStorage.setItem('koneksyon-connect-language',lang);}catch(e){}}
+    button.addEventListener('click',()=>{const open=picker.classList.toggle('open');button.setAttribute('aria-expanded',String(open));});
+    options.forEach(option=>option.addEventListener('click',()=>{setLanguage(option.dataset.lang);picker.classList.remove('open');button.setAttribute('aria-expanded','false');}));
+    document.addEventListener('click',e=>{if(!picker.contains(e.target)){picker.classList.remove('open');button.setAttribute('aria-expanded','false');}});
+    let saved='en';try{saved=localStorage.getItem('koneksyon-connect-language')||'en';}catch(e){}setLanguage(COPY[saved]?saved:'en');
   </script>
 </body>
 </html>
