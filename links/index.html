@@ -4,11 +4,11 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
   <title>Koneksyon — All Links</title>
-  <meta name="description" content="Download Koneksyon, visit our website, follow us on social media, and contact support — all in one place." />
-  <meta name="theme-color" content="#07080d" />
+  <meta name="description" content="Everything Koneksyon in one place. Download the app, visit the website, follow us, and contact support." />
+  <meta name="theme-color" content="#07090f" />
   <meta property="og:title" content="Koneksyon — Where Culture Meets Connection" />
-  <meta property="og:description" content="Everything Koneksyon, all in one place. Download the app, follow us, and get support." />
-  <meta property="og:image" content="https://koneksyondatingapp.com/koneksyon-logo-color.png" />
+  <meta property="og:description" content="Download Koneksyon, follow our community, and reach us — all in one place." />
+  <meta property="og:image" content="https://koneksyondatingapp.com/assets/logo-color.png" />
   <meta property="og:url" content="https://koneksyondatingapp.com/links/" />
   <meta property="og:type" content="website" />
   <link rel="canonical" href="https://koneksyondatingapp.com/links/" />
@@ -19,611 +19,481 @@
   <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
 
   <style>
-    :root {
-      --bg: #07080d;
-      --surface: rgba(18, 21, 31, .78);
-      --surface-strong: #111520;
-      --surface-hover: #171c29;
-      --text: #f8f9fc;
-      --muted: #a5adbd;
-      --soft: #70798b;
-      --line: rgba(255, 255, 255, .10);
-      --line-strong: rgba(255, 255, 255, .18);
-      --gold: #f3c857;
-      --teal: #2fd1c4;
-      --blue: #4f7cff;
-      --pink: #ff527f;
-      --shadow: 0 32px 90px rgba(0, 0, 0, .48);
-      --ease: cubic-bezier(.2,.7,.2,1);
+    :root{
+      --bg:#07090f;
+      --panel:rgba(18,22,32,.80);
+      --panel2:rgba(23,28,40,.94);
+      --line:rgba(255,255,255,.10);
+      --line2:rgba(255,255,255,.17);
+      --text:#f7f9fc;
+      --muted:#a5adbc;
+      --soft:#737d8e;
+      --blue:#4f7cff;
+      --teal:#2fd1c4;
+      --gold:#f3c857;
+      --pink:#ff5b87;
+      --shadow:0 34px 100px rgba(0,0,0,.48);
+      --ease:cubic-bezier(.2,.7,.2,1);
     }
 
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-
-    html {
-      min-height: 100%;
-      background: var(--bg);
-      -webkit-text-size-adjust: 100%;
-    }
-
-    body {
-      min-height: 100svh;
-      font-family: "Instrument Sans", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      color: var(--text);
+    *{box-sizing:border-box;margin:0;padding:0}
+    html{min-height:100%;background:var(--bg);-webkit-text-size-adjust:100%}
+    body{
+      min-height:100svh;
+      font-family:"Instrument Sans",system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+      color:var(--text);
       background:
-        radial-gradient(circle at 8% 3%, rgba(79, 124, 255, .16), transparent 28%),
-        radial-gradient(circle at 92% 10%, rgba(255, 82, 127, .11), transparent 25%),
-        radial-gradient(circle at 50% 96%, rgba(47, 209, 196, .09), transparent 30%),
-        var(--bg);
-      overflow-x: hidden;
-      -webkit-font-smoothing: antialiased;
+        radial-gradient(circle at 10% 0%,rgba(79,124,255,.17),transparent 28%),
+        radial-gradient(circle at 92% 7%,rgba(255,91,135,.12),transparent 24%),
+        radial-gradient(circle at 50% 100%,rgba(47,209,196,.08),transparent 30%),
+        linear-gradient(180deg,#06080d 0%,#0a0d14 100%);
+      -webkit-font-smoothing:antialiased;
+      overflow-x:hidden;
+    }
+    body::before{
+      content:"";
+      position:fixed;
+      inset:0;
+      pointer-events:none;
+      opacity:.13;
+      background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 160 160' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.12'/%3E%3C/svg%3E");
+      mix-blend-mode:soft-light;
+    }
+    a{color:inherit;text-decoration:none}
+    img{display:block;max-width:100%}
+
+    .page{
+      width:min(100%,640px);
+      margin:0 auto;
+      padding:max(16px,env(safe-area-inset-top)) 14px max(34px,env(safe-area-inset-bottom));
     }
 
-    body::before {
-      content: "";
-      position: fixed;
-      inset: 0;
-      pointer-events: none;
-      opacity: .22;
-      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.10'/%3E%3C/svg%3E");
-      mix-blend-mode: soft-light;
+    .shell{
+      position:relative;
+      overflow:hidden;
+      border:1px solid var(--line);
+      border-radius:34px;
+      background:linear-gradient(180deg,rgba(255,255,255,.045),rgba(255,255,255,.015));
+      box-shadow:var(--shadow);
+      backdrop-filter:blur(20px) saturate(125%);
+      -webkit-backdrop-filter:blur(20px) saturate(125%);
     }
 
-    a { color: inherit; text-decoration: none; }
-    img { display: block; max-width: 100%; }
-
-    .page {
-      position: relative;
-      width: min(100%, 680px);
-      margin: 0 auto;
-      padding:
-        max(28px, env(safe-area-inset-top))
-        18px
-        max(42px, env(safe-area-inset-bottom));
+    .hero{
+      position:relative;
+      overflow:hidden;
+      min-height:500px;
+      padding:22px 18px 26px;
+      display:flex;
+      flex-direction:column;
+      justify-content:flex-end;
+      background:
+        linear-gradient(180deg,rgba(4,6,10,.08) 0%,rgba(6,8,13,.44) 34%,rgba(7,10,16,.94) 80%,#0a0d14 100%),
+        radial-gradient(circle at 50% 4%,rgba(255,255,255,.08),transparent 38%);
     }
 
-    .topline {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      margin-bottom: 28px;
-      padding: 0 4px;
+    .hero::before{
+      content:"";
+      position:absolute;
+      width:290px;
+      height:290px;
+      top:-115px;
+      right:-85px;
+      border-radius:50%;
+      background:rgba(79,124,255,.16);
+      filter:blur(26px);
     }
 
-    .mini-brand {
-      font-size: 11px;
-      font-weight: 900;
-      letter-spacing: .18em;
-      text-transform: uppercase;
-      color: #c7cdd8;
+    .watermark{
+      position:absolute;
+      left:50%;
+      top:22px;
+      transform:translateX(-50%);
+      width:min(760px,138%);
+      opacity:.075;
+      filter:drop-shadow(0 28px 60px rgba(0,0,0,.36));
+      pointer-events:none;
+      user-select:none;
     }
 
-    .live-pill {
-      display: inline-flex;
-      align-items: center;
-      gap: 7px;
-      min-height: 32px;
-      padding: 0 12px;
-      border: 1px solid var(--line);
-      border-radius: 999px;
-      background: rgba(255,255,255,.04);
-      color: #dce1ea;
-      font-size: 11px;
-      font-weight: 800;
-      backdrop-filter: blur(16px);
-      -webkit-backdrop-filter: blur(16px);
+    .topbar{
+      position:absolute;
+      top:18px;
+      left:18px;
+      right:18px;
+      z-index:3;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:10px;
     }
 
-    .live-pill::before {
-      content: "";
-      width: 7px;
-      height: 7px;
-      border-radius: 50%;
-      background: var(--teal);
-      box-shadow: 0 0 16px rgba(47, 209, 196, .8);
+    .chip{
+      min-height:34px;
+      padding:0 13px;
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      border:1px solid var(--line);
+      border-radius:999px;
+      background:rgba(8,11,17,.58);
+      backdrop-filter:blur(16px);
+      -webkit-backdrop-filter:blur(16px);
+      color:#dfe4ed;
+      font-size:10px;
+      line-height:1;
+      font-weight:900;
+      letter-spacing:.12em;
+      text-transform:uppercase;
+    }
+    .chip.live::before{
+      content:"";
+      width:7px;height:7px;border-radius:50%;
+      background:var(--teal);
+      box-shadow:0 0 14px rgba(47,209,196,.8);
     }
 
-    .hero {
-      position: relative;
-      padding: 30px 22px 28px;
-      border: 1px solid var(--line);
-      border-radius: 34px;
-      background: linear-gradient(180deg, rgba(255,255,255,.075), rgba(255,255,255,.025));
-      box-shadow: var(--shadow);
-      overflow: hidden;
-      backdrop-filter: blur(24px) saturate(130%);
-      -webkit-backdrop-filter: blur(24px) saturate(130%);
+    .profile{
+      position:relative;
+      z-index:2;
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      text-align:center;
     }
 
-    .hero::before {
-      content: "";
-      position: absolute;
-      width: 230px;
-      height: 230px;
-      border-radius: 50%;
-      top: -140px;
-      right: -95px;
-      border: 36px solid rgba(255, 82, 127, .14);
+    .app-icon{
+      width:116px;
+      height:116px;
+      border-radius:32px;
+      overflow:hidden;
+      border:1px solid rgba(255,255,255,.20);
+      background:#fff;
+      box-shadow:0 24px 70px rgba(0,0,0,.42),0 0 0 7px rgba(255,255,255,.035);
+      margin-bottom:18px;
+    }
+    .app-icon img{width:100%;height:100%;object-fit:cover}
+
+    .brand-name{
+      font-size:clamp(36px,9vw,55px);
+      line-height:.95;
+      letter-spacing:-.055em;
+      font-weight:900;
+    }
+    .handle{
+      margin-top:7px;
+      color:#aeb6c5;
+      font-size:15px;
+      font-weight:700;
+    }
+    .headline{
+      margin-top:15px;
+      max-width:430px;
+      color:#f1f4f8;
+      font-size:18px;
+      line-height:1.35;
+      font-weight:800;
+      letter-spacing:-.025em;
+    }
+    .subhead{
+      margin-top:8px;
+      max-width:450px;
+      color:var(--muted);
+      font-size:13px;
+      line-height:1.55;
+      font-weight:600;
     }
 
-    .hero::after {
-      content: "";
-      position: absolute;
-      width: 170px;
-      height: 170px;
-      border-radius: 50%;
-      top: -105px;
-      right: 42px;
-      border: 28px solid rgba(47, 209, 196, .13);
+    .socials{
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      flex-wrap:wrap;
+      gap:10px;
+      margin-top:22px;
+    }
+    .social{
+      width:50px;
+      height:50px;
+      border-radius:50%;
+      display:grid;
+      place-items:center;
+      border:1px solid rgba(255,255,255,.14);
+      background:rgba(255,255,255,.92);
+      color:#0a0d14;
+      box-shadow:0 14px 30px rgba(0,0,0,.20);
+      transition:transform .2s var(--ease),box-shadow .2s var(--ease);
+      -webkit-tap-highlight-color:transparent;
+    }
+    .social:hover{transform:translateY(-2px);box-shadow:0 18px 36px rgba(0,0,0,.28)}
+    .social svg{width:22px;height:22px}
+    .social.instagram{color:#e44b85}
+    .social.tiktok{color:#111}
+    .social.facebook{color:#1877f2}
+    .social.web{color:#174ca3}
+    .social.mail{color:#735c17}
+
+    .availability{
+      margin-top:22px;
+      display:inline-flex;
+      align-items:center;
+      gap:9px;
+      min-height:36px;
+      padding:0 14px;
+      border-radius:999px;
+      border:1px solid var(--line);
+      background:rgba(255,255,255,.045);
+      color:#e6eaf0;
+      font-size:12px;
+      font-weight:800;
+    }
+    .availability i{width:6px;height:6px;border-radius:50%;background:var(--gold);box-shadow:0 0 14px rgba(243,200,87,.65)}
+
+    .content{padding:16px}
+
+    .download-strip{
+      position:relative;
+      overflow:hidden;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:16px;
+      min-height:96px;
+      padding:18px;
+      border-radius:24px;
+      border:1px solid rgba(255,255,255,.12);
+      background:linear-gradient(135deg,rgba(79,124,255,.18),rgba(47,209,196,.13));
+    }
+    .download-strip::after{
+      content:"";
+      position:absolute;
+      width:150px;height:150px;border-radius:50%;
+      right:-55px;bottom:-90px;
+      background:rgba(255,255,255,.07);
+    }
+    .download-copy{position:relative;z-index:1;min-width:0}
+    .download-copy small{
+      display:block;
+      color:#bfc8d8;
+      font-size:9px;
+      letter-spacing:.16em;
+      text-transform:uppercase;
+      font-weight:900;
+      margin-bottom:6px;
+    }
+    .download-copy b{display:block;font-size:20px;line-height:1.08;letter-spacing:-.035em}
+    .download-copy span{display:block;margin-top:5px;color:#c8cfda;font-size:12px;font-weight:600;line-height:1.4}
+    .mini-icon{
+      position:relative;z-index:1;
+      width:58px;height:58px;flex:0 0 auto;
+      border-radius:18px;overflow:hidden;
+      box-shadow:0 12px 28px rgba(0,0,0,.22);
+      background:#fff;
+    }
+    .mini-icon img{width:100%;height:100%;object-fit:cover}
+
+    .section-label{
+      margin:20px 5px 11px;
+      color:var(--soft);
+      font-size:9px;
+      line-height:1;
+      letter-spacing:.17em;
+      text-transform:uppercase;
+      font-weight:900;
     }
 
-    .logo-wrap {
-      position: relative;
-      z-index: 2;
-      width: min(310px, 82%);
-      margin: 0 auto 24px;
-      padding: 18px 20px 15px;
-      border-radius: 26px;
-      background: rgba(255,255,255,.97);
-      border: 1px solid rgba(255,255,255,.75);
-      box-shadow: 0 20px 60px rgba(0,0,0,.22);
+    .links{display:grid;gap:10px}
+    .link-card{
+      position:relative;
+      min-height:78px;
+      padding:12px 13px;
+      display:grid;
+      grid-template-columns:50px 1fr 36px;
+      align-items:center;
+      gap:12px;
+      border-radius:21px;
+      border:1px solid var(--line);
+      background:var(--panel);
+      box-shadow:0 15px 36px rgba(0,0,0,.17);
+      backdrop-filter:blur(16px);
+      -webkit-backdrop-filter:blur(16px);
+      transition:transform .2s var(--ease),border-color .2s var(--ease),background .2s var(--ease);
+      -webkit-tap-highlight-color:transparent;
     }
+    .link-card:hover{transform:translateY(-2px);border-color:var(--line2);background:var(--panel2)}
 
-    .logo-wrap img {
-      width: 100%;
-      height: auto;
-      object-fit: contain;
+    .platform-icon{
+      width:50px;height:50px;
+      display:grid;place-items:center;
+      border-radius:16px;
+      border:1px solid rgba(255,255,255,.08);
+      background:rgba(255,255,255,.055);
+      color:#fff;
     }
+    .platform-icon svg{width:22px;height:22px}
+    .apple .platform-icon,.website .platform-icon{color:#9fb5ff;background:rgba(79,124,255,.12)}
+    .play .platform-icon,.tiktok-card .platform-icon{color:#81e3dd;background:rgba(47,209,196,.10)}
+    .instagram-card .platform-icon{color:#ff9bb4;background:rgba(255,91,135,.11)}
+    .facebook-card .platform-icon{color:#a6b9ff;background:rgba(79,124,255,.11)}
+    .support .platform-icon{color:#f5d782;background:rgba(243,200,87,.10)}
 
-    .eyebrow {
-      position: relative;
-      z-index: 2;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 9px;
-      margin-bottom: 13px;
-      color: #aeb6c5;
-      font-size: 10px;
-      line-height: 1;
-      letter-spacing: .18em;
-      text-transform: uppercase;
-      font-weight: 900;
+    .link-copy{min-width:0}
+    .link-copy b{display:block;color:#f5f7fb;font-size:15px;line-height:1.2;font-weight:800;letter-spacing:-.018em}
+    .link-copy span{display:block;margin-top:4px;color:#818b9d;font-size:11px;line-height:1.3;font-weight:700;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+    .arrow{width:36px;height:36px;display:grid;place-items:center;color:#687286;border-radius:50%;transition:transform .2s var(--ease),color .2s var(--ease)}
+    .arrow svg{width:18px;height:18px}
+    .link-card:hover .arrow{transform:translateX(3px);color:#f0f3f8}
+
+    .footer{padding:24px 8px 7px;text-align:center}
+    .footer-logo{width:120px;margin:0 auto 13px;opacity:.72}
+    .footer p{color:#687183;font-size:10px;line-height:1.55;font-weight:600}
+    .footer-links{margin-top:10px;display:flex;justify-content:center;gap:14px;flex-wrap:wrap;color:#8b94a4;font-size:10px;font-weight:700}
+
+    @media(min-width:620px){
+      .page{padding-left:20px;padding-right:20px}
+      .links{grid-template-columns:1fr 1fr}
+      .hero{min-height:535px}
     }
-
-    .eyebrow span {
-      width: 18px;
-      height: 1px;
-      background: linear-gradient(90deg, transparent, var(--gold));
+    @media(max-width:430px){
+      .page{padding-left:10px;padding-right:10px}
+      .shell{border-radius:28px}
+      .hero{min-height:480px;padding-left:14px;padding-right:14px}
+      .topbar{left:14px;right:14px;top:14px}
+      .chip{padding:0 10px;font-size:9px}
+      .app-icon{width:104px;height:104px;border-radius:29px}
+      .social{width:46px;height:46px}
+      .download-strip{padding:15px}
+      .content{padding:12px}
+      .link-card{min-height:76px;padding:11px;grid-template-columns:48px 1fr 32px}
+      .platform-icon{width:48px;height:48px}
     }
-
-    .eyebrow span:last-child {
-      background: linear-gradient(90deg, var(--gold), transparent);
-    }
-
-    h1 {
-      position: relative;
-      z-index: 2;
-      max-width: 520px;
-      margin: 0 auto;
-      text-align: center;
-      font-size: clamp(36px, 8vw, 56px);
-      line-height: .98;
-      letter-spacing: -.055em;
-      font-weight: 900;
-    }
-
-    .hero-copy {
-      position: relative;
-      z-index: 2;
-      max-width: 470px;
-      margin: 16px auto 0;
-      text-align: center;
-      color: var(--muted);
-      font-size: 15px;
-      line-height: 1.65;
-      font-weight: 600;
-    }
-
-    .hero-copy strong {
-      color: #e8ebf2;
-      font-weight: 800;
-    }
-
-    .section-label {
-      margin: 28px 6px 12px;
-      color: var(--soft);
-      font-size: 10px;
-      line-height: 1;
-      font-weight: 900;
-      letter-spacing: .16em;
-      text-transform: uppercase;
-    }
-
-    .store-grid {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 12px;
-    }
-
-    .store-card,
-    .link-card {
-      position: relative;
-      isolation: isolate;
-      border: 1px solid var(--line);
-      background: var(--surface);
-      transition:
-        transform .22s var(--ease),
-        border-color .22s var(--ease),
-        background .22s var(--ease),
-        box-shadow .22s var(--ease);
-      -webkit-tap-highlight-color: transparent;
-    }
-
-    .store-card {
-      min-height: 136px;
-      padding: 19px;
-      border-radius: 24px;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      overflow: hidden;
-      box-shadow: 0 18px 42px rgba(0,0,0,.18);
-    }
-
-    .store-card::after {
-      content: "";
-      position: absolute;
-      inset: auto -30px -45px auto;
-      width: 110px;
-      height: 110px;
-      border-radius: 50%;
-      filter: blur(1px);
-      z-index: -1;
-    }
-
-    .store-card.apple::after { background: rgba(79,124,255,.13); }
-    .store-card.play::after { background: rgba(47,209,196,.11); }
-
-    .store-top {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 12px;
-    }
-
-    .store-icon,
-    .link-icon {
-      display: grid;
-      place-items: center;
-      flex: 0 0 auto;
-      border: 1px solid var(--line);
-      background: rgba(255,255,255,.06);
-      color: #f6f7fa;
-    }
-
-    .store-icon {
-      width: 43px;
-      height: 43px;
-      border-radius: 14px;
-    }
-
-    .store-icon svg,
-    .link-icon svg,
-    .arrow svg {
-      width: 21px;
-      height: 21px;
-    }
-
-    .store-arrow {
-      color: #737d90;
-      font-size: 20px;
-      font-weight: 500;
-    }
-
-    .store-card small {
-      display: block;
-      margin-top: 20px;
-      color: #8f98aa;
-      font-size: 10px;
-      font-weight: 800;
-      letter-spacing: .08em;
-      text-transform: uppercase;
-    }
-
-    .store-card b {
-      display: block;
-      margin-top: 4px;
-      font-size: 16px;
-      line-height: 1.18;
-      letter-spacing: -.02em;
-    }
-
-    .links-list {
-      display: grid;
-      gap: 10px;
-    }
-
-    .link-card {
-      min-height: 74px;
-      padding: 12px 13px;
-      border-radius: 21px;
-      display: grid;
-      grid-template-columns: 48px 1fr 36px;
-      align-items: center;
-      gap: 13px;
-    }
-
-    .link-icon {
-      width: 48px;
-      height: 48px;
-      border-radius: 15px;
-    }
-
-    .link-card.website .link-icon { color: #a8baff; background: rgba(79,124,255,.11); }
-    .link-card.instagram .link-icon { color: #ff91ad; background: rgba(255,82,127,.10); }
-    .link-card.tiktok .link-icon { color: #80e2dc; background: rgba(47,209,196,.09); }
-    .link-card.facebook .link-icon { color: #98b0ff; background: rgba(79,124,255,.11); }
-    .link-card.support .link-icon { color: #f6d77f; background: rgba(243,200,87,.09); }
-
-    .link-text { min-width: 0; }
-
-    .link-text b {
-      display: block;
-      color: #f2f4f8;
-      font-size: 15px;
-      line-height: 1.25;
-      font-weight: 800;
-      letter-spacing: -.015em;
-    }
-
-    .link-text span {
-      display: block;
-      margin-top: 4px;
-      color: #7f899b;
-      font-size: 11px;
-      line-height: 1.25;
-      font-weight: 700;
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
-    }
-
-    .arrow {
-      width: 36px;
-      height: 36px;
-      display: grid;
-      place-items: center;
-      color: #697386;
-      border-radius: 50%;
-      transition: transform .22s var(--ease), color .22s var(--ease);
-    }
-
-    .store-card:hover,
-    .link-card:hover {
-      transform: translateY(-2px);
-      border-color: var(--line-strong);
-      background: var(--surface-hover);
-      box-shadow: 0 22px 54px rgba(0,0,0,.24);
-    }
-
-    .link-card:hover .arrow {
-      transform: translateX(3px);
-      color: #eef1f6;
-    }
-
-    .store-card:focus-visible,
-    .link-card:focus-visible,
-    .footer a:focus-visible {
-      outline: 2px solid rgba(79,124,255,.85);
-      outline-offset: 3px;
-    }
-
-    .footer {
-      padding: 30px 8px 0;
-      text-align: center;
-    }
-
-    .footer-mark {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      margin-bottom: 12px;
-      color: #d8dde6;
-      font-size: 11px;
-      font-weight: 900;
-      letter-spacing: .14em;
-      text-transform: uppercase;
-    }
-
-    .footer-mark i {
-      display: inline-block;
-      width: 5px;
-      height: 5px;
-      border-radius: 50%;
-      background: var(--gold);
-      box-shadow: 0 0 14px rgba(243,200,87,.55);
-    }
-
-    .footer p {
-      color: #676f7f;
-      font-size: 11px;
-      line-height: 1.6;
-      font-weight: 600;
-    }
-
-    .footer-links {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      gap: 18px;
-      margin-top: 12px;
-      color: #8a93a4;
-      font-size: 11px;
-      font-weight: 700;
-    }
-
-    @media (max-width: 460px) {
-      .page { padding-left: 14px; padding-right: 14px; }
-      .hero { padding: 25px 17px 24px; border-radius: 29px; }
-      .logo-wrap { width: min(285px, 88%); border-radius: 23px; }
-      .store-grid { grid-template-columns: 1fr; }
-      .store-card { min-height: 112px; }
-      .store-card small { margin-top: 16px; }
-    }
-
-    @media (prefers-reduced-motion: reduce) {
-      *, *::before, *::after {
-        scroll-behavior: auto !important;
-        transition: none !important;
-      }
-    }
+    @media(prefers-reduced-motion:reduce){*,*::before,*::after{transition:none!important;scroll-behavior:auto!important}}
   </style>
 </head>
 <body>
   <main class="page">
-    <div class="topline">
-      <div class="mini-brand">Koneksyon</div>
-      <div class="live-pill">Available now</div>
+    <div class="shell">
+      <section class="hero" aria-labelledby="page-title">
+        <img class="watermark" src="/assets/logo-white.png" alt="" aria-hidden="true" />
+
+        <div class="topbar">
+          <div class="chip">Koneksyon</div>
+          <div class="chip live">Live now</div>
+        </div>
+
+        <div class="profile">
+          <div class="app-icon">
+            <img src="/assets/favicon-192.png" alt="Koneksyon app icon" />
+          </div>
+
+          <h1 class="brand-name" id="page-title">Koneksyon</h1>
+          <div class="handle">@koneksyondatingapp</div>
+          <div class="headline">Where culture meets connection.</div>
+          <p class="subhead">Connect. Date. Network. Belong. One Caribbean-inspired community built for real connections and open to everyone.</p>
+
+          <div class="socials" aria-label="Koneksyon social links">
+            <a class="social instagram" href="https://www.instagram.com/koneksyondatingapp?igsi=c25handtdTJjZGdi" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="5"></rect><circle cx="12" cy="12" r="4"></circle><circle cx="17.4" cy="6.6" r=".8" fill="currentColor" stroke="none"></circle></svg>
+            </a>
+            <a class="social tiktok" href="https://www.tiktok.com/@koneksy0n?_r=1&amp;_t=ZP-99TbmiYpQsQ" target="_blank" rel="noopener noreferrer" aria-label="TikTok">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M14 4v10.2a4.3 4.3 0 1 1-3.2-4.15"></path><path d="M14 4c.8 2.45 2.35 3.85 4.8 4.2"></path></svg>
+            </a>
+            <a class="social facebook" href="https://www.facebook.com/share/14urwNKTymF/?mibextid=wwXIfr" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M13.7 21v-8h2.75l.4-3.12H13.7V7.9c0-.9.25-1.52 1.57-1.52h1.68V3.6a22.6 22.6 0 0 0-2.45-.13c-2.43 0-4.1 1.48-4.1 4.2v2.21H7.65V13h2.75v8h3.3Z"></path></svg>
+            </a>
+            <a class="social web" href="https://koneksyondatingapp.com/" target="_blank" rel="noopener noreferrer" aria-label="Koneksyon website">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"></circle><path d="M3 12h18M12 3a14.5 14.5 0 0 1 0 18M12 3a14.5 14.5 0 0 0 0 18"></path></svg>
+            </a>
+            <a class="social mail" href="mailto:support@koneksyondatingapp.com" aria-label="Email Koneksyon support">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="3"></rect><path d="m4.5 7 7.5 5.5L19.5 7"></path></svg>
+            </a>
+          </div>
+
+          <div class="availability"><i></i>Available on iPhone &amp; Android</div>
+        </div>
+      </section>
+
+      <section class="content">
+        <div class="download-strip">
+          <div class="download-copy">
+            <small>Download now</small>
+            <b>Find your Koneksyon.</b>
+            <span>Real people. Real culture. Real connections.</span>
+          </div>
+          <div class="mini-icon"><img src="/assets/favicon-192.png" alt="" aria-hidden="true" /></div>
+        </div>
+
+        <div class="section-label">All Koneksyon links</div>
+
+        <div class="links">
+          <a class="link-card apple" href="https://apps.apple.com/us/app/koneksyon-konnect-grow/id6776052442" target="_blank" rel="noopener noreferrer">
+            <div class="platform-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M16.9 13.1c0-2.5 2-3.7 2.1-3.8-1.2-1.7-3-1.9-3.7-1.9-1.6-.2-3.1.9-3.9.9-.8 0-2-0.9-3.3-.9-1.7 0-3.3 1-4.2 2.5-1.8 3.1-.5 7.8 1.3 10.4.9 1.3 1.9 2.7 3.3 2.6 1.3-.1 1.8-.8 3.4-.8s2 .8 3.4.8c1.4 0 2.3-1.3 3.2-2.6 1-1.5 1.4-3 1.4-3.1-.1 0-3-.9-3-4.1ZM14.3 5.8c.7-.9 1.2-2.1 1.1-3.3-1.1 0-2.4.7-3.2 1.6-.7.8-1.3 2-1.1 3.2 1.2.1 2.5-.6 3.2-1.5Z"></path></svg>
+            </div>
+            <div class="link-copy"><b>Download on the App Store</b><span>Get Koneksyon for iPhone</span></div>
+            <div class="arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"></path></svg></div>
+          </a>
+
+          <a class="link-card play" href="https://play.google.com/store/apps/details?id=com.koneksyondatingapp.app&amp;pcampaignid=web_share" target="_blank" rel="noopener noreferrer">
+            <div class="platform-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M5.3 3.8c-.5.35-.8.95-.8 1.72v12.96c0 .77.3 1.37.8 1.72L13.7 12 5.3 3.8Zm9.45 9.22-2.1 2.05-5.52 5.4c.17.03.36.02.56-.04l9.72-5.53-2.66-1.88Zm2.66-3.92L7.69 3.57a1.24 1.24 0 0 0-.56-.04l7.62 7.45 2.66-1.88Zm1.08.62-2.7 1.9.39.38-.39.38 2.7 1.9c.86.49 1.51.1 1.51-.88v-2.8c0-.98-.65-1.37-1.51-.88Z"></path></svg>
+            </div>
+            <div class="link-copy"><b>Download on Google Play</b><span>Get Koneksyon for Android</span></div>
+            <div class="arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"></path></svg></div>
+          </a>
+
+          <a class="link-card website" href="https://koneksyondatingapp.com/" target="_blank" rel="noopener noreferrer">
+            <div class="platform-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"></circle><path d="M3 12h18M12 3a14.5 14.5 0 0 1 0 18M12 3a14.5 14.5 0 0 0 0 18"></path></svg>
+            </div>
+            <div class="link-copy"><b>Koneksyon Website</b><span>koneksyondatingapp.com</span></div>
+            <div class="arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"></path></svg></div>
+          </a>
+
+          <a class="link-card instagram-card" href="https://www.instagram.com/koneksyondatingapp?igsi=c25handtdTJjZGdi" target="_blank" rel="noopener noreferrer">
+            <div class="platform-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="5"></rect><circle cx="12" cy="12" r="4"></circle><circle cx="17.4" cy="6.6" r=".8" fill="currentColor" stroke="none"></circle></svg>
+            </div>
+            <div class="link-copy"><b>Instagram</b><span>@koneksyondatingapp</span></div>
+            <div class="arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"></path></svg></div>
+          </a>
+
+          <a class="link-card tiktok-card" href="https://www.tiktok.com/@koneksy0n?_r=1&amp;_t=ZP-99TbmiYpQsQ" target="_blank" rel="noopener noreferrer">
+            <div class="platform-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M14 4v10.2a4.3 4.3 0 1 1-3.2-4.15"></path><path d="M14 4c.8 2.45 2.35 3.85 4.8 4.2"></path></svg>
+            </div>
+            <div class="link-copy"><b>TikTok</b><span>@koneksy0n</span></div>
+            <div class="arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"></path></svg></div>
+          </a>
+
+          <a class="link-card facebook-card" href="https://www.facebook.com/share/14urwNKTymF/?mibextid=wwXIfr" target="_blank" rel="noopener noreferrer">
+            <div class="platform-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M13.7 21v-8h2.75l.4-3.12H13.7V7.9c0-.9.25-1.52 1.57-1.52h1.68V3.6a22.6 22.6 0 0 0-2.45-.13c-2.43 0-4.1 1.48-4.1 4.2v2.21H7.65V13h2.75v8h3.3Z"></path></svg>
+            </div>
+            <div class="link-copy"><b>Facebook</b><span>Follow the Koneksyon community</span></div>
+            <div class="arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"></path></svg></div>
+          </a>
+
+          <a class="link-card support" href="mailto:support@koneksyondatingapp.com">
+            <div class="platform-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="3"></rect><path d="m4.5 7 7.5 5.5L19.5 7"></path></svg>
+            </div>
+            <div class="link-copy"><b>Contact &amp; Support</b><span>support@koneksyondatingapp.com</span></div>
+            <div class="arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"></path></svg></div>
+          </a>
+        </div>
+
+        <footer class="footer">
+          <img class="footer-logo" src="/assets/logo-white.png" alt="Koneksyon" />
+          <p>© 2026 Koneksyon. Real people. Real culture. Real connections.</p>
+          <div class="footer-links">
+            <a href="/privacy.html">Privacy</a>
+            <a href="/terms.html">Terms</a>
+            <a href="/community-guidelines.html">Community Guidelines</a>
+          </div>
+        </footer>
+      </section>
     </div>
-
-    <section class="hero" aria-labelledby="page-title">
-      <div class="logo-wrap">
-        <img src="/koneksyon-logo-color.png" alt="Koneksyon" width="620" height="344" />
-      </div>
-
-      <div class="eyebrow"><span></span>Everything Koneksyon<span></span></div>
-      <h1 id="page-title">Where Culture Meets Connection.</h1>
-      <p class="hero-copy"><strong>Connect. Date. Network. Belong.</strong><br />Download Koneksyon, follow our community, and reach our team — all in one place.</p>
-    </section>
-
-    <div class="section-label">Download the app</div>
-
-    <section class="store-grid" aria-label="Download Koneksyon">
-      <a class="store-card apple" href="https://apps.apple.com/us/app/koneksyon-konnect-grow/id6776052442" target="_blank" rel="noopener noreferrer" aria-label="Download Koneksyon on the App Store">
-        <div class="store-top">
-          <div class="store-icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-              <rect x="6.5" y="2.5" width="11" height="19" rx="2.5"></rect>
-              <path d="M10 18.5h4"></path>
-            </svg>
-          </div>
-          <span class="store-arrow" aria-hidden="true">↗</span>
-        </div>
-        <div>
-          <small>Download on</small>
-          <b>App Store</b>
-        </div>
-      </a>
-
-      <a class="store-card play" href="https://play.google.com/store/apps/details?id=com.koneksyondatingapp.app&amp;pcampaignid=web_share" target="_blank" rel="noopener noreferrer" aria-label="Download Koneksyon on Google Play">
-        <div class="store-top">
-          <div class="store-icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="currentColor">
-              <path d="M5.3 3.8c-.5.35-.8.95-.8 1.72v12.96c0 .77.3 1.37.8 1.72L13.7 12 5.3 3.8Zm9.45 9.22-2.1 2.05-5.52 5.4c.17.03.36.02.56-.04l9.72-5.53-2.66-1.88Zm2.66-3.92L7.69 3.57a1.24 1.24 0 0 0-.56-.04l7.62 7.45 2.66-1.88Zm1.08.62-2.7 1.9.39.38-.39.38 2.7 1.9c.86.49 1.51.1 1.51-.88v-2.8c0-.98-.65-1.37-1.51-.88Z"></path>
-            </svg>
-          </div>
-          <span class="store-arrow" aria-hidden="true">↗</span>
-        </div>
-        <div>
-          <small>Get it on</small>
-          <b>Google Play</b>
-        </div>
-      </a>
-    </section>
-
-    <div class="section-label">Explore &amp; connect</div>
-
-    <section class="links-list" aria-label="Koneksyon links">
-      <a class="link-card website" href="https://koneksyondatingapp.com/" target="_blank" rel="noopener noreferrer">
-        <div class="link-icon" aria-hidden="true">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-            <circle cx="12" cy="12" r="9"></circle>
-            <path d="M3 12h18M12 3a14.5 14.5 0 0 1 0 18M12 3a14.5 14.5 0 0 0 0 18"></path>
-          </svg>
-        </div>
-        <div class="link-text">
-          <b>Koneksyon Website</b>
-          <span>koneksyondatingapp.com</span>
-        </div>
-        <div class="arrow" aria-hidden="true">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"></path></svg>
-        </div>
-      </a>
-
-      <a class="link-card instagram" href="https://www.instagram.com/koneksyondatingapp?igsi=c25handtdTJjZGdi" target="_blank" rel="noopener noreferrer">
-        <div class="link-icon" aria-hidden="true">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-            <rect x="3" y="3" width="18" height="18" rx="5"></rect>
-            <circle cx="12" cy="12" r="4"></circle>
-            <circle cx="17.4" cy="6.6" r=".8" fill="currentColor" stroke="none"></circle>
-          </svg>
-        </div>
-        <div class="link-text">
-          <b>Instagram</b>
-          <span>@koneksyondatingapp</span>
-        </div>
-        <div class="arrow" aria-hidden="true">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"></path></svg>
-        </div>
-      </a>
-
-      <a class="link-card tiktok" href="https://www.tiktok.com/@koneksy0n?_r=1&amp;_t=ZP-99TbmiYpQsQ" target="_blank" rel="noopener noreferrer">
-        <div class="link-icon" aria-hidden="true">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M14 4v10.2a4.3 4.3 0 1 1-3.2-4.15"></path>
-            <path d="M14 4c.8 2.45 2.35 3.85 4.8 4.2"></path>
-          </svg>
-        </div>
-        <div class="link-text">
-          <b>TikTok</b>
-          <span>@koneksy0n</span>
-        </div>
-        <div class="arrow" aria-hidden="true">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"></path></svg>
-        </div>
-      </a>
-
-      <a class="link-card facebook" href="https://www.facebook.com/share/14urwNKTymF/?mibextid=wwXIfr" target="_blank" rel="noopener noreferrer">
-        <div class="link-icon" aria-hidden="true">
-          <svg viewBox="0 0 24 24" fill="currentColor">
-            <path d="M13.7 21v-8h2.75l.4-3.12H13.7V7.9c0-.9.25-1.52 1.57-1.52h1.68V3.6a22.6 22.6 0 0 0-2.45-.13c-2.43 0-4.1 1.48-4.1 4.2v2.21H7.65V13h2.75v8h3.3Z"></path>
-          </svg>
-        </div>
-        <div class="link-text">
-          <b>Facebook</b>
-          <span>Follow Koneksyon</span>
-        </div>
-        <div class="arrow" aria-hidden="true">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"></path></svg>
-        </div>
-      </a>
-
-      <a class="link-card support" href="mailto:support@koneksyondatingapp.com">
-        <div class="link-icon" aria-hidden="true">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-            <rect x="3" y="5" width="18" height="14" rx="3"></rect>
-            <path d="m4.5 7 7.5 5.5L19.5 7"></path>
-          </svg>
-        </div>
-        <div class="link-text">
-          <b>Contact &amp; Support</b>
-          <span>support@koneksyondatingapp.com</span>
-        </div>
-        <div class="arrow" aria-hidden="true">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"></path></svg>
-        </div>
-      </a>
-    </section>
-
-    <footer class="footer">
-      <div class="footer-mark"><i></i> Real people. Real culture. Real connections. <i></i></div>
-      <p>© 2026 Koneksyon. All rights reserved.</p>
-      <div class="footer-links">
-        <a href="/privacy.html">Privacy</a>
-        <a href="/terms.html">Terms</a>
-        <a href="/community-guidelines.html">Community Guidelines</a>
-      </div>
-    </footer>
   </main>
 </body>
 </html>
