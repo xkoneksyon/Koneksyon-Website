@@ -63,8 +63,9 @@ body{background:#fff;color:#111}body:after{content:none}main{min-width:0}.site-h
 .linkhub-page .social{width:44px;height:44px;display:grid;place-items:center;border:1px solid #dededb;border-radius:4px;background:#fff;color:#111}.linkhub-page .social svg{width:18px;height:18px}.linkhub-page .social:hover{background:#f5f5f1}
 .linkhub-page .links{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:43px;text-align:left}
 .linkhub-page .link{display:grid;grid-template-columns:26px 1fr 18px;align-items:center;gap:12px;min-height:66px;padding:17px 19px;background:#fff;border:1px solid #d7d7d2;border-radius:4px;color:#111}
-.linkhub-page .link:nth-child(-n+2){background:#111;border-color:#111;color:#fff}
-.linkhub-page .link:hover{background:#f5f5f1}.linkhub-page .link:nth-child(-n+2):hover{background:#303030}
+.linkhub-page .link:nth-child(1){background:#111;border-color:#111;color:#fff}
+.linkhub-page .link:nth-child(2){background:#4285f4;border-color:#4285f4;color:#fff}
+.linkhub-page .link:hover{background:#f5f5f1}.linkhub-page .link:nth-child(1):hover{background:#303030}.linkhub-page .link:nth-child(2):hover{background:#3367d6}
 .linkhub-page .link-icon,.linkhub-page .link-arrow{display:grid;place-items:center}.linkhub-page .link-icon svg{width:22px;height:22px}.linkhub-page .link-arrow svg{width:14px;height:14px}
 .linkhub-page .link-title{font-size:13px;line-height:1.5;font-weight:500;overflow-wrap:anywhere}
 /* Recovery retains the exact original deep link and query/hash behavior. */
