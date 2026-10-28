@@ -9,119 +9,122 @@
 <meta name="robots" content="noindex,nofollow">
 <link rel="icon" href="assets/favicon.png">
 <link rel="stylesheet" href="assets/ambassador.css">
+<script src="assets/ambassador-i18n.js" defer></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js" defer></script>
 <script src="assets/ambassador.js" defer></script>
 </head>
 <body>
 <header class="topbar">
   <a href="index.html" class="brand" aria-label="Koneksyon home"><img src="assets/logo-black.png" alt="Koneksyon"></a>
-  <button id="logoutBtn" class="text-button" type="button" hidden>Sign out</button>
+  <div class="top-actions">
+    <label class="language-control"><span data-i18n="language">Language</span>
+      <select id="languageSelect" aria-label="Language">
+        <option value="en">English</option>
+        <option value="fr">Français</option>
+        <option value="ht">Kreyòl</option>
+        <option value="es">Español</option>
+      </select>
+    </label>
+    <button id="logoutBtn" class="text-button" type="button" hidden data-i18n="signOut">Sign out</button>
+  </div>
 </header>
 
 <main class="shell">
   <section id="entryView" class="entry-wrap">
     <div class="entry-copy">
-      <p class="eyebrow">Koneksyon Ambassador Program</p>
-      <h1>Represent Koneksyon.<br>Bring real people in.</h1>
-      <p>Koneksyon Ambassadors introduce the app to new people through their community, social media, events, schools, businesses, and personal network. After approval, each ambassador receives a personal referral link and QR code connected to their campaign.</p>
+      <p class="eyebrow" data-i18n="program">Koneksyon Ambassador Program</p>
+      <h1 data-i18n="heroTitle">Represent Koneksyon. Bring real people in.</h1>
+      <p data-i18n="heroIntro">Koneksyon Ambassadors introduce the app to new people through their community, social media, events, schools, businesses, and personal network.</p>
 
-      <div class="program-points" aria-label="How the ambassador program works">
-        <article>
-          <strong>Share Koneksyon</strong>
-          <span>Use your personal QR code or referral link online or in person. You choose how you promote, as long as it follows Koneksyon's rules.</span>
-        </article>
-        <article>
-          <strong>Bring qualified members</strong>
-          <span>A referral counts only when a new person uses your referral, completes registration, and is approved by Koneksyon. Raw clicks or unfinished accounts do not count.</span>
-        </article>
-        <article>
-          <strong>Track your progress</strong>
-          <span>Your private dashboard shows qualified, pending, and rejected referrals, your campaign goal, dates, and agreed reward.</span>
-        </article>
-        <article>
-          <strong>Earn by campaign</strong>
-          <span>Koneksyon sets the target, reward, and campaign period when your application is approved. For example, a campaign could be 2,000 qualified members in 30 days for an agreed payment.</span>
-        </article>
+      <div class="program-points">
+        <article><strong data-i18n="shareTitle">Share Koneksyon</strong><span data-i18n="shareBody"></span></article>
+        <article><strong data-i18n="qualifiedTitle">Bring qualified members</strong><span data-i18n="qualifiedBody"></span></article>
+        <article><strong data-i18n="trackTitle">Track your progress</strong><span data-i18n="trackBody"></span></article>
+        <article><strong data-i18n="earnTitle">Earn by campaign</strong><span data-i18n="earnBody"></span></article>
       </div>
 
       <div class="trust-list">
-        <span>Application required</span>
-        <span>Admin approval</span>
-        <span>Qualified users only</span>
-        <span>Secure referral tracking</span>
+        <span data-i18n="badgeApplication">Application required</span>
+        <span data-i18n="badgeApproval">Admin approval</span>
+        <span data-i18n="badgeQualified">Qualified users only</span>
+        <span data-i18n="badgeSecure">Secure tracking</span>
       </div>
     </div>
 
     <div class="auth-card">
       <div class="tabs" role="tablist" aria-label="Ambassador access">
-        <button id="signInTab" class="tab active" type="button" role="tab" aria-selected="true">Sign in</button>
-        <button id="applyTab" class="tab" type="button" role="tab" aria-selected="false">Apply</button>
+        <button id="signInTab" class="tab active" type="button" role="tab" aria-selected="true" data-i18n="signIn">Sign in</button>
+        <button id="applyTab" class="tab" type="button" role="tab" aria-selected="false" data-i18n="apply">Apply</button>
       </div>
 
       <div id="signInPanel">
-        <h2>Ambassador sign in</h2>
-        <p class="muted">Only approved ambassadors can access the dashboard.</p>
+        <h2 data-i18n="ambassadorSignIn">Ambassador sign in</h2>
+        <p class="muted" data-i18n="approvedOnly">Only approved ambassadors can access the dashboard.</p>
         <form id="loginForm" autocomplete="on">
-          <label>Email<input id="email" name="email" type="email" autocomplete="username" required></label>
-          <label>Password<input id="password" name="password" type="password" autocomplete="current-password" required minlength="8"></label>
-          <button class="primary" type="submit">Sign in</button>
-          <button id="showAccessFormBtn" class="link-button" type="button">Create or reset password</button>
+          <label><span data-i18n="email">Email</span><input id="email" name="email" type="email" autocomplete="username" required></label>
+          <label><span data-i18n="password">Password</span><input id="password" name="password" type="password" autocomplete="current-password" required minlength="8"></label>
+          <button class="primary" type="submit" data-i18n="signIn">Sign in</button>
+          <button id="showAccessFormBtn" class="link-button" type="button" data-i18n="createReset">Create or reset password</button>
           <p id="loginError" class="error" role="alert" hidden></p>
         </form>
 
         <form id="accessForm" class="subform" hidden>
-          <h3>Get an access email</h3>
-          <p class="muted small">If your ambassador account is approved, we will email you a secure link to create or reset your password.</p>
-          <label>Email<input id="accessEmail" type="email" autocomplete="email" required></label>
-          <button class="secondary" type="submit">Send access email</button>
+          <h3 data-i18n="getAccessEmail">Get an access email</h3>
+          <p class="muted small" data-i18n="accessHelp"></p>
+          <label><span data-i18n="email">Email</span><input id="accessEmail" type="email" autocomplete="email" required></label>
+          <button class="secondary" type="submit" data-i18n="sendAccess">Send access email</button>
           <p id="accessStatus" class="success" role="status"></p>
         </form>
       </div>
 
       <div id="applyPanel" hidden>
-        <h2>Apply to be an ambassador</h2>
-        <p class="muted">Submitting an application does not automatically make you an ambassador and does not create a public Koneksyon profile. Our team reviews your audience, location, platform, and how you plan to represent Koneksyon.</p>
+        <h2 data-i18n="applyTitle">Apply to be an ambassador</h2>
+        <p class="muted" data-i18n="applyIntro"></p>
         <div class="apply-explainer">
-          <strong>What happens after you apply?</strong>
-          <p>If approved, Koneksyon activates your ambassador account, assigns your campaign goal and reward, and sends you secure access to create your password. Your dashboard then generates your personal referral link and QR code.</p>
-          <p>Fake accounts, duplicate accounts, existing Koneksyon users, or people who never complete approval do not count toward your campaign.</p>
+          <strong data-i18n="afterApply">What happens after you apply?</strong>
+          <p data-i18n="afterApply1"></p>
+          <p data-i18n="afterApply2"></p>
         </div>
+
         <form id="applicationForm">
           <div class="form-grid">
-            <label class="full">Full legal name<input id="appFullName" maxlength="120" required></label>
-            <label>Email<input id="appEmail" type="email" maxlength="320" required></label>
-            <label>Phone / WhatsApp<input id="appPhone" type="tel" maxlength="60"></label>
-            <label>Country
-              <select id="appCountry" required>
-                <option value="">Select country</option>
-              </select>
+            <label class="full"><span data-i18n="fullName">Full legal name</span><input id="appFullName" maxlength="120" required></label>
+            <label><span data-i18n="email">Email</span><input id="appEmail" type="email" maxlength="320" required></label>
+            <label><span data-i18n="phone">Phone / WhatsApp</span><input id="appPhone" type="tel" maxlength="60"></label>
+
+            <label><span data-i18n="country">Country</span>
+              <select id="appCountry" required><option value="">Select country</option></select>
             </label>
-            <label>City
-              <select id="appCity" required disabled>
-                <option value="">Select country first</option>
-              </select>
+            <label><span data-i18n="city">City</span>
+              <select id="appCity" required disabled><option value="">Select country first</option></select>
             </label>
-            <p id="locationStatus" class="field-note full" role="status">Choose your country first, then select your city.</p>
-            <label>Main platform
+            <p id="locationStatus" class="field-note full" role="status"></p>
+
+            <label><span data-i18n="platform">Main platform</span>
               <select id="appPlatform">
-                <option value="">Select</option>
-                <option>Instagram</option>
-                <option>TikTok</option>
-                <option>YouTube</option>
-                <option>Facebook</option>
-                <option>Other</option>
+                <option value="" data-i18n="select">Select</option>
+                <option value="Instagram">Instagram</option>
+                <option value="TikTok">TikTok</option>
+                <option value="YouTube">YouTube</option>
+                <option value="Facebook">Facebook</option>
+                <option value="Other" data-i18n="other">Other</option>
               </select>
             </label>
-            <label>Social username<input id="appHandle" maxlength="120" placeholder="@username"></label>
-            <label class="full">Social profile link<input id="appSocialUrl" type="url" maxlength="300" placeholder="https://"></label>
-            <label>Audience / followers<input id="appAudience" type="number" min="0" step="1" inputmode="numeric"></label>
-            <label class="full">Why do you want to represent Koneksyon?
+            <label><span data-i18n="socialUsername">Social username</span><input id="appHandle" maxlength="120" placeholder="@username"></label>
+            <label class="full"><span data-i18n="socialLink">Social profile link</span><input id="appSocialUrl" type="url" maxlength="300" placeholder="https://"></label>
+            <label><span data-i18n="audience">Audience / followers</span><input id="appAudience" type="number" min="0" step="1" inputmode="numeric"></label>
+            <label class="full"><span data-i18n="why">Why do you want to represent Koneksyon?</span>
               <textarea id="appReason" rows="5" minlength="20" maxlength="2000" required></textarea>
             </label>
           </div>
-          <label class="check-row"><input id="appConfirm" type="checkbox" required><span>I confirm that the information above is accurate and understand that ambassador access requires Koneksyon approval.</span></label>
+
+          <label class="check-row">
+            <input id="appTerms" type="checkbox" required>
+            <span><span data-i18n="termsAgree"></span> <a href="ambassador-terms.html" target="_blank" rel="noopener" data-i18n="ambassadorTerms">Koneksyon Ambassador Terms</a>.</span>
+          </label>
+
           <input id="appWebsite" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
-          <button class="primary" type="submit">Submit application</button>
+          <button class="primary" type="submit" data-i18n="submit">Submit application</button>
           <p id="applicationStatus" class="success" role="status"></p>
           <p id="applicationError" class="error" role="alert" hidden></p>
         </form>
@@ -131,22 +134,39 @@
 
   <section id="dashboardView" hidden>
     <div class="dashboard-head">
-      <div><p class="eyebrow">Ambassador dashboard</p><h1>Your campaign</h1></div>
-      <span id="statusPill" class="pill">Active</span>
+      <div><p class="eyebrow" data-i18n="dashboard">Ambassador dashboard</p><h1 data-i18n="yourCampaign">Your campaign</h1></div>
+      <span id="statusPill" class="pill" data-i18n="active">Active</span>
     </div>
 
-    <div id="noCampaign" class="notice" hidden>No active campaign is assigned to this ambassador account yet.</div>
+    <section id="termsGate" class="payment-card" hidden>
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow" data-i18n="ambassadorTerms">Koneksyon Ambassador Terms</p>
+          <h2 data-i18n="termsUpdateTitle">Accept the current Ambassador Terms</h2>
+        </div>
+      </div>
+      <p class="muted" data-i18n="termsUpdateBody"></p>
+      <label class="check-row">
+        <input id="termsGateCheck" type="checkbox">
+        <span><span data-i18n="acceptCurrentTerms"></span> — <a id="termsGateLink" href="ambassador-terms.html" target="_blank" rel="noopener" data-i18n="termsNav">Ambassador Terms</a>.</span>
+      </label>
+      <button id="acceptTermsBtn" class="primary" type="button" data-i18n="acceptCurrentTerms">I agree to the current Ambassador Terms</button>
+      <p id="termsGateStatus" class="success" role="status"></p>
+      <p id="termsGateError" class="error" role="alert" hidden></p>
+    </section>
+
+    <div id="noCampaign" class="notice" hidden data-i18n="noCampaign"></div>
 
     <div id="campaignContent" hidden>
       <div class="stats">
-        <article><span>Qualified</span><strong id="qualifiedCount">0</strong></article>
-        <article><span>Pending approval</span><strong id="pendingCount">0</strong></article>
-        <article><span>Rejected</span><strong id="rejectedCount">0</strong></article>
-        <article><span>Goal</span><strong id="targetCount">0</strong></article>
+        <article><span data-i18n="qualified">Qualified</span><strong id="qualifiedCount">0</strong></article>
+        <article><span data-i18n="pendingApproval">Pending approval</span><strong id="pendingCount">0</strong></article>
+        <article><span data-i18n="rejected">Rejected</span><strong id="rejectedCount">0</strong></article>
+        <article><span data-i18n="goal">Goal</span><strong id="targetCount">0</strong></article>
       </div>
 
       <section class="progress-card">
-        <div class="progress-row"><span id="progressText">0 / 0 qualified</span><span id="percentText">0%</span></div>
+        <div class="progress-row"><span id="progressText">0 / 0</span><span id="percentText">0%</span></div>
         <div class="progress-track" aria-hidden="true"><div id="progressBar"></div></div>
         <div class="campaign-meta">
           <span id="campaignDates"></span>
@@ -154,32 +174,81 @@
         </div>
       </section>
 
+      <section class="payout-section">
+        <div class="section-heading"><div><p class="eyebrow" data-i18n="payoutsTitle">Payouts</p><h2 data-i18n="payoutRule"></h2></div></div>
+        <div class="payout-stats">
+          <article><span data-i18n="ratePerUser"></span><strong id="ratePerUser">$0.00</strong></article>
+          <article><span data-i18n="unpaidQualified"></span><strong id="unpaidQualified">0</strong></article>
+          <article><span data-i18n="pendingPayout"></span><strong id="pendingPayout">$0.00</strong></article>
+          <article><span data-i18n="paidTotal"></span><strong id="paidTotal">$0.00</strong></article>
+        </div>
+        <div class="payout-rule-grid">
+          <div><span data-i18n="firstThreshold"></span><strong id="thresholdValue">100</strong></div>
+          <div><span data-i18n="usersRemaining"></span><strong id="usersRemainingValue">100</strong></div>
+          <div><span data-i18n="every14"></span><strong data-i18n="every14Value">Every 14 days</strong></div>
+          <div><span data-i18n="nextPayout"></span><strong id="nextPayoutValue">—</strong></div>
+        </div>
+      </section>
+
       <div class="share-grid">
         <section class="qr-card">
-          <h2>Your QR code</h2>
+          <h2 data-i18n="qrTitle">Your QR code</h2>
           <div id="qrCode" aria-label="Ambassador referral QR code"></div>
-          <p class="muted small">This QR contains only your Koneksyon referral link. It does not contain member data.</p>
-          <button id="downloadQrBtn" class="secondary" type="button">Download QR</button>
+          <p class="muted small" data-i18n="qrHelp"></p>
+          <button id="downloadQrBtn" class="secondary" type="button" data-i18n="downloadQr">Download QR</button>
         </section>
 
         <section class="link-card">
-          <h2>Your referral link</h2>
-          <label>Referral code<input id="referralCode" readonly></label>
-          <label>Referral link<textarea id="referralUrl" readonly rows="3"></textarea></label>
-          <button id="copyLinkBtn" class="secondary" type="button">Copy link</button>
+          <h2 data-i18n="linkTitle">Your referral link</h2>
+          <label><span data-i18n="referralCode">Referral code</span><input id="referralCode" readonly></label>
+          <label><span data-i18n="referralLink">Referral link</span><textarea id="referralUrl" readonly rows="3"></textarea></label>
+          <button id="copyLinkBtn" class="secondary" type="button" data-i18n="copyLink">Copy link</button>
           <p id="copyStatus" class="success" role="status"></p>
         </section>
       </div>
 
+      <section class="payment-card">
+        <div class="section-heading">
+          <div><p class="eyebrow" data-i18n="paymentTitle">Payment settings</p><h2 data-i18n="paymentHelp"></h2></div>
+        </div>
+        <form id="paymentForm">
+          <label><span data-i18n="paymentMethod">Payment method</span>
+            <select id="paymentMethod" required>
+              <option value="" data-i18n="chooseMethod">Choose payment method</option>
+              <option value="cashapp" data-i18n="cashapp">Cash App</option>
+              <option value="zelle" data-i18n="zelle">Zelle</option>
+              <option value="moneygram" data-i18n="moneygram">MoneyGram</option>
+              <option value="bank_transfer_usd" data-i18n="bankTransfer">USD bank transfer</option>
+            </select>
+          </label>
+          <div id="paymentFields" class="payment-fields"></div>
+          <p class="field-note" data-i18n="usdOnly"></p>
+          <button class="primary" type="submit" data-i18n="savePayment">Save payment method</button>
+          <p id="paymentStatus" class="success" role="status"></p>
+          <p id="paymentError" class="error" role="alert" hidden></p>
+        </form>
+      </section>
+
+      <section class="payout-history-card">
+        <h2 data-i18n="payoutHistory">Payout history</h2>
+        <div id="payoutList"></div>
+      </section>
+
       <section class="privacy-note">
-        <h2>Private by design</h2>
-        <p>You can see campaign totals only. Referred members' names, emails, photos, device information, and verification details are never shown in the ambassador portal.</p>
+        <h2 data-i18n="privateTitle">Private by design</h2>
+        <p data-i18n="privateBody"></p>
       </section>
     </div>
 
     <p id="dashboardError" class="error" role="alert" hidden></p>
   </section>
 </main>
-<footer class="portal-footer"><a href="index.html">Koneksyon</a><span>•</span><a href="privacy.html">Privacy</a><span>•</span><a href="mailto:support@koneksyondatingapp.com">Support</a></footer>
+
+<footer class="portal-footer">
+  <a href="index.html">Koneksyon</a><span>•</span>
+  <a href="ambassador-terms.html" data-i18n="termsNav">Ambassador Terms</a><span>•</span>
+  <a href="privacy.html" data-i18n="privacy">Privacy</a><span>•</span>
+  <a href="mailto:support@koneksyondatingapp.com" data-i18n="support">Support</a>
+</footer>
 </body>
 </html>

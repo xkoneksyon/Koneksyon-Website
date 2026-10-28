@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="referrer" content="no-referrer">
 <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; connect-src https://rsarqljktqecndsfklyf.supabase.co; base-uri 'none'; form-action 'self'; frame-ancestors 'none'; object-src 'none'; upgrade-insecure-requests">
-<title>Koneksyon Ambassador Applications</title>
+<title>Koneksyon Ambassador Admin</title>
 <meta name="robots" content="noindex,nofollow">
 <link rel="icon" href="assets/favicon.png">
 <link rel="stylesheet" href="assets/ambassador.css">
@@ -20,24 +20,31 @@
 <main class="admin-shell">
   <section id="adminLoginView" class="auth-card">
     <p class="eyebrow">Koneksyon Staff</p>
-    <h2>Ambassador applications</h2>
-    <p class="muted">Use an active Koneksyon admin account to review requests.</p>
+    <h2>Ambassador administration</h2>
+    <p class="muted">Use an active Koneksyon admin account to review applications and process ambassador payouts.</p>
     <form id="adminLoginForm">
       <label>Email<input id="adminEmail" type="email" autocomplete="username" required></label>
       <label>Password<input id="adminPassword" type="password" autocomplete="current-password" minlength="8" required></label>
-      <button class="primary" type="submit">Open review queue</button>
+      <button class="primary" type="submit">Open admin queue</button>
       <p id="adminLoginError" class="error" role="alert" hidden></p>
     </form>
   </section>
 
   <section id="adminDashboard" hidden>
+    <div id="adminNotice" class="notice" hidden></div>
+    <p id="adminError" class="error" role="alert" hidden></p>
+
     <div class="admin-head">
       <div><p class="eyebrow">Ambassador Program</p><h1>Applications</h1></div>
-      <button id="refreshApplicationsBtn" class="secondary" type="button">Refresh</button>
+      <button id="refreshApplicationsBtn" class="secondary" type="button">Refresh applications</button>
     </div>
-    <div id="adminNotice" class="notice" hidden></div>
     <div id="applications" class="applications"></div>
-    <p id="adminError" class="error" role="alert" hidden></p>
+
+    <div class="admin-head admin-section-head">
+      <div><p class="eyebrow">Biweekly payouts</p><h1>Payout queue</h1></div>
+      <button id="refreshPayoutsBtn" class="secondary" type="button">Refresh payouts</button>
+    </div>
+    <div id="payouts" class="applications"></div>
   </section>
 </main>
 </body>
