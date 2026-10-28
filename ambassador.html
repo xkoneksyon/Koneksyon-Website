@@ -14,21 +14,84 @@
 </head>
 <body>
 <header class="topbar">
-  <a href="index.html" class="brand"><img src="assets/logo-black.png" alt="Koneksyon"></a>
+  <a href="index.html" class="brand" aria-label="Koneksyon home"><img src="assets/logo-black.png" alt="Koneksyon"></a>
   <button id="logoutBtn" class="text-button" type="button" hidden>Sign out</button>
 </header>
 
 <main class="shell">
-  <section id="loginView" class="auth-card">
-    <p class="eyebrow">Koneksyon Ambassador Program</p>
-    <h1>Ambassador portal</h1>
-    <p class="muted">Sign in with the same Koneksyon account that was approved as an ambassador.</p>
-    <form id="loginForm" autocomplete="on">
-      <label>Email<input id="email" name="email" type="email" autocomplete="username" required></label>
-      <label>Password<input id="password" name="password" type="password" autocomplete="current-password" required minlength="6"></label>
-      <button class="primary" type="submit">Sign in</button>
-      <p id="loginError" class="error" role="alert" hidden></p>
-    </form>
+  <section id="entryView" class="entry-wrap">
+    <div class="entry-copy">
+      <p class="eyebrow">Koneksyon Ambassador Program</p>
+      <h1>Grow Koneksyon<br>with your community.</h1>
+      <p>Apply to become an ambassador, receive your own referral link and QR code after approval, and track only the qualified members credited to your campaign.</p>
+      <div class="trust-list">
+        <span>Application required</span>
+        <span>Admin approval</span>
+        <span>Secure referral tracking</span>
+      </div>
+    </div>
+
+    <div class="auth-card">
+      <div class="tabs" role="tablist" aria-label="Ambassador access">
+        <button id="signInTab" class="tab active" type="button" role="tab" aria-selected="true">Sign in</button>
+        <button id="applyTab" class="tab" type="button" role="tab" aria-selected="false">Apply</button>
+      </div>
+
+      <div id="signInPanel">
+        <h2>Ambassador sign in</h2>
+        <p class="muted">Only approved ambassadors can access the dashboard.</p>
+        <form id="loginForm" autocomplete="on">
+          <label>Email<input id="email" name="email" type="email" autocomplete="username" required></label>
+          <label>Password<input id="password" name="password" type="password" autocomplete="current-password" required minlength="8"></label>
+          <button class="primary" type="submit">Sign in</button>
+          <button id="showAccessFormBtn" class="link-button" type="button">Create or reset password</button>
+          <p id="loginError" class="error" role="alert" hidden></p>
+        </form>
+
+        <form id="accessForm" class="subform" hidden>
+          <h3>Get an access email</h3>
+          <p class="muted small">If your ambassador account is approved, we will email you a secure link to create or reset your password.</p>
+          <label>Email<input id="accessEmail" type="email" autocomplete="email" required></label>
+          <button class="secondary" type="submit">Send access email</button>
+          <p id="accessStatus" class="success" role="status"></p>
+        </form>
+      </div>
+
+      <div id="applyPanel" hidden>
+        <h2>Apply to be an ambassador</h2>
+        <p class="muted">Submitting an application does not create a Koneksyon profile. Our team reviews every request before access is activated.</p>
+        <form id="applicationForm">
+          <div class="form-grid">
+            <label class="full">Full legal name<input id="appFullName" maxlength="120" required></label>
+            <label>Email<input id="appEmail" type="email" maxlength="320" required></label>
+            <label>Phone / WhatsApp<input id="appPhone" type="tel" maxlength="60"></label>
+            <label>Country<input id="appCountry" maxlength="80"></label>
+            <label>City<input id="appCity" maxlength="80"></label>
+            <label>Main platform
+              <select id="appPlatform">
+                <option value="">Select</option>
+                <option>Instagram</option>
+                <option>TikTok</option>
+                <option>YouTube</option>
+                <option>Facebook</option>
+                <option>Other</option>
+              </select>
+            </label>
+            <label>Social username<input id="appHandle" maxlength="120" placeholder="@username"></label>
+            <label class="full">Social profile link<input id="appSocialUrl" type="url" maxlength="300" placeholder="https://"></label>
+            <label>Audience / followers<input id="appAudience" type="number" min="0" step="1" inputmode="numeric"></label>
+            <label class="full">Why do you want to represent Koneksyon?
+              <textarea id="appReason" rows="5" minlength="20" maxlength="2000" required></textarea>
+            </label>
+          </div>
+          <label class="check-row"><input id="appConfirm" type="checkbox" required><span>I confirm that the information above is accurate and understand that ambassador access requires Koneksyon approval.</span></label>
+          <input id="appWebsite" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+          <button class="primary" type="submit">Submit application</button>
+          <p id="applicationStatus" class="success" role="status"></p>
+          <p id="applicationError" class="error" role="alert" hidden></p>
+        </form>
+      </div>
+    </div>
   </section>
 
   <section id="dashboardView" hidden>
@@ -60,7 +123,7 @@
         <section class="qr-card">
           <h2>Your QR code</h2>
           <div id="qrCode" aria-label="Ambassador referral QR code"></div>
-          <p class="muted small">This QR contains only your Koneksyon referral link. It does not contain user data.</p>
+          <p class="muted small">This QR contains only your Koneksyon referral link. It does not contain member data.</p>
           <button id="downloadQrBtn" class="secondary" type="button">Download QR</button>
         </section>
 
@@ -74,13 +137,14 @@
       </div>
 
       <section class="privacy-note">
-        <h2>What you can see</h2>
-        <p>You can see totals and campaign progress only. Referred members' names, emails, photos, device information, and verification details are never shown here.</p>
+        <h2>Private by design</h2>
+        <p>You can see campaign totals only. Referred members' names, emails, photos, device information, and verification details are never shown in the ambassador portal.</p>
       </section>
     </div>
 
     <p id="dashboardError" class="error" role="alert" hidden></p>
   </section>
 </main>
+<footer class="portal-footer"><a href="index.html">Koneksyon</a><span>•</span><a href="privacy.html">Privacy</a><span>•</span><a href="mailto:support@koneksyondatingapp.com">Support</a><span>•</span><a href="ambassador-admin.html">Staff review</a></footer>
 </body>
 </html>
