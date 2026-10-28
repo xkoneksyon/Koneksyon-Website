@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="referrer" content="no-referrer">
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://cdnjs.cloudflare.com; style-src 'self'; img-src 'self' data:; connect-src https://rsarqljktqecndsfklyf.supabase.co; base-uri 'none'; form-action 'self'; frame-ancestors 'none'; object-src 'none'; upgrade-insecure-requests">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://cdnjs.cloudflare.com; style-src 'self'; img-src 'self' data:; connect-src https://rsarqljktqecndsfklyf.supabase.co https://countriesnow.space; base-uri 'none'; form-action 'self'; frame-ancestors 'none'; object-src 'none'; upgrade-insecure-requests">
 <title>Koneksyon Ambassador Portal</title>
 <meta name="robots" content="noindex,nofollow">
 <link rel="icon" href="assets/favicon.png">
@@ -22,11 +22,32 @@
   <section id="entryView" class="entry-wrap">
     <div class="entry-copy">
       <p class="eyebrow">Koneksyon Ambassador Program</p>
-      <h1>Grow Koneksyon<br>with your community.</h1>
-      <p>Apply to become an ambassador, receive your own referral link and QR code after approval, and track only the qualified members credited to your campaign.</p>
+      <h1>Represent Koneksyon.<br>Bring real people in.</h1>
+      <p>Koneksyon Ambassadors introduce the app to new people through their community, social media, events, schools, businesses, and personal network. After approval, each ambassador receives a personal referral link and QR code connected to their campaign.</p>
+
+      <div class="program-points" aria-label="How the ambassador program works">
+        <article>
+          <strong>Share Koneksyon</strong>
+          <span>Use your personal QR code or referral link online or in person. You choose how you promote, as long as it follows Koneksyon's rules.</span>
+        </article>
+        <article>
+          <strong>Bring qualified members</strong>
+          <span>A referral counts only when a new person uses your referral, completes registration, and is approved by Koneksyon. Raw clicks or unfinished accounts do not count.</span>
+        </article>
+        <article>
+          <strong>Track your progress</strong>
+          <span>Your private dashboard shows qualified, pending, and rejected referrals, your campaign goal, dates, and agreed reward.</span>
+        </article>
+        <article>
+          <strong>Earn by campaign</strong>
+          <span>Koneksyon sets the target, reward, and campaign period when your application is approved. For example, a campaign could be 2,000 qualified members in 30 days for an agreed payment.</span>
+        </article>
+      </div>
+
       <div class="trust-list">
         <span>Application required</span>
         <span>Admin approval</span>
+        <span>Qualified users only</span>
         <span>Secure referral tracking</span>
       </div>
     </div>
@@ -59,14 +80,28 @@
 
       <div id="applyPanel" hidden>
         <h2>Apply to be an ambassador</h2>
-        <p class="muted">Submitting an application does not create a Koneksyon profile. Our team reviews every request before access is activated.</p>
+        <p class="muted">Submitting an application does not automatically make you an ambassador and does not create a public Koneksyon profile. Our team reviews your audience, location, platform, and how you plan to represent Koneksyon.</p>
+        <div class="apply-explainer">
+          <strong>What happens after you apply?</strong>
+          <p>If approved, Koneksyon activates your ambassador account, assigns your campaign goal and reward, and sends you secure access to create your password. Your dashboard then generates your personal referral link and QR code.</p>
+          <p>Fake accounts, duplicate accounts, existing Koneksyon users, or people who never complete approval do not count toward your campaign.</p>
+        </div>
         <form id="applicationForm">
           <div class="form-grid">
             <label class="full">Full legal name<input id="appFullName" maxlength="120" required></label>
             <label>Email<input id="appEmail" type="email" maxlength="320" required></label>
             <label>Phone / WhatsApp<input id="appPhone" type="tel" maxlength="60"></label>
-            <label>Country<input id="appCountry" maxlength="80"></label>
-            <label>City<input id="appCity" maxlength="80"></label>
+            <label>Country
+              <select id="appCountry" required>
+                <option value="">Select country</option>
+              </select>
+            </label>
+            <label>City
+              <select id="appCity" required disabled>
+                <option value="">Select country first</option>
+              </select>
+            </label>
+            <p id="locationStatus" class="field-note full" role="status">Choose your country first, then select your city.</p>
             <label>Main platform
               <select id="appPlatform">
                 <option value="">Select</option>
@@ -145,6 +180,6 @@
     <p id="dashboardError" class="error" role="alert" hidden></p>
   </section>
 </main>
-<footer class="portal-footer"><a href="index.html">Koneksyon</a><span>•</span><a href="privacy.html">Privacy</a><span>•</span><a href="mailto:support@koneksyondatingapp.com">Support</a><span>•</span><a href="ambassador-admin.html">Staff review</a></footer>
+<footer class="portal-footer"><a href="index.html">Koneksyon</a><span>•</span><a href="privacy.html">Privacy</a><span>•</span><a href="mailto:support@koneksyondatingapp.com">Support</a></footer>
 </body>
 </html>
