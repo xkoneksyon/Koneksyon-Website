@@ -12,3 +12,5 @@
 @media(max-width:560px){.page-control-row{align-items:flex-start;flex-wrap:wrap}.page-control-row .language-control{margin-left:0}.terms-control-row{justify-content:flex-start;margin:22px 0 28px}.terms-control-row .compact-action{width:100%;text-align:center}}
 
 .rate-notice{margin:0 0 24px;background:#111;color:#fff;border-radius:18px;padding:20px 22px}.rate-notice .eyebrow{color:#fff;margin-bottom:8px}.rate-notice p:last-child{margin:0;color:#e7e7e7;line-height:1.6;font-size:15px}
+
+.application-payment-note{margin-top:18px;padding:16px 18px;border:1px solid #dcdcd6;border-radius:14px;background:#fafaf8}.application-payment-note strong{display:block;font-size:14px;margin-bottom:6px}.application-payment-note p{margin:0 0 12px;color:#5f5f5b;font-size:13px;line-height:1.55}.terms-link-button{display:inline-flex;align-items:center;font-weight:750;color:#111;text-decoration:underline;text-underline-offset:3px}.check-row a{color:#111;font-weight:700;text-decoration:underline;text-underline-offset:3px}
