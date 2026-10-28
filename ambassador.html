@@ -138,6 +138,23 @@
       <span id="statusPill" class="pill" data-i18n="active">Active</span>
     </div>
 
+    <section id="termsGate" class="payment-card" hidden>
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow" data-i18n="ambassadorTerms">Koneksyon Ambassador Terms</p>
+          <h2 data-i18n="termsUpdateTitle">Accept the current Ambassador Terms</h2>
+        </div>
+      </div>
+      <p class="muted" data-i18n="termsUpdateBody"></p>
+      <label class="check-row">
+        <input id="termsGateCheck" type="checkbox">
+        <span><span data-i18n="acceptCurrentTerms"></span> — <a id="termsGateLink" href="ambassador-terms.html" target="_blank" rel="noopener" data-i18n="termsNav">Ambassador Terms</a>.</span>
+      </label>
+      <button id="acceptTermsBtn" class="primary" type="button" data-i18n="acceptCurrentTerms">I agree to the current Ambassador Terms</button>
+      <p id="termsGateStatus" class="success" role="status"></p>
+      <p id="termsGateError" class="error" role="alert" hidden></p>
+    </section>
+
     <div id="noCampaign" class="notice" hidden data-i18n="noCampaign"></div>
 
     <div id="campaignContent" hidden>
