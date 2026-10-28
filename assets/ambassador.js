@@ -126,8 +126,9 @@
     document.title = t('program') + ' — Koneksyon';
     $('appCountry').setAttribute('aria-label', t('country'));
     $('appCity').setAttribute('aria-label', t('city'));
-    const termsLink = document.querySelector('a[href^="ambassador-terms.html"]');
-    if (termsLink) termsLink.href = 'ambassador-terms.html?lang=' + encodeURIComponent(I18N.locale);
+    document.querySelectorAll('a[href^="ambassador-terms.html"]').forEach((termsLink) => {
+      termsLink.href = 'ambassador-terms.html?lang=' + encodeURIComponent(I18N.locale);
+    });
 
     const selectedCountry = $('appCountry').value;
     const selectedCity = $('appCity').value;
@@ -335,8 +336,17 @@
     showDashboard();
     $('referralCode').value = data.referral_code || '';
     $('referralUrl').value = data.referral_url || '';
-    renderQr(data.referral_url || '');
 
+    const termsCurrent = data.terms_version === I18N.TERMS_VERSION;
+    $('termsGate').hidden = termsCurrent;
+
+    if (!termsCurrent) {
+      $('noCampaign').hidden = true;
+      $('campaignContent').hidden = true;
+      return;
+    }
+
+    renderQr(data.referral_url || '');
     $('noCampaign').hidden = !!data.campaign;
     $('campaignContent').hidden = !data.campaign;
     if (data.campaign) renderDashboard(data);
@@ -626,6 +636,35 @@
     a.download = 'koneksyon-referral-' + ($('referralCode').value || 'qr') + '.png';
     a.rel = 'noopener';
     a.click();
+  });
+
+  $('acceptTermsBtn').addEventListener('click', async () => {
+    $('termsGateError').hidden = true;
+    $('termsGateStatus').textContent = '';
+
+    if (!$('termsGateCheck').checked) {
+      $('termsGateError').textContent = t('requiredError');
+      $('termsGateError').hidden = false;
+      return;
+    }
+
+    const button = $('acceptTermsBtn');
+    button.disabled = true;
+    try {
+      const result = await rpc('accept_my_ambassador_terms_v1', {
+        p_terms_version:I18N.TERMS_VERSION,
+        p_locale:I18N.locale
+      });
+      if (!result?.success) throw new Error(result?.error || t('genericError'));
+      $('termsGateStatus').textContent = t('termsAccepted');
+      $('termsGateCheck').checked = false;
+      await loadDashboard();
+    } catch (error) {
+      $('termsGateError').textContent = error.message || t('genericError');
+      $('termsGateError').hidden = false;
+    } finally {
+      button.disabled = false;
+    }
   });
 
   $('paymentMethod').addEventListener('change', () => {
