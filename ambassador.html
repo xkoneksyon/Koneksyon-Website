@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="referrer" content="no-referrer">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://cdnjs.cloudflare.com; style-src 'self'; img-src 'self' data:; connect-src https://rsarqljktqecndsfklyf.supabase.co; base-uri 'none'; form-action 'self'; frame-ancestors 'none'; object-src 'none'; upgrade-insecure-requests">
+<title>Koneksyon Ambassador Portal</title>
+<meta name="robots" content="noindex,nofollow">
+<link rel="icon" href="assets/favicon.png">
+<link rel="stylesheet" href="assets/ambassador.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js" defer></script>
+<script src="assets/ambassador.js" defer></script>
+</head>
+<body>
+<header class="topbar">
+  <a href="index.html" class="brand"><img src="assets/logo-black.png" alt="Koneksyon"></a>
+  <button id="logoutBtn" class="text-button" type="button" hidden>Sign out</button>
+</header>
+
+<main class="shell">
+  <section id="loginView" class="auth-card">
+    <p class="eyebrow">Koneksyon Ambassador Program</p>
+    <h1>Ambassador portal</h1>
+    <p class="muted">Sign in with the same Koneksyon account that was approved as an ambassador.</p>
+    <form id="loginForm" autocomplete="on">
+      <label>Email<input id="email" name="email" type="email" autocomplete="username" required></label>
+      <label>Password<input id="password" name="password" type="password" autocomplete="current-password" required minlength="6"></label>
+      <button class="primary" type="submit">Sign in</button>
+      <p id="loginError" class="error" role="alert" hidden></p>
+    </form>
+  </section>
+
+  <section id="dashboardView" hidden>
+    <div class="dashboard-head">
+      <div><p class="eyebrow">Ambassador dashboard</p><h1>Your campaign</h1></div>
+      <span id="statusPill" class="pill">Active</span>
+    </div>
+
+    <div id="noCampaign" class="notice" hidden>No active campaign is assigned to this ambassador account yet.</div>
+
+    <div id="campaignContent" hidden>
+      <div class="stats">
+        <article><span>Qualified</span><strong id="qualifiedCount">0</strong></article>
+        <article><span>Pending approval</span><strong id="pendingCount">0</strong></article>
+        <article><span>Rejected</span><strong id="rejectedCount">0</strong></article>
+        <article><span>Goal</span><strong id="targetCount">0</strong></article>
+      </div>
+
+      <section class="progress-card">
+        <div class="progress-row"><span id="progressText">0 / 0 qualified</span><span id="percentText">0%</span></div>
+        <div class="progress-track" aria-hidden="true"><div id="progressBar"></div></div>
+        <div class="campaign-meta">
+          <span id="campaignDates"></span>
+          <span id="campaignReward"></span>
+        </div>
+      </section>
+
+      <div class="share-grid">
+        <section class="qr-card">
+          <h2>Your QR code</h2>
+          <div id="qrCode" aria-label="Ambassador referral QR code"></div>
+          <p class="muted small">This QR contains only your Koneksyon referral link. It does not contain user data.</p>
+          <button id="downloadQrBtn" class="secondary" type="button">Download QR</button>
+        </section>
+
+        <section class="link-card">
+          <h2>Your referral link</h2>
+          <label>Referral code<input id="referralCode" readonly></label>
+          <label>Referral link<textarea id="referralUrl" readonly rows="3"></textarea></label>
+          <button id="copyLinkBtn" class="secondary" type="button">Copy link</button>
+          <p id="copyStatus" class="success" role="status"></p>
+        </section>
+      </div>
+
+      <section class="privacy-note">
+        <h2>What you can see</h2>
+        <p>You can see totals and campaign progress only. Referred members' names, emails, photos, device information, and verification details are never shown here.</p>
+      </section>
+    </div>
+
+    <p id="dashboardError" class="error" role="alert" hidden></p>
+  </section>
+</main>
+</body>
+</html>
