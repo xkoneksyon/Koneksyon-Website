@@ -4,8 +4,115 @@
   const PUBLISHABLE_KEY = 'sb_publishable_54kw0Xak6mnPxGZ6RSQ9tQ_qClVhFQ-';
   const FUNCTION_URL = SUPABASE_URL + '/functions/v1/ambassador-applications';
   const TOKEN_KEY = 'kx_ambassador_session_v1';
+  const LOCATION_API = 'https://countriesnow.space/api/v0.1/countries';
   const $ = (id) => document.getElementById(id);
   let session = null;
+  let locationData = new Map();
+
+  const FALLBACK_LOCATIONS = {
+    'Haiti': ['Cap-Haïtien','Carrefour','Delmas','Gonaïves','Jacmel','Léogâne','Les Cayes','Pétion-Ville','Port-au-Prince','Saint-Marc'],
+    'United States': ['Atlanta','Boston','Chicago','Fort Lauderdale','Houston','Los Angeles','Miami','New York','Orlando','Philadelphia','Tampa','Washington'],
+    'Canada': ['Calgary','Edmonton','Montréal','Ottawa','Québec City','Toronto','Vancouver','Winnipeg'],
+    'France': ['Bordeaux','Lille','Lyon','Marseille','Montpellier','Nantes','Nice','Paris','Strasbourg','Toulouse'],
+    'Dominican Republic': ['Bávaro','La Romana','Puerto Plata','Punta Cana','Santiago de los Caballeros','Santo Domingo'],
+    'Mexico': ['Cancún','Guadalajara','Mexico City','Monterrey','Playa del Carmen','Tijuana'],
+    'Italy': ['Bologna','Florence','Milan','Naples','Rome','Turin'],
+    'Martinique': ['Fort-de-France','Le Lamentin','Le Robert','Sainte-Marie','Schoelcher'],
+    'Guadeloupe': ['Basse-Terre','Baie-Mahault','Le Gosier','Les Abymes','Pointe-à-Pitre'],
+    'Jamaica': ['Kingston','Montego Bay','Ocho Rios','Portmore','Spanish Town'],
+    'Trinidad and Tobago': ['Arima','Chaguanas','Port of Spain','San Fernando','Scarborough'],
+    'Bahamas': ['Freeport','Nassau'],
+    'Barbados': ['Bridgetown','Oistins','Speightstown'],
+    'Saint Kitts and Nevis': ['Basseterre','Charlestown'],
+    'Puerto Rico': ['Bayamón','Caguas','Carolina','Ponce','San Juan'],
+    'Cuba': ['Camagüey','Havana','Holguín','Santiago de Cuba'],
+    'Curaçao': ['Willemstad'],
+    'Aruba': ['Noord','Oranjestad','San Nicolas'],
+    'United Kingdom': ['Birmingham','Bristol','Leeds','Liverpool','London','Manchester'],
+    'Spain': ['Barcelona','Madrid','Málaga','Seville','Valencia'],
+    'Belgium': ['Antwerp','Brussels','Charleroi','Ghent','Liège'],
+    'Switzerland': ['Basel','Bern','Geneva','Lausanne','Zürich'],
+    'Germany': ['Berlin','Cologne','Frankfurt','Hamburg','Munich'],
+    'Netherlands': ['Amsterdam','Eindhoven','Rotterdam','The Hague','Utrecht']
+  };
+
+  function setCityOptions(cities, placeholder = 'Select city') {
+    const citySelect = $('appCity');
+    citySelect.replaceChildren();
+    const first = document.createElement('option');
+    first.value = '';
+    first.textContent = placeholder;
+    citySelect.appendChild(first);
+
+    const uniqueCities = [...new Set((cities || []).map((city) => String(city || '').trim()).filter(Boolean))]
+      .sort((a, b) => a.localeCompare(b));
+
+    for (const city of uniqueCities) {
+      const option = document.createElement('option');
+      option.value = city;
+      option.textContent = city;
+      citySelect.appendChild(option);
+    }
+
+    citySelect.disabled = uniqueCities.length === 0;
+  }
+
+  function populateCountries(dataMap) {
+    const countrySelect = $('appCountry');
+    countrySelect.replaceChildren();
+
+    const first = document.createElement('option');
+    first.value = '';
+    first.textContent = 'Select country';
+    countrySelect.appendChild(first);
+
+    [...dataMap.keys()].sort((a, b) => a.localeCompare(b)).forEach((country) => {
+      const option = document.createElement('option');
+      option.value = country;
+      option.textContent = country;
+      countrySelect.appendChild(option);
+    });
+  }
+
+  function applyFallbackLocations() {
+    locationData = new Map(Object.entries(FALLBACK_LOCATIONS));
+    populateCountries(locationData);
+    setCityOptions([], 'Select country first');
+    $('locationStatus').textContent = 'Choose your country first, then select your city.';
+  }
+
+  async function loadLocations() {
+    $('locationStatus').textContent = 'Loading countries and cities…';
+    try {
+      const response = await fetch(LOCATION_API, {
+        method: 'GET',
+        headers: { 'Accept': 'application/json' },
+        cache: 'force-cache',
+        credentials: 'omit'
+      });
+      if (!response.ok) throw new Error('Location service unavailable.');
+
+      const payload = await response.json();
+      const rows = Array.isArray(payload?.data) ? payload.data : [];
+      const nextMap = new Map();
+
+      for (const row of rows) {
+        const country = String(row?.country || row?.name || '').trim();
+        const cities = Array.isArray(row?.cities) ? row.cities : [];
+        if (!country || !cities.length) continue;
+        nextMap.set(country, cities);
+      }
+
+      if (!nextMap.size) throw new Error('No location data returned.');
+      locationData = nextMap;
+      populateCountries(locationData);
+      setCityOptions([], 'Select country first');
+      $('locationStatus').textContent = 'Choose your country first, then select your city.';
+    } catch {
+      applyFallbackLocations();
+      $('locationStatus').textContent = 'Country and city selection is available from the local fallback list.';
+    }
+  }
 
   function publicHeaders() {
     return { 'apikey': PUBLISHABLE_KEY, 'Content-Type': 'application/json' };
@@ -177,6 +284,21 @@
     }
   });
 
+  $('appCountry').addEventListener('change', () => {
+    const country = $('appCountry').value;
+    if (!country) {
+      setCityOptions([], 'Select country first');
+      $('locationStatus').textContent = 'Choose your country first, then select your city.';
+      return;
+    }
+
+    const cities = locationData.get(country) || [];
+    setCityOptions(cities, cities.length ? 'Select city' : 'No cities available');
+    $('locationStatus').textContent = cities.length
+      ? 'Select your city from the list.'
+      : 'No city list is available for this country right now.';
+  });
+
   $('applicationForm').addEventListener('submit', async (event) => {
     event.preventDefault();
     const button = event.currentTarget.querySelector('button[type="submit"]');
@@ -199,7 +321,11 @@
         website: $('appWebsite').value
       });
       $('applicationStatus').textContent = result.message || 'Application submitted. Our team will review it.';
-      if (!result.already_pending) event.currentTarget.reset();
+      if (!result.already_pending) {
+        event.currentTarget.reset();
+        setCityOptions([], 'Select country first');
+        $('locationStatus').textContent = 'Choose your country first, then select your city.';
+      }
     } catch (error) {
       $('applicationError').textContent = error.message || 'Unable to submit application.';
       $('applicationError').hidden = false;
@@ -261,6 +387,8 @@
   });
 
   showTab('signin');
+  applyFallbackLocations();
+  loadLocations();
   try {
     const stored = JSON.parse(sessionStorage.getItem(TOKEN_KEY) || 'null');
     if (stored?.access_token && Number(stored.expires_at || 0) > Math.floor(Date.now() / 1000) + 30) {
