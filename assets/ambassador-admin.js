@@ -293,6 +293,7 @@
     addDetail(details, 'Amount', money(payout.amount_usd));
     addDetail(details, 'Due', formatDate(payout.due_at));
     addDetail(details, 'Paid', formatDate(payout.paid_at));
+    addDetail(details, 'Payment reference', payout.payment_reference);
 
     let payment = null;
     try {
@@ -304,27 +305,45 @@
 
     if (payout.status === 'pending') {
       const controls = document.createElement('div');
-      controls.className = 'review-controls';
-      const spacer1 = document.createElement('div');
-      const spacer2 = document.createElement('div');
+      controls.className = 'review-controls payout-review-controls';
+
+      const referenceLabel = document.createElement('label');
+      referenceLabel.textContent = 'Payment reference number';
+      const reference = document.createElement('input');
+      reference.type = 'text';
+      reference.maxLength = 160;
+      reference.required = true;
+      reference.placeholder = 'Cash App / Zelle / MoneyGram / bank reference';
+      referenceLabel.appendChild(reference);
+
       const noteLabel = document.createElement('label');
-      noteLabel.textContent = 'Internal payment note';
+      noteLabel.textContent = 'Internal note (optional)';
       const note = document.createElement('input');
       note.type = 'text';
-      note.placeholder = 'Confirmation / reference (optional)';
+      note.placeholder = 'Internal note only';
       noteLabel.appendChild(note);
+
       const paid = actionButton('Mark paid', 'primary');
 
       paid.addEventListener('click', async () => {
-        if (!confirm('Only mark this payout paid after the USD payment has actually been sent. Continue?')) return;
+        const paymentReference = reference.value.trim();
+        if (paymentReference.length < 3) {
+          $('adminError').textContent = 'Enter the payment provider or bank reference number before marking this payout paid.';
+          $('adminError').hidden = false;
+          reference.focus();
+          return;
+        }
+        if (!confirm('Confirm that ' + money(payout.amount_usd) + ' USD was actually sent. The ambassador will receive reference ' + paymentReference + '.')) return;
+
         paid.disabled = true;
         try {
-          const result = await rpc('admin_mark_growth_payout_paid_v1', {
+          const result = await rpc('admin_mark_growth_payout_paid_v2', {
             p_payout_id:payout.id,
+            p_payment_reference:paymentReference,
             p_admin_note:note.value.trim() || null
           });
           if (!result?.success) throw new Error(result?.error || 'Unable to mark payout paid.');
-          $('adminNotice').textContent = 'Payout ' + money(payout.amount_usd) + ' marked paid.';
+          $('adminNotice').textContent = 'Payout ' + money(payout.amount_usd) + ' marked paid. Reference: ' + result.payment_reference;
           $('adminNotice').hidden = false;
           await loadPayouts();
         } catch (error) {
@@ -335,7 +354,7 @@
         }
       });
 
-      controls.append(spacer1, spacer2, noteLabel, paid);
+      controls.append(referenceLabel, noteLabel, paid);
       card.appendChild(controls);
     } else if (payout.status === 'held') {
       const held = document.createElement('p');
@@ -349,7 +368,7 @@
 
   async function loadPayouts() {
     $('adminError').hidden = true;
-    const payouts = await restGet('ambassador_growth_payouts?select=id,ambassador_id,campaign_id,period_start,period_end,qualified_count,amount_usd,status,due_at,paid_at,created_at&order=created_at.desc&limit=100');
+    const payouts = await restGet('ambassador_growth_payouts?select=id,ambassador_id,campaign_id,period_start,period_end,qualified_count,amount_usd,status,due_at,paid_at,payment_reference,created_at&order=created_at.desc&limit=100');
     const container = $('payouts');
     container.replaceChildren();
 

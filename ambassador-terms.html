@@ -8,25 +8,27 @@
 <title>Koneksyon Ambassador Terms</title>
 <meta name="robots" content="noindex,nofollow">
 <link rel="icon" href="assets/favicon.png">
+<link rel="stylesheet" href="assets/site.css">
 <link rel="stylesheet" href="assets/ambassador.css">
+<script src="assets/site.js" defer></script>
 <script src="assets/ambassador-i18n.js" defer></script>
 <script src="assets/ambassador-terms.js" defer></script>
 </head>
 <body>
-<header class="topbar">
-  <a href="index.html" class="brand" aria-label="Koneksyon home"><img src="assets/logo-black.png" alt="Koneksyon"></a>
-  <div class="top-actions">
-    <label class="language-control"><span data-i18n="language">Language</span>
-      <select id="termsLanguageSelect">
-        <option value="en">English</option>
-        <option value="fr">Français</option>
-        <option value="ht">Kreyòl</option>
-        <option value="es">Español</option>
-      </select>
-    </label>
-    <a class="secondary" href="ambassador.html" data-i18n="backPortal">Back to Ambassador Portal</a>
-  </div>
+<header class="site-header">
+<div class="wrap nav-inner"><a class="brand" href="index.html#top" aria-label="Koneksyon home"><img src="assets/logo-black.png" width="864" height="669" alt="Koneksyon"></a>
+<nav class="desktop-nav" aria-label="Main navigation"><a href="index.html#platform" data-i18n="navDiscover">Discover</a><a href="index.html#social" data-i18n="navCommunity">Community</a><a href="index.html#plans" data-i18n="navPremium">Premium</a><a href="index.html#safety" data-i18n="navSafety">Safety</a></nav>
+<div class="header-actions"><a class="button" href="download.html" data-i18n="navGetApp">Get the app</a><button class="menu-button" id="menuBtn" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu"><span></span><span></span></button></div>
+</div>
+<nav class="mobile-menu" id="mobileMenu" aria-label="Mobile navigation" hidden><a href="index.html#platform" data-i18n="navDiscover">Discover</a><a href="index.html#social" data-i18n="navCommunity">Community</a><a href="index.html#plans" data-i18n="navPremium">Premium</a><a href="index.html#safety" data-i18n="navSafety">Safety</a><a href="download.html" data-i18n="navDownload">Download Koneksyon</a></nav>
 </header>
+<div class="portal-utility wrap">
+  <p class="portal-context"><strong data-i18n="termsTitle">Koneksyon Ambassador Terms</strong><span data-i18n="termsUtility">Rules, protections and payment commitments</span></p>
+  <div class="portal-utility-actions">
+    <label class="language-control"><span data-i18n="language">Language</span><select id="termsLanguageSelect"><option value="en">English</option><option value="fr">Français</option><option value="ht">Kreyòl</option><option value="es">Español</option></select></label>
+    <a class="secondary compact-action" href="ambassador.html" data-i18n="backPortal">Back to Ambassador Portal</a>
+  </div>
+</div>
 <main class="terms-shell">
   <header class="terms-head">
     <p class="eyebrow" data-i18n="program">Koneksyon Ambassador Program</p>
@@ -48,6 +50,15 @@
   </section>
   <div class="terms-note" data-i18n="termsQuestions"></div>
 </main>
-<footer class="portal-footer"><a href="ambassador.html" data-i18n="backPortal">Back to Ambassador Portal</a><span>•</span><a href="privacy.html" data-i18n="privacy">Privacy</a><span>•</span><a href="mailto:support@koneksyondatingapp.com" data-i18n="support">Support</a></footer>
+<footer class="site-footer">
+<div class="wrap">
+<div class="footer-grid">
+<div class="footer-brand"><a class="brand" href="index.html#top" aria-label="Koneksyon home"><img src="assets/logo-white.png" width="864" height="669" alt="Koneksyon"></a><p data-i18n="footerTagline">Caribbean-inspired. Open to everyone.<br>Where culture meets connection.</p></div>
+<div><h2 class="footer-heading">Koneksyon</h2><nav class="footer-links" aria-label="Koneksyon links"><a href="index.html#platform" data-i18n="footerDiscover">Discover the app</a><a href="index.html#plans" data-i18n="navPremium">Premium</a><a href="connect/" data-i18n="footerOfficial">All official links</a><a href="ambassador.html" data-i18n="footerAmbassador">Ambassador Portal</a><a href="mailto:support@koneksyondatingapp.com" data-i18n="footerSupport">Contact support</a><a href="https://www.instagram.com/koneksyondatingapp" target="_blank" rel="noopener noreferrer">Instagram</a><a href="https://www.tiktok.com/@koneksy0n" target="_blank" rel="noopener noreferrer">TikTok</a></nav></div>
+<div><h2 class="footer-heading" data-i18n="footerSafetyPolicies">Safety &amp; policies</h2><nav class="footer-links" aria-label="Legal and safety"><a href="terms.html" data-i18n="footerTerms">Terms of Service</a><a href="privacy.html" data-i18n="footerPrivacy">Privacy Policy</a><a href="community-guidelines.html" data-i18n="footerCommunity">Community Guidelines</a><a href="child-safety-standards.html" data-i18n="footerChild">Child Safety</a><a href="cookies.html" data-i18n="footerCookies">Cookie Policy</a><a href="mailto:privacy@koneksyondatingapp.com" data-i18n="footerPrivacySupport">Privacy support</a><a href="mailto:childsupport@koneksyondatingapp.com" data-i18n="footerChildSupport">Child safety support</a><a href="ambassador-terms.html" data-i18n="termsNav">Ambassador Terms</a></nav></div>
+</div>
+<div class="footer-bottom"><span>&copy; 2026 Zanara Labs LLC. <span data-i18n="footerRights">All rights reserved.</span></span><span>English &middot; Français &middot; Kreyòl &middot; Español</span></div>
+</div>
+</footer>
 </body>
 </html>

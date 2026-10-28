@@ -475,6 +475,12 @@
       const meta = document.createElement('span');
       meta.textContent = Number(payout.qualified_count || 0).toLocaleString(localeTag()) + ' ' + t('users');
       left.append(period, meta);
+      if (payout.payment_reference) {
+        const reference = document.createElement('span');
+        reference.className = 'payout-reference';
+        reference.textContent = t('paymentReference') + ': ' + payout.payment_reference;
+        left.appendChild(reference);
+      }
 
       const right = document.createElement('div');
       const amount = document.createElement('strong');
