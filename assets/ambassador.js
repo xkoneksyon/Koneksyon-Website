@@ -14,6 +14,9 @@
   let paymentDetails = {};
   let dashboardData = null;
 
+  const requestedLocale = new URLSearchParams(window.location.search).get('lang');
+  if (I18N?.supported?.includes(requestedLocale)) I18N.setLocale(requestedLocale);
+
   const FALLBACK_LOCATIONS = {
     'Haiti': { iso2:'HT', cities:['Cap-Haïtien','Carrefour','Delmas','Gonaïves','Jacmel','Léogâne','Les Cayes','Pétion-Ville','Port-au-Prince','Saint-Marc'] },
     'United States': { iso2:'US', cities:['Atlanta','Boston','Chicago','Fort Lauderdale','Houston','Los Angeles','Miami','New York','Orlando','Philadelphia','Tampa','Washington'] },
