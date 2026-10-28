@@ -158,7 +158,7 @@
     if (app.status === 'pending') {
       const rule = document.createElement('p');
       rule.className = 'application-meta';
-      rule.textContent = 'Payout rule: first payout after 100 qualified users; then payout periods every 14 days in USD.';
+      rule.textContent = 'Standard rate: $0.25 USD per qualified user. First payout after 100 qualified users; then payout periods every 14 days.';
       card.appendChild(rule);
 
       const controls = document.createElement('div');
@@ -171,9 +171,15 @@
       targetLabel.appendChild(target);
 
       const rewardLabel = document.createElement('label');
-      rewardLabel.textContent = 'Campaign reward (USD)';
+      rewardLabel.textContent = 'Calculated reward (USD @ $0.25/user)';
       const reward = document.createElement('input');
-      reward.type = 'number'; reward.min = '0'; reward.step = '0.01'; reward.value = '500';
+      reward.type = 'number'; reward.min = '0'; reward.step = '0.01'; reward.value = '500'; reward.readOnly = true;
+      const syncReward = () => {
+        const goal = Math.max(0, Number(target.value || 0));
+        reward.value = (goal * 0.25).toFixed(2);
+      };
+      target.addEventListener('input', syncReward);
+      syncReward();
       rewardLabel.appendChild(reward);
 
       const daysLabel = document.createElement('label');

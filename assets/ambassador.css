@@ -10,3 +10,5 @@
 
 .page-control-row{display:flex;align-items:center;justify-content:flex-end;gap:10px;margin:0 0 22px}.page-control-row .language-control{margin-left:auto}.page-control-row .compact-action{white-space:nowrap}.terms-control-row{justify-content:flex-end;margin:28px 0 32px;padding-top:18px;border-top:1px solid #e8e8e5}.terms-control-row .language-control{margin-left:0}
 @media(max-width:560px){.page-control-row{align-items:flex-start;flex-wrap:wrap}.page-control-row .language-control{margin-left:0}.terms-control-row{justify-content:flex-start;margin:22px 0 28px}.terms-control-row .compact-action{width:100%;text-align:center}}
+
+.rate-notice{margin:0 0 24px;background:#111;color:#fff;border-radius:18px;padding:20px 22px}.rate-notice .eyebrow{color:#fff;margin-bottom:8px}.rate-notice p:last-child{margin:0;color:#e7e7e7;line-height:1.6;font-size:15px}
