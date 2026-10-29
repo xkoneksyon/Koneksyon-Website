@@ -1,0 +1,40 @@
+/* Dedicated Koneksyon Events and The Social Room pages; no site-wide overrides. */
+.events-page,.room-page{background:#fff}
+.events-intro{padding:83px 0 60px;border-bottom:1px solid var(--line)}
+.events-intro h1{font-size:clamp(54px,7.8vw,106px);letter-spacing:-.068em;line-height:1.03;font-weight:600;margin-top:23px}
+.events-intro h1 em{font-family:Georgia,"Times New Roman",serif;font-weight:400;letter-spacing:-.066em}
+.events-intro-bottom{display:flex;justify-content:space-between;align-items:end;gap:40px;margin-top:35px}
+.events-intro-bottom p{color:var(--muted);font-size:18px;line-height:1.7;max-width:640px}
+.events-count{font-size:11px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:#777;white-space:nowrap}
+.events-list{padding:14px 0 86px}
+.event-entry{display:grid;grid-template-columns:minmax(250px,.84fr) minmax(0,1.16fr);gap:clamp(35px,7vw,105px);align-items:center;padding:65px 0;border-bottom:1px solid var(--line)}
+.event-entry-image{min-width:0}.event-entry-image a{display:block;background:#f5f5f2;padding:12px;border:1px solid #e7e7e3;max-width:465px}
+.event-entry-image img{width:100%;height:auto;object-fit:contain}
+.event-entry-content{min-width:0}.event-index{font-size:11px;font-weight:650;letter-spacing:.105em;text-transform:uppercase;color:#666}
+.event-entry-content h2{font-size:clamp(38px,5.3vw,66px);line-height:1.04;letter-spacing:-.06em;margin:19px 0 11px;font-weight:600}
+.event-subtitle{font-family:Georgia,"Times New Roman",serif;font-size:clamp(19px,2.1vw,28px);font-weight:400;line-height:1.35}
+.event-entry-description{font-size:17px;color:var(--muted);line-height:1.8;margin-top:28px;max-width:560px}
+.event-entry-status{font-size:13px;font-weight:600;color:#5b5b5b;margin-top:21px;line-height:1.6}
+.event-entry-content .text-link{margin-top:27px}
+.events-bottom{background:#f5f5f1;padding:56px 0}
+.events-bottom-inner{display:flex;align-items:center;justify-content:space-between;gap:32px}
+.events-bottom h2{font-size:clamp(28px,3.9vw,45px);letter-spacing:-.045em;line-height:1.15;font-weight:600;margin-top:12px}
+.events-breadcrumb{display:flex;gap:12px;align-items:center;flex-wrap:wrap;font-size:12px;color:#777;padding:0 0 35px}
+.events-breadcrumb a{color:#333;text-decoration:underline;text-underline-offset:4px}
+.room-hero{padding:42px 0 96px}
+.room-grid{display:grid;grid-template-columns:minmax(260px,.94fr) minmax(0,1.06fr);align-items:center;gap:clamp(36px,6.5vw,90px)}
+.room-poster{min-width:0;margin:0}.room-poster a{display:block;background:#f4f4f2;border:1px solid #e6e6e1;padding:10px}
+.room-poster img{display:block;width:100%;height:auto;aspect-ratio:1055/1491}.room-poster figcaption{font-size:11px;color:var(--muted);line-height:1.6;margin-top:11px}
+.room-copy{min-width:0}.room-copy .eyebrow{color:#777}
+.room-copy h1{font-size:clamp(47px,6.1vw,82px);font-weight:600;line-height:1.04;letter-spacing:-.068em;margin-top:20px}
+.room-tagline{font-family:Georgia,"Times New Roman",serif;font-size:clamp(22px,2.5vw,30px);line-height:1.5;margin-top:13px}
+.room-lead{font-size:clamp(21px,2.1vw,27px);font-weight:500;letter-spacing:-.025em;line-height:1.45;margin-top:28px}
+.room-description{font-size:16px;color:var(--muted);line-height:1.8;margin-top:17px}
+.room-facts{margin-top:32px;border-top:1px solid #111}.room-facts>div{display:grid;grid-template-columns:110px minmax(0,1fr);gap:18px;border-bottom:1px solid var(--line);padding:15px 0}
+.room-facts span{color:#777;font-size:11px;letter-spacing:.08em;text-transform:uppercase;line-height:1.6}.room-facts strong{font-size:14px;font-weight:600;line-height:1.6}
+.room-update{font-size:13px;color:#666;line-height:1.7;margin-top:20px}.room-copy>.text-link{margin-top:22px}
+.room-closing{padding:63px 0;background:#f5f5f1}.room-closing-inner{display:flex;gap:35px;justify-content:space-between;align-items:center}
+.room-closing h2{font-size:clamp(31px,4vw,49px);letter-spacing:-.045em;line-height:1.15;font-weight:600;margin-top:13px}.room-closing p:last-child{font-size:15px;line-height:1.7;color:var(--muted);margin-top:16px}
+@media(max-width:900px){.event-entry{gap:38px}.room-grid{gap:34px}.room-copy h1{font-size:clamp(45px,5.5vw,65px)}.room-lead{font-size:21px}}
+@media(max-width:700px){.events-intro{padding:51px 0 43px}.events-intro h1{font-size:clamp(50px,12vw,74px)}.events-intro-bottom{flex-direction:column;align-items:flex-start;gap:17px;margin-top:22px}.events-intro-bottom p{font-size:16px}.events-list{padding:0 0 54px}.event-entry{grid-template-columns:1fr;gap:28px;padding:42px 0}.event-entry-image a{max-width:430px;margin:0 auto}.event-entry-content h2{font-size:clamp(39px,10vw,57px);margin-top:15px}.event-entry-description{font-size:16px;margin-top:20px}.event-entry-status{margin-top:15px}.event-entry-content .text-link{margin-top:19px}.events-bottom{padding:46px 0}.events-bottom-inner{flex-direction:column;align-items:flex-start;gap:24px}.room-hero{padding:25px 0 56px}.events-breadcrumb{padding-bottom:24px}.room-grid{grid-template-columns:1fr;gap:30px}.room-poster{max-width:460px;margin:auto}.room-copy h1{font-size:clamp(48px,12vw,74px)}.room-lead{font-size:22px;margin-top:23px}.room-description{font-size:15px}.room-closing{padding:49px 0}.room-closing-inner{flex-direction:column;align-items:flex-start;gap:24px}}
+@media(max-width:359px){.room-facts>div{grid-template-columns:85px 1fr;gap:12px}.events-count{white-space:normal}}
