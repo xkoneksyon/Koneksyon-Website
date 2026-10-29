@@ -1,0 +1,22 @@
+/* MEMORA standalone event page — matches the Koneksyon marketing site. */
+.memora-page{background:#fff}
+.memora-breadcrumb{display:flex;align-items:center;gap:13px;padding:0 0 34px;color:#777;font-size:12px;letter-spacing:.015em}
+.memora-breadcrumb a{color:#333;text-decoration:underline;text-underline-offset:4px}
+.memora-hero{padding:42px 0 100px}
+.memora-grid{display:grid;grid-template-columns:minmax(280px,.93fr) minmax(0,1.07fr);align-items:center;gap:clamp(36px,6vw,88px)}
+.memora-poster{min-width:0;margin:0}.memora-poster>a{display:block;border:1px solid #e4e4de;background:var(--wash);padding:12px}.memora-poster img{width:100%;height:auto;aspect-ratio:1198/1313}.memora-poster figcaption{font-size:11px;color:var(--muted);margin-top:12px;line-height:1.6}
+.memora-copy{min-width:0}.memora-accent{color:#a9171a}.memora-copy h1{font-size:clamp(54px,6.7vw,94px);font-weight:650;line-height:1;letter-spacing:-.073em;margin-top:12px}
+.memora-tagline{font:italic 400 clamp(31px,3.3vw,47px)/1.25 Georgia,"Times New Roman",serif;color:#af171a;letter-spacing:-.035em;margin:9px 0 23px}
+.memora-presented{font-size:13px;line-height:1.7;color:#555}.memora-presented strong{color:#111;font-weight:650}
+.memora-intro{font-size:clamp(21px,2.4vw,27px);line-height:1.5;font-weight:500;letter-spacing:-.025em;margin-top:30px}
+.memora-description{color:var(--muted);font-size:16px;line-height:1.8;margin-top:17px}
+.memora-facts{border-top:1px solid #111;margin-top:31px}.memora-facts>div{display:grid;grid-template-columns:92px 1fr;gap:18px;border-bottom:1px solid var(--line);padding:16px 0}.memora-facts span{font-size:11px;color:#777;letter-spacing:.06em;text-transform:uppercase}.memora-facts strong{font-size:14px;font-weight:600;line-height:1.5}
+.memora-actions{display:flex;align-items:center;gap:24px;flex-wrap:wrap;margin-top:30px}.memora-actions .text-link{font-size:13px}
+.memora-details,.memora-sponsors{padding:78px 0}.memora-details{background:var(--wash)}.memora-sponsors{background:#fff}
+.memora-section-grid{display:grid;grid-template-columns:.83fr 1.17fr;gap:clamp(36px,7vw,110px)}.memora-section-grid h2,.memora-app h2{font-size:clamp(31px,4.2vw,50px);line-height:1.13;letter-spacing:-.048em;font-weight:600;margin-top:14px}
+.memora-section-grid>div:last-child>p{font-size:17px;line-height:1.8;color:#535353;max-width:630px}.memora-section-grid .memora-note{font-size:14px;margin-top:20px}.memora-section-grid .text-link{margin-top:24px}
+.memora-mail{display:inline-block;margin-top:27px;font-size:18px;line-height:1.55;font-weight:600;text-decoration:underline;text-underline-offset:4px;overflow-wrap:anywhere}
+.memora-whatsapp{display:flex;flex-direction:column;align-items:flex-start;gap:13px;margin-top:23px}.memora-whatsapp a{font-size:14px;line-height:1.5;text-decoration:underline;text-underline-offset:4px}
+.memora-app{background:#111;color:#fff;padding:65px 0}.memora-app-row{display:flex;align-items:center;justify-content:space-between;gap:35px}.memora-app .eyebrow{color:#aaa}.memora-app h2{margin-top:13px}.memora-app .button{flex-shrink:0;background:#fff;color:#111;border-color:#fff}.memora-app .button:hover{background:#e5e5e5}
+@media(max-width:900px){.memora-grid{grid-template-columns:minmax(220px,.9fr) minmax(0,1.1fr);gap:30px}.memora-copy h1{font-size:clamp(48px,7vw,68px)}.memora-tagline{font-size:33px}.memora-hero{padding-bottom:70px}.memora-section-grid{gap:40px}}
+@media(max-width:650px){.memora-hero{padding:25px 0 60px}.memora-breadcrumb{padding-bottom:24px}.memora-grid{grid-template-columns:1fr;gap:30px}.memora-poster{max-width:470px;margin-inline:auto}.memora-copy h1{font-size:clamp(53px,14vw,76px)}.memora-tagline{font-size:35px;margin-bottom:17px}.memora-intro{margin-top:22px;font-size:22px}.memora-description{font-size:15px}.memora-facts>div{grid-template-columns:77px 1fr;gap:14px}.memora-actions{gap:18px}.memora-details,.memora-sponsors{padding:57px 0}.memora-section-grid{grid-template-columns:1fr;gap:24px}.memora-section-grid h2,.memora-app h2{font-size:35px}.memora-section-grid>div:last-child>p{font-size:16px}.memora-mail{font-size:16px}.memora-app{padding:50px 0}.memora-app-row{align-items:flex-start;flex-direction:column;gap:28px}}
