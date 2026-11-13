@@ -1,0 +1,14 @@
+[
+  {
+    "relation": [
+      "delegate_permission/common.handle_all_urls"
+    ],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "com.koneksyondatingapp.app",
+      "sha256_cert_fingerprints": [
+        "06:DC:1C:7C:77:4C:0A:E6:07:BF:1D:EC:DA:2C:D8:7F:E1:AD:7B:D4:85:E2:89:42:F7:9D:11:63:18:91:C5:31"
+      ]
+    }
+  }
+]
