@@ -1,0 +1,14 @@
+{
+  "applinks": {
+    "apps": [],
+    "details": [
+      {
+        "appID": "GH86MP2XF7.com.koneksyondatingapp.app",
+        "paths": [
+          "/event/",
+          "/event/*"
+        ]
+      }
+    ]
+  }
+}
